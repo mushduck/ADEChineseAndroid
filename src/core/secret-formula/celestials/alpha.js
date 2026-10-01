@@ -51,8 +51,13 @@ export const alphaUnlocks = {
   breakInfinity: {
     id: 5,
     requirement: 6,
+<<<<<<< HEAD
     nerfDescription: () => `打破无限升级价格${formatX(1000)}，打破无限后计数频率提升和购买 10 个反物质维度的初始价格增长 ${formatX(20)}，无限之力转换指数除以 ${format(Decimal.max(DC.D8.div(Decimal.log10(Decimal.log10(Currency.infinityPoints.value.add(1)).add(1)).pow(2).clampMin(0.001)), 1).toNumber(), 2, 2)}（基于无限点数），但是星系强度翻倍`,
     buffDescription: () => `打破无限后计数频率提升的价格增长降低 ${format(0.15, 2, 2)}，打破无限后购买维度的价格增长降低 ${format(0.25, 2, 2)}`,
+=======
+    nerfDescription: () => `BIU costs ${formatX(1000)}, post-Break Tickspeed/${player.universes.current === 2 ? "MD" : "AD"} cost scalings start at ${formatX(20)}, IPow Conversion Rate /${format(Decimal.max(DC.D8.div(Decimal.log10(Decimal.log10(Currency.infinityPoints.value.add(1)).add(1)).pow(2).clampMin(0.001)), 1).toNumber(), 2, 2)} (based on IP), but Galaxy strength is doubled`,
+    buffDescription: () => `Reduce Post-Break Tickspeed cost scaling by ${format(0.15, 2, 2)} and Post-Break Dimension cost scaling by ${format(0.25, 2, 2)}`,
+>>>>>>> upstream/master
     effects: {
       nerfA: 1000,
       nerfB: 20,
@@ -64,8 +69,13 @@ export const alphaUnlocks = {
   powerGalaxies: {
     id: 6,
     requirement: 7,
+<<<<<<< HEAD
     nerfDescription: () => `遥远星系的价格增长从 ${formatInt(1)} 星系开始`,
     buffDescription: "遥远星系和极远星系的出现阈值翻倍",
+=======
+    nerfDescription: () => `Distant Galaxy Cost Scaling starts at ${formatInt(1)} Galaxy`,
+    buffDescription: () => `Galaxy scalings for Distant/Remote ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxies are doubled`,
+>>>>>>> upstream/master
     effects: {
       nerf: 1,
       buff: 2
@@ -182,8 +192,13 @@ export const alphaUnlocks = {
   timestudy181: {
     id: 18,
     requirement: 19,
+<<<<<<< HEAD
     nerfDescription: () => `反物质维度倍率 ${formatPow(0.9, 2, 3)}`,
     buffDescription: () => `所有对反物质维度倍率的加成效力 ${formatPow(5)}`,
+=======
+    nerfDescription: () => `All ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions are raised ${formatPow(0.9, 2, 3)}`,
+    buffDescription: () => `All ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension Multipliers are raised ${formatPow(5)}`,
+>>>>>>> upstream/master
     effects: {
       nerf: 0.9,
       buff: 5

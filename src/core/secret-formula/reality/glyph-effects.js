@@ -36,10 +36,18 @@ export const glyphEffects = {
     bitmaskIndex: 0,
     isGenerated: true,
     glyphTypes: ["time"],
+<<<<<<< HEAD
     singleDesc: "时间维度指数 +{value}",
     totalDesc: "时间维度倍率 ^{value}",
     shortDesc: "时间维度指数 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Time Dimension power +{value}",
+    totalDesc: "Time Dimension multipliers ^{value}",
+    shortDesc: "TD power +{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.2).times(Decimal.pow(strength, 0.5)).div(100).add(1).toNumber()
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow(level, 0.4).times(Math.pow(strength, 1.2)).div(50).add(1).toNumber()
       : Decimal.pow(level, 0.32).times(Math.pow(strength, 0.45)).div(75).add(1.01).toNumber()),
     formatEffect: x => format(x, 3, 3),
@@ -52,11 +60,20 @@ export const glyphEffects = {
     bitmaskIndex: 1,
     isGenerated: true,
     glyphTypes: ["time"],
+<<<<<<< HEAD
     singleDesc: "游戏速度 ×{value}",
     totalDesc: "游戏速度 ×{value}",
     genericDesc: "游戏速度倍率",
     shortDesc: "游戏速度 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Multiply game speed by {value}",
+    totalDesc: "Game runs ×{value} faster",
+    genericDesc: "Game speed multiplier",
+    shortDesc: "Game speed ×{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.5).times(strength).add(1)
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow(level, strength).add(1)
       : (GlyphAlteration.isEmpowered("time")
         ? Decimal.pow(level, 0.35).add(1)
@@ -72,11 +89,20 @@ export const glyphEffects = {
     bitmaskIndex: 2,
     isGenerated: true,
     glyphTypes: ["time"],
+<<<<<<< HEAD
     singleDesc: "获得 {value} 倍永恒次数",
     totalDesc: "获得 ×{value} 倍永恒次数",
     genericDesc: "永恒次数倍率",
     shortDesc: "永恒次数 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Multiply Eternity gain by {value}",
+    totalDesc: "Eternity gain ×{value}",
+    genericDesc: "Eternity gain multiplier",
+    shortDesc: "Eternities ×{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level.times(strength), 0.3).add(1)
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow10(Decimal.pow(level, 0.25).times(strength).times(GlyphAlteration.sacrificeBoost("time")))
       : Decimal.pow(new Decimal(strength + 3).times(level), 0.9).times(
         Decimal.pow(3, GlyphAlteration.sacrificeBoost("time")))),
@@ -101,9 +127,16 @@ export const glyphEffects = {
       ? "永恒点数倍数和指数加成"
       : "永恒点数获取量"),
     shortDesc: () => (GlyphAlteration.isAdded("time")
+<<<<<<< HEAD
       ? "永恒点数 ×{value} 且 ^{value2}"
       : "永恒点数 ×{value}"),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+      ? "EP ×{value} and ^{value2}"
+      : "EP ×{value}"),
+    effect: (level, strength) => Slabdrill.isCursed ? DC.D2.pow(Decimal.pow(level, 0.5).times(strength))
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow10(Decimal.pow(level, strength + 1).times(100))
       : Decimal.clampMin(Decimal.pow(level.times(strength), 3).times(100), 1)),
     formatEffect: x => format(x, 2, 3),
@@ -121,10 +154,18 @@ export const glyphEffects = {
     bitmaskIndex: 4,
     isGenerated: true,
     glyphTypes: ["dilation"],
+<<<<<<< HEAD
     singleDesc: "获得 ×{value} 倍膨胀时间",
     totalDesc: "获得 ×{value} 倍膨胀时间",
     shortDesc: "膨胀时间 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Multiply Dilated Time gain by {value}",
+    totalDesc: "Dilated Time gain ×{value}",
+    shortDesc: "DT ×{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.1).times(Decimal.pow(strength, 0.5)).add(1)
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow10(level.times(strength).div(150))
       : (GlyphAlteration.isEmpowered("dilation")
         ? DC.D1_005.pow(level).times(15)
@@ -140,10 +181,18 @@ export const glyphEffects = {
     bitmaskIndex: 5,
     isGenerated: true,
     glyphTypes: ["dilation"],
+<<<<<<< HEAD
     singleDesc: "超光速粒子星系阈值 ×{value}",
     genericDesc: "超光速粒子星系价格倍率",
     shortDesc: "超光速粒子星系阈值 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Tachyon Galaxy threshold multiplier ×{value}",
+    genericDesc: "Tachyon Galaxy cost multiplier",
+    shortDesc: "TG threshold ×{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? DC.D1.div(Decimal.pow(level, 0.03).times(Decimal.pow(strength, 0.25))).toNumber()
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.max(DC.D1.sub(Decimal.pow(level, 0.4).times(strength).div(100)).sub(GlyphAlteration.sacrificeBoost("dilation") / 40), 0.1)
         .div(Decimal.max(1, Decimal.abs((DC.D1.sub(Decimal.pow(level, 0.4).times(strength).div(100)).sub(
           GlyphAlteration.sacrificeBoost("dilation") / 40)).sub(1.1)))).toNumber()
@@ -177,9 +226,16 @@ export const glyphEffects = {
       ? "时间之理生成和倍数"
       : "时间之理生成"),
     shortDesc: () => (GlyphAlteration.isAdded("dilation")
+<<<<<<< HEAD
       ? "{value} 时间之理/小时 且 时间之理生成量 ×{value2}"
       : "{value} 时间之理/小时"),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+      ? "{value} TT/hr and TTgen ×{value2}"
+      : "{value} TT/hr"),
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.25).times(strength).div(10000)
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow(level.times(strength), 0.6).div(1000)
       : Decimal.pow(level.times(strength), 0.5).div(10000)),
     /** @type {function(number): string} */
@@ -198,11 +254,20 @@ export const glyphEffects = {
     bitmaskIndex: 7,
     isGenerated: true,
     glyphTypes: ["dilation"],
+<<<<<<< HEAD
     singleDesc: "时间膨胀时反物质维度指数 +{value}",
     totalDesc: "时间膨胀时反物质维度倍率 ^{value}",
     genericDesc: "时间膨胀时反物质维度 ^x",
     shortDesc: "膨胀时反物质维度指数 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension power +{value} while Dilated`,
+    totalDesc: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension multipliers ^{value} while Dilated`,
+    genericDesc: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions ^x while Dilated`,
+    shortDesc: () => `Dilated ${player.universes.current === 2 ? "MD" : "AD"} power +{value}`,
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.05).times(Decimal.pow(strength, 0.3)).toNumber()
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? level.times(strength).add(1).toNumber()
       : Decimal.pow(level, 0.7).times(Math.pow(strength, 0.7)).div(25).add(1.1).toNumber()),
     formatEffect: x => format(x, 2, 2),
@@ -215,11 +280,20 @@ export const glyphEffects = {
     bitmaskIndex: 8,
     isGenerated: true,
     glyphTypes: ["replication"],
+<<<<<<< HEAD
     singleDesc: "复制速度 ×{value}",
     totalDesc: "复制速度 ×{value}",
     genericDesc: "复制速度",
     shortDesc: "复制速度 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Multiply Replication speed by {value}",
+    totalDesc: "Replication speed ×{value}",
+    genericDesc: "Replication speed multiplier",
+    shortDesc: "Replication speed ×{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.4).times(strength)
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow10(level.times(strength).div(100))
       : (GlyphAlteration.isEmpowered("replication")
         ? DC.D1_007.pow(level).times(10)
@@ -235,10 +309,18 @@ export const glyphEffects = {
     bitmaskIndex: 9,
     isGenerated: true,
     glyphTypes: ["replication"],
+<<<<<<< HEAD
     singleDesc: "复制器效果指数 +{value}",
     totalDesc: "复制器效果 ^{value}",
     shortDesc: "复制器效果指数 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Replicanti multiplier power +{value}",
+    totalDesc: "Replicanti multiplier ^{value}",
+    shortDesc: "Replicanti mult. power +{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.1).times(Decimal.pow(strength, 0.5)).toNumber()
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? level.times(Math.pow(strength, 2)).times(GlyphAlteration.sacrificeBoost("replication")).add(1).toNumber()
       : Decimal.pow(level, 0.5).times(strength).div(25).add(GlyphAlteration.sacrificeBoost("replication") * 3).add(1.1).toNumber()),
     formatEffect: x => format(x, 2, 2),
@@ -263,9 +345,16 @@ export const glyphEffects = {
       ? "复制器提供的膨胀时间和复制速度加成"
       : "复制器提供膨胀时间加成"),
     shortDesc: () => (GlyphAlteration.isAdded("replication")
+<<<<<<< HEAD
       ? `每 ${format(DC.E10000)} 复制器，膨胀时间获取速度 [和复制速度] +{value}`
       : `每 ${format(DC.E10000)} 复制器，膨胀时间获取速度 +{value}`),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+      ? `×DT and repl. by +{value} per ${format(DC.E10000)} replicanti`
+      : `×DT by +{value} per ${format(DC.E10000)} replicanti`),
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.06).times(Decimal.pow(strength, 0.2))
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow(level, strength).times(0.0005)
       : Decimal.pow(level, 0.3).times(Decimal.pow(strength, 0.65)).times(0.0003)),
     formatEffect: x => format(x.times(10000), 2, 2),
@@ -290,11 +379,22 @@ export const glyphEffects = {
     bitmaskIndex: 11,
     isGenerated: true,
     glyphTypes: ["replication"],
+<<<<<<< HEAD
     singleDesc: () => `符文等级因子中复制器的指数：\n^${format(0.4, 1, 1)} ➜ ^(${format(0.4, 1, 1)} + {value})`,
     totalDesc: () => `符文等级因子中复制器的指数：^${format(0.4, 1, 1)} ➜ ^(${format(0.4, 1, 1)} + {value})`,
     genericDesc: "符文等级因子中复制器的指数",
     shortDesc: "符文等级因子中复制器的指数 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: () => `Replicanti factor for Glyph level:\n ^${format(0.4, 1, 1)}
+      ➜ ^(${format(0.4, 1, 1)} + {value})`,
+    totalDesc: () => `Replicanti factor for Glyph level: ^${format(0.4, 1, 1)}
+      ➜ ^(${format(0.4, 1, 1)} + {value})`,
+    genericDesc: "Replicanti factor for Glyph level",
+    shortDesc: "Replicanti pow. for level +{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.1).times(Decimal.pow(strength, 0.5)).div(1000).toNumber()
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow(Decimal.pow(level, 0.3).times(strength), 0.5).div(40).toNumber()
       : Decimal.pow(Decimal.pow(level, 0.25).times(Math.pow(strength, 0.4)), 0.5).div(50).toNumber()),
     formatEffect: x => format(x, 3, 3),
@@ -312,10 +412,18 @@ export const glyphEffects = {
     bitmaskIndex: 12,
     isGenerated: true,
     glyphTypes: ["infinity"],
+<<<<<<< HEAD
     singleDesc: "无限维度指数 +{value}",
     totalDesc: "无限维度倍率 ^{value}",
     shortDesc: "无限维度指数 +{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Infinity Dimension power +{value}",
+    totalDesc: "Infinity Dimension multipliers ^{value}",
+    shortDesc: "ID power +{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.15).times(Decimal.pow(strength, 0.4)).div(100).add(1).toNumber()
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow(level, 0.3).times(strength).div(50).add(Math.min(GlyphAlteration.sacrificeBoost("infinity") / 50, 2.5)).add(
         Math.pow(Math.max(Math.log10(GlyphAlteration.sacrificeBoost("infinity")) - Math.log10(125), 0) + 1, 2.5) - 1).add(1).toNumber()
       : Decimal.pow(level, 0.21).times(Math.pow(strength, 0.4)).div(75).add(
@@ -333,13 +441,24 @@ export const glyphEffects = {
     bitmaskIndex: 13,
     isGenerated: true,
     glyphTypes: ["infinity"],
+<<<<<<< HEAD
     singleDesc: () => `无限之力加成效果：\n^${formatInt(7)} ➜ ^(${formatInt(7)} + {value})`,
     totalDesc: () => `无限之力加成效果：^${formatInt(7)} ➜ ^(${formatInt(7)} + {value})`,
     genericDesc: "无限之力加成效果",
     shortDesc: "无限之力加成效果 +{value}",
     effect: (level, strength) => EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: () => `Infinity Power conversion rate: \n^${formatInt(7)}
+      ➜ ^(${formatInt(7)} + {value})`,
+    totalDesc: () => `Infinity Power conversion rate: ^${formatInt(7)}
+      ➜ ^(${formatInt(7)} + {value})`,
+    genericDesc: "Infinity Power conversion rate",
+    shortDesc: "Infinity Power conversion +{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.2).times(Decimal.pow(strength, 0.75)).div(10).toNumber()
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow(level, 0.25).times(strength).times(0.05).toNumber()
-      : Decimal.pow(level, 0.2).times(Math.pow(strength, 0.4)).times(0.04).toNumber(),
+      : Decimal.pow(level, 0.2).times(Math.pow(strength, 0.4)).times(0.04).toNumber()),
     formatEffect: x => format(x, 2, 2),
     combine: GlyphCombiner.add,
     enabledInDoomed: true,
@@ -359,9 +478,16 @@ export const glyphEffects = {
       ? "无限点数倍数和指数加成"
       : "无限点数获取量加成"),
     shortDesc: () => (GlyphAlteration.isAdded("infinity")
+<<<<<<< HEAD
       ? "无限点数 ×{value} 且 ^{value2}"
       : "无限点数 ×{value}"),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+      ? "IP ×{value} and ^{value2}"
+      : "IP ×{value}"),
+    effect: (level, strength) => Slabdrill.isCursed ? DC.D2.pow(level.times(Decimal.pow(strength, 3)))
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow10(Decimal.pow(level, strength + 1).times(10000))
       : Decimal.clampMin(Decimal.pow(level.times(strength + 1), 6).times(10000), 1)),
     formatEffect: x => format(x, 2, 3),
@@ -383,11 +509,20 @@ export const glyphEffects = {
     bitmaskIndex: 15,
     isGenerated: true,
     glyphTypes: ["infinity"],
+<<<<<<< HEAD
     singleDesc: "获得 {value} 倍无限次数",
     totalDesc: "获得 {value} 倍无限次数",
     genericDesc: "无限次数倍率",
     shortDesc: "无限次数 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Multiply Infinity gain by {value}",
+    totalDesc: "Infinity gain ×{value}",
+    genericDesc: "Infinity gain multiplier",
+    shortDesc: "Infinities ×{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level.times(strength), 0.6).add(1)
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow10(level.times(strength))
       : (GlyphAlteration.isEmpowered("infinity")
         ? DC.D1_02.pow(level)
@@ -404,6 +539,7 @@ export const glyphEffects = {
     isGenerated: true,
     glyphTypes: ["power"],
     singleDesc: () => (GlyphAlteration.isAdded("power")
+<<<<<<< HEAD
       ? "反物质维度指数 +{value}\n[反物质星系价格 ×]{value2}"
       : "反物质维度指数 +{value}"),
     totalDesc: () => (GlyphAlteration.isAdded("power")
@@ -416,6 +552,21 @@ export const glyphEffects = {
       ? "反物质维度指数 +{value} 且反物质星系价格 ×{value2}"
       : "反物质维度指数 +{value}"),
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+      ? `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension power +{value}\n[and ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxy cost ×]{value2}`
+      : `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension power +{value}`),
+    totalDesc: () => (GlyphAlteration.isAdded("power")
+      ? `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension multipliers ^{value} and ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxy cost ×{value2}`
+      : `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension multipliers ^{value}`),
+    genericDesc: () => (GlyphAlteration.isAdded("power")
+      ? `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions multipliers ^x and ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxy cost multiplier`
+      : `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension multipliers ^x`),
+    shortDesc: () => (GlyphAlteration.isAdded("power")
+      ? `${player.universes.current === 2 ? "MD" : "AD"} power +{value} and ${player.universes.current === 2 ? "MG" : "AG"} cost ×{value2}`
+      : `${player.universes.current === 2 ? "MD" : "AD"} power +{value}`),
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.1).times(Decimal.pow(strength, 0.3)).div(100).add(1).toNumber()
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow(level, 0.25).times(strength).div(50).add(1).toNumber()
       : Decimal.pow(level, 0.2).times(Math.pow(strength, 0.4)).div(75).add(1.015).toNumber()),
     formatEffect: x => format(x, 3, 3),
@@ -432,6 +583,7 @@ export const glyphEffects = {
     bitmaskIndex: 17,
     isGenerated: true,
     glyphTypes: ["power"],
+<<<<<<< HEAD
     singleDesc: "反物质维度倍率 ×{value}",
     shortDesc: "反物质维度倍率 ×{value}",
     effect: (level, strength) => EffarigUnlock.endgame.canBeApplied
@@ -439,6 +591,17 @@ export const glyphEffects = {
       : (GlyphAlteration.isEmpowered("power")
         ? DC.D11111.pow(level.times(220))
         : Decimal.pow(level.times(strength).times(10), level.times(strength).times(10))),
+=======
+    singleDesc: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension multipliers ×{value}`,
+    genericDesc: () => `Multiplier to ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension multipliers`,
+    shortDesc: () => `${player.universes.current === 2 ? "MD" : "AD"} ×{value}`,
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow10(Decimal.pow(level, 1.25).times(Decimal.pow(strength, 5)))
+      : (EffarigUnlock.endgame.canBeApplied
+      ? Decimal.pow10(Decimal.pow(level, strength).times(9e15))
+      : (GlyphAlteration.isEmpowered("power")
+         ? DC.D11111.pow(level.times(220))
+         : Decimal.pow(level.times(strength).times(10), level.times(strength).times(10)))),
+>>>>>>> upstream/master
     formatEffect: x => formatPostBreak(x, 2, 0),
     combine: GlyphCombiner.multiplyDecimal,
     alteredColor: () => GlyphAlteration.getEmpowermentColor("power"),
@@ -450,10 +613,18 @@ export const glyphEffects = {
     bitmaskIndex: 18,
     isGenerated: true,
     glyphTypes: ["power"],
+<<<<<<< HEAD
     singleDesc: "维度提升倍率 ×{value}",
     genericDesc: "维度提升倍率",
     shortDesc: "维度提升倍率 ×{value}",
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: "Dimension Boost multiplier ×{value}",
+    genericDesc: "Dimension Boost multiplier",
+    shortDesc: "Dimboost mult. ×{value}",
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.15).times(Decimal.pow(strength, 0.6))
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow10(Decimal.pow(level, 0.5).times(strength).times(GlyphAlteration.sacrificeBoost("power")))
       : Decimal.clampMin(Decimal.pow(level.times(strength), 0.5).times(
         Decimal.pow(1 + GlyphAlteration.sacrificeBoost("power"), 3)), 1)),
@@ -468,11 +639,20 @@ export const glyphEffects = {
     bitmaskIndex: 19,
     isGenerated: true,
     glyphTypes: ["power"],
+<<<<<<< HEAD
     singleDesc: () => `购买 ${formatInt(10)} 个反物质维度的倍率 {value}`,
     totalDesc: () => `购买 ${formatInt(10)} 个反物质维度的倍率 ×{value}`,
     genericDesc: () => `增加购买 ${formatInt(10)} 个反物质维度的加成`,
     shortDesc: () => `购买 ${formatInt(10)} 个反物质维度的倍率 ×{value}`,
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
+=======
+    singleDesc: () => `Increase the bonus from buying ${formatInt(10)} ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions by {value}`,
+    totalDesc: () => `Multiplier from "Buy ${formatInt(10)}" ×{value}`,
+    genericDesc: () => `"Buy ${formatInt(10)}" bonus increase`,
+    shortDesc: () => `${player.universes.current === 2 ? "MD" : "AD"} "Buy ${formatInt(10)}" mult. ×{value}`,
+    effect: (level, strength) => Slabdrill.isCursed ? Decimal.pow(level, 0.3).times(Decimal.pow(strength, 1.5)).toNumber()
+      : (EffarigUnlock.endgame.canBeApplied
+>>>>>>> upstream/master
       ? Decimal.pow(level, strength).add(1).toNumber()
       : level.times(strength).div(12).add(1).toNumber()),
     formatEffect: x => format(x, 2, 2),
@@ -600,9 +780,15 @@ export const glyphEffects = {
     bitmaskIndex: 26,
     isGenerated: true,
     glyphTypes: ["effarig"],
+<<<<<<< HEAD
     singleDesc: () => `反物质产量： ${formatInt(10)}^x ➜ ${formatInt(10)}^(x^{value})`,
     genericDesc: "反物质产量指数",
     shortDesc: "反物质产量指数 ^{value}",
+=======
+    singleDesc: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} production:\n${formatInt(10)}^x ➜ ${formatInt(10)}^(x^{value})`,
+    genericDesc: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} production exponent power`,
+    shortDesc: () => `${player.universes.current === 2 ? "M" : "AM"} production exponent ^{value}`,
+>>>>>>> upstream/master
     effect: (level, strength) => (EffarigUnlock.endgame.canBeApplied
       ? Decimal.pow(level, 0.26).times(Math.pow(strength, 0.45)).div(4800).add(1).toNumber()
       : Decimal.pow(level, 0.25).times(Math.pow(strength, 0.4)).div(5000).add(1).toNumber()),

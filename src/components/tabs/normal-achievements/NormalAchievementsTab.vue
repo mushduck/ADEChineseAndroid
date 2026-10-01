@@ -38,7 +38,8 @@ export default {
       achPowToTP: 0,
       achPowToCD: 0,
       achPowToVD: 0,
-      achPowToEn: 0
+      achPowToEn: 0,
+      isFlipped: false
     };
   },
   computed: {
@@ -58,12 +59,22 @@ export default {
       const boostList = [];
 
       const dimMultList = [];
+<<<<<<< HEAD
       dimMultList.push("反物质");
       if (this.achMultToIDS) dimMultList.push("无限");
       if (this.achMultToTDS) dimMultList.push("时间");
       boostList.push(`${makeEnumeration(dimMultList)}维度：${achievementPower}`);
       if (this.achMultToCDS) boostList.push(`天界维度：${achCDEffect}`);
       if (this.achMultToVDS) boostList.push(`神性维度：${achVDEffect}`);
+=======
+      if (!this.isFlipped) dimMultList.push("Antimatter");
+      if (this.isFlipped) dimMultList.push("Matter");
+      if (this.achMultToIDS) dimMultList.push("Infinity");
+      if (this.achMultToTDS) dimMultList.push("Time");
+      boostList.push(`${makeEnumeration(dimMultList)} Dimensions: ${achievementPower}`);
+      if (this.achMultToCDS) boostList.push(`Celestial Dimensions: ${achCDEffect}`);
+      if (this.achMultToVDS) boostList.push(`Divine Dimensions: ${achVDEffect}`);
+>>>>>>> upstream/master
 
       if (this.achMultToTP) boostList.push(`超光速粒子：${achTPEffect}`);
       if (this.achMultToBH) boostList.push(`黑洞：${achievementPower}`);
@@ -81,12 +92,22 @@ export default {
       const powersList = [];
 
       const dimPowList = [];
+<<<<<<< HEAD
       dimPowList.push("反物质");
       if (this.achMultToIDS) dimPowList.push("无限");
       if (this.achMultToTDS) dimPowList.push("时间");
       powersList.push(`${makeEnumeration(dimPowList)}维度：${achievementPowers}`);
       if (this.achMultToCDS) powersList.push(`天界维度：${achCDPow}`);
       if (this.achMultToVDS) powersList.push(`神性维度：${achVDPow}`);
+=======
+      if (!this.isFlipped) dimPowList.push("Antimatter");
+      if (this.isFlipped) dimPowList.push("Matter");
+      if (this.achMultToIDS) dimPowList.push("Infinity");
+      if (this.achMultToTDS) dimPowList.push("Time");
+      powersList.push(`${makeEnumeration(dimPowList)} Dimensions: ${achievementPowers}`);
+      if (this.achMultToCDS) powersList.push(`Celestial Dimensions: ${achCDPow}`);
+      if (this.achMultToVDS) powersList.push(`Divine Dimensions: ${achVDPow}`);
+>>>>>>> upstream/master
 
       if (this.achMultToTP) powersList.push(`超光速粒子：${achTPPow}`);
       if (this.achMultToBH) powersList.push(`黑洞：${achievementPowers}`);
@@ -140,6 +161,7 @@ export default {
       this.achPowToCD = Achievements.powerConv(EndgameMastery(191).effectOrDefault(DC.D1));
       this.achPowToVD = Achievements.powerConv(EndgameMastery(192).effectOrDefault(DC.D1));
       this.achPowToEn = Achievements.powerConv(EndgameMastery(201).effectOrDefault(DC.D1));
+      this.isFlipped = player.universes.current === 2;
     },
     startRowRendering() {
       const unlockedRows = [];
@@ -174,6 +196,12 @@ export default {
       return this.renderedRowIndices.includes(row);
     },
     isObscured(row) {
+      if (player.celestials.slabdrill.hasBoughtNinthDimension && player.endgame.creditsTick > 0 && !player.endgame.credits) {
+        return row >= 30;
+      }
+      if (Slabdrill.isCursed || Slabdrill.isDestroyed) {
+        return row >= 25;
+      }
       if (ImaginaryUpgrade(30).isBought) {
         return row >= 24;
       }

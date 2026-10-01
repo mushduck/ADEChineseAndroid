@@ -79,7 +79,11 @@ export const endgameMilestones = {
   endgameAntimatter: {
     endgames: 1000,
     reward: () => {
+<<<<<<< HEAD
       return "基于终局次数提高反物质产量，该效果在被毁灭的现实内进一步加强" + 
+=======
+      return `Gain a power to ${player.universes.current === 2 ? "Matter" : "Antimatter"} Production based on Endgames, which is stronger in Pelle ` + 
+>>>>>>> upstream/master
         (player.disablePostReality ? "(Destroyed)" : (player.endgames >= 1000
          ? `(当前: ${formatPow(Pelle.isDoomed ? 1 + (Math.log10(Math.min(Currency.endgames.value, 1e6) * Math.max(Math.log2(Currency.endgames.value + 1) - Math.log2(5e5), 1) + 1) / 80) : 1 + (Math.log10(Math.min(Currency.endgames.value, 1e6) * Math.max(Math.log2(Currency.endgames.value + 1) - Math.log2(5e5), 1) + 1) / 200), 2, 3)})`
          : "(未解锁)"));

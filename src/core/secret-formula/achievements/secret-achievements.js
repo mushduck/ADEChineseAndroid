@@ -53,8 +53,13 @@ export const secretAchievements = [
   },
   {
     id: 22,
+<<<<<<< HEAD
     name: "深度油炸",
     get description() { return `使用 Emoji 记数法时总共购买 ${formatInt(1e5)} 个反物质星系。`; },
+=======
+    name: "Deep fried",
+    get description() { return `Buy ${formatInt(1e5)} ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxies in total while using emoji notation.`; },
+>>>>>>> upstream/master
     checkRequirement: () => player.requirementChecks.permanent.emojiGalaxies >= 1e5,
     checkEvent: GAME_EVENT.GALAXY_RESET_AFTER
   },

@@ -15,16 +15,24 @@ export default {
       isDestroyed: false,
       isDivine: false,
       hasRealityButton: false,
+      amount: new Decimal(0),
       antimatterPerSec: new Decimal(0),
       antimatterPerSecBeforeAlter: new Decimal(0),
       antimatterPerSecAfterAlter: new Decimal(0),
-      hasSeenAlterations: false
+      hasSeenAlterations: false,
+      inCursedCore: false,
+      isFlipped: false
     };
   },
   computed: {
     alterText() {
+<<<<<<< HEAD
       if (!this.hasSeenAlterations) return "在任何";
       return "在任何反物质产量修改和";
+=======
+      if (!this.hasSeenAlterations) return "before";
+      return `before any ${this.isFlipped ? "matter" : "antimatter"} production alterations and`;
+>>>>>>> upstream/master
     }
   },
   methods: {
@@ -32,30 +40,34 @@ export default {
       this.isDestroyed = Alpha.isDestroyedForDisplay;
       this.isDivine = DivinityMilestone.divineDimensions.isReached;
       this.hasRealityButton = PlayerProgress.realityUnlocked() || TimeStudy.reality.isBought;
+      this.amount = Laitela.continuumActive ? AntimatterDimension(1).continuumAmount : AntimatterDimension(1).amount;
       this.antimatterPerSec.copyFrom(Currency.antimatter.productionPerSecond);
       this.antimatterPerSecBeforeAlter.copyFrom(
-        AntimatterDimension(1).amount.times(AntimatterDimension(1).multiplier).times(Tickspeed.perSecond).times(
-          player.chall2Pow).times(player.chall3Pow)
+        CMilestones.antimatterEqualizer(this.amount.times(AntimatterDimension(1).multiplier), Tickspeed.perSecond).times(
+          NormalChallenge(2).isRunning ? player.chall2Pow : 1).times(NormalChallenge(3).isRunning ? player.chall3Pow : 1)
       );
       this.antimatterPerSecAfterAlter.copyFrom(
-        this.locallyDilate(AntimatterDimension(1).amount.times(AntimatterDimension(1).multiplier).times(Tickspeed.perSecond).times(
-          player.chall2Pow).times(player.chall3Pow).pow(Accelerators.potency.effectValue1).powEffectOf(ResurgenceUpgrade.synergy5))
+        this.locallyDilate(CMilestones.antimatterEqualizer(this.amount.times(AntimatterDimension(1).multiplier), Tickspeed.perSecond)
+          .times(NormalChallenge(2).isRunning ? player.chall2Pow : 1).times(NormalChallenge(3).isRunning ? player.chall3Pow : 1).pow(
+          Accelerators.potency.effectValue1).powEffectOf(ResurgenceUpgrade.synergy5))
       );
       this.hasSeenAlterations = EffarigUnlock.reality.isUnlocked || PlayerProgress.endgameUnlocked();
+      this.inCursedCore = player.celestials.slabdrill.core.isActive;
+      this.isFlipped = player.universes.current === 2;
     },
     locallyDilate(multiplier) {
       const log10 = multiplier.log10();
       const eg = Currency.endgames.value;
       const endgameMult = Pelle.isDoomed ? 1 + (Math.log10(Math.min(eg, 1e6) * Math.max(Math.log2(eg + 1) - Math.log2(5e5), 1) + 1) / 80) : 1 + (Math.log10(Math.min(eg, 1e6) * Math.max(Math.log2(eg + 1) - Math.log2(5e5), 1) + 1) / 200);
       const endgameMultValue = (EndgameMilestone.endgameAntimatter.isReached && !player.disablePostReality) ? endgameMult : 1;
-      const pelleOnly = Pelle.isDoomed ? DivineDimensions.conversionFormula2 * Accelerators.cosmic.effectValue2 * EndgameMastery(222).effectOrDefault(1) * SingularityMilestone.singAMDoomDilation.effectOrDefault(1) : 1;
+      const pelleOnly = Pelle.isDoomed ? DivineDimensions.conversionFormula2 * Accelerators.cosmic.effectValue2 * EndgameMastery(222).effectOrDefault(1) * SingularityMilestone.singAMDoomDilation.effectOrDefault(1) * EndgameMastery(301).effectOrDefault(DC.D1).toNumber() : 1;
       return Decimal.pow10(Decimal.pow(log10, getAdjustedGlyphEffect("effarigantimatter") * Effects.product(EndgameMastery(101), EndgameUpgrade(15), SingularityMilestone.antimatterExponentPower, Achievement(233)) * endgameMultValue * EtherealStars.black.reward.toNumber() * pelleOnly));
     },
     classObject() {
       return {
         "c-prestige-info-blocks": true,
-        "c-prestige-info-blocks--tall": this.isDestroyed && !this.isDivine,
-        "c-prestige-info-blocks--taller": this.isDivine
+        "c-prestige-info-blocks--tall": this.isDestroyed && !this.isDivine && !this.inCursedCore,
+        "c-prestige-info-blocks--taller": this.isDivine && !this.inCursedCore
       };
     }
   }
@@ -65,24 +77,38 @@ export default {
 <template>
   <div>
     <div :class="classObject()">
-      <HeaderEternityContainer class="l-game-header__eternity" />
+      <HeaderEternityContainer v-if="!inCursedCore" class="l-game-header__eternity" />
       <HeaderCenterContainer class="l-game-header__center" />
-      <HeaderInfinityContainer class="l-game-header__infinity" />
+      <HeaderInfinityContainer v-if="!inCursedCore" class="l-game-header__infinity" />
     </div>
     <div
-      v-if="hasRealityButton"
+      v-if="hasRealityButton && !inCursedCore"
       class="c-production-text"
     >
       <br>
+<<<<<<< HEAD
       你每秒获得 {{ format(antimatterPerSec, 2) }} 反物质。
       <br>
       {{ alterText }}游戏速度作用生效前，你每秒获得 {{ format(antimatterPerSecBeforeAlter, 2) }} 反物质。
+=======
+      You are getting {{ format(antimatterPerSec, 2) }} {{ isFlipped ? "matter" : "antimatter" }} per second.
+      <br>
+      You are getting {{ format(antimatterPerSecBeforeAlter, 2) }} {{ isFlipped ? "matter" : "antimatter" }}
+      per second {{ alterText }} Game Speed effects.
+>>>>>>> upstream/master
     </div>
     <div
-      v-if="hasRealityButton && hasSeenAlterations"
+      v-if="hasRealityButton && hasSeenAlterations && !inCursedCore"
       class="c-prevent-overflow"
     >
+<<<<<<< HEAD
       你的基础反物质产量为 {{ format(antimatterPerSecAfterAlter, 2) }}。除了某些特定修改外，反物质产量最终值先计算增益，再计算减益，最后乘以游戏速度。
+=======
+      You are getting {{ format(antimatterPerSecAfterAlter, 2) }} {{ isFlipped ? "matter" : "antimatter" }} per second
+      after positive {{ isFlipped ? "matter" : "antimatter" }} production alterations, and before negative
+      {{ isFlipped ? "matter" : "antimatter" }} production alterations, any positive {{ isFlipped ? "matter" : "antimatter" }}
+      production alterations that apply after certain negative ones, and Game Speed effects.
+>>>>>>> upstream/master
     </div>
   </div>
 </template>

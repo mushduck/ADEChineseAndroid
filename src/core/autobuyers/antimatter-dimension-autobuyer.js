@@ -10,7 +10,11 @@ export class AntimatterDimensionAutobuyerState extends UpgradeableAutobuyerState
   }
 
   get fullName() {
+<<<<<<< HEAD
     return `第${this.name}反物质维度`;
+=======
+    return `${this.name} ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension`;
+>>>>>>> upstream/master
   }
 
   get data() {
@@ -151,7 +155,11 @@ export class AntimatterDimensionAutobuyerState extends UpgradeableAutobuyerState
   }
 
   static get entryCount() { return 8; }
+<<<<<<< HEAD
   static get autobuyerGroupName() { return "反物质维度"; }
+=======
+  static get autobuyerGroupName() { return `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension`; }
+>>>>>>> upstream/master
 
   // These are toggled on and off from the group autobuyer checkbox
   static get isActive() { return player.auto.antimatterDims.isActive; }

@@ -22,7 +22,11 @@ const rebuyable = props => {
 
 export const endgameUpgrades = [
   rebuyable({
+<<<<<<< HEAD
     name: "反物质优化器",
+=======
+    name: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Ameilorator`,
+>>>>>>> upstream/master
     id: 1,
     initialCost: 1e40,
     costMult: 60,
@@ -138,7 +142,11 @@ export const endgameUpgrades = [
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     canLock: true,
     lockEvent: "pour RM into Teresa",
+<<<<<<< HEAD
     description: () => "终局后保留特蕾莎挑战记录"
+=======
+    description: () => `Record Teresa ${player.universes.current === 2 ? "Matter" : "Antimatter"} is kept on Endgame`
+>>>>>>> upstream/master
   },
   {
     name: "九律归寂",
@@ -186,6 +194,7 @@ export const endgameUpgrades = [
     effect: () => player.disablePostReality ? 1 : 0.9
   },
   {
+<<<<<<< HEAD
     name: "逆质汇集",
     id: 15,
     cost: new Decimal(1e150),
@@ -194,6 +203,16 @@ export const endgameUpgrades = [
     checkRequirement: () => Currency.antimatter.value.add(1).log10().gte(1e33) && !Pelle.isDoomed,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     description: () => `基于虚幻机器数量为反物质指数提供指数加成`,
+=======
+    name: () => `${player.universes.current === 2 ? "Matter Multitudes" : "Antimatter Amassment"}`,
+    id: 15,
+    cost: new Decimal(1e150),
+    requirement: () => `Reach ${format(Decimal.pow(10, 1e33))} ${player.universes.current === 2 ? "Matter" : "Antimatter"} outside Pelle`,
+    hasFailed: () => Pelle.isDoomed,
+    checkRequirement: () => Currency.antimatter.value.add(1).log10().gte(1e33) && !Pelle.isDoomed,
+    checkEvent: GAME_EVENT.GAME_TICK_AFTER,
+    description: () => `Gain a power to the ${player.universes.current === 2 ? "Matter" : "Antimatter"} Exponent based on Imaginary Machines`,
+>>>>>>> upstream/master
     effect: () => player.disablePostReality ? 1 : 1 + (Decimal.pow(Decimal.log10(Decimal.log10(
       player.reality.imaginaryMachines.add(1)).add(1)), 2).min(10).add(Decimal.log10(Decimal.log10(
       player.reality.imaginaryMachines.add(1)).add(1)).sub(Math.sqrt(10)).max(0)).div(200)).toNumber(),
@@ -306,7 +325,11 @@ export const endgameUpgrades = [
     hasFailed: () => !BreakEternityUpgrade.glyphSlotImprovement.isBought,
     checkRequirement: () => BreakEternityUpgrade.glyphSlotImprovement.isBought,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
+<<<<<<< HEAD
     description: "基于反物质数量提高符文等级，该效果在符文不稳定性削弱后结算",
+=======
+    description: () => `Glyph Level gains a multiplier based on ${player.universes.current === 2 ? "Matter" : "Antimatter"} which applies after Instability`,
+>>>>>>> upstream/master
     effect: () => player.disablePostReality ? 1 : Decimal.min(Decimal.pow(Decimal.max(Decimal.log10(Decimal.log10(player.antimatter.add(1)).add(1)).div(100), 1), 0.05), 1.2).toNumber(),
     formatEffect: value => formatX(value, 2, 4)
   },

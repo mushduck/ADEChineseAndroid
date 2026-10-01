@@ -168,32 +168,52 @@ export const endgameMasteries = [
     cost: 6,
     requirement: [91],
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+<<<<<<< HEAD
     description: () => `反物质指数 ^ ${format(1.01, 2, 2)}`,
     effect: () => player.disablePostReality ? 1 : 1.01
+=======
+    description: () => `Raise the ${player.universes.current === 2 ? "Matter" : "Antimatter"} Exponent to the power of ${format(1.01, 2, 2)}`,
+    effect: () => player.disablePostReality && !SlabdrillUnlocks.eternity.isUnlocked ? 1 : 1.01
+>>>>>>> upstream/master
   },
   {
     id: 102,
     cost: 6,
     requirement: [92],
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+<<<<<<< HEAD
     description: () => `无限之力转换指数 ^ ${format(1.01, 2, 2)}`,
     effect: () => player.disablePostReality ? 1 : 1.01
+=======
+    description: () => `Raise the Infinity Power Conversion Rate to the power of ${format(1.01, 2, 2)}`,
+    effect: () => player.disablePostReality && !SlabdrillUnlocks.eternity.isUnlocked ? 1 : 1.01
+>>>>>>> upstream/master
   },
   {
     id: 103,
     cost: 6,
     requirement: [93],
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+<<<<<<< HEAD
     description: "下一个免费计数频率升级成本增长倍率 ^ 0.5",
     effect: () => player.disablePostReality ? 1 : 0.5
+=======
+    description: "Apply a square-root to the Free Tickspeed Threshold Multiplier",
+    effect: () => player.disablePostReality && !SlabdrillUnlocks.eternity.isUnlocked ? 1 : 0.5
+>>>>>>> upstream/master
   },
   {
     id: 104,
     cost: 6,
     requirement: [94],
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+<<<<<<< HEAD
     description: () => `天界物质激发指数提高 ${formatPercents(0.1)}`,
     effect: () => player.disablePostReality ? 1 : 1.1
+=======
+    description: () => `Increase the CM conversion exponent by ${formatPercents(0.1)}`,
+    effect: () => player.disablePostReality && !SlabdrillUnlocks.eternity.isUnlocked ? 1 : 1.1
+>>>>>>> upstream/master
   },
   {
     id: 111,
@@ -380,15 +400,24 @@ export const endgameMasteries = [
     cost: 150000,
     requirement: [211],
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+<<<<<<< HEAD
     description: "基于强子数量提高神性能量获取量",
     effect: () => player.disablePostReality ? DC.D1 : Decimal.pow10(new Decimal(player.celestials.laitela.hadrons.total).pow(1.25))
+=======
+    description: "Multiply Divine Energy gain based on Hadrons",
+    effect: () => player.disablePostReality ? DC.D1 : Decimal.pow10(new Decimal(player.celestials.laitela.hadrons.trueTotal).pow(1.25))
+>>>>>>> upstream/master
   },
   {
     id: 222,
     cost: 150000,
     requirement: [212],
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+<<<<<<< HEAD
     description: () => `在被毁灭的现实中反物质指数提高 ${formatPow(1.2, 1, 1)}`,
+=======
+    description: () => `Raise the ${player.universes.current === 2 ? "Matter" : "Antimatter"} Exponent in Pelle to ${formatPow(1.2, 1, 1)}`,
+>>>>>>> upstream/master
     effect: () => player.disablePostReality ? 1 : 1.2
   },
   {
@@ -485,5 +514,86 @@ export const endgameMasteries = [
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
     description: () => `所有符文等级软上限推迟${formatX(2)}`,
     effect: () => player.disablePostReality ? 1 : 2
+  },
+  {
+    id: 281,
+    cost: () => 1e6 * masteryIncrease.entanglement(),
+    requirement: [271, 272, 273, 274],
+    reqType: EM_REQUIREMENT_TYPE.ENTANGLEMENT,
+    description: "Multiply Thermal Radiation based on Celestial Points",
+    effect: () => player.disablePostReality ? DC.D1 : player.endgame.celestialPoints.max(10).log10().log10().pow(0.75),
+    formatEffect: value => formatX(value, 2, 2)
+  },
+  {
+    id: 282,
+    cost: () => 1e6 * masteryIncrease.entanglement(),
+    requirement: [271, 272, 273, 274],
+    reqType: EM_REQUIREMENT_TYPE.ENTANGLEMENT,
+    description: "Multiply Thermal Radiation based on Celestial Points of Eternity",
+    effect: () => player.disablePostReality ? DC.D1 : player.endgame.celDimExpansion.celestialEternityPoints.max(1).log10().div(4000).pow(8),
+    formatEffect: value => formatX(value, 2, 2)
+  },
+  {
+    id: 283,
+    cost: () => 1e6 * masteryIncrease.entanglement(),
+    requirement: [271, 272, 273, 274],
+    reqType: EM_REQUIREMENT_TYPE.ENTANGLEMENT,
+    description: "Multiply Thermal Radiation based on Nebulae",
+    effect: () => player.disablePostReality ? DC.D1 : player.celestials.pelle.divinity.nebulae.log10().pow(0.3),
+    formatEffect: value => formatX(value, 2, 2)
+  },
+  {
+    id: 291,
+    cost: () => 1e6 * masteryIncrease.entanglement(),
+    requirement: [281],
+    reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+    description: "Empower Galactic Power based on Celestial Points",
+    effect: () => player.disablePostReality ? DC.D1 : player.endgame.celestialPoints.max(10).log10().log10().pow(0.15),
+    formatEffect: value => formatPow(value, 2, 3)
+  },
+  {
+    id: 292,
+    cost: () => 1e6 * masteryIncrease.entanglement(),
+    requirement: [282],
+    reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+    description: "Empower Galactic Power based on Celestial Points of Eternity",
+    effect: () => player.disablePostReality ? DC.D1 : player.endgame.celDimExpansion.celestialEternityPoints.max(1).log10().div(4000).pow(1.5),
+    formatEffect: value => formatPow(value, 2, 3)
+  },
+  {
+    id: 293,
+    cost: () => 1e6 * masteryIncrease.entanglement(),
+    requirement: [283],
+    reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+    description: "Empower Galactic Power based on Nebulae",
+    effect: () => player.disablePostReality ? DC.D1 : player.celestials.pelle.divinity.nebulae.log10().pow(0.05),
+    formatEffect: value => formatPow(value, 2, 3)
+  },
+  {
+    id: 301,
+    cost: () => 1e6 * masteryIncrease.entanglement(),
+    requirement: [291],
+    reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+    description: () => `Empower the ${player.universes.current === 2 ? "Matter" : "Antimatter"} Exponent in Pelle based on Hawking Radiation`,
+    effect: () => player.disablePostReality ? DC.D1 : player.compression.hawkingRadiation.max(1).pow(0.04).min(DC.E20.pow(0.04)).times(player.compression.hawkingRadiation.max(1).log10().div(20).max(1).log2().add(1)),
+    formatEffect: value => formatPow(value, 2, 3)
+  },
+  {
+    id: 302,
+    cost: () => 1e6 * masteryIncrease.entanglement(),
+    requirement: [292],
+    reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+    description: "Empower Celestial Dimensions based on Hawking Radiation",
+    effect: () => player.disablePostReality ? DC.D1 : player.compression.hawkingRadiation.max(1).pow(0.08).min(DC.E20.pow(0.08)).times(player.compression.hawkingRadiation.max(1).log10().div(20).pow(2).max(1).log2().add(1)),
+    formatEffect: value => formatPow(value, 2, 3)
+  },
+  {
+    id: 303,
+    cost: () => 1e6 * masteryIncrease.entanglement(),
+    requirement: [293],
+    reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
+    description: "Empower Divine Dimensions based on Hawking Radiation",
+    effect: () => player.disablePostReality ? DC.D1 : player.compression.hawkingRadiation.max(1).pow(0.02).min(DC.E20.pow(0.02)).times(player.compression.hawkingRadiation.max(1).log10().div(20).pow(0.5).max(1).log2().add(1)),
+    formatEffect: value => formatPow(value, 2, 3)
   }
 ];

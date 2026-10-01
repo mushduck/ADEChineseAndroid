@@ -10,7 +10,11 @@ export class GalaxyGeneratorAutobuyerState extends IntervaledAutobuyerState {
   }
 
   get name() {
+<<<<<<< HEAD
     return ["星系产量基数", "星系产量倍率", "反物质倍率", "无限点数倍率", "永恒点数倍率", "现实碎片倍率", "膨胀时间倍率", "遗物指数", "星系低指数", "星系高指数"][this.id - 1];
+=======
+    return ["Base Galaxy Multiplier", "Multiplicative Galaxy Multiplier", `${player.universes.current === 2 ? "Matter" : "Antimatter"} Multiplier`, "Infinity Point Multiplier", "Eternity Point Multiplier", "Reality Shard Multiplier", "Dilated Time Multiplier", "Remnant Power", "Galaxy Power", "Galaxy Dilation"][this.id - 1];
+>>>>>>> upstream/master
   }
 
   get interval() {

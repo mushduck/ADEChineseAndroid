@@ -9,11 +9,20 @@ export const infinityUpgrades = {
   totalTimeMult: {
     id: "timeMult",
     cost: () => Math.pow(1, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
+<<<<<<< HEAD
     description: "反物质维度获得基于游玩时间的倍数加成",
     effect: () => Decimal.pow(Time.totalTimePlayed.totalMinutes.div(2), 0.15),
     formatEffect: value => formatX(value, 2, 2),
     charged: {
       description: "反物质维度获得基于总游戏时间和特蕾莎等级的指数加成",
+=======
+    description: () => Slabdrill.isCursed ? "Your Antimatter Dimension gains a multiplier based on time played" :
+      `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a multiplier based on time played`,
+    effect: () => Decimal.pow(Time.totalTimePlayed.totalMinutes.div(2), 0.15),
+    formatEffect: value => formatX(value, 2, 2),
+    charged: {
+      description: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a power effect based on time played and Teresa level`,
+>>>>>>> upstream/master
       effect: () => 1 +
         Decimal.log10(Decimal.log10(Time.totalTimePlayed.totalMilliseconds)).times(
           Math.pow(Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1)), 0.5)).div(150).toNumber(),
@@ -24,11 +33,20 @@ export const infinityUpgrades = {
     id: "18Mult",
     cost: () => Math.pow(1, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     checkRequirement: () => InfinityUpgrade.totalTimeMult.isBought,
+<<<<<<< HEAD
     description: "第一和第八反物质维度获得基于无限次数的倍数加成",
     effect: () => dimInfinityMult(),
     formatEffect: value => formatX(value, 1, 1),
     charged: {
       description: "第一和第八反物质维度获得基于无限次数和特蕾莎等级的指数加成",
+=======
+    description: () => Slabdrill.isCursed ? "Your Antimatter Dimension gains a multiplier based on Infinities" :
+      `1st and 8th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a multiplier based on Infinities`,
+    effect: () => dimInfinityMult(),
+    formatEffect: value => formatX(value, 1, 1),
+    charged: {
+      description: () => `1st and 8th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a power effect based on Infinities and Teresa level`,
+>>>>>>> upstream/master
       effect: () => chargedDimInfinityMult(),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -37,11 +55,20 @@ export const infinityUpgrades = {
     id: "27Mult",
     cost: () => Math.pow(1, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     checkRequirement: () => InfinityUpgrade.buy10Mult.isBought,
+<<<<<<< HEAD
     description: "第二和第七反物质维度获得基于无限次数的倍数加成",
     effect: () => dimInfinityMult(),
     formatEffect: value => formatX(value, 1, 1),
     charged: {
       description: "第二和第七反物质维度获得基于无限次数和特蕾莎等级的指数加成",
+=======
+    description: () => Slabdrill.isCursed ? "Your Antimatter Dimension gains a multiplier based on Infinities" :
+      `2nd and 7th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a multiplier based on Infinities`,
+    effect: () => dimInfinityMult(),
+    formatEffect: value => formatX(value, 1, 1),
+    charged: {
+      description: () => `2nd and 7th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a power effect based on Infinities and Teresa level`,
+>>>>>>> upstream/master
       effect: () => chargedDimInfinityMult(),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -50,11 +77,20 @@ export const infinityUpgrades = {
     id: "36Mult",
     cost: () => Math.pow(1, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     checkRequirement: () => InfinityUpgrade.dim18mult.isBought,
+<<<<<<< HEAD
     description: "第三和第六反物质维度获得基于无限次数的倍数加成",
     effect: () => dimInfinityMult(),
     formatEffect: value => formatX(value, 1, 1),
     charged: {
       description: "第三和第六反物质维度获得基于无限次数和特蕾莎等级的指数加成",
+=======
+    description: () => Slabdrill.isCursed ? "Your Antimatter Dimension gains a multiplier based on Infinities" :
+      `3rd and 6th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a multiplier based on Infinities`,
+    effect: () => dimInfinityMult(),
+    formatEffect: value => formatX(value, 1, 1),
+    charged: {
+      description: () => `3rd and 6th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a power effect based on Infinities and Teresa level`,
+>>>>>>> upstream/master
       effect: () => chargedDimInfinityMult(),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -63,11 +99,20 @@ export const infinityUpgrades = {
     id: "45Mult",
     cost: () => Math.pow(1, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     checkRequirement: () => InfinityUpgrade.dim27mult.isBought,
+<<<<<<< HEAD
     description: "第四和第五反物质维度获得基于无限次数的倍数加成",
     effect: () => dimInfinityMult(),
     formatEffect: value => formatX(value, 1, 1),
     charged: {
       description: "第四和第五反物质维度获得基于无限次数和特蕾莎等级的指数加成",
+=======
+    description: () => Slabdrill.isCursed ? "Your Antimatter Dimension gains a multiplier based on Infinities" :
+      `4th and 5th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a multiplier based on Infinities`,
+    effect: () => dimInfinityMult(),
+    formatEffect: value => formatX(value, 1, 1),
+    charged: {
+      description: () => `4th and 5th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a power effect based on Infinities and Teresa level`,
+>>>>>>> upstream/master
       effect: () => chargedDimInfinityMult(),
       formatEffect: value => formatPow(value, 4, 4)
     }
@@ -77,7 +122,11 @@ export const infinityUpgrades = {
     cost: () => Math.pow(1, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     checkRequirement: () => InfinityUpgrade.dim36mult.isBought,
     description: () =>
+<<<<<<< HEAD
       `维度提升和反物质星系对维度的需求减少 ${formatInt(9)}`,
+=======
+      `Decrease the number of Dimensions needed for Dimension Boosts and ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxies by ${formatInt(9)}`,
+>>>>>>> upstream/master
     effect: 9,
     charged: {
       description: () => "基于特蕾莎等级降低维度提升的需求",
@@ -88,11 +137,20 @@ export const infinityUpgrades = {
   buy10Mult: {
     id: "dimMult",
     cost: () => Math.pow(1, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
+<<<<<<< HEAD
     description: () => `增加购买${formatInt(10)}个反物质维度的倍数加成。`,
     effect: () => 1.1,
     formatEffect: () => `${formatX(2, 0, 1)} ➜ ${formatX(2.2, 0, 1)}`,
     charged: {
       description: () => `每买${formatInt(10)}个反物质维度的倍数基于特蕾莎等级获得指数加成`,
+=======
+    description: () => `Increase the multiplier for buying ${formatInt(10)} ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions`,
+    effect: () => 1.1,
+    formatEffect: () => `${formatX(2, 0, 1)} ➜ ${formatX(2.2, 0, 1)}`,
+    charged: {
+      description: () => `The multiplier for buying ${formatInt(10)} ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gains ` +
+        "a power effect based on Teresa level",
+>>>>>>> upstream/master
       effect: () => 1 + (Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1))) / 200,
       formatEffect: value => formatPow(value, 3, 3)
     }
@@ -112,12 +170,21 @@ export const infinityUpgrades = {
   thisInfinityTimeMult: {
     id: "timeMult2",
     cost: () => Math.pow(3, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
+<<<<<<< HEAD
     description: "反物质维度获得基于当前无限所花费的时间的倍数加成",
     effect: () => Decimal.max(Decimal.pow(Time.thisInfinity.totalMinutes.div(4), 0.25), 1),
     formatEffect: value => formatX(value, 2, 2),
     charged: {
       description:
         "反物质维度获得基于当前无限所花费的时间和特蕾莎等级的指数加成",
+=======
+    description: () => Slabdrill.isCursed ? "Your Antimatter Dimension gains a multiplier based on time spent in current Infinity" :
+      `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a multiplier based on time spent in current Infinity`,
+    effect: () => Decimal.max(Decimal.pow(Time.thisInfinity.totalMinutes.div(4), 0.25), 1),
+    formatEffect: value => formatX(value, 2, 2),
+    charged: {
+      description: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions gain a power effect based on time spent in current Infinity and Teresa level`,
+>>>>>>> upstream/master
       effect: () => 1 +
         Decimal.log10(Decimal.log10(Time.thisInfinity.totalMilliseconds.plus(100))).times(
           Math.sqrt(Ra.pets.teresa.level * Ra.unlocks.chargeBoost.effectOrDefault(1) * (player.disablePostReality ? 1 : AlphaUnlocks.autoCrunchChallenge.effects.buff.effectOrDefault(1)))).div(150).toNumber(),
@@ -128,7 +195,12 @@ export const infinityUpgrades = {
     id: "unspentBonus",
     cost: () => Math.pow(5, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     checkRequirement: () => InfinityUpgrade.thisInfinityTimeMult.isBought,
+<<<<<<< HEAD
     description: "第一反物质维度获得基于未花费的无限点数的倍数加成",
+=======
+    description: () => Slabdrill.isCursed ? "Multiplier to your Antimatter Dimension based on unspent Infinity Points" :
+      `Multiplier to 1st ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension based on unspent Infinity Points`,
+>>>>>>> upstream/master
     effect: () => {
       const divisor = (EndgameMastery(81).isBought && !player.disablePostReality) ? 5 : 10;
       const subtrahend = (EndgameMastery(81).isBought && !player.disablePostReality) ? 1.5 : 0;
@@ -136,7 +208,11 @@ export const infinityUpgrades = {
     },
     formatEffect: value => formatX(value, 2, 2),
     charged: {
+<<<<<<< HEAD
       description: "基于未使用的无限点数获得第一个反物质维度倍数，然后由特蕾莎等级提供指数加成",
+=======
+      description: () => `Multiplier to 1st ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension based on unspent Infinity Points, powered by Teresa level`,
+>>>>>>> upstream/master
       effect: () => {
         const divisor = (EndgameMastery(81).isBought && !player.disablePostReality) ? 5 : 10;
         const subtrahend = (EndgameMastery(81).isBought && !player.disablePostReality) ? 1.5 : 0;
@@ -185,28 +261,49 @@ export const infinityUpgrades = {
     id: "skipReset1",
     cost: () => Math.pow(20, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     description: () =>
+<<<<<<< HEAD
       `每次重置后开始于 ${formatInt(1)} 个维度提升，并自动解锁第五反物质维度`,
+=======
+      Slabdrill.isCursed ? `Start every reset with ${formatInt(1)} Dimension Boost` :
+      `Start every reset with ${formatInt(1)} Dimension Boost, automatically unlocking the 5th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension`,
+>>>>>>> upstream/master
   },
   skipReset2: {
     id: "skipReset2",
     cost: () => Math.pow(40, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     checkRequirement: () => InfinityUpgrade.skipReset1.isBought,
     description: () =>
+<<<<<<< HEAD
       `每次重置后开始于 ${formatInt(2)} 个维度提升，并自动解锁第六反物质维度`,
+=======
+      Slabdrill.isCursed ? `Start every reset with ${formatInt(2)} Dimension Boosts` :
+      `Start every reset with ${formatInt(2)} Dimension Boosts, automatically unlocking the 6th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension`,
+>>>>>>> upstream/master
   },
   skipReset3: {
     id: "skipReset3",
     cost: () => Math.pow(80, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     checkRequirement: () => InfinityUpgrade.skipReset2.isBought,
     description: () =>
+<<<<<<< HEAD
       `每次重置后开始于 ${formatInt(3)} 个维度提升，并自动解锁第七反物质维度`,
+=======
+      Slabdrill.isCursed ? `Start every reset with ${formatInt(3)} Dimension Boosts` :
+      `Start every reset with ${formatInt(3)} Dimension Boosts, automatically unlocking the 7th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension`,
+>>>>>>> upstream/master
   },
   skipResetGalaxy: {
     id: "skipResetGalaxy",
     cost: () => Math.pow(300, Alpha.isRunning ? AlphaUnlocks.infinity.effects.nerf.effectOrDefault(1) : 1),
     checkRequirement: () => InfinityUpgrade.skipReset3.isBought,
     description: () =>
+<<<<<<< HEAD
       `每次重置后开始于 ${formatInt(4)} 个维度提升和一个反物质星系，并自动解锁第八反物质维度`,
+=======
+      Slabdrill.isCursed ? `Start every reset with ${formatInt(4)} Dimension Boosts and ${player.universes.current === 2 ? "a Matter" : "an Antimatter"} Galaxy` :
+      `Start every reset with ${formatInt(4)} Dimension Boosts, automatically unlocking the 8th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension;
+      and ${player.universes.current === 2 ? "a Matter" : "an Antimatter"} Galaxy`,
+>>>>>>> upstream/master
   },
   ipOffline: {
     id: "ipOffline",

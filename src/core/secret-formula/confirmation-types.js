@@ -36,7 +36,15 @@ export const confirmationTypes = [
     option: "dilation",
     isUnlocked: () => PlayerProgress.realityUnlocked() || !Currency.tachyonParticles.eq(0),
   }, {
+<<<<<<< HEAD
     name: "激能",
+=======
+    name: "Compression",
+    option: "compression",
+    isUnlocked: () => !Currency.hawkingRadiation.eq(0),
+  }, {
+    name: "Overcharge",
+>>>>>>> upstream/master
     option: "overcharge",
     isUnlocked: () => Ascensions.ocA.isUnlocked,
   }, {
@@ -92,7 +100,19 @@ export const confirmationTypes = [
     option: "resetEndgame",
     isUnlocked: () => PlayerProgress.endgameUnlocked(),
   }, {
+<<<<<<< HEAD
     name: "重置内购",
+=======
+    name: "Cursed Core",
+    option: "cursedCore",
+    isUnlocked: () => Slabdrill.isUnlocked || Slabdrill.isDestroyed,
+  }, {
+    name: "Universes",
+    option: "universes",
+    isUnlocked: () => Universes.areUnlocked,
+  }, {
+    name: "Respec Shop Purchases",
+>>>>>>> upstream/master
     option: "respecIAP",
     isUnlocked: () => Cloud.isAvailable
   }

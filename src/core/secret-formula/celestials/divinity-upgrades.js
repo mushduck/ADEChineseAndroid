@@ -56,7 +56,12 @@ export const divinityUpgrades = {
     id: "divineL1U4",
     layer: 1,
     cost: new Decimal(1e50),
+<<<<<<< HEAD
     description: () => `在被毁灭的现实内反物质第二指数 ^ ${format(DivinityUpgrade.divineL5U2.isBought ? 1.02 : 1.01, 2, 2)}`,
+=======
+    description: () => `Only in Pelle, raise the ${player.universes.current === 2 ? "Matter" : "Antimatter"} Exponent’s Exponent to the power
+      of ${format(DivinityUpgrade.divineL5U2.isBought ? 1.02 : 1.01, 2, 2)}`,
+>>>>>>> upstream/master
     effect: () => DivinityUpgrade.divineL5U2.isBought ? 1.02 : 1.01
   },
   divineL1U5: {

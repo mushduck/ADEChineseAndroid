@@ -51,6 +51,7 @@ export const eternityMilestones = {
   },
   autobuyMaxGalaxies: {
     eternities: 9,
+<<<<<<< HEAD
     reward: "解锁自动购买最大数量的反物质星系"
   },
   autoIC: {
@@ -67,6 +68,9 @@ export const eternityMilestones = {
   autobuyMaxGalaxies: {
     eternities: 9,
     reward: "解锁自动购买最大数量的反物质星系"
+=======
+    reward: () => `Unlock the buy max ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxies Autobuyer mode`
+>>>>>>> upstream/master
   },
   unlockReplicanti: {
     eternities: 10,
@@ -128,11 +132,20 @@ export const eternityMilestones = {
   },
   unlockAllND: {
     eternities: 30,
+<<<<<<< HEAD
     reward: "永恒开始时就解锁了全部反物质维度"
   },
   replicantiNoReset: {
     eternities: 40,
     reward: `复制器星系不会重置反物质数量、反物质维度、计数频率、维度献祭和维度提升`,
+=======
+    reward: () => `Start with all ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions available for purchase`
+  },
+  replicantiNoReset: {
+    eternities: 40,
+    reward: () => `Replicanti Galaxies no longer reset ${player.universes.current === 2 ? "Matter" : "Antimatter"},
+      ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions, Tickspeed, Dimensional Sacrifice, or Dimension Boosts`,
+>>>>>>> upstream/master
     pelleUseless: true
   },
   autobuyerReplicantiChance: {

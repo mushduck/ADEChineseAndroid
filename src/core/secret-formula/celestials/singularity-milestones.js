@@ -189,8 +189,13 @@ export const singularityMilestones = {
     start: Decimal.pow10(1e12),
     repeat: Decimal.pow10(1e12),
     limit: 100,
+<<<<<<< HEAD
     description: "提高一次性凝聚奇点倍数的增长",
     effect: completions => completions.toNumber(),
+=======
+    description: "Increase the Singularity Cost Step Multiplier",
+    effect: completions => Decimal.floor(Decimal.pow(completions, 3).times(10000)).toNumber(),
+>>>>>>> upstream/master
     effectFormat: x => formatInt(x),
     upgradeDirection: LAITELA_UPGRADE_DIRECTION.SELF_BOOST,
   },
@@ -400,7 +405,11 @@ export const singularityMilestones = {
     start: Decimal.pow(10, 1000),
     repeat: new Decimal(0),
     limit: 1,
+<<<<<<< HEAD
     description: "奇点为反物质指数提供指数加成",
+=======
+    description: () => `Singularities give a power effect to the ${player.universes.current === 2 ? "Matter" : "Antimatter"} Exponent`,
+>>>>>>> upstream/master
     effect: () => 1 + (Decimal.pow(Decimal.log10(Decimal.log10(Currency.singularities.value.add(1)).add(1)).div(2), 2).div(125)).toNumber(),
     effectFormat: x => formatPow(x, 2, 3),
     upgradeDirection: LAITELA_UPGRADE_DIRECTION.BOOSTS_MAIN,
@@ -446,8 +455,13 @@ export const singularityMilestones = {
     start: Decimal.pow10(2e10),
     repeat: new Decimal(0),
     limit: 1,
+<<<<<<< HEAD
     description: "强子总数提高暗能量产量",
     effect: () => Math.pow(player.celestials.laitela.hadrons.total, 0.05),
+=======
+    description: "Total Hadrons empower Dark Energy gain",
+    effect: () => Math.pow(player.celestials.laitela.hadrons.trueTotal, 0.05),
+>>>>>>> upstream/master
     effectFormat: x => formatPow(x, 2, 3),
     upgradeDirection: LAITELA_UPGRADE_DIRECTION.BOOSTS_LAITELA,
   },
@@ -482,8 +496,14 @@ export const singularityMilestones = {
     start: Decimal.pow10(4.5e12),
     repeat: new Decimal(0),
     limit: 1,
+<<<<<<< HEAD
     description: "奇点在毁灭的现实内提高反物质指数",
     effect: () => Decimal.max(Decimal.log10(Decimal.log10(Currency.singularities.value.add(1)).add(1)).sub(10), 1).pow(0.5),
+=======
+    description: () => `Singularities empower the ${player.universes.current === 2 ? "Matter" : "Antimatter"} Exponent while Doomed`,
+    effect: () => Decimal.max(Decimal.log10(Decimal.log10(
+      Currency.singularities.value.add(1)).add(1)).sub(10), 1).pow(0.5).toNumber(),
+>>>>>>> upstream/master
     effectFormat: x => formatPow(x, 2, 3),
     upgradeDirection: LAITELA_UPGRADE_DIRECTION.BOOSTS_MAIN,
   },

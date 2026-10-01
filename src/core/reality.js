@@ -152,6 +152,12 @@ export function requestManualReality() {
   startManualReality(false);
 }
 
+export function requestRealityWarp() {
+  if (!CelestialEternityPlusUpgrade.oldStoneSlabAndSteelDrill.isBought) return;
+  if (GameEnd.creditsEverClosed) return;
+  Modal.realityWarp.show();
+}
+
 export function startManualReality(sacrifice, glyphID) {
   if (player.options.animations.reality) {
     runRealityAnimation();
@@ -313,7 +319,7 @@ function giveRealityRewards(realityProps) {
     realityProps.gainedGlyphLevel.actualLevel, realityAndPPMultiplier, multiplier,
     MachineHandler.projectedIMCap);
   Currency.realities.add(realityAndPPMultiplier);
-  Currency.perkPoints.add(realityAndPPMultiplier.toNumber());
+  Currency.perkPoints.add(realityAndPPMultiplier);
   if (TeresaUnlocks.effarig.canBeApplied) {
     Currency.relicShards.add(realityProps.gainedShards.times(multiplier));
   }
@@ -332,9 +338,17 @@ function giveRealityRewards(realityProps) {
     const current = Teresa.runRewardMultiplier;
     const newMultiplier = Teresa.rewardMultiplier(player.antimatter);
     const isHigher = newMultiplier.gt(current);
+<<<<<<< HEAD
     const modalText = `你已完成特蕾莎的现实！${isHigher
       ? `由于你获得了更多的反物质，符文献祭倍数从${format(current, 2, 2)}增加到${format(newMultiplier, 2, 2)}`
       : `你在这次运行中没有获得更多的反物质，所以来自特蕾莎的符文献祭倍数没有增加。`}.`;
+=======
+    const modalText = `You have completed Teresa's Reality! ${isHigher
+      ? `Since you gained more ${player.universes.current === 2 ? "Matter" : "Antimatter"}, you increased your
+      Glyph Sacrifice multiplier from ${format(current, 2, 2)} to ${format(newMultiplier, 2, 2)}`
+      : `You did not gain more ${player.universes.current === 2 ? "Matter" : "Antimatter"} during this run, so the Glyph Sacrifice multiplier
+      from Teresa did not increase`}.`;
+>>>>>>> upstream/master
     Modal.message.show(modalText, {}, 2);
     if (Currency.antimatter.gt(player.celestials.teresa.bestRunAM)) {
       player.celestials.teresa.bestRunAM = Currency.antimatter.value;
@@ -589,6 +603,7 @@ export function beginProcessReality(realityProps) {
 
 // eslint-disable-next-line complexity
 export function finishProcessReality(realityProps) {
+  if (Slabdrill.isDestroyed && !player.celestials.slabdrill.hasBoughtNinthDimension) return;
   const finalEP = Currency.eternityPoints.value.plus(gainedEternityPoints());
   if (player.records.bestReality.bestEP.lt(finalEP)) {
     player.records.bestReality.bestEP = new Decimal(finalEP);
@@ -713,7 +728,7 @@ export function finishProcessReality(realityProps) {
   InfinityDimensions.fullReset();
   fullResetTimeDimensions();
   resetChallengeStuff();
-  AntimatterDimensions.reset();
+  AntimatterDimensions.resetUpToNine();
   secondSoftReset(false);
   player.celestials.ra.peakGamespeed = DC.D1;
 

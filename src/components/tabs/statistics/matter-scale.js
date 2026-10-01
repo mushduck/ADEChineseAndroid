@@ -2,22 +2,55 @@ export const MatterScale = {
   proton: new Decimal("2.82e-45"),
 
   estimate(matter) {
+<<<<<<< HEAD
     if (!matter) return ["没有反物质"];
     if (matter.gt(DC.E100000)) {
       return [
         `如果你每秒写 ${formatInt(3)} 个数字，你将需要`,
         TimeSpan.fromSeconds(matter.log10() / 3).toString(),
         "来写下你的反物质数量。"
+=======
+    if (!matter) return [`There is no ${player.universes.current === 2 ? "matter" : "antimatter"} yet.`];
+    const logMatter = matter.add(1).log10();
+    const planck = new Decimal("4.22419e-105");
+    const planckedLogMatter = logMatter.times(planck);
+    if (matter.gt(DC.E9E15)) {
+      if (planckedLogMatter.gt(this.proton)) {
+        const logScale = this.macroScale(planckedLogMatter);
+        const logAmount = format(planckedLogMatter.dividedBy(logScale.amount), 2, 1);
+        return [`If every digit in your ${player.universes.current === 2 ? "matter" : "antimatter"} amount were a
+          planck volume, you would have enough to ${logScale.verb} ${logAmount} ${logScale.name}`];
+      }
+      const logScale = this.microScale(logMatter);
+      return [`If every digit in your ${player.universes.current === 2 ? "matter" : "antimatter"} amount
+        were ${format(this.proton.div(logScale.amount).div(logMatter), 2, 1)} ${logScale.name},
+        you would have enough to make a proton.`];
+    }
+    if (matter.gt(DC.E100000)) {
+      return [
+        `If you wrote ${formatInt(3)} numbers a second, it would take you`,
+        TimeSpan.fromSeconds(matter.log10().div(3)).toString(),
+        `to write down your ${player.universes.current === 2 ? "matter" : "antimatter"} amount.`
+>>>>>>> upstream/master
       ];
     }
     const planckedMatter = matter.times(planck);
     if (planckedMatter.gt(this.proton)) {
       const scale = this.macroScale(planckedMatter);
       const amount = format(planckedMatter.dividedBy(scale.amount), 2, 1);
+<<<<<<< HEAD
       return [`如果每个反物质占据 1 普朗克体积，你拥有的反物质足以${scale.verb} ${amount} ${scale.name}`];
     }
     const scale = this.microScale(matter);
     return [`如果每个反物质是 ${format(this.proton.div(scale.amount).div(matter), 2, 1)} ${scale.name}，那么你就有足够的反物质制作一个质子。`];
+=======
+      return [`If every ${player.universes.current === 2 ? "matter" : "antimatter"} were a planck volume, you would have
+        enough to ${scale.verb} ${amount} ${scale.name}`];
+    }
+    const scale = this.microScale(matter);
+    return [`If every ${player.universes.current === 2 ? "matter" : "antimatter"} were
+      ${format(this.proton.div(scale.amount).div(matter), 2, 1)} ${scale.name}, you would have enough to make a proton.`];
+>>>>>>> upstream/master
   },
 
   microScale(matter) {
@@ -28,7 +61,7 @@ export const MatterScale = {
         return scale;
       }
     }
-    throw "Cannot determine smallest antimatter scale";
+    throw `Cannot determine smallest ${player.universes.current === 2 ? "matter" : "antimatter"} scale`;
   },
 
   macroScale(matter) {

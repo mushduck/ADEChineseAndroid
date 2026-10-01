@@ -62,13 +62,21 @@ export const shortcuts = [
     function: () => player.options.simpleHotkeysCelestialMode ? manualRequestCelestialDimensionBoost(false) : manualRequestDimensionBoost(false),
     visible: false
   }, {
+<<<<<<< HEAD
     name: "反物质星系",
+=======
+    name: `${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxy`,
+>>>>>>> upstream/master
     keys: ["g"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? manualRequestCelestialGalaxyReset(true) : manualRequestGalaxyReset(true),
     visible: true
   }, {
+<<<<<<< HEAD
     name: "单个反物质星系",
+=======
+    name: `Single ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxy`,
+>>>>>>> upstream/master
     keys: ["shift", "g"],
     type: "bindRepeatableHotkey",
     function: () => player.options.simpleHotkeysCelestialMode ? manualRequestCelestialGalaxyReset(false) : manualRequestGalaxyReset(false),
@@ -113,7 +121,10 @@ export const shortcuts = [
     name: "现实",
     keys: ["y"],
     type: "bindRepeatableHotkey",
-    function: () => requestManualReality(),
+    function: () => {
+      if (Slabdrill.isCursed) return;
+      requestManualReality();
+    },
     visible: () => PlayerProgress.realityUnlocked() || isRealityAvailable() || PlayerProgress.endgameUnlocked()
   }, {
     name: "切换符文卸下选项",
@@ -241,7 +252,21 @@ export const shortcuts = [
     },
     visible: () => PlayerProgress.supernovaUnlocked()
   }, {
+<<<<<<< HEAD
     name: "保存游戏",
+=======
+    name: "Toggle Glyph unequip (Slabdrill)",
+    keys: ["shift", "r"],
+    type: "bindHotkey",
+    function: () => {
+      if (!Slabdrill.isCursed) return;
+      player.reality.respec = !player.reality.respec;
+      GameUI.notify.info(`Glyph respec is now ${player.reality.respec ? "active" : "inactive"}`);
+    },
+    visible: () => Slabdrill.isCursed || Slabdrill.isDestroyed
+  }, {
+    name: "Save game",
+>>>>>>> upstream/master
     keys: ["mod", "s"],
     type: "bind",
     function: () => {

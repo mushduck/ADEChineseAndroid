@@ -41,7 +41,11 @@ export const celestialInfinityUpgrades = {
   antimatterCelestialDimBuff: {
     id: "antimatterCelestialDimBuff",
     cost: 100,
+<<<<<<< HEAD
     description: "在阿尔法诅咒消散后为所有天界维度提供等同于反物质指数的指数的倍率",
+=======
+    description: () => `Multiply all Celestial Dimensions by the ${player.universes.current === 2 ? "Matter" : "Antimatter"} Exponent's Exponent after Alpha Decay`,
+>>>>>>> upstream/master
     effect: () => Decimal.log10(Decimal.log10(player.antimatter.add(1)).add(1)).max(1)
   },
   cipGen: {

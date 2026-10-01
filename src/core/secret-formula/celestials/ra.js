@@ -95,7 +95,12 @@ export const ra = {
     },
     unlockDilationStartingTP: {
       id: 6,
+<<<<<<< HEAD
       reward: "如果你不在天神的现实之中，你将基于当前反物质的数量，获得超光速粒子。所有超光速粒子倍率加成立刻生效，与是否在时间膨胀之中无关。",
+=======
+      reward: () => `In non-Celestial Realities, gain Tachyon Particles as if you reached the square root of your total
+        ${player.universes.current === 2 ? "matter" : "antimatter"} in Dilation. Any multipliers to TP gain are applied retroactively, even outside Dilation`,
+>>>>>>> upstream/master
       effect: () => player.records.totalEndgameAntimatter.pow(0.5),
       pet: "teresa",
       level: 25,
@@ -148,8 +153,15 @@ export const ra = {
     },
     maxGlyphRarityAndShardSacrificeBoost: {
       id: 13,
+<<<<<<< HEAD
       reward: () => `获得符文的稀有度固定为 ${formatPercents(1)}，符文献祭增益基于遗迹碎片获得指数加成。`,
       effect: () => 1 + Effarig.maxRarityBoost / 100,
+=======
+      reward: () => `Glyphs are always generated with ${formatPercents(1)} rarity and
+        Glyph Sacrifice gain is raised to a power based on Relic Shards`,
+      effect: () => SlabdrillUnlocks.timeStudy181.isUnlocked ?
+        Math.pow(Currency.relicShards.value.max(1).log10().div(10).add(1).toNumber(), 0.2) : 1 + Effarig.maxRarityBoost / 100,
+>>>>>>> upstream/master
       pet: "effarig",
       level: 25,
       displayIcon: `<i class="fas fa-ankh"></i>`

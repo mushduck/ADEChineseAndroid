@@ -22,7 +22,11 @@ export const celestialEternityPlusUpgrades = {
   oldStoneSlabAndSteelDrill: {
     id: "oldStoneSlabAndSteelDrill",
     cost: DC.E4000,
+<<<<<<< HEAD
     description: () => (false ? "解锁被诅咒的现实" : "解锁佩勒的领域"),
+=======
+    description: () => (player.celestials.slabdrill.isWarping ? "Unlock the Cursed Reality" : "Unlock Pelle's Domain"),
+>>>>>>> upstream/master
     onPurchased: () => Pelle.quotes.reachGoal.show()
   }
 };

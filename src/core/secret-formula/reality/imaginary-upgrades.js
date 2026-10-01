@@ -133,7 +133,11 @@ export const imaginaryUpgrades = [
     hasFailed: () => false,
     checkRequirement: () => player.celestials.effarig.relicShards.gte(1e90),
     checkEvent: GAME_EVENT.REALITY_RESET_AFTER,
+<<<<<<< HEAD
     description: "基于当前反物质总量，时间维度获得指数加成",
+=======
+    description: () => `Time Dimension power based on total ${player.universes.current === 2 ? "matter" : "antimatter"}`,
+>>>>>>> upstream/master
     effect: () => player.disablePostReality ? 1 : 1 + Decimal.log10(player.records.totalEndgameAntimatter.add(10).log10()).div(100).toNumber(),
     formatEffect: value => `${formatPow(value, 0, 4)}`,
     isDisabledInDoomed: () => !PelleImaginaryUpgrade.suspicionOfInterference.canBeApplied
@@ -183,14 +187,24 @@ export const imaginaryUpgrades = [
     name: "理想之构",
     id: 15,
     cost: new Decimal(1e9),
+<<<<<<< HEAD
     requirement: () => `在始终没有第一无限维度的前提下，达到 ${format("1e1500000000000")} 反物质`,
+=======
+    requirement: () => `Reach ${format("1e1500000000000")} ${player.universes.current === 2 ? "matter" : "antimatter"} without
+      ever having any 1st Infinity Dimensions`,
+>>>>>>> upstream/master
     hasFailed: () => player.requirementChecks.reality.maxID1.gt(0),
     checkRequirement: () => player.requirementChecks.reality.maxID1.eq(0) && player.antimatter.add(1).log10().gte(1.5e12),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     canLock: true,
     description: () => `${
+<<<<<<< HEAD
       Pelle.isDoomed ? "未解锁" : "将反物质维度转化成连续统，解锁维度之神，莱特拉"
     }`,
+=======
+      Pelle.isDoomed ? "Unlock" : `Convert ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions to Continuum and unlock`
+    } Lai'tela, Celestial of Dimensions`,
+>>>>>>> upstream/master
   },
   {
     name: "无质动量",
@@ -221,9 +235,7 @@ export const imaginaryUpgrades = [
     formatCost: x => format(x, 1),
     requirement: () => `星系总量达到 ${formatInt(80000)}`,
     hasFailed: () => false,
-    checkRequirement: () => GalacticPowers.galacticAscension.isUnlocked ? Replicanti.galaxies.total.max(1).times(player.galaxies.max(1)).times(
-      player.dilation.totalTachyonGalaxies.max(1)).times(GalacticPower.freeGalaxies.max(1)).gte(80000) : Replicanti.galaxies.total.add(player.galaxies).add(
-      player.dilation.totalTachyonGalaxies).add(GalacticPower.freeGalaxies).gte(80000),
+    checkRequirement: () => actualBaseGalaxiesWithoutGeneration().gte(80000),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     description: "解锁第四暗物质维度",
   },
@@ -257,7 +269,11 @@ export const imaginaryUpgrades = [
     name: "消解存在",
     id: 21,
     cost: new Decimal(1e13),
+<<<<<<< HEAD
     requirement: () => `解锁连续统后，单次现实全程禁用连续统时，达到 ${format("1e7400000000000")} 反物质`,
+=======
+    requirement: () => `Reach ${format("1e7400000000000")} ${player.universes.current === 2 ? "matter" : "antimatter"} with Continuum disabled for the entire Reality`,
+>>>>>>> upstream/master
     hasFailed: () => !player.requirementChecks.reality.noContinuum,
     checkRequirement: () => player.requirementChecks.reality.noContinuum &&
       Currency.antimatter.value.add(1).log10().gte(7.4e12),
@@ -274,7 +290,13 @@ export const imaginaryUpgrades = [
     id: 22,
     cost: new Decimal(1.5e14),
     formatCost: x => format(x, 1),
+<<<<<<< HEAD
     requirement: () => `装备至少 ${formatInt(4)} 个诅咒符文时，在鹿颈长的现实中达到 ${format("1e150000000000")} 反物质`,
+=======
+    requirement: () => `Reach ${format("1e150000000000")} ${player.universes.current === 2 ? "matter" : "antimatter"} in Effarig's Reality with
+      at least ${formatInt(4)} Cursed Glyphs equipped`,
+    // Note: 4 cursed glyphs is -12 glyph count, but equipping a positive glyph in the last slot is allowed
+>>>>>>> upstream/master
     hasFailed: () => !Effarig.isRunning || player.requirementChecks.reality.maxGlyphs > -10,
     checkRequirement: () => Effarig.isRunning && player.requirementChecks.reality.maxGlyphs < -10 &&
       Currency.antimatter.value.add(1).log10().gte(1.5e11),
@@ -301,7 +323,15 @@ export const imaginaryUpgrades = [
     name: "绝对废止",
     id: 24,
     cost: new Decimal(6e14),
+<<<<<<< HEAD
     requirement: () => `黑洞完全反转时，在太阳神的现实中获得 ${formatInt(13000)} 个反物质星系`,
+=======
+    // We unfortunately don't have the UI space to be more descriptive on this button without causing text overflow,
+    // so hopefully the additional modals (from the upgrade lock) will mostly communicate the idea that this is under
+    // the same conditions as hard V's Post-destination
+    requirement: () => `Have ${formatInt(13000)} ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxies in Ra's Reality
+      with a fully inverted Black Hole`,
+>>>>>>> upstream/master
     hasFailed: () => !Ra.isRunning || player.requirementChecks.reality.slowestBH > 1e-300,
     checkRequirement: () => Ra.isRunning && player.requirementChecks.reality.slowestBH <= 1e-300 &&
       player.galaxies.gte(13000),
@@ -346,7 +376,11 @@ export const imaginaryUpgrades = [
     name: "迫近归寂",
     id: 27,
     cost: new Decimal(1e100),
+<<<<<<< HEAD
     requirement: () => `在被毁灭的现实中全程不装备符文，达到${format(DC.E9E15)}反物质`,
+=======
+    requirement: () => `Reach ${format(DC.E9E15)} ${player.universes.current === 2 ? "Matter" : "Antimatter"} in Pelle without ever equipping Glyphs`,
+>>>>>>> upstream/master
     hasFailed: () => !Pelle.isDoomed || player.requirementChecks.endgame.noGlyphsDoomed === false,
     checkRequirement: () => Currency.antimatter.value.add(1).log10().gte(9e15) && Pelle.isDoomed &&
       player.requirementChecks.endgame.noGlyphsDoomed === true,
@@ -380,9 +414,7 @@ export const imaginaryUpgrades = [
     cost: new Decimal(1e200),
     requirement: () => `全部类型的星系总量达到${format(1e75, 2, 2)}`,
     hasFailed: () => false,
-    checkRequirement: () => GalacticPowers.galacticAscension.isUnlocked ? Replicanti.galaxies.total.max(1).times(player.galaxies.max(1)).times(
-      player.dilation.totalTachyonGalaxies.max(1)).times(GalacticPower.freeGalaxies.max(1)).times(GalaxyGenerator.galaxies.max(1)).gte(1e75) :
-      Replicanti.galaxies.total.add(player.galaxies).add(player.dilation.totalTachyonGalaxies).add(GalacticPower.freeGalaxies).add(GalaxyGenerator.galaxies).gte(1e75),
+    checkRequirement: () => actualBaseGalaxies().gte(1e75),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     description: () => `解锁第八暗物质维度，提升暗物质上限至${formatPostBreak("1e100000")}`,
   },

@@ -171,9 +171,15 @@ export const effarigQuotes = {
   maxMomentum: {
     id: 16,
     lines: [
+<<<<<<< HEAD
       "这次购买真是救命稻草。",
       "每次终局都能省下好多刷符文等级的时间。",
       "说到这个，你见过源初之神了吗？"
+=======
+      "This purchase is a lifesaver.",
+      "It saves hours of grinding for every Endgame.",
+      "Speaking of which, have you met the Elemental yet?"
+>>>>>>> upstream/master
     ]
   },
   moreRarityCap: {

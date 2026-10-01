@@ -43,7 +43,11 @@ export const perks = {
     label: "SAM",
     family: PERK_FAMILY.ANTIMATTER,
     get description() {
+<<<<<<< HEAD
       return `每次重置均从 ${format(5e130)} 反物质开始`;
+=======
+      return `Start every reset with ${format(5e130)} ${player.universes.current === 2 ? "matter" : "antimatter"}.`;
+>>>>>>> upstream/master
     },
     bumpCurrency: () => Currency.antimatter.bumpTo(5e130),
     effect: 5e130,
@@ -124,7 +128,14 @@ export const perks = {
     id: 30,
     label: "ANR",
     family: PERK_FAMILY.ANTIMATTER,
+<<<<<<< HEAD
     description: `维度提升和反物质星系不再重置反物质、反物质维度、计数频率的数量和维度献祭的效果`,
+=======
+    get description() {
+      return `Dimension Boosts and ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxies no longer reset
+        ${player.universes.current === 2 ? "Matter" : "Antimatter"}, ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions, Tickspeed, or Dimensional Sacrifice.`;
+    },
+>>>>>>> upstream/master
     layoutPosList: [85343, 81000, 79799, 80199, 82194, 92553],
   },
   studyPassive: {
@@ -199,7 +210,13 @@ export const perks = {
     id: 51,
     label: "IDR",
     family: PERK_FAMILY.INFINITY,
+<<<<<<< HEAD
     description: "解锁无限维度时，无需满足反物质数量的要求",
+=======
+    get description() {
+      return `Infinity Dimensions no longer have ${player.universes.current === 2 ? "matter" : "antimatter"} requirements.`;
+    },
+>>>>>>> upstream/master
     layoutPosList: [51317, 80998, 79397, 80997, 82600, 104489],
   },
   bypassTGReset: {
@@ -417,7 +434,11 @@ export const perks = {
     label: "TTF",
     family: PERK_FAMILY.AUTOMATION,
     get description() {
+<<<<<<< HEAD
       return `购买时间之理不再消耗反物质、无限点数和永恒点数`;
+=======
+      return `Purchasing Time Theorems no longer spends your ${player.universes.current === 2 ? "Matter" : "Antimatter"}, Infinity Points, or Eternity Points.`;
+>>>>>>> upstream/master
     },
     layoutPosList: [33840, 78998, 80597, 81002, 77800, 67309],
   },

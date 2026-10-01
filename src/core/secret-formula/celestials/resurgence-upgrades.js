@@ -3,13 +3,21 @@ export const resurgenceUpgrades = {
     name: "无界潮涌",
     id: "ipSurge",
     cost: new Decimal(10000),
+<<<<<<< HEAD
     description: "无限点数和反物质从此刻起等价，基于大坍缩后获得的无限点数为反物质获取量提供倍率加成"
+=======
+    description: () => `Infinity Points are equal to ${player.universes.current === 2 ? "Matter" : "Antimatter"}, multiply ${player.universes.current === 2 ? "Matter" : "Antimatter"} Production by pending IP`
+>>>>>>> upstream/master
   },
   epSurge: {
     name: "永恒潮涌",
     id: "epSurge",
     cost: new Decimal(1e6),
+<<<<<<< HEAD
     description: "永恒点数和反物质从此刻起等价，基于永恒后获得的永恒点数为反物质获取量提供倍率加成"
+=======
+    description: () => `Eternity Points are equal to ${player.universes.current === 2 ? "Matter" : "Antimatter"}, multiply ${player.universes.current === 2 ? "Matter" : "Antimatter"} Production by pending EP`
+>>>>>>> upstream/master
   },
   realSurge: {
     name: "星流漩溢",
@@ -109,7 +117,11 @@ export const resurgenceUpgrades = {
     name: "时轴曲变 II",
     id: "synergy2",
     cost: new Decimal("1e2400"),
+<<<<<<< HEAD
     description: "基于在被毁灭的现实外生产的总反物质为天界维度提供指数加成",
+=======
+    description: () => `Celestial Dimensions gain a power based on total ${player.universes.current === 2 ? "Matter" : "Antimatter"} generated outside Pelle`,
+>>>>>>> upstream/master
     effect: () => Decimal.log10(Decimal.log10(Decimal.log10(player.records.totalAntimatterOutsideDoom).add(1)).add(1)).div(15).add(1),
     formatEffect: value => formatPow(value, 2, 3)
   },
@@ -133,7 +145,11 @@ export const resurgenceUpgrades = {
     name: "时轴曲变 V",
     id: "synergy5",
     cost: new Decimal("1e2850"),
+<<<<<<< HEAD
     description: "基于计数频率为反物质产量提供指数加成",
+=======
+    description: () => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Production is empowered based on Tickspeed`,
+>>>>>>> upstream/master
     effect: () => Decimal.log10(Decimal.log10(Tickspeed.perSecond).add(1)).add(1),
     formatEffect: value => formatPow(value, 2, 3)
   },

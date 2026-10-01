@@ -10,8 +10,13 @@ export const alchemyResources = {
     tier: 1,
     uiOrder: 1,
     unlockedAt: 2,
+<<<<<<< HEAD
     description: "为反物质维度提供加成",
     formatEffect: value => `反物质维度的加成 ${formatPow(value, 4, 4)}`,
+=======
+    description: () => `provides a power to ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions`,
+    formatEffect: value => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension multipliers ${formatPow(value, 4, 4)}`,
+>>>>>>> upstream/master
     destroyed: () => !PelleAlchemyUpgrade.alchemyPower.isBought
   },
   "infinity": {
@@ -136,8 +141,14 @@ export const alchemyResources = {
     tier: 2,
     uiOrder: 5,
     unlockedAt: 11,
+<<<<<<< HEAD
     description: "增加超过阈值的倍率效果",
     formatEffect: value => `所有在 ${format(value)} 以上的反物质维度倍率 ${formatPow(1.05, 2, 2)}`,
+=======
+    description: "provides an additional power for very large multipliers",
+    formatEffect: value => `All ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension multipliers are ${formatPow(1.05, 2, 2)}
+      if they are above ${format(value)} `,
+>>>>>>> upstream/master
     reagents: [
       { resource: ALCHEMY_RESOURCE.POWER, amount: 9 },
       { resource: ALCHEMY_RESOURCE.DILATION, amount: 6 }
@@ -269,8 +280,13 @@ export const alchemyResources = {
     tier: 4,
     uiOrder: 2,
     unlockedAt: 17,
+<<<<<<< HEAD
     description: "基于现实机器加成反物质维度",
     formatEffect: value => `反物质维度获得等同于现实机器数量${formatPow(value, 2, 2)}的倍率`,
+=======
+    description: () => `multiplies ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions based on Reality Machines`,
+    formatEffect: value => `Multiply ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions by Reality Machines${formatPow(value, 2, 2)}`,
+>>>>>>> upstream/master
     reagents: [
       { resource: ALCHEMY_RESOURCE.DIMENSIONALITY, amount: 7 },
       { resource: ALCHEMY_RESOURCE.MOMENTUM, amount: 8 }

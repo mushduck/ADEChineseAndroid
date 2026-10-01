@@ -82,9 +82,15 @@ export const galacticPowerRewards = {
   galaxyScaling: {
     id: 13,
     galacticPower: new Decimal("1e40000"),
+<<<<<<< HEAD
     reward: "降低反物质星系的第八维度需求增长",
     effect: () => player.disablePostReality ? 1 : Decimal.pow(0.9, Decimal.log10(Decimal.log10(Currency.galacticPower.value.add(1)).div(40000)).add(1).pow(2).sub(1)).pow(GalacticPowers.galaxyEmpowerment2.isUnlocked ? GalacticPowers.galaxyEmpowerment2.reward : 1).toNumber(),
     formatEffect: value => `反物质星系的第八维度需求降低 ${formatPercents(1 - value, 2, 2)}`
+=======
+    reward: () => `Reduce the base cost scaling of ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxies`,
+    effect: () => player.disablePostReality ? 1 : Decimal.pow(0.9, Decimal.log10(Decimal.log10(Currency.galacticPower.value.add(1)).div(40000)).add(1).pow(2).sub(1)).pow(GalacticPowers.galaxyEmpowerment2.isUnlocked ? GalacticPowers.galaxyEmpowerment2.reward : 1).toNumber(),
+    formatEffect: value => `${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxy cost scaling is reduced by ${formatPercents(1 - value, 2, 2)}`
+>>>>>>> upstream/master
   },
   galaxyGenerationEmpowerment: {
     id: 14,
@@ -102,7 +108,12 @@ export const galacticPowerRewards = {
   },
   stelliferousUniverse: {
     id: 16,
+<<<<<<< HEAD
     galacticPower: new Decimal("1e250000"),
     reward: "解锁 Stelliferous Universe（未实装）"
+=======
+    galacticPower: DC.NUMMAX.pow(1000),
+    reward: "Unlock the Stelliferous Universe"
+>>>>>>> upstream/master
   }
 };

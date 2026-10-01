@@ -6,7 +6,11 @@ export class GalaxyAutobuyerState extends UpgradeableAutobuyerState {
   }
 
   get name() {
+<<<<<<< HEAD
     return `反物质星系`;
+=======
+    return `${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxy`;
+>>>>>>> upstream/master
   }
 
   get isUnlocked() {

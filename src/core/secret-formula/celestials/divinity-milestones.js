@@ -2,6 +2,7 @@ export const divinityMilestones = {
   firstDivine: {
     divinities: 1,
     get reward() {
+<<<<<<< HEAD
       return ` 移除 ${format(Decimal.pow10(1e150))} 和 ${format(Decimal.pow10(1e225))} 的反物质软上限。新增一个于 ${format(DC.E9E15)} 反物质开始的新软上限，该软上限强度会基于神性次数而提高。
         解锁一个新的星系生成器升级；所有星系生成器升级效力 ^ 2。
         基于神性次数优化成就 207的奖励公式；每进行一次神性，天界点数和毁灭粒子获取量 ^ 2。
@@ -9,6 +10,19 @@ export const divinityMilestones = {
         将天界物质软上限指数降低 ${formatPercents(0.05)}。
         将强子和暗强子效果到达上限所需的时间降低 ${formatPercents(0.2)}。
         终局次数获取量 ${formatX(10)}；重构机器获取量 ^ ${format(1.1, 1, 1)}；熵获得等同于 lg(历史最高星系数量) 的倍率加成。`;
+=======
+      return ` The ${format(Decimal.pow10(1e150))} and ${format(Decimal.pow10(1e225))} ${player.universes.current === 2 ? "Matter" : "Antimatter"} softcaps are replaced with a softcap that applies at ${format(DC.E9E15)} ${player.universes.current === 2 ? "Matter" : "Antimatter"} and will get stronger with each Divinity
+        Unlock a new Galaxy Generator Upgrade
+        All Galaxy Generator Upgrade rewards are squared
+        Achievement 207 uses an adjusted formula which improves based on Divinities
+        Each Divinity squares the gain of Celestial Points and Doomed Particles
+        Start Doom with all Pelle Upgrades purchased
+        Reduce the Celestial Matter Softcap by ${formatPercents(0.05)}
+        Reduce the Hadron Effect cap time for all Hadron/Dark Hadron effects by ${formatPercents(0.2)}
+        Gain ${formatX(10)} more Endgames
+        Power Dual Machines by ${format(1.1, 1, 1)}
+        The log10 of your highest-ever Galaxy amount multiplies Entropy gain`;
+>>>>>>> upstream/master
     }
   },
   divineDimensions: {
@@ -26,6 +40,7 @@ export const divinityMilestones = {
   hadronEmpowerment: {
     divinities: 3,
     get reward() {
+<<<<<<< HEAD
       return ` 解锁批量完成莱特拉的现实；解锁在莱特拉的现实完全不稳定时自动强子化。
         基于熵产量提高自动强子化所需令莱特拉的现实失稳的时间。
         强子和暗强子现在完全相同，可以将其合并为奇迹强子，奇迹强子会缩短强子效果到达上限所需的时间。
@@ -34,6 +49,17 @@ export const divinityMilestones = {
         暗物质湮灭和凝聚奇点不再重置任何东西。
         缥缈之力产量 × ${formatInt(10)}。
         解锁阿尔法扩展包。`;
+=======
+      return ` Automatically destabilize Lai'tela's Reality if your ${player.universes.current === 2 ? "Matter" : "Antimatter"} exceeds the amount required to disable it in less than ${formatInt(30)} seconds (which is boosted by Entropy generation), rooted by ${formatInt(8)} divided by the number of Dimensions left intact
+        Automatically hadronize Lai'tela's Reality if all ${formatInt(8)} Dimensions are disabled
+        Hadrons and Dark Hadrons are now equal, and you can instead merge them into Exotic Hadrons which reduce the time it takes for Hadron effects to cap
+        Forming Singularities no longer resets anything
+        The ${formatInt(8)}th Galaxy Generator Upgrade is stronger
+        Multiply all Divine Dimensions and Divine Energy production by ${formatX(77)}
+        Dark Matter Annihilation no longer resets anything
+        Ethereal Power generation is multiplied by ${formatInt(10)}
+        Unlock Alpha's Expansion Pack`;
+>>>>>>> upstream/master
     }
   },
   pelleQoL: {
@@ -51,6 +77,7 @@ export const divinityMilestones = {
   celestialSurge: {
     divinities: 5,
     get reward() {
+<<<<<<< HEAD
       return ` 超七方体现在同时作用于天界物质三重软上限。
         虚无时反物质维度倍率 ^ 2。
         献祭所有裂痕后，裂痕填充速度 ${formatX(10)}。
@@ -58,11 +85,21 @@ export const divinityMilestones = {
         将所有类型的强子效果到达上限所需的时间降低 ${formatPercents(0.75)}。
         缥缈之力产量 × ${formatInt(1000)}。
         鹿颈长等级 ${formatInt(40)} 的奖励现在作用于符文不稳定性的前 ${formatInt(5)} 重软上限。`;
+=======
+      return ` The Hepteract effect now also affects the Celestial Matter Corruption Magnitude
+        While inside The Void, ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension multipliers are squared
+        After uncapping the Galaxy Generator, rifts fill an additional ${formatX(10)} faster
+        Unlock a new Galaxy Generator Upgrade
+        Reduce the time for Hadrons to cap by ${formatPercents(0.75)}
+        Multiply Ethereal Power Generation by ${formatInt(1000)}
+        Effarig Level ${formatInt(40)} applies to the first ${formatInt(5)} levels of Glyph Instability instead of the first ${formatInt(3)}`;
+>>>>>>> upstream/master
     }
   },
   finalRebirth: {
     divinities: 7,
     get reward() {
+<<<<<<< HEAD
       return ` 推迟符文不稳定性第六软上限出现。
         虚无时基于本次终局中经过的真实时间增强反物质维度；神性维度产量 ${formatPow(1.05, 2, 2)}。
         献祭所有裂痕后，裂痕填充速度 ${formatX(100)}。
@@ -70,6 +107,16 @@ export const divinityMilestones = {
         将阿尔法诅咒到达上限所需的时间降低 ${formatPercents(0.25)}。
         基于本次终局中经过的真实时间提高熵产量倍率。
         略微提升奇迹强子效力。`;
+=======
+      return ` The sixth Glyph Instability threshold is weaker
+        While inside The Void, ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension are powered based on real-time spent this Endgame
+        After uncapping the Galaxy Generator, rifts fill an additional ${formatX(100)} faster
+        Divine Dimensions are raised ${formatPow(1.05, 2, 2)}
+        Reduce the time for Hadrons to cap by ${formatPercents(0.5)}
+        Reduce the time for Remnants of Alpha Decay to cap by ${formatPercents(0.25)}
+        Gain a multiplier to Entropy based on real-time spent this Endgame
+        Exotic Hadrons are slightly stronger once again`;
+>>>>>>> upstream/master
     }
   },
   ascendedSurge: {
@@ -88,6 +135,26 @@ export const divinityMilestones = {
     divinities: 13,
     get reward() {
       return ` 解锁 Transient Universe（未实装）。`;
+    }
+  },
+  powerBurst: {
+    divinities: 17,
+    get reward() {
+      return ` Empower Singularities based on highest Galaxies
+        While inside the Overcharge, ${player.universes.current === 2 ? "Matter" : "Antimatter"} production gains a power effect applying after the tetration nerf based on real time spent inside the Overcharge
+        Gain ${formatX(10)} more Hawking Radiation
+        Gain ${formatX(1000)} more Stars of all types`;
+    }
+  },
+  serpentPower: {
+    divinities: 22,
+    get reward() {
+      return ` Square Singularity Gain
+        Double the maximum Hadron effectiveness
+        Gain ${formatX(10)} more Hawking Radiation
+        Gain ${formatX(10)} more Thermal Radiation
+        Gain ${formatX(10)} more generated Endgame Skills
+        Unlock Slabdrill’s Expansion Pack`;
     }
   }
 };

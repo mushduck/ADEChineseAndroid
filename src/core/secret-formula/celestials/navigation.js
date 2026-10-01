@@ -399,9 +399,15 @@ export const celestialNavigation = {
           if (complete === 0) return "结束鹿颈长的现实";
           const am = Effarig.isRunning ? Currency.antimatter.value : 0;
           return [
+<<<<<<< HEAD
             "鹿颈长的无限",
             "在鹿颈长的现实中",
             `达到 ${format(am, 2)} / ${format(Number.MAX_VALUE, 2)} 反物质`,
+=======
+            "Effarig's Infinity",
+            `Reach ${format(am, 2)} / ${format(Number.MAX_VALUE, 2)}`,
+            `${player.universes.current === 2 ? "Matter" : "Antimatter"} inside Effarig's Reality.`
+>>>>>>> upstream/master
           ];
         },
         angle: 0,
@@ -700,9 +706,16 @@ export const celestialNavigation = {
           if (complete >= 1) return "薇的现实";
           const galaxies = player.requirementChecks.infinity.noAD8 ? player.galaxies : 0;
           return [
+<<<<<<< HEAD
             "薇的解锁成就",
             "在当前的现实中不购买第八维",
             `达到 ${formatInt(galaxies)} / ${formatInt(goal)} 反物质星系`,
+=======
+            "V's unlock Achievement",
+            `Reach ${formatInt(galaxies)} / ${formatInt(goal)} ${player.universes.current === 2 ? "Matter" : "Antimatter"}
+              Galaxies without buying`,
+            `8th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions in your current Infinity`
+>>>>>>> upstream/master
           ];
         },
         angle: 135,
@@ -1451,10 +1464,7 @@ export const celestialNavigation = {
       const upgrade = DarkMatterDimension(4).unlockUpgrade;
       if (upgrade.canBeBought || upgrade.isBought) return 1;
       if (upgrade.isAvailableForPurchase) return upgrade.currency.value / upgrade.cost;
-      return (GalacticPowers.galacticAscension.isUnlocked ? Replicanti.galaxies.total.max(1).times(player.galaxies.max(1)).times(
-        player.dilation.totalTachyonGalaxies.max(1)).times(GalacticPower.freeGalaxies.max(1)) :
-        Replicanti.galaxies.total.add(player.galaxies).add(player.dilation.totalTachyonGalaxies).add(
-        GalacticPower.freeGalaxies)).div(80000).toNumber();
+      return actualBaseGalaxiesWithoutGeneration().div(80000).toNumber();
     },
     node: {
       clickAction: () => Tab.celestials.laitela.show(true),
@@ -1479,9 +1489,14 @@ export const celestialNavigation = {
             ${format(Math.min(upgrade.currency.value, upgrade.cost), upgrade.canBeBought ? 1 : 2)}
             / ${format(upgrade.cost, 1)}`
           ];
+<<<<<<< HEAD
           const allGalaxies = GalacticPowers.galacticAscension.isUnlocked ? Replicanti.galaxies.total.max(1).times(
             player.galaxies.max(1)).times(player.dilation.totalTachyonGalaxies.max(1)).times(GalacticPower.freeGalaxies.max(1)) :
             Replicanti.galaxies.total.add(player.galaxies).add(player.dilation.totalTachyonGalaxies).add(GalacticPower.freeGalaxies);
+=======
+
+          const allGalaxies = actualBaseGalaxiesWithoutGeneration();
+>>>>>>> upstream/master
           return [
             dmdText,
             `共拥有 ${format(80000)} 星系`,
@@ -1700,9 +1715,15 @@ export const celestialNavigation = {
               PellePerkUpgrade.all.length + PelleAlchemyUpgrade.all.length) - (PelleAchievementUpgrade.all.filter(u => u.canBeApplied).length +
               PelleDestructionUpgrade.all.filter(u => u.canBeApplied).length + PelleRealityUpgrade.all.filter(u => u.canBeApplied).length +
               PelleImaginaryUpgrade.all.filter(u => u.canBeApplied).length + PelleCelestialUpgrade.all.filter(u => u.canBeApplied).length +
+<<<<<<< HEAD
               PellePerkUpgrade.all.filter(u => u.canBeApplied).length + PelleAchievementUpgrade.all.filter(u => u.canBeApplied).length);
             pelleString = "被毁灭的现实仍在被佩勒削弱"; 
             progressString = `仍存在${formatInt(remainingNerfs)}项削弱`; 
+=======
+              PellePerkUpgrade.all.filter(u => u.canBeApplied).length + PelleAlchemyUpgrade.all.filter(u => u.canBeApplied).length);
+            pelleString = "Pelle's Doomed Reality is still intact";
+            progressString = `${formatInt(remainingNerfs)} nerfs remain`;
+>>>>>>> upstream/master
           } else if (Achievement(204).isUnlocked && !ImaginaryUpgrade(30).isAvailableForPurchase) {
             const hexString = ["恢复甚微", "略有恢复", "恢复显著", "几乎恢复", "濒临恢复"]; 
             const remainingStrikes = PelleStrikeUpgrade.all.length - PelleStrikeUpgrade.all.filter(u => u.canBeApplied).length;
@@ -1844,12 +1865,12 @@ export const celestialNavigation = {
   "slab-unlock": {
     visible: () => PlayerProgress.celestialEternityUnlocked(),
     complete: () => {
-      if (false) return 1;
+      if (Slabdrill.isCursed) return 1;
       if (CelestialEternityPlusUpgrade.oldStoneSlabAndSteelDrill.isBought) return 0.999;
       return Decimal.clampMax(0.998, Currency.celestialEternityPoints.value.add(1).pLog10().div(4000)).toNumber();
     },
     node: {
-      clickAction: () => false ? Tab.celestials.slabdrill.show(true) : Tab.cdexpansion.subtabs[3].show(true),
+      clickAction: () => Slabdrill.isCursed ? Tab.celestials.slabdrill.show(true) : Tab.cdexpansion.subtabs[3].show(true),
       incompleteClass: "c-celestial-nav__test-incomplete",
       symbol: "⁹δ",
       symbolOffset: "1.6",
@@ -1864,7 +1885,7 @@ export const celestialNavigation = {
               "被诅咒的现实" 
             ];
           }
-          if (false && complete === 0.999) {
+          if (player.celestials.slabdrill.isWarping && complete === 0.999) {
             return [
               "被诅咒的现实" 
             ];

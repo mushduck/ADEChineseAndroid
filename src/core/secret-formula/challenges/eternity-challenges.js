@@ -11,6 +11,8 @@ export const eternityChallenges = [
     },
     goal: DC.E1800,
     goalIncrease: DC.E200,
+    slabGoal: DC.E2900,
+    slabGoalIncrease: DC.E400,
     reward: {
       description: "基于你在本次永恒中消耗的时间获得时间维度的倍率加成。",
       effect: completions =>
@@ -27,6 +29,8 @@ export const eternityChallenges = [
     goalIncrease: DC.E175,
     alphaGoal: DC.E2200,
     alphaGoalIncrease: DC.E300,
+    slabGoal: DC.E1700,
+    slabGoalIncrease: DC.E200,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC2Nerf.canBeApplied,
     reward: {
       description: "获得基于无限之力的第一无限维度的倍数加成。",
@@ -37,15 +41,27 @@ export const eternityChallenges = [
   },
   {
     id: 3,
+<<<<<<< HEAD
     description: "第五维度至第八维度什么都不会生产。禁用维度献祭。",
+=======
+    description: () => Slabdrill.isCursed
+      ? `Your Antimatter Dimension is raised ${formatPow(0.5, 1, 1)}. Dimensional Sacrifice is disabled.`
+      : `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions 5-8 don't produce anything. Dimensional Sacrifice is disabled.`,
+>>>>>>> upstream/master
     goal: DC.E600,
     pelleGoal: DC.E925,
     goalIncrease: DC.E75,
     alphaGoal: DC.E750,
     alphaGoalIncrease: DC.E100,
+    slabGoal: DC.E1700,
+    slabGoalIncrease: DC.E300,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC3Nerf.canBeApplied,
     reward: {
+<<<<<<< HEAD
       description: () => `增加购买 ${formatInt(10)} 个反物质维度的倍数加成。`,
+=======
+      description: () => `Increase the multiplier for buying ${formatInt(10)} ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions`,
+>>>>>>> upstream/master
       effect: completions => completions * 0.72,
       formatEffect: value => `+${format(value, 2, 2)}`
     }
@@ -56,6 +72,8 @@ export const eternityChallenges = [
     goal: DC.E2750,
     goalIncrease: DC.E550,
     alphaGoal: DC.E3200,
+    slabGoal: DC.E4500,
+    slabGoalIncrease: DC.E1700,
     restriction: completions => Math.max(16 - 4 * completions, 0),
     checkRestriction: restriction => Currency.infinities.lte(restriction),
     formatRestriction: restriction => (restriction === 0
@@ -71,37 +89,64 @@ export const eternityChallenges = [
   },
   {
     id: 5,
+<<<<<<< HEAD
     description: () => `星系价格立刻开始增加（通常在 ${formatInt(100)} 星系时开始）。维度提升价格增速大幅增加。`,
+=======
+    description: () => Slabdrill.isCursed ? "Dimension Boost costs scaling is massively increased." :
+      `${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxy cost increase scaling starts immediately (normally at ${formatInt(100)}
+      Galaxies). Dimension Boost costs scaling is massively increased.`,
+>>>>>>> upstream/master
     goal: DC.E750,
     pelleGoal: DC.E1400,
     goalIncrease: DC.E400,
     alphaGoal: DC.E1650,
+    slabGoal: DC.E3000,
+    slabGoalIncrease: DC.E3000,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC5Nerf.canBeApplied,
     reward: {
+<<<<<<< HEAD
       description: "推迟遥远星系的价格增长",
       effect: completions => completions * 5,
       formatEffect: value => `${formatInt(value)} 星系后开始`
+=======
+      description: () => Slabdrill.isCursed ? "All Galaxies are stronger" : "Distant Galaxy cost scaling starts later",
+      effect: completions => Slabdrill.isCursed ? completions / 20 + 1 : completions * 5,
+      formatEffect: value => Slabdrill.isCursed ? formatPercents(value - 1) : `${formatInt(value)} ${player.universes.current === 2 ? "MG" : "AG"} later`
+>>>>>>> upstream/master
     }
   },
   {
     id: 6,
     description: () => {
+<<<<<<< HEAD
       if (Enslaved.isRunning) return `你 *. 最大复制器星系升级的价格会大大降低。`;
       return `你无法正常地获得反物质星系。最大复制器星系升级的价格会大大降低。`;
+=======
+      if (Enslaved.isRunning) return "you *. The cost of upgrading your max Replicanti Galaxies is massively reduced.";
+      return `you cannot gain ${player.universes.current === 2 ? "Matter" : "Antimatter"} Galaxies normally. The cost of upgrading your max Replicanti` +
+              " Galaxies is massively reduced.";
+>>>>>>> upstream/master
     },
     goal: DC.E750,
     pelleGoal: DC.E1500,
     goalIncrease: DC.E200,
     alphaGoal: DC.E800,
+    slabGoal: DC.E3500,
+    slabGoalIncrease: DC.E900,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC6Nerf.canBeApplied,
     reward: {
+<<<<<<< HEAD
       description: "进一步降低反物质维度的价格增速",
+=======
+      description: () => `Further reduce ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimension cost multiplier growth`,
+>>>>>>> upstream/master
       effect: completions => completions * 0.2,
       formatEffect: value => {
         const total = Math.round(Player.dimensionMultDecrease + Effects.sum(EternityChallenge(6).reward)) - value;
         return `-${format(value, 2, 1)} (总共 ${formatX(total, 2, 1)})`;
       }
     },
+<<<<<<< HEAD
     scrambleText: ["无法正常地获得反物质星系", "无㏰'퐚 正 ꟢地랜得ﻪﶓa⁍反㮾 䂇质㦂系"],
   },
   {
@@ -109,11 +154,23 @@ export const eternityChallenges = [
     description:
       "第一时间维度生产第八无限维度，不生产时间碎片。 第一无限维度生产第七维度，而不是无限之力。" +
       "同时，计数频率也直接影响无限维度和时间维度。",
+=======
+    scrambleText: [`cannot gain Antimatter Galaxies normally`, "c㏰'퐚 gai鸭 Anti꟢at랜erﻪﶓa⁍axie㮾 䂇orma㦂l"],
+  },
+  {
+    id: 7,
+    description: () =>
+      `1st Time Dimensions produce 8th Infinity Dimensions${Slabdrill.isCursed ? ` and Infinity Dimensions are useless` :
+      ` and 1st Infinity Dimensions produce 7th ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions`}. Tickspeed also directly applies to Infinity
+      and Time Dimensions.`,
+>>>>>>> upstream/master
     goal: DC.E2000,
     pelleGoal: DC.E2700,
     goalIncrease: DC.E530,
     alphaGoal: DC.E1200,
     alphaGoalIncrease: DC.E200,
+    slabGoal: DC.E1600,
+    slabGoalIncrease: DC.E1000,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC7Nerf.canBeApplied,
     effect: () => TimeDimension(1).productionPerSecond,
     reward: {
@@ -133,12 +190,14 @@ export const eternityChallenges = [
     pelleGoal: DC.E2800,
     goalIncrease: DC.E750,
     alphaGoal: DC.E2400,
+    slabGoal: DC.E4750,
+    slabGoalIncrease: DC.E7250,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC8Nerf.canBeApplied,
     reward: {
       description: "无限之力提升复制器星系的效果",
       effect: completions => {
         const infinityPower = Decimal.log10(Currency.infinityPower.value.add(1).pLog10().add(1));
-        return Decimal.max(0, Decimal.pow(infinityPower, 0.03 * completions).sub(1)).toNumber();
+        return Decimal.max(0, Decimal.pow(infinityPower, (Slabdrill.isCursed ? 0.1 : 0.03) * completions).sub(1)).toNumber();
       },
       formatEffect: value => formatPercents(value, 2)
     }
@@ -151,19 +210,34 @@ export const eternityChallenges = [
     goalIncrease: DC.E250,
     alphaGoal: DC.E9000,
     alphaGoalIncrease: DC.E4000,
+    slabGoal: DC.E6000,
+    slabGoalIncrease: DC.E4000,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC9Nerf.canBeApplied,
     reward: {
+<<<<<<< HEAD
       description: "基于时间碎片的无限维度倍数加成",
       effect: completions => Currency.timeShards.value.pow(completions * 0.1).clampMin(1),
       cap: () => Alpha.isDestroyed ? DC.BEMAX : DC.E400,
+=======
+      description: "Infinity Dimension multiplier based on Time Shards",
+      effect: completions => Currency.timeShards.value.pow(completions * (Slabdrill.isCursed ? 1 : 0.1)).clampMin(1),
+      cap: () => Alpha.isDestroyed ? DC.BEMAX : (Slabdrill.isCursed ? DC.E1000 : DC.E400),
+>>>>>>> upstream/master
       formatEffect: value => formatX(value, 2, 1)
     }
   },
   {
     id: 10,
     description: () => {
+<<<<<<< HEAD
       let description = `禁用时间维度和无限维度。你的反物质维度将取得基于无限次数的巨大提速。 (无限次数 ${formatPow(950)}). ${specialInfinityGlyphDisabledEffectText()}`;
       EternityChallenge(10).applyEffect(v => description += `当前: ${formatX(v, 2, 1)}`);
+=======
+      let description = `Time Dimensions and Infinity Dimensions are disabled. You gain an immense boost from
+        Infinities to ${Slabdrill.isCursed ? "your Antimatter Dimension" : `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions`}
+        (Infinities${formatPow(950)}). ${specialInfinityGlyphDisabledEffectText()}`;
+      EternityChallenge(10).applyEffect(v => description += ` Currently: ${formatX(v, 2, 1)}`);
+>>>>>>> upstream/master
       return description;
     },
     goal: DC.E3000,
@@ -171,12 +245,15 @@ export const eternityChallenges = [
     goalIncrease: DC.E300,
     alphaGoal: DC.E15000,
     alphaGoalIncrease: DC.E2000,
+    slabGoal: DC.E25000,
+    slabGoalIncrease: DC.E2000,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC10Nerf.canBeApplied,
     effect: () => Decimal.pow(Currency.infinitiesTotal.value, 950).clampMin(1).pow(TimeStudy(31).effectOrDefault(1)),
     reward: {
       description: "时间维度基于无限次数获得加成",
       effect: completions => {
-        const mult = Currency.infinitiesTotal.value.times(2.783e-6).pow(0.4 + 0.1 * completions).clampMin(1);
+        const mult = Currency.infinitiesTotal.value.times(2.783e-6).pow(
+          Slabdrill.isCursed ? 0.04 + 0.01 * completions : 0.4 + 0.1 * completions).clampMin(1);
         return mult.powEffectOf(TimeStudy(31));
       },
       formatEffect: value => {
@@ -189,13 +266,21 @@ export const eternityChallenges = [
   },
   {
     id: 11,
+<<<<<<< HEAD
     description: () => `除了从无限之力和维度提升 (给予反物质维度) 获得的倍数外，禁用其他所有维度倍数。 ${specialInfinityGlyphDisabledEffectText()}`,
+=======
+    description: () => `all Dimension multipliers and powers are disabled except for the multipliers from
+      Infinity Power and Dimension Boosts (to ${Slabdrill.isCursed ?
+      "your Antimatter Dimension" : `${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions`}). ${specialInfinityGlyphDisabledEffectText()}`,
+>>>>>>> upstream/master
     goal: DC.E450,
     pelleGoal: DC.E11200,
     goalIncrease: DC.E175,
     pelleGoalIncrease: DC.E1400,
     alphaGoal: DC.E6000,
     alphaGoalIncrease: DC.E450,
+    slabGoal: DC.E7500,
+    slabGoalIncrease: DC.E1000,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC11Nerf.canBeApplied,
     reward: {
       description: "进一步降低计数频率的价格增速",
@@ -214,6 +299,8 @@ export const eternityChallenges = [
     goal: DC.E100000,
     pelleGoal: DC.E208000,
     goalIncrease: DC.E10000,
+    slabGoal: DC.E220000,
+    slabGoalIncrease: DC.E60000,
     hasPelleGoal: () => !PelleDestructionUpgrade.disableEC12Nerf.canBeApplied,
     restriction: completions => Math.max(10 - 2 * completions, 1) / 10,
     checkRestriction: restriction => Time.thisEternity.totalSeconds.lt(restriction),

@@ -26,7 +26,11 @@ export const nullUpgrades = {
     costIncrease: 10,
     maxUpgrades: Number.MAX_VALUE,
     effect: value => Decimal.pow10(Math.pow(value, 2)),
+<<<<<<< HEAD
     description: () => "为所有反物质维度提供倍率加成",
+=======
+    description: () => `Multiply all ${player.universes.current === 2 ? "Matter" : "Antimatter"} Dimensions`,
+>>>>>>> upstream/master
     isDisabled: effect => effect.eq(0),
     formatEffect: value => `${formatX(value, 2)}`,
     noLabel: false
