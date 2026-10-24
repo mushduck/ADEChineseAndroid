@@ -4,6 +4,12 @@ import CelestialCrunchButton from "./CelestialCrunchButton";
 
 export default {
   name: "HeaderInfinityContainer",
+  props: {
+    mode: {
+      type: String,
+      default: "both"
+    }
+  },
   components: {
     BigCrunchButton,
     CelestialCrunchButton
@@ -41,7 +47,7 @@ export default {
 <template>
   <div>
     <div
-      v-if="showContainer"
+      v-if="showContainer && (mode === 'both' || mode === 'normal')"
       class="c-prestige-button-container"
     >
       <div class="c-infinity-points">
@@ -56,7 +62,7 @@ export default {
       <BigCrunchButton />
     </div>
     <div
-      v-if="showContainer && hasCelestial"
+      v-if="showContainer && hasCelestial && (mode === 'both' || mode === 'celestial')"
       class="c-prestige-button-container"
     >
       <div class="c-infinity-points">

@@ -5,6 +5,12 @@ import UnlockInfinityDimButton from "./UnlockInfinityDimButton";
 
 export default {
   name: "HeaderEternityContainer",
+  props: {
+    mode: {
+      type: String,
+      default: "both"
+    }
+  },
   components: {
     CelestialEternityButton,
     EternityButton,
@@ -51,7 +57,7 @@ export default {
 <template>
   <div>
     <div
-      v-if="showContainer"
+      v-if="showContainer && (mode === 'both' || mode === 'normal')"
       class="c-prestige-button-container"
     >
       <div
@@ -71,7 +77,7 @@ export default {
       <EternityButton />
     </div>
     <div
-      v-if="showContainer && hasCelestial"
+      v-if="showContainer && hasCelestial && (mode === 'both' || mode === 'celestial')"
       class="c-prestige-button-container"
     >
       <div class="c-eternity-points">

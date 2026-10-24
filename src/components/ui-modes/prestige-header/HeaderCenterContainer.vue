@@ -15,6 +15,12 @@ import DivinityContainer from "./DivinityContainer";
 // removed once Reality is unlocked, to make room for the reality button
 export default {
   name: "HeaderCenterContainer",
+  props: {
+    mode: {
+      type: String,
+      default: "both"
+    }
+  },
   components: {
     HeaderTickspeedInfo,
     RealityCurrencyHeader,
@@ -68,15 +74,15 @@ export default {
     class="c-prestige-button-container"
   >
     <div
-      v-if="showEndgame && !inCursedCore"
+      v-if="(mode === 'both' || mode === 'resources') && showEndgame && !inCursedCore"
     >
       你拥有 <span class="cp-text">{{ format(celestialPoints, 2) }}</span> {{ pluralize("天界点数", celestialPoints) }}。
       你拥有 <span class="dp-text">{{ format(doomedParticles, 2) }}</span> {{ pluralize("毁灭粒子", doomedParticles) }}。
     <br>
     </div>
-    <span>你拥有 <span class="c-game-header__antimatter">{{ format(antimatter, 2, 1) }}</span>{{ isFlipped ? "正物质" : "反物质" }}。</span>
+    <span v-if="mode === 'both' || mode === 'resources'">你拥有 <span class="c-game-header__antimatter">{{ format(antimatter, 2, 1) }}</span>{{ isFlipped ? "正物质" : "反物质" }}。</span>
     <div
-      v-if="hasRealityButton && !inCursedCore"
+      v-if="(mode === 'both' || mode === 'reality') && hasRealityButton && !inCursedCore"
       class="c-reality-container"
     >
       <RealityCurrencyHeader />
@@ -93,12 +99,12 @@ export default {
         :is-header="true"
       />
     </div>
-    <div v-else-if="!inCursedCore">
+    <div v-else-if="(mode === 'both' || mode === 'reality') && !inCursedCore">
       你每秒获得 {{ format(antimatterPerSec, 2) }} {{ isFlipped ? "正物质" : "反物质" }}。
       <br>
       <HeaderTickspeedInfo />
     </div>
-    <div v-if="showDivine && !inCursedCore">
+    <div v-if="(mode === 'both' || mode === 'divinity') && showDivine && !inCursedCore">
       <DivinityContainer />
     </div>
   </div>

@@ -21,6 +21,7 @@ export default {
       antimatterPerSecAfterAlter: new Decimal(0),
       hasSeenAlterations: false,
       inCursedCore: false,
+      isMobile: false,
       isFlipped: false
     };
   },
@@ -32,6 +33,7 @@ export default {
   },
   methods: {
     update() {
+      this.isMobile = window.innerWidth <= 768;
       this.isDestroyed = Alpha.isDestroyedForDisplay;
       this.isDivine = DivinityMilestone.divineDimensions.isReached;
       this.hasRealityButton = PlayerProgress.realityUnlocked() || TimeStudy.reality.isBought;
@@ -71,19 +73,49 @@ export default {
 
 <template>
   <div>
-    <div :class="classObject()">
+    <!-- Mobile Native 4-Row Matrix -->
+    <div v-if="isMobile" class="c-mobile-prestige-matrix">
+      <!-- Row 1: Left Infinity + Right Eternity -->
+      <div class="c-mobile-matrix-row">
+        <HeaderInfinityContainer mode="normal" class="c-mobile-matrix-col" />
+        <HeaderEternityContainer mode="normal" class="c-mobile-matrix-col" />
+      </div>
+
+      <!-- Row 2: Reality Full Line -->
+      <div class="c-mobile-matrix-row-full">
+        <HeaderCenterContainer mode="reality" />
+      </div>
+
+      <!-- Row 3: Left Celestial Infinity + Right Celestial Eternity -->
+      <div class="c-mobile-matrix-row">
+        <HeaderInfinityContainer mode="celestial" class="c-mobile-matrix-col" />
+        <HeaderEternityContainer mode="celestial" class="c-mobile-matrix-col" />
+      </div>
+
+      <!-- Row 4: Left Condense + Right Supernova -->
+      <div class="c-mobile-matrix-row-full">
+        <HeaderCenterContainer mode="divinity" />
+      </div>
+
+      <!-- Row 5: Resources Below Buttons -->
+      <div class="c-mobile-matrix-resources">
+        <HeaderCenterContainer mode="resources" />
+      </div>
+    </div>
+
+    <!-- Desktop Original (100% Intact) -->
+    <div v-else :class="classObject()">
       <HeaderEternityContainer v-if="!inCursedCore" class="l-game-header__eternity" />
       <HeaderCenterContainer class="l-game-header__center" />
       <HeaderInfinityContainer v-if="!inCursedCore" class="l-game-header__infinity" />
     </div>
+
     <div
       v-if="hasRealityButton && !inCursedCore"
       class="c-production-text"
     >
-      <br>
-      你每秒获得 {{ format(antimatterPerSec, 2) }} {{ isFlipped ? "正物质" : "反物质" }}。
-      <br>
-      {{ alterText }}游戏速度作用生效前，你每秒获得 {{ format(antimatterPerSecBeforeAlter, 2) }} {{ isFlipped ? "正物质" : "反物质" }}。
+      <span>你每秒获得 {{ format(antimatterPerSec, 2) }} {{ isFlipped ? "正物质" : "反物质" }}。</span>
+      <span>{{ alterText }}游戏速度作用生效前，你每秒获得 {{ format(antimatterPerSecBeforeAlter, 2) }} {{ isFlipped ? "正物质" : "反物质" }}。</span>
     </div>
     <div
       v-if="hasRealityButton && hasSeenAlterations && !inCursedCore"
