@@ -4,6 +4,12 @@ import SupernovaButton from "./SupernovaButton";
 
 export default {
   name: "DivinityContainer",
+  props: {
+    mode: {
+      type: String,
+      default: "both"
+    }
+  },
   components: {
     CondenseButton,
     SupernovaButton
@@ -29,27 +35,17 @@ export default {
 
 <template>
   <div class="c-prestige-row">
-    <div
-      v-if="showContainer"
-      class="c-prestige-button-container"
-    >
-      <div class="c-divine-stars">
-        你拥有
-        <span class="c-game-header__vs-amount">{{ format(divineStars, 2) }}</span>
-        {{ pluralize("神性之星", divineStars) }}。
+    <template v-if="mode === 'both' || mode === 'buttons'">
+      <div v-if="showContainer" class="c-prestige-button-container">
+        <CondenseButton />
       </div>
-      <CondenseButton />
-    </div>
-    <div
-      v-if="showContainer && hasSupernova"
-      class="c-prestige-button-container"
-    >
-      <div class="c-divine-stars">
-        你拥有
-        <span class="c-game-header__neb-amount">{{ format(nebulae, 2) }}</span>
-        {{ pluralize("终结之星", nebulae) }}。
+      <div v-if="showContainer && hasSupernova" class="c-prestige-button-container">
+        <SupernovaButton />
       </div>
-      <SupernovaButton />
+    </template>
+    <div v-if="mode === 'resources'" class="c-mobile-resource-item">
+      <div v-if="showContainer && hasSupernova">你拥有 <span class="c-game-header__neb-amount">{{ format(nebulae, 2) }}</span> 终结之星。</div>
+      <div v-if="showContainer">你拥有 <span class="c-game-header__vs-amount">{{ format(divineStars, 2) }}</span> 神性之星。</div>
     </div>
   </div>
 </template>

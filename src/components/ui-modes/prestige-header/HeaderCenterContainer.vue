@@ -73,29 +73,30 @@ export default {
     v-if="shouldDisplay"
     class="c-prestige-button-container"
   >
-    <div
-      v-if="(mode === 'both' || mode === 'resources') && showEndgame && !inCursedCore"
-    >
+    <div v-if="(mode === 'both' || mode === 'endgame-resources') && showEndgame && !inCursedCore">
       你拥有 <span class="cp-text">{{ format(celestialPoints, 2) }}</span> {{ pluralize("天界点数", celestialPoints) }}。
       你拥有 <span class="dp-text">{{ format(doomedParticles, 2) }}</span> {{ pluralize("毁灭粒子", doomedParticles) }}。
-    <br>
     </div>
-    <span v-if="mode === 'both' || mode === 'resources'">你拥有 <span class="c-game-header__antimatter">{{ format(antimatter, 2, 1) }}</span>{{ isFlipped ? "正物质" : "反物质" }}。</span>
+    <div v-if="(mode === 'both' || mode === 'reality-machines') && hasRealityButton && !inCursedCore">
+      <RealityCurrencyHeader />
+    </div>
+    <div v-if="mode === 'both' || mode === 'antimatter'">
+      你拥有 <span class="c-game-header__antimatter">{{ format(antimatter, 2, 1) }}</span>{{ isFlipped ? "正物质" : "反物质" }}。
+    </div>
     <div
       v-if="(mode === 'both' || mode === 'reality') && hasRealityButton && !inCursedCore"
       class="c-reality-container"
     >
-      <RealityCurrencyHeader />
-      <ArmageddonButton
-        v-if="isDoomed && !hasGalaxyGenerator || !showEndgame && isDoomed"
+      <RealityButton
+        v-if="!isDoomed"
         :is-header="true"
       />
       <EndgameButton
         v-if="hasGalaxyGenerator && showEndgame"
         :is-header="true"
       />
-      <RealityButton
-        v-if="!isDoomed"
+      <ArmageddonButton
+        v-if="isDoomed && !hasGalaxyGenerator || !showEndgame && isDoomed"
         :is-header="true"
       />
     </div>
@@ -105,7 +106,7 @@ export default {
       <HeaderTickspeedInfo />
     </div>
     <div v-if="(mode === 'both' || mode === 'divinity') && showDivine && !inCursedCore">
-      <DivinityContainer />
+      <DivinityContainer :mode="mode === 'both' ? 'both' : 'buttons'" />
     </div>
   </div>
 </template>

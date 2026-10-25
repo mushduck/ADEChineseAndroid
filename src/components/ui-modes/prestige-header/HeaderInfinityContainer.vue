@@ -50,14 +50,9 @@ export default {
       v-if="showContainer && (mode === 'both' || mode === 'normal')"
       class="c-prestige-button-container"
     >
-      <div class="c-infinity-points">
-        你拥有
-        <span class="c-game-header__ip-amount">{{ format(infinityPoints, 2) }}</span>
-        {{ pluralize("无限点数", infinityPoints) }}。
-        <span
-          v-if="isTesseractUnlocked"
-          v-html="tesseractText"
-        />
+      <div v-if="mode === 'both'" class="c-infinity-points">
+        你拥有 <span class="c-game-header__ip-amount">{{ format(infinityPoints, 2) }}</span> {{ pluralize("无限点数", infinityPoints) }}。
+        <span v-if="isTesseractUnlocked" v-html="tesseractText" />
       </div>
       <BigCrunchButton />
     </div>
@@ -65,12 +60,16 @@ export default {
       v-if="showContainer && hasCelestial && (mode === 'both' || mode === 'celestial')"
       class="c-prestige-button-container"
     >
-      <div class="c-infinity-points">
-        你拥有
-        <span class="c-game-header__cip-amount">{{ format(celInfinityPoints, 2) }}</span>
-        {{ pluralize("天界无限点数", celInfinityPoints) }}。
+      <div v-if="mode === 'both'" class="c-infinity-points">
+        你拥有 <span class="c-game-header__cip-amount">{{ format(celInfinityPoints, 2) }}</span> {{ pluralize("天界无限点数", celInfinityPoints) }}。
       </div>
       <CelestialCrunchButton />
+    </div>
+    <div v-if="showContainer && mode === 'celestial-resource'" class="c-mobile-resource-item">
+      <div v-if="hasCelestial">你拥有 <span class="c-game-header__cip-amount">{{ format(celInfinityPoints, 2) }}</span> 天界无限点数。</div>
+    </div>
+    <div v-if="showContainer && mode === 'normal-resource'" class="c-mobile-resource-item">
+      <div>你拥有 <span class="c-game-header__ip-amount">{{ format(infinityPoints, 2) }}</span> 无限点数。</div>
     </div>
   </div>
 </template>

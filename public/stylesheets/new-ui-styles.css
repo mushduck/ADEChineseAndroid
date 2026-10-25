@@ -1350,7 +1350,7 @@ body.t-s12 {
     display: none !important;
   }
 
-  /* Compact Native Prestige Matrix */
+  /* Compact Native Mobile Prestige Matrix */
   .c-mobile-prestige-matrix {
     display: flex !important;
     flex-direction: column !important;
@@ -1361,13 +1361,47 @@ body.t-s12 {
     box-sizing: border-box !important;
   }
 
+  /* Deep Height & Width Reset for All Containers */
+  .c-prestige-button-container,
+  .c-prestige-info-blocks,
+  .c-prestige-info-blocks--tall,
+  .c-prestige-info-blocks--taller,
+  .l-game-header__eternity,
+  .l-game-header__infinity,
+  .l-game-header__center,
+  .l-game-header__center > div,
+  .c-mobile-matrix-col > div,
+  .c-mobile-matrix-row-full > div,
+  .c-reality-container,
+  .l-reality-button,
+  .l-reality-button-column,
+  .l-reality-button-group,
+  .c-prestige-row {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    position: static !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
   .c-mobile-matrix-row {
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between !important;
-    align-items: flex-end !important;
+    align-items: stretch !important;
     width: 100% !important;
     gap: 0.35rem !important;
+    margin: 0 !important;
   }
 
   .c-mobile-matrix-col {
@@ -1378,48 +1412,144 @@ body.t-s12 {
 
   .c-mobile-matrix-row-full {
     width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
   }
 
+  /* Row 4 Divinity Row Full Edge Stretch Fix */
+  .c-mobile-matrix-row-full .c-prestige-row,
+  .c-prestige-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 0.35rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-prestige-row > .c-prestige-button-container,
+  .c-prestige-row > div {
+    flex: 1 1 48% !important;
+    width: 48% !important;
+    max-width: 49% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Consolidated Resources Dashboard Stack (No Extra Box Border) */
   .c-mobile-matrix-resources {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     width: 100% !important;
     text-align: center !important;
-    margin-top: 0.15rem !important;
+    margin-top: 0.25rem !important;
+    gap: 0.08rem !important;
+  }
+
+  .c-mobile-matrix-resources,
+  .c-mobile-matrix-resources *,
+  .c-mobile-resource-item {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    position: static !important;
+  }
+
+  .c-mobile-matrix-resources > div,
+  .c-mobile-matrix-resources .c-prestige-button-container,
+  .c-mobile-matrix-resources .c-prestige-row,
+  .c-mobile-resource-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0.04rem 0 !important;
+  }
+
+  .c-mobile-matrix-resources div,
+  .c-mobile-matrix-resources span {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+  }
+
+  /* Large Bold Resource Number Colors */
+  .c-game-header__antimatter {
+    font-size: 1.35rem !important;
+    font-weight: bold !important;
+    color: var(--color-antimatter, #f15a24) !important;
+  }
+
+  .c-game-header__ip-amount,
+  .c-game-header__cip-amount {
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    color: var(--color-infinity, #b67f33) !important;
+  }
+
+  .c-game-header__ep-amount,
+  .c-game-header__cep-amount {
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    color: var(--color-eternity, #b341e0) !important;
+  }
+
+  .c-reality-tab__reality-machines {
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    color: var(--color-reality, #50e3c2) !important;
+  }
+
+  .c-game-header__vs-amount {
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    color: #e5b128 !important;
+  }
+
+  .cp-text {
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    color: #e2a632 !important;
+  }
+
+  .dp-text {
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    color: #ed143d !important;
   }
 
   .c-prestige-button-container {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: flex-end !important;
+    justify-content: center !important;
     width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    position: static !important;
-    box-sizing: border-box !important;
-    margin: 0 !important;
   }
 
-  .c-prestige-row {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: flex-end !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    gap: 0.35rem !important;
+  /* Hide individual button top floating text in mobile matrix */
+  .c-mobile-prestige-matrix .c-infinity-points,
+  .c-mobile-prestige-matrix .c-eternity-points,
+  .c-mobile-prestige-matrix .c-divine-stars,
+  .c-mobile-prestige-matrix .l-game-header__infinity-points,
+  .c-mobile-prestige-matrix .l-game-header__eternity-points {
+    display: none !important;
   }
 
-  .c-prestige-row > div {
-    flex: 1 1 48% !important;
-    width: 48% !important;
-    max-width: 50% !important;
-    height: auto !important;
-    min-height: 0 !important;
-  }
-
-  /* Equal size for all 2-column buttons: 3.4rem */
+  /* Solid Action Buttons: 3.8rem Height */
   .c-mobile-prestige-matrix .c-prestige-button-container button,
   .c-mobile-prestige-matrix .o-prestige-button,
   .c-mobile-prestige-matrix .btn-big-crunch,
@@ -1432,99 +1562,79 @@ body.t-s12 {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
-    height: 3.4rem !important;
-    min-height: 3.4rem !important;
-    max-height: 3.4rem !important;
-    font-size: 0.72rem !important;
-    line-height: 1.2 !important;
-    padding: 0.2rem 0.3rem !important;
+    height: 3.8rem !important;
+    min-height: 3.8rem !important;
+    max-height: 3.8rem !important;
+    font-size: 0.85rem !important;
+    font-weight: bold !important;
+    line-height: 1.25 !important;
+    padding: 0.35rem 0.4rem !important;
     margin: 0 !important;
     box-sizing: border-box !important;
-    border-radius: 4px !important;
+    border-radius: 6px !important;
     transform: none !important;
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
+    white-space: nowrap !important;
   }
 
-  /* Reality Button Single Row: compact 3.2rem */
-  .c-reality-container {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    position: static !important;
-    margin: 0.1rem 0 !important;
+  .c-mobile-prestige-matrix .o-eternity-button br,
+  .c-mobile-prestige-matrix .o-celestial-eternity-button br,
+  .c-mobile-prestige-matrix .o-prestige-button br {
+    display: none !important;
   }
 
-  .c-reality-currency {
-    font-size: 0.72rem !important;
-    margin-bottom: 0.1rem !important;
-    text-align: center !important;
+  .c-mobile-prestige-matrix .o-eternity-button *,
+  .c-mobile-prestige-matrix .o-celestial-eternity-button * {
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+    white-space: nowrap !important;
   }
 
+  /* Reality Button Single Row */
+  .c-reality-container,
   .l-reality-button,
   .l-reality-button-column,
   .l-reality-button-group {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    min-height: 3.2rem !important;
     position: static !important;
     box-sizing: border-box !important;
     margin: 0 !important;
+  }
+
+  .c-reality-currency {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.08rem !important;
+    text-align: center !important;
   }
 
   .c-reality-button {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    min-height: 3.2rem !important;
-    padding: 0.25rem 0.5rem !important;
-    font-size: 0.74rem !important;
+    min-height: 3.8rem !important;
+    padding: 0.35rem 0.5rem !important;
+    font-size: 0.85rem !important;
     position: static !important;
     box-sizing: border-box !important;
+    border-radius: 6px !important;
   }
 
   .c-reality-button__header {
-    font-size: 0.85rem !important;
+    font-size: 0.95rem !important;
     font-weight: bold !important;
-  }
-
-  /* Points Text: Compact & tight above buttons */
-  .c-infinity-points,
-  .c-eternity-points,
-  .c-divine-stars,
-  .l-game-header__infinity-points,
-  .l-game-header__eternity-points {
-    position: static !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    font-size: 0.62rem !important;
-    line-height: 1.15 !important;
-    margin: 0 0 0.1rem 0 !important;
-    padding: 0 !important;
-    text-align: center !important;
-    white-space: normal !important;
-  }
-
-  .c-game-header__antimatter {
-    font-size: 1.15rem !important;
-    line-height: 1.25 !important;
-  }
-
-  .cp-text, .dp-text {
-    font-size: 0.72rem !important;
   }
 
   .c-production-text,
   .c-prevent-overflow {
-    font-size: 0.62rem !important;
+    font-size: 0.68rem !important;
     line-height: 1.25 !important;
     color: #aaaaaa !important;
-    margin: 0.15rem 0 !important;
+    margin: 0.1rem 0 !important;
     padding: 0 0.4rem !important;
     text-align: center !important;
     width: 100% !important;
@@ -1546,35 +1656,53 @@ body.t-s12 {
   }
 
   .information-header {
-    margin-top: 0.25rem !important;
-    margin-bottom: 0.25rem !important;
-    padding-bottom: 0.15rem !important;
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.2rem !important;
+    padding-bottom: 0.1rem !important;
     text-align: center !important;
   }
 
-  /* Black Hole Flow */
+  /* Black Hole Precise Outer-Span Dissolve Only */
   .c-black-hole-header {
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
+    flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
-    margin: 0.25rem auto !important;
-    gap: 0.25rem !important;
+    margin: 0.2rem auto !important;
+    gap: 0.15rem !important;
     overflow: visible !important;
   }
 
-  .c-black-hole-header > span {
-    display: contents !important;
+  .c-black-hole-header > span:first-child {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0.15rem !important;
+  }
+
+  .c-black-hole-status-text {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    font-size: 0.68rem !important;
+    flex: 0 0 auto !important;
+    margin: 0 0.15rem !important;
+  }
+
+  .c-black-hole-status-text * {
+    display: inline !important;
+    white-space: nowrap !important;
   }
 
   .c-black-hole-header .c-primary-btn--black-hole-header {
-    height: 2.1rem !important;
-    min-height: 2.1rem !important;
+    height: 1.85rem !important;
+    min-height: 1.85rem !important;
     padding: 0.15rem 0.45rem !important;
-    font-size: 0.72rem !important;
-    line-height: 2.1rem !important;
+    font-size: 0.68rem !important;
+    line-height: 1.85rem !important;
     white-space: nowrap !important;
     width: auto !important;
     min-width: 0 !important;
@@ -1584,11 +1712,11 @@ body.t-s12 {
     border-radius: 4px !important;
   }
 
-  .c-black-hole-status-text {
-    font-size: 0.72rem !important;
-    white-space: nowrap !important;
-    flex: 0 1 auto !important;
-    margin: 0 0.2rem !important;
+  .c-black-hole-header > span:last-child {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 0.1rem !important;
   }
 
   /* Tickspeed Section */
@@ -1711,8 +1839,6 @@ body.t-s12 {
     min-width: 8rem !important;
     height: 2.85rem !important;
     padding: 0.1rem 0.2rem !important;
-    font-size: 0.8rem !important;
-    line-height: 1.2 !important;
     box-sizing: border-box !important;
   }
 

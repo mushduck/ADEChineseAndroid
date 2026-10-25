@@ -60,18 +60,10 @@ export default {
       v-if="showContainer && (mode === 'both' || mode === 'normal')"
       class="c-prestige-button-container"
     >
-      <div
-        v-if="showEP"
-        class="c-eternity-points"
-      >
-        你拥有
-        <span class="c-game-header__ep-amount">{{ format(eternityPoints, 2) }}</span>
-        {{ pluralize("永恒点数", eternityPoints) }}。
+      <div v-if="mode === 'both' && showEP" class="c-eternity-points">
+        你拥有 <span class="c-game-header__ep-amount">{{ format(eternityPoints, 2) }}</span> {{ pluralize("永恒点数", eternityPoints) }}。
         <span v-if="showNextEP">（下一个永恒点数需要 {{ format(nextEP, 1) }} 无限点数）</span>
-        <span
-          v-if="isPenteractUnlocked"
-          v-html="penteractText"
-        />
+        <span v-if="isPenteractUnlocked" v-html="penteractText" />
       </div>
       <UnlockInfinityDimButton />
       <EternityButton />
@@ -80,12 +72,16 @@ export default {
       v-if="showContainer && hasCelestial && (mode === 'both' || mode === 'celestial')"
       class="c-prestige-button-container"
     >
-      <div class="c-eternity-points">
-        你拥有
-        <span class="c-game-header__cep-amount">{{ format(celEternityPoints, 2) }}</span>
-        {{ pluralize("天界永恒点数", celEternityPoints) }}。
+      <div v-if="mode === 'both'" class="c-eternity-points">
+        你拥有 <span class="c-game-header__cep-amount">{{ format(celEternityPoints, 2) }}</span> {{ pluralize("天界永恒点数", celEternityPoints) }}。
       </div>
       <CelestialEternityButton />
+    </div>
+    <div v-if="showContainer && mode === 'celestial-resource'" class="c-mobile-resource-item">
+      <div v-if="hasCelestial">你拥有 <span class="c-game-header__cep-amount">{{ format(celEternityPoints, 2) }}</span> 天界永恒点数。</div>
+    </div>
+    <div v-if="showContainer && mode === 'normal-resource'" class="c-mobile-resource-item">
+      <div v-if="showEP">你拥有 <span class="c-game-header__ep-amount">{{ format(eternityPoints, 2) }}</span> 永恒点数。</div>
     </div>
   </div>
 </template>

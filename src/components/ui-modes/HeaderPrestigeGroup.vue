@@ -2,10 +2,12 @@
 import HeaderCenterContainer from "./prestige-header/HeaderCenterContainer";
 import HeaderEternityContainer from "./prestige-header/HeaderEternityContainer";
 import HeaderInfinityContainer from "./prestige-header/HeaderInfinityContainer";
+import DivinityContainer from "./prestige-header/DivinityContainer";
 
 export default {
   name: "HeaderPrestigeGroup",
   components: {
+    DivinityContainer,
     HeaderCenterContainer,
     HeaderEternityContainer,
     HeaderInfinityContainer,
@@ -73,33 +75,40 @@ export default {
 
 <template>
   <div>
-    <!-- Mobile Native 4-Row Matrix -->
+    <!-- Native Mobile 4-Row Matrix & Perfect Resource Hierarchy Stack -->
     <div v-if="isMobile" class="c-mobile-prestige-matrix">
-      <!-- Row 1: Left Infinity + Right Eternity -->
+      <!-- Row 1: Normal Infinity (L) + Normal Eternity (R) -->
       <div class="c-mobile-matrix-row">
         <HeaderInfinityContainer mode="normal" class="c-mobile-matrix-col" />
         <HeaderEternityContainer mode="normal" class="c-mobile-matrix-col" />
       </div>
 
-      <!-- Row 2: Reality Full Line -->
+      <!-- Row 2: Reality Full Width -->
       <div class="c-mobile-matrix-row-full">
         <HeaderCenterContainer mode="reality" />
       </div>
 
-      <!-- Row 3: Left Celestial Infinity + Right Celestial Eternity -->
+      <!-- Row 3: Celestial Infinity (L) + Celestial Eternity (R) -->
       <div class="c-mobile-matrix-row">
         <HeaderInfinityContainer mode="celestial" class="c-mobile-matrix-col" />
         <HeaderEternityContainer mode="celestial" class="c-mobile-matrix-col" />
       </div>
 
-      <!-- Row 4: Left Condense + Right Supernova -->
+      <!-- Row 4: Condense (L) + Supernova (R) -->
       <div class="c-mobile-matrix-row-full">
         <HeaderCenterContainer mode="divinity" />
       </div>
 
-      <!-- Row 5: Resources Below Buttons -->
+      <!-- Row 5: Exact Hierarchical Resource Stack Below Buttons -->
       <div class="c-mobile-matrix-resources">
-        <HeaderCenterContainer mode="resources" />
+        <HeaderCenterContainer mode="endgame-resources" />
+        <DivinityContainer mode="resources" />
+        <HeaderEternityContainer mode="celestial-resource" />
+        <HeaderInfinityContainer mode="celestial-resource" />
+        <HeaderCenterContainer mode="reality-machines" />
+        <HeaderEternityContainer mode="normal-resource" />
+        <HeaderInfinityContainer mode="normal-resource" />
+        <HeaderCenterContainer mode="antimatter" />
       </div>
     </div>
 
