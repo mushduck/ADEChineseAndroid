@@ -2117,3 +2117,19 @@ body.t-s12 {
     flex-shrink: 0 !important;
   }
 }
+
+/* === MOBILE TOP GAP BALANCED FIX === */
+@media (max-width: 768px) {
+  body,
+  body.t-normal,
+  body.t-s9,
+  body.t-s12 {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  .c-news-ticker {
+    padding-top: 8px !important;
+    padding-bottom: 2px !important;
+    margin-top: 0 !important;
+  }
+}
