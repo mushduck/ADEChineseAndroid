@@ -77,10 +77,11 @@ export default {
       你拥有 <span class="cp-text">{{ format(celestialPoints, 2) }}</span> {{ pluralize("天界点数", celestialPoints) }}。
       你拥有 <span class="dp-text">{{ format(doomedParticles, 2) }}</span> {{ pluralize("毁灭粒子", doomedParticles) }}。
     </div>
-    <div v-if="(mode === 'both' || mode === 'reality-machines') && hasRealityButton && !inCursedCore">
+    <div v-if="(mode === 'both' || mode === 'reality-machines') && hasRealityButton && !inCursedCore"><div class="c-mobile-rm-row">
       <RealityCurrencyHeader />
     </div>
-    <div v-if="mode === 'both' || mode === 'antimatter'">
+    </div>
+    <div v-if="mode === 'both' || mode === 'antimatter'" class="c-mobile-antimatter-row">
       你拥有 <span class="c-game-header__antimatter">{{ format(antimatter, 2, 1) }}</span>{{ isFlipped ? "正物质" : "反物质" }}。
     </div>
     <div

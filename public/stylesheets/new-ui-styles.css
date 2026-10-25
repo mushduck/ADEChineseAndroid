@@ -1985,3 +1985,135 @@ body.t-s12 {
     box-sizing: border-box !important;
   }
 }
+
+
+/* === MOBILE RESOURCE FONT BALANCE FIX === */
+@media (max-width: 768px) {
+  .c-mobile-matrix-resources .c-game-header__antimatter,
+  .c-game-header__antimatter {
+    font-size: 1.55rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.02rem !important;
+  }
+  .c-mobile-matrix-resources .c-mobile-antimatter-row,
+  .c-mobile-antimatter-row {
+    font-size: 1.15rem !important;
+    margin: 0.15rem 0 0.25rem 0 !important;
+  }
+  .c-mobile-matrix-resources .c-mobile-rm-row,
+  .c-mobile-matrix-resources .c-reality-currency,
+  .c-mobile-matrix-resources .c-reality-currency *,
+  .c-reality-currency,
+  .c-reality-currency * {
+    font-size: 1.1rem !important;
+    line-height: 1.35 !important;
+  }
+  .c-mobile-matrix-resources .cp-text,
+  .c-mobile-matrix-resources .dp-text,
+  .c-mobile-matrix-resources .c-game-header__neb-amount,
+  .c-mobile-matrix-resources .c-game-header__vs-amount {
+    font-size: 1.02rem !important;
+    font-weight: 600 !important;
+  }
+}
+
+
+/* === MOBILE ANDROID REPLICA: SAME ROW & GAP FIX === */
+@media (max-width: 768px) {
+  .c-game-header br,
+  .c-mobile-matrix-resources br,
+  .c-gamespeed + br,
+  div > br {
+    display: none !important;
+  }
+  .l-game-header__challenge-text {
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0.08rem 0 !important;
+    padding: 0 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.25 !important;
+  }
+  .l-challenge-display {
+    padding: 0.1rem 0.2rem !important;
+  }
+  .c-gamespeed {
+    display: block !important;
+    margin: 0.08rem 0 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.25 !important;
+  }
+  .c-mobile-matrix-resources > div,
+  .c-mobile-antimatter-row,
+  .c-mobile-rm-row,
+  .c-mobile-resource-item {
+    margin: 0.04rem 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  .c-mobile-matrix-resources .c-game-header__ep-amount,
+  .c-mobile-matrix-resources .c-game-header__ip-amount,
+  .c-mobile-matrix-resources .c-game-header__cep-amount,
+  .c-mobile-matrix-resources .c-game-header__cip-amount,
+  .c-game-header__ep-amount,
+  .c-game-header__ip-amount {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+  }
+  .c-mobile-matrix-resources .c-infinity-points,
+  .c-mobile-matrix-resources .c-eternity-points,
+  .c-mobile-matrix-resources .c-mobile-resource-item {
+    font-size: 1.02rem !important;
+  }
+
+  .c-black-hole-header {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.15rem 0.2rem !important;
+    margin: 0.1rem 0 !important;
+    scrollbar-width: none !important;
+  }
+  .c-black-hole-header::-webkit-scrollbar {
+    display: none !important;
+  }
+  .c-black-hole-header > span {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+  .c-black-hole-header .c-primary-btn--black-hole-header,
+  .c-black-hole-header .o-toggle-btn,
+  .c-black-hole-header .o-discharge-btn {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 0.2rem 0.45rem !important;
+    margin: 0 0.15rem !important;
+    font-size: 0.78rem !important;
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+  }
+  .c-black-hole-header .c-black-hole-status-text {
+    margin: 0 0.25rem !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+}
