@@ -95,7 +95,7 @@ export default {
       </div>
 
       <!-- Row 4: Condense (L) + Supernova (R) -->
-      <div class="c-mobile-matrix-row-full">
+      <div class="c-mobile-matrix-row-full c-mobile-matrix-row-4">
         <HeaderCenterContainer mode="divinity" />
       </div>
 

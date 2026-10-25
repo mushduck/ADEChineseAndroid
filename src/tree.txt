@@ -1,0 +1,1136 @@
+卷 Windows 的文件夹 PATH 列表
+卷序列号为 00000081 0AA2:4B76
+C:.
+|   commit-watcher.js
+|   env.js
+|   game.js
+|   main.js
+|   merge-globals.js
+|   shims.js
+|   supported-browsers.js
+|   tree.txt
+|   
++---components
+|   |   BackgroundAnimations.vue
+|   |   BlobBackground.vue
+|   |   BlobSnowflake.vue
+|   |   BlobSnowflakes.vue
+|   |   ButtonCycle.vue
+|   |   CelestialQuoteHistory.vue
+|   |   ChallengeBox.vue
+|   |   ChallengeGrid.vue
+|   |   ChallengeGridCell.vue
+|   |   ChallengeTabHeader.vue
+|   |   CostDisplay.vue
+|   |   CreditsDisplay.vue
+|   |   CustomizeableTooltip.vue
+|   |   DescriptionDisplay.vue
+|   |   EffectDisplay.vue
+|   |   EndgameCreditsDisplay.vue
+|   |   EternityPointsHeader.vue
+|   |   ExpandingControlBox.vue
+|   |   GameSpeedDisplay.vue
+|   |   GameUIComponent.vue
+|   |   GameUiComponentFixed.vue
+|   |   GenericDimensionRowText.vue
+|   |   GlyphComponent.vue
+|   |   GlyphSetName.vue
+|   |   GlyphSetPreview.vue
+|   |   GlyphTooltip.vue
+|   |   GlyphTooltipEffect.vue
+|   |   HintText.vue
+|   |   HowToPlay.vue
+|   |   InfinityPointsHeader.vue
+|   |   InfinityUpgradeButton.vue
+|   |   ModalOptionsToggleButton.vue
+|   |   OfflineSpeedupButton.vue
+|   |   OpenModalHotkeysButton.vue
+|   |   OptionsButton.vue
+|   |   PlusMinusButton.vue
+|   |   PrimaryButton.vue
+|   |   PrimaryToggleButton.vue
+|   |   RealityCurrencyHeader.vue
+|   |   RestartEndgameUpdateDisplay.vue
+|   |   SaveTimer.vue
+|   |   SliderComponent.vue
+|   |   SpectateGame.vue
+|   |   SpeedrunStatus.vue
+|   |   ToggleButton.vue
+|   |   
+|   +---modals
+|   |   |   AutobuyerEditModal.vue
+|   |   |   AutomatorScriptTemplate.vue
+|   |   |   AwayProgressEntry.vue
+|   |   |   AwayProgressModal.vue
+|   |   |   BreakCelestialInfinityModal.vue
+|   |   |   BreakEternityModal.vue
+|   |   |   BreakInfinityModal.vue
+|   |   |   ChangelogModal.vue
+|   |   |   ChangeNameModal.vue
+|   |   |   ClearConstantsModal.vue
+|   |   |   CreditsModal.vue
+|   |   |   DeleteAutomatorScriptModal.vue
+|   |   |   EnslavedHintsModal.vue
+|   |   |   GlyphSetSaveDeleteModal.vue
+|   |   |   GlyphShowcasePanelEntry.vue
+|   |   |   GlyphShowcasePanelModal.vue
+|   |   |   H2PModal.vue
+|   |   |   ImportAutomatorDataModal.vue
+|   |   |   ImportFilterModal.vue
+|   |   |   ImportFilterSingleType.vue
+|   |   |   ImportSaveModal.vue
+|   |   |   ImportTimeStudyConstants.vue
+|   |   |   InformationModal.vue
+|   |   |   InformationModalButton.vue
+|   |   |   LoadGameEntry.vue
+|   |   |   LoadGameModal.vue
+|   |   |   MasteryStringLine.vue
+|   |   |   MasteryStringModal.vue
+|   |   |   MasteryTreeInfo.vue
+|   |   |   MessageModal.vue
+|   |   |   ModalCloseButton.vue
+|   |   |   ModalConfirmationCheck.vue
+|   |   |   ModalProgressBar.vue
+|   |   |   ModalWrapper.vue
+|   |   |   ModalWrapperChoice.vue
+|   |   |   ModifySeedModal.vue
+|   |   |   PelleEffectsModal.vue
+|   |   |   PopupModal.vue
+|   |   |   RealityGlyphCreationModal.vue
+|   |   |   ReplaceGlyphModal.vue
+|   |   |   RespecIAPModal.vue
+|   |   |   SacrificeModal.vue
+|   |   |   SingularityMilestonesModal.vue
+|   |   |   SlabdrillEffectsModal.vue
+|   |   |   SpeedrunModeModal.vue
+|   |   |   StdStoreModal.vue
+|   |   |   StdStoreRow.vue
+|   |   |   StudyStringLine.vue
+|   |   |   StudyStringModal.vue
+|   |   |   StudyTreeInfo.vue
+|   |   |   SwitchAutomatorEditorModal.vue
+|   |   |   UiChoiceModal.vue
+|   |   |   UndoGlyphModal.vue
+|   |   |   UpgradeMechanicLockModal.vue
+|   |   |   UsernameModal.vue
+|   |   |   
+|   |   +---catchup
+|   |   |       CatchupEntry.vue
+|   |   |       CatchupGroup.vue
+|   |   |       CatchupModal.vue
+|   |   |       
+|   |   +---celestial-quotes
+|   |   |   |   CelestialQuoteBackground.vue
+|   |   |   |   CelestialQuoteHistoryDisplay.vue
+|   |   |   |   CelestialQuoteLine.vue
+|   |   |   |   CelestialQuoteModal.vue
+|   |   |   |   
+|   |   |   \---templates
+|   |   |           CelestialQuoteLineBasicInteractable.vue
+|   |   |           
+|   |   +---challenges
+|   |   |       EternityChallengeStartModal.vue
+|   |   |       InfinityChallengeStartModal.vue
+|   |   |       NormalChallengeStartModal.vue
+|   |   |       
+|   |   +---cloud
+|   |   |       CloudInvalidDataModal.vue
+|   |   |       CloudLoadConflictModal.vue
+|   |   |       CloudSaveConflictModal.vue
+|   |   |       SaveInfoEntry.vue
+|   |   |       
+|   |   +---endgame-mastery-modal-preview
+|   |   |       MasteryStringPreview.vue
+|   |   |       PseudoEndgameMasteryButton.vue
+|   |   |       PseudoEndgameMasteryConnection.vue
+|   |   |       
+|   |   +---glyph-management
+|   |   |       DeleteCompanionGlyphModal.vue
+|   |   |       DeleteGlyphModal.vue
+|   |   |       PurgeAllRejectedGlyphsModal.vue
+|   |   |       PurgeAllUnprotectedGlyphsModal.vue
+|   |   |       PurgeGlyphModal.vue
+|   |   |       RefineGlyphModal.vue
+|   |   |       SacrificeGlyphModal.vue
+|   |   |       
+|   |   +---options
+|   |   |   |   AnimationOptionsModal.vue
+|   |   |   |   AwayProgressOptionsEntry.vue
+|   |   |   |   AwayProgressOptionsModal.vue
+|   |   |   |   BackupEntry.vue
+|   |   |   |   BackupWindowModal.vue
+|   |   |   |   ConfirmationOptionsEntry.vue
+|   |   |   |   ConfirmationOptionsModal.vue
+|   |   |   |   HotkeysModal.vue
+|   |   |   |   InfoDisplayOptionsModal.vue
+|   |   |   |   ModalWrapperOptions.vue
+|   |   |   |   NewsOptionsModal.vue
+|   |   |   |   NotationModal.vue
+|   |   |   |   PreferredMasteryTreeModal.vue
+|   |   |   |   PreferredTreeModal.vue
+|   |   |   |   SelectGlyphInfoDropdown.vue
+|   |   |   |   
+|   |   |   +---glyph-appearance
+|   |   |   |       CosmeticSetChoiceModal.vue
+|   |   |   |       CosmeticSetDropdown.vue
+|   |   |   |       GlyphCustomization.vue
+|   |   |   |       GlyphCustomizationSingleType.vue
+|   |   |   |       GlyphCustomizationSlidingWindow.vue
+|   |   |   |       GlyphDisplayOptionsModal.vue
+|   |   |   |       SingleGlyphAppearanceModal.vue
+|   |   |   |       
+|   |   |   \---hidden-tabs
+|   |   |           HiddenSubtabsButton.vue
+|   |   |           HiddenTabGroup.vue
+|   |   |           HiddenTabsModal.vue
+|   |   |           
+|   |   +---prestige
+|   |   |       AntimatterGalaxyModal.vue
+|   |   |       ArmageddonModal.vue
+|   |   |       BigCrunchModal.vue
+|   |   |       CelestialCrunchModal.vue
+|   |   |       CelestialEternityModal.vue
+|   |   |       DimensionBoostModal.vue
+|   |   |       EnterCelestialsModal.vue
+|   |   |       EnterCelestialsRaPet.vue
+|   |   |       EnterCompressionModal.vue
+|   |   |       EnterCursedCoreModal.vue
+|   |   |       EnterDilationModal.vue
+|   |   |       EnterOverchargeModal.vue
+|   |   |       EnterUniverseModal.vue
+|   |   |       EternityModal.vue
+|   |   |       ExitChallengeModal.vue
+|   |   |       ExitCompressionModal.vue
+|   |   |       ExitCursedCoreModal.vue
+|   |   |       ExitDilationModal.vue
+|   |   |       ExitTheCurseModal.vue
+|   |   |       HardResetModal.vue
+|   |   |       RealityModal.vue
+|   |   |       RealityWarpModal.vue
+|   |   |       ReplicantiGalaxyModal.vue
+|   |   |       ResetEndgameModal.vue
+|   |   |       ResetModal.vue
+|   |   |       ResetRealityModal.vue
+|   |   |       TrueEscapeModal.vue
+|   |   |       
+|   |   +---secret-themes
+|   |   |       s12-games.js
+|   |   |       S12GameEntries.vue
+|   |   |       S12GamesModal.vue
+|   |   |       
+|   |   \---time-study-modal-preview
+|   |           PseudoTimeStudyButton.vue
+|   |           PseudoTimeStudyConnection.vue
+|   |           StudyStringPreview.vue
+|   |           
+|   +---tabs
+|   |   |   index.js
+|   |   |   
+|   |   +---alchemy
+|   |   |       alchemy-circle-layout.js
+|   |   |       AlchemyCircleNode.vue
+|   |   |       AlchemyResourceArc.vue
+|   |   |       AlchemyResourceInfo.vue
+|   |   |       AlchemyTab.vue
+|   |   |       
+|   |   +---antimatter-dimensions
+|   |   |       AntimatterDimensionProgressBar.vue
+|   |   |       AntimatterDimensionsTab.vue
+|   |   |       ClassicAntimatterDimensionRow.vue
+|   |   |       ClassicAntimatterDimensionsTab.vue
+|   |   |       ClassicAntimatterDimensionsTabHeader.vue
+|   |   |       ClassicAntimatterGalaxyRow.vue
+|   |   |       ClassicDimensionBoostRow.vue
+|   |   |       ModernAntimatterDimensionRow.vue
+|   |   |       ModernAntimatterDimensionsTab.vue
+|   |   |       ModernAntimatterGalaxyRow.vue
+|   |   |       ModernDimensionBoostRow.vue
+|   |   |       TickspeedRow.vue
+|   |   |       
+|   |   +---ascension
+|   |   |       AscensionRow.vue
+|   |   |       AscensionTab.vue
+|   |   |       
+|   |   +---autobuyers
+|   |   |       AutobuyerBox.vue
+|   |   |       AutobuyerDropdownEntry.vue
+|   |   |       AutobuyerGroupToggleLabel.vue
+|   |   |       AutobuyerInput.vue
+|   |   |       AutobuyerIntervalButton.vue
+|   |   |       AutobuyerIntervalLabel.vue
+|   |   |       AutobuyerModeButton.vue
+|   |   |       AutobuyerSingleToggleLabel.vue
+|   |   |       AutobuyersTab.vue
+|   |   |       AutobuyerToggleLabel.vue
+|   |   |       AutobuyerToggles.vue
+|   |   |       BigCrunchAutobuyerBox.vue
+|   |   |       BulkSingularityAutobuyerBox.vue
+|   |   |       CelestialCrunchAutobuyerBox.vue
+|   |   |       CelestialDimensionBoostAutobuyerBox.vue
+|   |   |       CelestialEternityAutobuyerBox.vue
+|   |   |       CelestialGalaxyAutobuyerBox.vue
+|   |   |       CelestialTickspeedAutobuyerBox.vue
+|   |   |       DimensionAutobuyerBox.vue
+|   |   |       DimensionBoostAutobuyerBox.vue
+|   |   |       DimensionBulkButton.vue
+|   |   |       EndgameAutobuyerBox.vue
+|   |   |       EternityAutobuyerBox.vue
+|   |   |       GalaxyAutobuyerBox.vue
+|   |   |       MultipleAutobuyersBox.vue
+|   |   |       MultipleSingleAutobuyersGroup.vue
+|   |   |       RealityAutobuyerBox.vue
+|   |   |       SimpleAutobuyersMultiBox.vue
+|   |   |       SingleAutobuyerBox.vue
+|   |   |       SingleAutobuyerInRow.vue
+|   |   |       TickspeedAutobuyerBox.vue
+|   |   |       
+|   |   +---automator
+|   |   |       AutomatorBlockEditor.vue
+|   |   |       AutomatorBlocks.vue
+|   |   |       AutomatorBlockSingleInput.vue
+|   |   |       AutomatorBlockSingleRow.vue
+|   |   |       AutomatorButton.vue
+|   |   |       AutomatorControls.vue
+|   |   |       AutomatorDataTransferPage.vue
+|   |   |       AutomatorDataTransferSingleEntry.vue
+|   |   |       AutomatorDefinePage.vue
+|   |   |       AutomatorDefineSingleEntry.vue
+|   |   |       AutomatorDocs.vue
+|   |   |       AutomatorDocsCommandList.vue
+|   |   |       AutomatorDocsIntroPage.vue
+|   |   |       AutomatorDocsManPage.vue
+|   |   |       AutomatorDocsTemplateList.vue
+|   |   |       AutomatorEditor.vue
+|   |   |       AutomatorErrorPage.vue
+|   |   |       AutomatorEventLog.vue
+|   |   |       AutomatorModeSwitch.vue
+|   |   |       AutomatorPointsList.vue
+|   |   |       AutomatorScriptDropdownEntryList.vue
+|   |   |       AutomatorTab.vue
+|   |   |       AutomatorTextEditor.vue
+|   |   |       
+|   |   +---black-hole
+|   |   |       black-hole-animation.js
+|   |   |       BlackHoleChargingSliders.vue
+|   |   |       BlackHoleStateRow.vue
+|   |   |       BlackHoleTab.vue
+|   |   |       BlackHoleUnlockButton.vue
+|   |   |       BlackHoleUpgradeButton.vue
+|   |   |       BlackHoleUpgradeRow.vue
+|   |   |       
+|   |   +---break-eternity
+|   |   |       BreakEternityButton.vue
+|   |   |       BreakEternityTab.vue
+|   |   |       BreakEternityUpgradeButton.vue
+|   |   |       
+|   |   +---break-infinity
+|   |   |       BreakInfinityButton.vue
+|   |   |       BreakInfinityTab.vue
+|   |   |       
+|   |   +---celestial-alpha
+|   |   |       AlphaTab.vue
+|   |   |       
+|   |   +---celestial-dimension-expansion
+|   |   |       CelestialBreakInfinityButton.vue
+|   |   |       CelestialBreakInfinityTab.vue
+|   |   |       CelestialEternityPlusUpgradesTab.vue
+|   |   |       CelestialEternityUpgradeButton.vue
+|   |   |       CelestialEternityUpgradesTab.vue
+|   |   |       CelestialInfinityUpgradeButton.vue
+|   |   |       CelestialInfinityUpgradesTab.vue
+|   |   |       CEPMultiplierButton.vue
+|   |   |       CIPMultiplierButton.vue
+|   |   |       
+|   |   +---celestial-dimensions
+|   |   |       CelestialDimensionsTab.vue
+|   |   |       CelestialTickspeedRow.vue
+|   |   |       ClassicCelestialDimensionBoostRow.vue
+|   |   |       ClassicCelestialDimensionRow.vue
+|   |   |       ClassicCelestialDimensionTab.vue
+|   |   |       ClassicCelestialGalaxyRow.vue
+|   |   |       ModernCelestialDimensionBoostRow.vue
+|   |   |       ModernCelestialDimensionRow.vue
+|   |   |       ModernCelestialDimensionTab.vue
+|   |   |       ModernCelestialGalaxyRow.vue
+|   |   |       
+|   |   +---celestial-effarig
+|   |   |       EffarigRunUnlockReward.vue
+|   |   |       EffarigTab.vue
+|   |   |       EffarigUnlockButton.vue
+|   |   |       
+|   |   +---celestial-enslaved
+|   |   |       EnslavedTab.vue
+|   |   |       
+|   |   +---celestial-laitela
+|   |   |       AnnihilationButton.vue
+|   |   |       DarkMatterDimensionGroup.vue
+|   |   |       DarkMatterDimensionRow.vue
+|   |   |       HadronsPane.vue
+|   |   |       LaitelaAutobuyerPane.vue
+|   |   |       LaitelaRunButton.vue
+|   |   |       LaitelaTab.vue
+|   |   |       SingularityMilestoneComponent.vue
+|   |   |       SingularityMilestonePane.vue
+|   |   |       SingularityPane.vue
+|   |   |       
+|   |   +---celestial-navigation
+|   |   |       CelestialNavigationTab.vue
+|   |   |       NodeBackground.vue
+|   |   |       NodeOverlay.vue
+|   |   |       NodeRing.vue
+|   |   |       ProgressConnector.vue
+|   |   |       svg-ring-path.js
+|   |   |       
+|   |   +---celestial-pelle
+|   |   |       ArmageddonButton.vue
+|   |   |       CreditsContainer.vue
+|   |   |       FadeAway.vue
+|   |   |       NewGame.vue
+|   |   |       PelleAchievementUpgrade.vue
+|   |   |       PelleAlchemyUpgrade.vue
+|   |   |       PelleBarPanel.vue
+|   |   |       PelleCelestialUpgrade.vue
+|   |   |       PelleDestructionTab.vue
+|   |   |       PelleDestructionUpgrade.vue
+|   |   |       PelleGalaxyGeneratorPanel.vue
+|   |   |       PelleImaginaryUpgrade.vue
+|   |   |       PellePerkUpgrade.vue
+|   |   |       PelleRealityUpgrade.vue
+|   |   |       PelleRift.vue
+|   |   |       PelleRiftBar.vue
+|   |   |       PelleStrike.vue
+|   |   |       PelleStrikeUpgrade.vue
+|   |   |       PelleTab.vue
+|   |   |       PelleUpgrade.vue
+|   |   |       PelleUpgradePanel.vue
+|   |   |       RemnantGainFactor.vue
+|   |   |       
+|   |   +---celestial-ra
+|   |   |       RaPet.vue
+|   |   |       RaPetLevelBar.vue
+|   |   |       RaPetRemembranceButton.vue
+|   |   |       RaTab.vue
+|   |   |       RaUpgradeIcon.vue
+|   |   |       
+|   |   +---celestial-slabdrill
+|   |   |       SlabdrillStrike.vue
+|   |   |       SlabdrillTab.vue
+|   |   |       
+|   |   +---celestial-teresa
+|   |   |       PerkShopUpgradeButton.vue
+|   |   |       TeresaTab.vue
+|   |   |       
+|   |   +---celestial-v
+|   |   |       VTab.vue
+|   |   |       VUnlockRequirement.vue
+|   |   |       VUpgradeButton.vue
+|   |   |       
+|   |   +---challenge-records
+|   |   |       ChallengeRecordsList.vue
+|   |   |       ChallengeRecordsTab.vue
+|   |   |       
+|   |   +---divine-dimensions
+|   |   |       ClassicDivineDimensionRow.vue
+|   |   |       ClassicDivineDimensionTab.vue
+|   |   |       DivineDimensionsTab.vue
+|   |   |       ModernDivineDimensionRow.vue
+|   |   |       ModernDivineDimensionTab.vue
+|   |   |       
+|   |   +---divinity-milestones
+|   |   |       DivinityMilestoneButton.vue
+|   |   |       DivinityMilestonesTab.vue
+|   |   |       
+|   |   +---divinity-upgrades
+|   |   |       DivinityUpgradeButton.vue
+|   |   |       DivinityUpgradesTab.vue
+|   |   |       
+|   |   +---duality-upgrades
+|   |   |       DualityUpgradeButton.vue
+|   |   |       DualityUpgradesTab.vue
+|   |   |       
+|   |   +---endgame
+|   |   |       EndgameTab.vue
+|   |   |       ExpansionPacksContainer.vue
+|   |   |       ExpansionPacksTab.vue
+|   |   |       ResetEndgameButton.vue
+|   |   |       
+|   |   +---endgame-masteries
+|   |   |   |   endgame-mastery-tree-layout.js
+|   |   |   |   EndgameMasteriesTab.vue
+|   |   |   |   EndgameMasteryButton.vue
+|   |   |   |   EndgameMasteryConnection.vue
+|   |   |   |   NormalEndgameMastery.vue
+|   |   |   |   PermanentEndgameMastery.vue
+|   |   |   |   
+|   |   |   \---es-shop
+|   |   |           EndgameMasterySaveLoadButton.vue
+|   |   |           EndgameSkillBuyButton.vue
+|   |   |           EndgameSkillShop.vue
+|   |   |           HoverMenu.vue
+|   |   |           
+|   |   +---endgame-milestones
+|   |   |       EndgameMilestoneButton.vue
+|   |   |       EndgameMilestonesTab.vue
+|   |   |       
+|   |   +---endgame-upgrades
+|   |   |       EndgameUpgradeButton.vue
+|   |   |       EndgameUpgradesTab.vue
+|   |   |       
+|   |   +---eternity-challenges
+|   |   |       EternityChallengeBox.vue
+|   |   |       EternityChallengeBoxWrapper.vue
+|   |   |       EternityChallengesTab.vue
+|   |   |       
+|   |   +---eternity-milestones
+|   |   |       EternityMilestoneButton.vue
+|   |   |       EternityMilestonesTab.vue
+|   |   |       
+|   |   +---eternity-upgrades
+|   |   |       EPMultiplierButton.vue
+|   |   |       EternityUpgradeButton.vue
+|   |   |       EternityUpgradesTab.vue
+|   |   |       
+|   |   +---ethereal
+|   |   |       EtherealTab.vue
+|   |   |       Star.vue
+|   |   |       StarContainer.vue
+|   |   |       Stars.vue
+|   |   |       
+|   |   +---galactic-power
+|   |   |       GalacticPowerRow.vue
+|   |   |       GalacticPowerTab.vue
+|   |   |       
+|   |   +---glyph-set-records
+|   |   |       GlyphSetRecordsTab.vue
+|   |   |       
+|   |   +---glyphs
+|   |   |   |   CurrentGlyphEffect.vue
+|   |   |   |   CurrentGlyphEffects.vue
+|   |   |   |   EquippedGlyphs.vue
+|   |   |   |   GlyphInventory.vue
+|   |   |   |   GlyphLevelsAndWeights.vue
+|   |   |   |   GlyphPeek.vue
+|   |   |   |   GlyphsTab.vue
+|   |   |   |   RealityAmplifyButton.vue
+|   |   |   |   RealityReminder.vue
+|   |   |   |   ResetRealityButton.vue
+|   |   |   |   SacrificedGlyphs.vue
+|   |   |   |   SingleGlyphCustomzationPanel.vue
+|   |   |   |   TypeSacrifice.vue
+|   |   |   |   
+|   |   |   \---sidebar
+|   |   |           AutoSacrificeAdvancedTab.vue
+|   |   |           AutoSacrificeEffectTab.vue
+|   |   |           GlyphAutosortButtonGroup.vue
+|   |   |           GlyphCleanButtonGroup.vue
+|   |   |           GlyphFilterPanel.vue
+|   |   |           GlyphInventoryManagementPanel.vue
+|   |   |           GlyphProtectedRowButtonGroup.vue
+|   |   |           GlyphRejectionPanel.vue
+|   |   |           GlyphSetSavePanel.vue
+|   |   |           GlyphSortButtonGroup.vue
+|   |   |           GlyphTabSidebar.vue
+|   |   |           SelectedEffectToggle.vue
+|   |   |           
+|   |   +---hypercubes
+|   |   |       HypercubesTab.vue
+|   |   |       
+|   |   +---imaginary-upgrades
+|   |   |       ImaginaryUpgradeButton.vue
+|   |   |       ImaginaryUpgradesTab.vue
+|   |   |       
+|   |   +---infinity-challenges
+|   |   |       InfinityChallengeBox.vue
+|   |   |       InfinityChallengesTab.vue
+|   |   |       
+|   |   +---infinity-dimensions
+|   |   |       ClassicInfinityDimensionRow.vue
+|   |   |       ClassicInfinityDimensionsTab.vue
+|   |   |       InfinityDimensionsTab.vue
+|   |   |       ModernInfinityDimensionRow.vue
+|   |   |       ModernInfinityDimensionsTab.vue
+|   |   |       
+|   |   +---infinity-upgrades
+|   |   |       InfinityUpgradesTab.vue
+|   |   |       IpMultiplierButton.vue
+|   |   |       
+|   |   +---large-hadron-collider
+|   |   |       Accelerator.vue
+|   |   |       AcceleratorBar.vue
+|   |   |       AcceleratorsPanel.vue
+|   |   |       Hadron.vue
+|   |   |       Hadrons.vue
+|   |   |       LargeHadronColliderTab.vue
+|   |   |       NullUpgradeButton.vue
+|   |   |       NullUpgradesTabComponent.vue
+|   |   |       PowerCoreButton.vue
+|   |   |       
+|   |   +---normal-achievements
+|   |   |       NormalAchievement.vue
+|   |   |       NormalAchievementRow.vue
+|   |   |       NormalAchievementsTab.vue
+|   |   |       SwapAchievementImagesButton.vue
+|   |   |       
+|   |   +---normal-challenges
+|   |   |       NormalChallengeBox.vue
+|   |   |       NormalChallengesTab.vue
+|   |   |       
+|   |   +---options-gameplay
+|   |   |       OptionsGameplayTab.vue
+|   |   |       
+|   |   +---options-saving
+|   |   |       AutosaveIntervalSlider.vue
+|   |   |       OptionsSavingTab.vue
+|   |   |       SaveFileName.vue
+|   |   |       
+|   |   +---options-visual
+|   |   |       BackgroundUploader.vue
+|   |   |       OptionsVisualTab.vue
+|   |   |       SelectLargeNotationDropdown.vue
+|   |   |       SelectNotationDropdown.vue
+|   |   |       SelectSidebarDropdown.vue
+|   |   |       SelectThemeDropdown.vue
+|   |   |       UpdateRateSlider.vue
+|   |   |       
+|   |   +---past-prestige-runs
+|   |   |       PastPrestigeRunsContainer.vue
+|   |   |       PastPrestigeRunsTab.vue
+|   |   |       
+|   |   +---perks
+|   |   |       PerkPointLabel.vue
+|   |   |       PerksTab.vue
+|   |   |       
+|   |   +---reality-upgrades
+|   |   |       RealityUpgradeButton.vue
+|   |   |       RealityUpgradesTab.vue
+|   |   |       
+|   |   +---replicanti
+|   |   |       ReplicantiGainText.vue
+|   |   |       ReplicantiGalaxyButton.vue
+|   |   |       ReplicantiTab.vue
+|   |   |       ReplicantiUpgradeButton.vue
+|   |   |       
+|   |   +---resurgence-upgrades
+|   |   |       ResurgenceUpgradeButton.vue
+|   |   |       ResurgenceUpgradesTab.vue
+|   |   |       
+|   |   +---secret-achievements
+|   |   |       SecretAchievement.vue
+|   |   |       SecretAchievementRow.vue
+|   |   |       SecretAchievementTab.vue
+|   |   |       
+|   |   +---shop
+|   |   |       ShopButton.vue
+|   |   |       ShopTab.vue
+|   |   |       
+|   |   +---speedrun-milestones
+|   |   |       PreviousSpeedrunInfo.vue
+|   |   |       PreviousSpeedrunTab.vue
+|   |   |       SpeedrunMilestoneCompare.vue
+|   |   |       SpeedrunMilestoneSingle.vue
+|   |   |       SpeedrunMilestonesTab.vue
+|   |   |       
+|   |   +---statistics
+|   |   |       breakdown-entry-info-group.js
+|   |   |       breakdown-entry-info.js
+|   |   |       matter-scale.js
+|   |   |       MultiplierBreakdownEntry.vue
+|   |   |       MultiplierBreakdownTab.vue
+|   |   |       percentage-rolling-average.js
+|   |   |       StatisticsTab.vue
+|   |   |       StoredTimeTab.vue
+|   |   |       
+|   |   +---tangible-universe
+|   |   |       TangibleUniverseTab.vue
+|   |   |       
+|   |   +---time-compression
+|   |   |       CompressionButton.vue
+|   |   |       CompressionUpgradeButton.vue
+|   |   |       TimeCompressionTab.vue
+|   |   |       
+|   |   +---time-dilation
+|   |   |       DilationButton.vue
+|   |   |       DilationUpgradeButton.vue
+|   |   |       TachyonParticle.vue
+|   |   |       TachyonParticles.vue
+|   |   |       TimeDilationTab.vue
+|   |   |       
+|   |   +---time-dimensions
+|   |   |       ClassicTimeDimensionRow.vue
+|   |   |       ClassicTimeDimensionsTab.vue
+|   |   |       ModernTimeDimensionRow.vue
+|   |   |       ModernTimeDimensionsTab.vue
+|   |   |       TimeDimensionsTab.vue
+|   |   |       
+|   |   +---time-studies
+|   |   |   |   DilationTimeStudy.vue
+|   |   |   |   ECTimeStudy.vue
+|   |   |   |   EnslavedTimeStudy.vue
+|   |   |   |   HiddenTimeStudyConnection.vue
+|   |   |   |   NormalTimeStudy.vue
+|   |   |   |   SecretTimeStudy.vue
+|   |   |   |   time-study-tree-layout.js
+|   |   |   |   TimeStudiesTab.vue
+|   |   |   |   TimeStudyButton.vue
+|   |   |   |   TimeStudyConnection.vue
+|   |   |   |   TriadTimeStudy.vue
+|   |   |   |   
+|   |   |   \---tt-shop
+|   |   |           HoverMenu.vue
+|   |   |           TimeStudySaveLoadButton.vue
+|   |   |           TimeTheoremBuyButton.vue
+|   |   |           TimeTheoremShop.vue
+|   |   |           
+|   |   \---transient-universe
+|   |           TransientUniverseTab.vue
+|   |           
+|   \---ui-modes
+|       |   BigCrunchButton.vue
+|       |   CursedBackground.vue
+|       |   CursedHeader.vue
+|       |   DivinityButton.vue
+|       |   FailableEcText.vue
+|       |   GameHeader.vue
+|       |   HeaderBlackHole.vue
+|       |   HeaderBlackHoleStatusText.vue
+|       |   HeaderChallengeDisplay.vue
+|       |   HeaderChallengeEffects.vue
+|       |   HeaderPrestigeGroup.vue
+|       |   HeaderTickspeedInfo.vue
+|       |   NewsTicker.vue
+|       |   NullifyButton.vue
+|       |   Prologue.vue
+|       |   ScreenOverlay.vue
+|       |   
+|       +---classic
+|       |       ClassicSubtabBar.vue
+|       |       ClassicSubtabButton.vue
+|       |       ClassicTabBar.vue
+|       |       ClassicTabButton.vue
+|       |       ClassicUi.vue
+|       |       
+|       +---modern
+|       |       ModernSidebar.vue
+|       |       ModernSidebarCurrency.vue
+|       |       ModernTabButton.vue
+|       |       ModernUi.vue
+|       |       
+|       +---prestige-header
+|       |       BigCrunchButton.vue
+|       |       CelestialCrunchButton.vue
+|       |       CelestialEternityButton.vue
+|       |       CondenseButton.vue
+|       |       DivinityContainer.vue
+|       |       EndgameButton.vue
+|       |       EternityButton.vue
+|       |       HeaderCenterContainer.vue
+|       |       HeaderEternityContainer.vue
+|       |       HeaderInfinityContainer.vue
+|       |       RealityButton.vue
+|       |       SupernovaButton.vue
+|       |       UnlockInfinityDimButton.vue
+|       |       
+|       \---s12
+|               desktop-icons.js
+|               DesktopIcons.vue
+|               README.md
+|               S12Subtabs.vue
+|               S12Taskbar.vue
+|               S12Ui.vue
+|               S12UiFixed.vue
+|               TaskbarIcon.vue
+|               windows.js
+|               
++---core
+|   |   ascension.js
+|   |   async-utils.js
+|   |   away-progress.js
+|   |   big-crunch.js
+|   |   black-hole.js
+|   |   break-eternity-upgrades.js
+|   |   break-infinity-upgrades.js
+|   |   cache.js
+|   |   compression.js
+|   |   confirmations.js
+|   |   constants.js
+|   |   crash.js
+|   |   currency.js
+|   |   destroyer.js
+|   |   devtools.js
+|   |   dilation.js
+|   |   dimboost.js
+|   |   discord-parser.js
+|   |   divinity-upgrades.js
+|   |   duality-upgrades.js
+|   |   elemental.js
+|   |   endgame-skills.js
+|   |   endgame-upgrades.js
+|   |   endgame.js
+|   |   eternity-challenge.js
+|   |   eternity.js
+|   |   ethereal.js
+|   |   event-hub.js
+|   |   expansion-packs.js
+|   |   extensions.js
+|   |   format.js
+|   |   full-screen-animation-handler.js
+|   |   galactic-power.js
+|   |   galaxy.js
+|   |   globals.js
+|   |   glyph-effects.js
+|   |   hotkeys.js
+|   |   hypercubes.js
+|   |   imaginary-upgrades.js
+|   |   infinity-challenges.js
+|   |   infinity-upgrades.js
+|   |   intervals.js
+|   |   keyboard.js
+|   |   large-hadron-collider.js
+|   |   longpress.js
+|   |   machines.js
+|   |   math.js
+|   |   modal.js
+|   |   news-ticker.js
+|   |   normal-challenges.js
+|   |   notations.js
+|   |   notify.js
+|   |   options.js
+|   |   payments.js
+|   |   performance-stats.js
+|   |   perks.js
+|   |   player-progress.js
+|   |   player.js
+|   |   polyfill.js
+|   |   reality-upgrades.js
+|   |   reality.js
+|   |   replicanti.js
+|   |   resurgence-upgrades.js
+|   |   sacrifice.js
+|   |   shop.js
+|   |   speedrun.js
+|   |   tab-notifications.js
+|   |   tabs.js
+|   |   themes.js
+|   |   tickspeed.js
+|   |   time-theorems.js
+|   |   time.js
+|   |   timespan.js
+|   |   tutorial.js
+|   |   ui.init.js
+|   |   ui.js
+|   |   universes.js
+|   |   utils.js
+|   |   word-shift.js
+|   |   
+|   +---achievements
+|   |       achievement-timer.js
+|   |       normal-achievement.js
+|   |       secret-achievement.js
+|   |       
+|   +---autobuyers
+|   |       annihilation-autobuyer.js
+|   |       antimatter-dimension-autobuyer.js
+|   |       autobuyer.js
+|   |       autobuyers.js
+|   |       big-crunch-autobuyer.js
+|   |       black-hole-power-autobuyer.js
+|   |       bulk-singularity-autobuyer.js
+|   |       celestial-crunch-autobuyer.js
+|   |       celestial-dimboost-autobuyer.js
+|   |       celestial-dimension-autobuyer.js
+|   |       celestial-eternity-autobuyer.js
+|   |       celestial-galaxy-autobuyer.js
+|   |       celestial-tickspeed-autobuyer.js
+|   |       dark-matter-dimension-ascension-autobuyer.js
+|   |       dark-matter-dimension-autobuyer.js
+|   |       dilation-upgrade-autobuyer.js
+|   |       dimboost-autobuyer.js
+|   |       divine-dimension-autobuyer.js
+|   |       duality-upgrade-autobuyer.js
+|   |       endgame-autobuyer.js
+|   |       endgame-upgrade-autobuyer.js
+|   |       eternity-autobuyer.js
+|   |       galaxy-autobuyer.js
+|   |       galaxy-generator-autobuyer.js
+|   |       imaginary-upgrade-autobuyer.js
+|   |       infinity-dimension-autobuyer.js
+|   |       music-glyph-purge-autobuyer.js
+|   |       pelle-dilation-upgrade-autobuyer.js
+|   |       prestige-currency-multiplier-autobuyer.js
+|   |       reality-autobuyer.js
+|   |       reality-upgrade-autobuyer.js
+|   |       replicanti-galaxy-autobuyer.js
+|   |       replicanti-upgrade-autobuyer.js
+|   |       sacrifice-autobuyer.js
+|   |       singularity-autobuyer.js
+|   |       tesseract-autobuyer.js
+|   |       tickspeed-autobuyer.js
+|   |       time-dimension-autobuyer.js
+|   |       time-theorem-autobuyer.js
+|   |       
+|   +---automator
+|   |       automator-backend.js
+|   |       automator-codemirror.js
+|   |       automator-commands.js
+|   |       automator-points.js
+|   |       compiler.js
+|   |       index.js
+|   |       lexer.js
+|   |       parser.js
+|   |       script-templates.js
+|   |       
+|   +---celestials
+|   |   |   alpha.js
+|   |   |   celestials.js
+|   |   |   effarig.js
+|   |   |   enslaved.js
+|   |   |   quotes.js
+|   |   |   slabdrill.js
+|   |   |   teresa.js
+|   |   |   V.js
+|   |   |   
+|   |   +---laitela
+|   |   |       dark-matter-dimension.js
+|   |   |       hadrons.js
+|   |   |       laitela.js
+|   |   |       singularity.js
+|   |   |       
+|   |   +---pelle
+|   |   |       galaxy-generator.js
+|   |   |       game-end.js
+|   |   |       pelle-destruction-upgrades.js
+|   |   |       pelle.js
+|   |   |       rifts.js
+|   |   |       strikes.js
+|   |   |       zalgo.js
+|   |   |       
+|   |   \---ra
+|   |           alchemy.js
+|   |           ra.js
+|   |           
+|   +---dimensions
+|   |       antimatter-dimension.js
+|   |       celestial-dimension.js
+|   |       dimension.js
+|   |       divine-dimension.js
+|   |       infinity-dimension.js
+|   |       time-dimension.js
+|   |       
+|   +---endgame-masteries
+|   |       endgame-masteries.js
+|   |       endgame-mastery-connections.js
+|   |       endgame-mastery-tree.js
+|   |       endgame-mastery.js
+|   |       index.js
+|   |       permanent-endgame-mastery.js
+|   |       
+|   +---game-mechanics
+|   |       bit-purchasable.js
+|   |       bit-upgrade-state.js
+|   |       effect.js
+|   |       effects.js
+|   |       game-mechanic.js
+|   |       index.js
+|   |       puchasable.js
+|   |       rebuyable.js
+|   |       set-purchasable.js
+|   |       
+|   +---glyphs
+|   |       auto-glyph-processor.js
+|   |       glyph-core.js
+|   |       glyph-cosmetics.js
+|   |       glyph-effects.js
+|   |       glyph-generator.js
+|   |       glyph-purge-handler.js
+|   |       
+|   +---secret-formula
+|   |   |   away-progress-types.js
+|   |   |   catchup-resources.js
+|   |   |   changelog.js
+|   |   |   confirmation-types.js
+|   |   |   credits.js
+|   |   |   discord-rich-presence.js
+|   |   |   endgame-credits.js
+|   |   |   game-database.js
+|   |   |   h2p.js
+|   |   |   index.js
+|   |   |   news.js
+|   |   |   progress-checker.js
+|   |   |   script-templates.js
+|   |   |   shop-purchases.js
+|   |   |   sidebar-resources.js
+|   |   |   speedrun-milestones.js
+|   |   |   tab-notifications.js
+|   |   |   tabs.js
+|   |   |   tempCodeRunnerFile.js
+|   |   |   
+|   |   +---achievements
+|   |   |       index.js
+|   |   |       normal-achievements.js
+|   |   |       secret-achievements.js
+|   |   |       
+|   |   +---celestials
+|   |   |   |   alchemy.js
+|   |   |   |   alpha.js
+|   |   |   |   divinity-milestones.js
+|   |   |   |   divinity-upgrades.js
+|   |   |   |   effarig.js
+|   |   |   |   enslaved.js
+|   |   |   |   galaxy-generator.js
+|   |   |   |   index.js
+|   |   |   |   navigation.js
+|   |   |   |   pelle-destruction-upgrades.js
+|   |   |   |   pelle-upgrades.js
+|   |   |   |   perk-shop.js
+|   |   |   |   ra.js
+|   |   |   |   resurgence-upgrades.js
+|   |   |   |   rifts.js
+|   |   |   |   singularity-milestones.js
+|   |   |   |   slabdrill.js
+|   |   |   |   strikes.js
+|   |   |   |   teresa.js
+|   |   |   |   v.js
+|   |   |   |   
+|   |   |   +---navigation-sigils
+|   |   |   |       final-sigil.js
+|   |   |   |       galaxy-icon.js
+|   |   |   |       
+|   |   |   \---quotes
+|   |   |           alpha.js
+|   |   |           effarig.js
+|   |   |           elemental.js
+|   |   |           enslaved.js
+|   |   |           index.js
+|   |   |           laitela.js
+|   |   |           pelle.js
+|   |   |           ra.js
+|   |   |           slabdrill.js
+|   |   |           teresa.js
+|   |   |           v.js
+|   |   |           
+|   |   +---challenges
+|   |   |       eternity-challenges.js
+|   |   |       index.js
+|   |   |       infinity-challenges.js
+|   |   |       normal-challenges.js
+|   |   |       
+|   |   +---endgame
+|   |   |   |   accelerators.js
+|   |   |   |   ascensions.js
+|   |   |   |   break-eternity-upgrades.js
+|   |   |   |   compression-upgrades.js
+|   |   |   |   endgame-masteries.js
+|   |   |   |   endgame-milestones.js
+|   |   |   |   endgame-upgrades.js
+|   |   |   |   expansion-packs.js
+|   |   |   |   galactic-power.js
+|   |   |   |   index.js
+|   |   |   |   null-upgrades.js
+|   |   |   |   permanent-endgame-masteries.js
+|   |   |   |   stars.js
+|   |   |   |   
+|   |   |   \---celestial-dimension-expansion
+|   |   |           celestial-break-infinity-upgrades.js
+|   |   |           celestial-eternity-plus-upgrades.js
+|   |   |           celestial-eternity-upgrades.js
+|   |   |           celestial-infinity-upgrades.js
+|   |   |           
+|   |   +---eternity
+|   |   |   |   dilation-upgrades.js
+|   |   |   |   eternity-milestones.js
+|   |   |   |   eternity-upgrades.js
+|   |   |   |   index.js
+|   |   |   |   
+|   |   |   \---time-studies
+|   |   |           dilation-time-studies.js
+|   |   |           ec-time-studies.js
+|   |   |           normal-time-studies.js
+|   |   |           
+|   |   +---infinity
+|   |   |       break-infinity-upgrades.js
+|   |   |       index.js
+|   |   |       infinity-upgrades.js
+|   |   |       
+|   |   +---multiplier-tab
+|   |   |       antimatter-dimensions.js
+|   |   |       antimatter.js
+|   |   |       dilated-time.js
+|   |   |       eternities.js
+|   |   |       eternity-points.js
+|   |   |       galaxies.js
+|   |   |       gamespeed.js
+|   |   |       general.js
+|   |   |       helper-functions.js
+|   |   |       icons.js
+|   |   |       index.js
+|   |   |       infinities.js
+|   |   |       infinity-dimensions.js
+|   |   |       infinity-points.js
+|   |   |       replicanti.js
+|   |   |       tachyon-particles.js
+|   |   |       tickspeed.js
+|   |   |       time-dimensions.js
+|   |   |       tree.js
+|   |   |       values.js
+|   |   |       
+|   |   \---reality
+|   |           automator.js
+|   |           duality-upgrades.js
+|   |           glyph-cosmetics.js
+|   |           glyph-effects.js
+|   |           glyph-sacrifices.js
+|   |           glyph-types.js
+|   |           imaginary-upgrades.js
+|   |           index.js
+|   |           perks.js
+|   |           reality-upgrades.js
+|   |           
+|   +---storage
+|   |       base64-binary.js
+|   |       cloud-saving.js
+|   |       decimal-migrations.js
+|   |       dev-migrations.js
+|   |       endgame-migrations.js
+|   |       firebase-config.js
+|   |       index.js
+|   |       migrations.js
+|   |       progress-checker.js
+|   |       serializer.js
+|   |       storage.js
+|   |       
+|   \---time-studies
+|           dilation-time-study.js
+|           ec-time-study.js
+|           index.js
+|           normal-time-study.js
+|           time-studies.js
+|           time-study-connections.js
+|           time-study-tree.js
+|           
++---steam
+|   |   electron-runtime.js
+|   |   index.js
+|   |   steam-purchases.js
+|   |   steam-runtime.js
+|   |   
+|   \---bindings
+|           electron.js
+|           greenworks.js
+|           node-module.js
+|           playfab.js
+|           PlayFabClientApi.js
+|           
++---typings
+|       break_eternity.d.ts
+|       break_infinity.d.ts
+|       greenworks.d.ts
+|       Playfab.d.ts
+|       PlayFabClientApi.d.ts
+|       
+\---utility
+        background-store.js
+        deepmerge.js
+        index.js
+        open-external-link.js
+        type-check.js
+        
