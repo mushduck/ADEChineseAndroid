@@ -2133,3 +2133,37 @@ body.t-s12 {
     margin-top: 0 !important;
   }
 }
+
+
+/* === MOBILE BOTTOM BUFFER & VISIBLE SCROLLBAR FIX === */
+@media (max-width: 768px) {
+  html,
+  body,
+  body.t-normal,
+  body.t-s9,
+  body.t-s12 {
+    padding-bottom: 5.5rem !important;
+    box-sizing: border-box !important;
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(255, 255, 255, 0.45) rgba(0, 0, 0, 0.25) !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+    display: block !important;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.25) !important;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.45) !important;
+    border-radius: 4px !important;
+  }
+  ::-webkit-scrollbar-thumb:hover,
+  ::-webkit-scrollbar-thumb:active {
+    background: rgba(255, 255, 255, 0.8) !important;
+  }
+}
