@@ -2292,3 +2292,120 @@ body.t-s12 {
     flex-shrink: 0 !important;
   }
 }
+
+
+/* === MOBILE SUBTAB OPTION BUTTONS COMPACT FIX === */
+@media (max-width: 768px) {
+  /* CONTAINER: FLEX ROW WITH AUTO WRAP AND CENTER ALIGNMENT */
+  .c-subtab-option-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    margin: 0.2rem auto 0.35rem auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    border: none !important;
+  }
+
+  /* BUTTON: COMPACT MOBILE SIZING ACROSS ALL DIMENSION TABS */
+  .o-primary-btn--subtab-option {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 90% !important;
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.78rem !important;
+    padding: 0 0.55rem !important;
+    margin: 0.05rem !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+
+/* === MOBILE DIMENSION TABS ACCENT TEXT & CELESTIAL TICKSPEED FIX === */
+@media (max-width: 768px) {
+  /* 1. CELESTIAL TICKSPEED BUTTONS: COMPACT SIDE-BY-SIDE ROW */
+  .l-celestial-tickspeed-container {
+    margin: 0.25rem auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .celestial-tickspeed-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    margin: 0.15rem auto !important;
+  }
+  .celestial-tickspeed-buttons button,
+  .celestial-tickspeed-buttons .tickspeed-btn,
+  .celestial-tickspeed-buttons .celestial-tickspeed-btn,
+  .celestial-tickspeed-buttons .celestial-tickspeed-max-btn {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 90% !important;
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.78rem !important;
+    padding: 0 0.55rem !important;
+    margin: 0.05rem !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .celestial-tickspeed-labels {
+    font-size: 0.76rem !important;
+    line-height: 1.25 !important;
+    margin: 0.15rem 0 !important;
+  }
+
+  /* 2. DIMENSION TABS: ACCENT NUMBERS COMPACT SIZING */
+  .c-time-dim-description__accent,
+  .c-celestial-dim-description__accent,
+  .c-celestial-dim-description__accent-unstable,
+  .c-celestial-eternity-text,
+  .c-celestial-infinity-text,
+  .c-divine-dim-description__accent {
+    font-size: 1.22rem !important;
+    font-weight: 700 !important;
+    display: inline-block !important;
+    line-height: 1.25 !important;
+  }
+  .c-time-dim-compression-description__accent {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+  }
+
+  /* 3. DIMENSION TABS: GENERAL DESCRIPTION PARAGRAPH COMPRESSION */
+  .l-time-dim-tab p,
+  .l-celestial-dim-tab p,
+  .l-divine-dim-tab p {
+    font-size: 0.85rem !important;
+    line-height: 1.35 !important;
+    margin: 0.15rem 0 !important;
+  }
+  .l-time-dim-tab > div:not(.l-dimensions-container):not(.c-subtab-option-container),
+  .l-celestial-dim-tab > div:not(.l-dimensions-container):not(.c-subtab-option-container):not(.l-celestial-tickspeed-container),
+  .l-divine-dim-tab > div:not(.l-dimensions-container):not(.c-subtab-option-container) {
+    font-size: 0.78rem !important;
+    line-height: 1.25 !important;
+    margin: 0.08rem 0 !important;
+  }
+}
