@@ -2932,24 +2932,26 @@ body.t-s12 {
     max-width: 100% !important;
     min-width: 0 !important;
     height: 100% !important;
-    min-height: 17rem !important;
+    min-height: 16.5rem !important;
     margin: 1.8rem 0 0.2rem 0 !important;
     padding: 0.4rem 0.3rem 0.5rem 0.3rem !important;
     border-radius: 6px !important;
     position: relative !important;
     box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
+    display: grid !important;
+    grid-template-rows: 4.8rem 2.2rem auto !important;
+    grid-auto-rows: max-content !important;
+    align-content: start !important;
+    justify-items: center !important;
+    row-gap: 0.08rem !important;
     font-weight: 400 !important;
   }
 
   .l-hint-text--challenge {
     position: absolute !important;
-    top: -1.5rem !important;
+    top: -1.45rem !important;
     left: 0.15rem !important;
-    font-size: 0.92rem !important;
+    font-size: 0.95rem !important;
     font-weight: 700 !important;
     color: #ffffff !important;
     white-space: nowrap !important;
@@ -2959,11 +2961,10 @@ body.t-s12 {
     z-index: 2 !important;
   }
 
-  .c-challenge-box > span:first-of-type,
-  .c-challenge-box [slot="top"],
-  .c-challenge-box .c-challenge-box__top {
+  .c-challenge-box > span:nth-of-type(1) {
     width: 100% !important;
-    min-height: 3.5rem !important;
+    height: 4.8rem !important;
+    max-height: 4.8rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -2975,24 +2976,27 @@ body.t-s12 {
     margin: 0 !important;
     word-break: break-word !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .l-challenge-box__fill {
     display: none !important;
   }
 
-  .c-challenge-box > div:has(.o-challenge-btn) {
-    width: 90% !important;
-    max-width: 90% !important;
-    height: auto !important;
-    margin: 0.2rem auto 0.2rem auto !important;
+  .c-challenge-box > div:has(.o-challenge-btn),
+  .c-challenge-box > div:nth-of-type(3) {
+    width: 88% !important;
+    max-width: 88% !important;
+    height: 2.2rem !important;
+    margin: 0 auto !important;
     position: relative !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    justify-content: center !important;
   }
 
-  .c-challenge-box > div:has(.o-challenge-btn) > div[style*="absolute"] {
+  .c-challenge-box > div > div[style*="absolute"] {
     display: none !important;
   }
 
@@ -3011,49 +3015,23 @@ body.t-s12 {
     display: block !important;
   }
 
-  .c-challenge-box [slot="bottom"],
-  .c-challenge-box > div:last-child {
+  .c-challenge-box > div:nth-of-type(4),
+  .c-challenge-box > span:nth-of-type(2),
+  .c-challenge-box > span:nth-of-type(3),
+  .c-challenge-box > span:last-child {
     width: 100% !important;
-    margin-top: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.15rem !important;
-  }
-
-  .c-challenge-box [slot="bottom"] > div:first-child > div:first-child {
-    font-size: 0.72rem !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    margin-bottom: 0.1rem !important;
-  }
-
-  .c-challenge-box [slot="bottom"] > div:first-child {
-    font-size: 0.60rem !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    font-size: 0.65rem !important;
     font-weight: 400 !important;
     line-height: 1.25 !important;
-    color: #e2e2e8 !important;
+    color: inherit !important;
+    margin: 0 !important;
   }
 
-  .c-challenge-box [slot="bottom"] > span:nth-of-type(1) {
-    font-size: 0.55rem !important;
-    color: #8c8c9e !important;
-    line-height: 1.2 !important;
-  }
-
-  .c-challenge-box [slot="bottom"] > span:nth-of-type(2) {
-    font-size: 0.60rem !important;
-    line-height: 1.25 !important;
-    color: #d0d0e2 !important;
-  }
-
-  .c-challenge-box [slot="bottom"] > span:nth-of-type(3),
-  .c-challenge-box [slot="bottom"] > span:last-child,
-  .c-challenge-box [slot="bottom"] > span:last-child * {
+  .c-challenge-box > div:nth-of-type(4) > div:first-child {
     font-size: 0.72rem !important;
     font-weight: 700 !important;
-    color: var(--color-good, #12e85a) !important;
-    line-height: 1.25 !important;
-    margin-top: 0.1rem !important;
+    margin-bottom: 0.05rem !important;
   }
 }
