@@ -2167,3 +2167,128 @@ body.t-s12 {
     background: rgba(255, 255, 255, 0.8) !important;
   }
 }
+
+
+/* === MOBILE INFINITY DIMENSIONS TAB COMPACT FIX === */
+@media (max-width: 768px) {
+  .l-infinity-dim-tab p {
+    font-size: 0.85rem !important;
+    line-height: 1.35 !important;
+    margin: 0.15rem 0 !important;
+  }
+  .c-infinity-dim-description__accent {
+    font-size: 1.22rem !important;
+    font-weight: 700 !important;
+    display: inline-block !important;
+  }
+  .c-infinity-dim-compression-description__accent {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+  }
+
+  .l-infinity-dim-tab__enslaved-reward-container {
+    margin: 0.25rem auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .l-infinity-dim-tab__enslaved-reward-container br {
+    display: none !important;
+  }
+  .c-infinity-dim-tab__tesseract-button {
+    width: 92% !important;
+    max-width: 26rem !important;
+    padding: 0.35rem 0.6rem !important;
+    margin: 0.2rem auto !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+  }
+  .c-infinity-dim-tab__tesseract-button p {
+    font-size: 0.8rem !important;
+    line-height: 1.25 !important;
+    margin: 0.08rem 0 !important;
+  }
+  .c-infinity-dim-tab__tesseract-button b {
+    font-size: 0.84rem !important;
+  }
+  .o-primary-btn--tesseract-toggle {
+    font-size: 0.8rem !important;
+    padding: 0.2rem 0.6rem !important;
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    margin: 0.2rem auto !important;
+  }
+
+  .l-infinity-dim-tab > div:not(.l-dimensions-container):not(.c-subtab-option-container) {
+    font-size: 0.78rem !important;
+    line-height: 1.25 !important;
+    margin: 0.08rem 0 !important;
+    opacity: 0.9 !important;
+  }
+}
+
+/* === MOBILE BLACK HOLE SINGLE ROW FIX === */
+@media (max-width: 768px) {
+  .c-black-hole-header {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.15rem 0.2rem !important;
+    margin: 0.15rem 0 !important;
+    gap: 0.18rem !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .c-black-hole-header::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .c-black-hole-header span,
+  .c-black-hole-header > span,
+  .c-black-hole-header > span:first-child,
+  .c-black-hole-header > span:last-child {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.18rem !important;
+  }
+
+  .c-black-hole-header button,
+  .c-black-hole-header .c-primary-btn--black-hole-header,
+  .c-black-hole-header .o-toggle-btn,
+  .c-black-hole-header .o-discharge-btn {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 1.7rem !important;
+    line-height: 1.7rem !important;
+    padding: 0 0.22rem !important;
+    margin: 0 !important;
+    font-size: 0.7rem !important;
+    white-space: nowrap !important;
+    border-radius: 3px !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+  }
+
+  .c-black-hole-header .c-black-hole-status-text {
+    margin: 0 0.1rem !important;
+    padding: 0 !important;
+    font-size: 0.7rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+}
