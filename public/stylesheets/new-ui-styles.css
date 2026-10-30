@@ -2135,40 +2135,6 @@ body.t-s12 {
 }
 
 
-/* === MOBILE BOTTOM BUFFER & VISIBLE SCROLLBAR FIX === */
-@media (max-width: 768px) {
-  html,
-  body,
-  body.t-normal,
-  body.t-s9,
-  body.t-s12 {
-    padding-bottom: 5.5rem !important;
-    box-sizing: border-box !important;
-    overflow-y: scroll !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: thin !important;
-    scrollbar-color: rgba(255, 255, 255, 0.45) rgba(0, 0, 0, 0.25) !important;
-  }
-
-  ::-webkit-scrollbar {
-    width: 5px !important;
-    height: 5px !important;
-    display: block !important;
-  }
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.25) !important;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.45) !important;
-    border-radius: 4px !important;
-  }
-  ::-webkit-scrollbar-thumb:hover,
-  ::-webkit-scrollbar-thumb:active {
-    background: rgba(255, 255, 255, 0.8) !important;
-  }
-}
-
-
 /* === MOBILE INFINITY DIMENSIONS TAB COMPACT FIX === */
 @media (max-width: 768px) {
   .l-infinity-dim-tab p {
@@ -2335,7 +2301,6 @@ body.t-s12 {
 
 /* === MOBILE DIMENSION TABS ACCENT TEXT & CELESTIAL TICKSPEED FIX === */
 @media (max-width: 768px) {
-  /* 1. CELESTIAL TICKSPEED BUTTONS: COMPACT SIDE-BY-SIDE ROW */
   .l-celestial-tickspeed-container {
     margin: 0.25rem auto !important;
     padding: 0 !important;
@@ -2376,7 +2341,6 @@ body.t-s12 {
     margin: 0.15rem 0 !important;
   }
 
-  /* 2. DIMENSION TABS: ACCENT NUMBERS COMPACT SIZING */
   .c-time-dim-description__accent,
   .c-celestial-dim-description__accent,
   .c-celestial-dim-description__accent-unstable,
@@ -2393,7 +2357,6 @@ body.t-s12 {
     font-weight: 700 !important;
   }
 
-  /* 3. DIMENSION TABS: GENERAL DESCRIPTION PARAGRAPH COMPRESSION */
   .l-time-dim-tab p,
   .l-celestial-dim-tab p,
   .l-divine-dim-tab p {
@@ -2407,5 +2370,80 @@ body.t-s12 {
     font-size: 0.78rem !important;
     line-height: 1.25 !important;
     margin: 0.08rem 0 !important;
+  }
+}
+
+/* === MOBILE CONTAINER SCROLL UNLOCK & CUTOFF FIX === */
+@media (max-width: 768px) {
+  /* UNLOCK ROOT PAGE & CONTAINER HEIGHT LOCK */
+  #page,
+  #ui,
+  #ui-container,
+  .game-container,
+  .tab-container {
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    overflow: visible !important;
+    overflow-x: hidden !important;
+  }
+
+  /* ELIMINATE REDUNDANT GAME-CONTAINER PADDING-BOTTOM */
+  .game-container {
+    padding-bottom: 0 !important;
+  }
+
+  /* REMOVE EXCESSIVE MARGIN-BOTTOM TO ELIMINATE 114PX GAP */
+  .l-dimensions-container,
+  .l-time-dim-tab,
+  .l-antimatter-dim-tab,
+  .l-infinity-dim-tab,
+  .l-celestial-dim-tab,
+  .l-divine-dim-tab {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* PREVENT ROW OVERLAP AND CLIPPING */
+  .c-dimension-row,
+  .l-dimension-single-row {
+    height: auto !important;
+    min-height: 2.8rem !important;
+    overflow: visible !important;
+  }
+}
+
+/* === MOBILE BOTTOM BUFFER & VISIBLE SCROLLBAR FIX === */
+@media (max-width: 768px) {
+  html,
+  body,
+  body.t-normal,
+  body.t-s9,
+  body.t-s12 {
+    padding-bottom: 3.3rem !important;
+    box-sizing: border-box !important;
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(255, 255, 255, 0.45) rgba(0, 0, 0, 0.25) !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+    display: block !important;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.25) !important;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.45) !important;
+    border-radius: 4px !important;
+  }
+  ::-webkit-scrollbar-thumb:hover,
+  ::-webkit-scrollbar-thumb:active {
+    background: rgba(255, 255, 255, 0.8) !important;
   }
 }
