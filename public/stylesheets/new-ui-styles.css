@@ -2905,7 +2905,7 @@ body.t-s12 {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     column-gap: 0.35rem !important;
-    row-gap: 0.8rem !important;
+    row-gap: 0.75rem !important;
     padding: 0 !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
@@ -2932,26 +2932,37 @@ body.t-s12 {
     max-width: 100% !important;
     min-width: 0 !important;
     height: 100% !important;
-    min-height: 16.5rem !important;
-    margin: 1.8rem 0 0.2rem 0 !important;
-    padding: 0.4rem 0.3rem 0.5rem 0.3rem !important;
+    min-height: 0 !important;
+    margin: 1.6rem 0 0.15rem 0 !important;
+    padding: 0.35rem 0.3rem 0.45rem 0.3rem !important;
     border-radius: 6px !important;
     position: relative !important;
     box-sizing: border-box !important;
     display: grid !important;
-    grid-template-rows: 4.8rem 2.2rem auto !important;
     grid-auto-rows: max-content !important;
     align-content: start !important;
     justify-items: center !important;
-    row-gap: 0.08rem !important;
+    row-gap: 0.12rem !important;
     font-weight: 400 !important;
+  }
+
+  .c-challenge-box--normal {
+    grid-template-rows: 4.0rem 2.15rem auto !important;
+  }
+
+  .c-challenge-box--infinity {
+    grid-template-rows: 4.4rem 2.15rem auto !important;
+  }
+
+  .c-challenge-box--eternity {
+    grid-template-rows: 5.0rem 2.2rem auto !important;
   }
 
   .l-hint-text--challenge {
     position: absolute !important;
-    top: -1.45rem !important;
+    top: -1.4rem !important;
     left: 0.15rem !important;
-    font-size: 0.95rem !important;
+    font-size: 0.88rem !important;
     font-weight: 700 !important;
     color: #ffffff !important;
     white-space: nowrap !important;
@@ -2963,20 +2974,34 @@ body.t-s12 {
 
   .c-challenge-box > span:nth-of-type(1) {
     width: 100% !important;
-    height: 4.8rem !important;
-    max-height: 4.8rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     font-size: 0.68rem !important;
     font-weight: 400 !important;
-    line-height: 1.25 !important;
+    line-height: 1.24 !important;
     text-align: center !important;
     color: #ffffff !important;
     margin: 0 !important;
+    padding: 0 0.1rem 0.4rem 0.1rem !important;
     word-break: break-word !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
+  }
+
+  .c-challenge-box--normal > span:nth-of-type(1) {
+    height: 4.0rem !important;
+    max-height: 4.0rem !important;
+  }
+
+  .c-challenge-box--infinity > span:nth-of-type(1) {
+    height: 4.4rem !important;
+    max-height: 4.4rem !important;
+  }
+
+  .c-challenge-box--eternity > span:nth-of-type(1) {
+    height: 5.0rem !important;
+    max-height: 5.0rem !important;
   }
 
   .l-challenge-box__fill {
@@ -2984,9 +3009,10 @@ body.t-s12 {
   }
 
   .c-challenge-box > div:has(.o-challenge-btn),
-  .c-challenge-box > div:nth-of-type(3) {
+  .c-challenge-box--eternity > div:nth-of-type(3) {
     width: 88% !important;
     max-width: 88% !important;
+    min-width: 88% !important;
     height: 2.2rem !important;
     margin: 0 auto !important;
     position: relative !important;
@@ -3000,38 +3026,93 @@ body.t-s12 {
     display: none !important;
   }
 
+  .c-challenge-box button.o-challenge-btn,
+  .c-challenge-box .o-challenge-btn,
   .o-challenge-btn {
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 88% !important;
+    max-width: 88% !important;
+    min-width: 88% !important;
     height: 2.15rem !important;
     line-height: 2.15rem !important;
     font-size: 0.8rem !important;
     font-weight: 600 !important;
     border-radius: 5px !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 0.3rem !important;
     box-sizing: border-box !important;
     white-space: nowrap !important;
     display: block !important;
   }
 
-  .c-challenge-box > div:nth-of-type(4),
-  .c-challenge-box > span:nth-of-type(2),
-  .c-challenge-box > span:nth-of-type(3),
-  .c-challenge-box > span:last-child {
+  .c-challenge-box--eternity .o-challenge-btn {
     width: 100% !important;
-    text-align: center !important;
-    box-sizing: border-box !important;
-    font-size: 0.65rem !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .c-challenge-box--normal > span:last-of-type,
+  .c-challenge-box--normal > span:last-child {
+    width: 100% !important;
+    font-size: 0.63rem !important;
     font-weight: 400 !important;
-    line-height: 1.25 !important;
-    color: inherit !important;
+    line-height: 1.24 !important;
+    color: #c4c4d4 !important;
+    text-align: center !important;
+    margin: 0.08rem 0 0 0 !important;
+    padding: 0 !important;
+    word-break: break-word !important;
+  }
+
+  .l-challenge-box__bottom--infinity {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0.08rem 0 0 0 !important;
+    padding: 0 !important;
+    gap: 0.06rem !important;
+  }
+
+  .l-challenge-box__bottom--infinity > span:first-child {
+    font-size: 0.66rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .l-challenge-box__bottom--infinity .c-challenge-box__reward-description,
+  .l-challenge-box__bottom--infinity span {
+    font-size: 0.62rem !important;
+    line-height: 1.22 !important;
+    color: #c4c4d4 !important;
+    text-align: center !important;
     margin: 0 !important;
   }
 
-  .c-challenge-box > div:nth-of-type(4) > div:first-child {
+  .c-challenge-box--eternity > div:nth-of-type(4),
+  .c-challenge-box--eternity > span:nth-of-type(2),
+  .c-challenge-box--eternity > span:nth-of-type(3),
+  .c-challenge-box--eternity > span:last-child {
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    font-size: 0.64rem !important;
+    font-weight: 400 !important;
+    line-height: 1.22 !important;
+    color: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .c-challenge-box--eternity > div:nth-of-type(4) > div:first-child {
     font-size: 0.72rem !important;
     font-weight: 700 !important;
+    color: #ffffff !important;
     margin-bottom: 0.05rem !important;
   }
 }
