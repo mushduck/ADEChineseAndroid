@@ -42,28 +42,22 @@ export default {
     },
     // If V is flipped, change the layout of the grid
     hexGrid() {
+      /* MOBILE_V_HEX_GRID */
       return this.isFlipped && this.wantsFlipped
         ? [
-          VRunUnlocks.all[6],
-          {},
-          {},
-          {},
           { isRunButton: true },
+          VRunUnlocks.all[6],
           VRunUnlocks.all[7],
-          VRunUnlocks.all[8],
-          {},
-          {}
+          VRunUnlocks.all[8]
         ]
         : [
+          { isRunButton: true },
           VRunUnlocks.all[0],
           VRunUnlocks.all[1],
-          {},
-          VRunUnlocks.all[5],
-          { isRunButton: true },
           VRunUnlocks.all[2],
           VRunUnlocks.all[4],
           VRunUnlocks.all[3],
-          {}
+          VRunUnlocks.all[5]
         ];
     },
     vUnlock: () => VUnlocks.vAchievementUnlock,
@@ -194,6 +188,7 @@ export default {
         v-if="isFlipped"
         class="c-v-info-text"
       >
+        <div class="c-mobile-v-top-btns">
         <PrimaryButton
           class="o-primary-btn--subtab-option"
           @click="toggleFlipped"
@@ -208,6 +203,7 @@ export default {
         >
           获得一个诅咒符文
         </PrimaryButton>
+        </div>
         <br>
         诅咒符文可在这或鹿颈长标签页获得。
         <br>

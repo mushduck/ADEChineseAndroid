@@ -273,7 +273,7 @@ export default {
         </PrimaryButton>
         <div class="l-enslaved-top-container">
           <div class="l-enslaved-top-container__half">
-            黑洞充能时，{{ hasAutoRelease ? "降低" : "禁用" }}黑洞的加速效果，失去的速度被转换为储存的游戏内时间。释放黑洞允许你跳过游戏内时间。储存的游戏内时间也用于购买某些升级。
+            <div class="c-mobile-enslaved-half-desc">黑洞充能时，{{ hasAutoRelease ? "降低" : "禁用" }}黑洞的加速效果，失去的速度被转换为储存的游戏内时间。释放黑洞允许你跳过游戏内时间。储存的游戏内时间也用于购买某些升级。</div>
             <button
               :class="storeGameTimeClass"
               @click="toggleStoreBlackHole"
@@ -299,7 +299,7 @@ export default {
             </button>
           </div>
           <div class="l-enslaved-top-container__half">
-            储存现实时间时，游戏速度设置为 {{ formatInt(0) }}，完全停止所有的生产。你可以使用储存的现实时间来“扩增”一个现实，模拟其反复运行。现实扩增后，获得在这些现实中能获得的所有奖励。
+            <div class="c-mobile-enslaved-half-desc">储存现实时间时，游戏速度设置为 {{ formatInt(0) }}，完全停止所有的生产。你可以使用储存的现实时间来“扩增”一个现实，模拟其反复运行。现实扩增后，获得在这些现实中能获得的所有奖励。</div>
             <button
               :class="[storeRealTimeClass,
                       {'l-fixed-setting': hasReachedCurrentCap}]"
