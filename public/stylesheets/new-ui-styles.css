@@ -3872,3 +3872,115 @@ body.t-s12 {
     box-sizing: border-box !important;
   }
 }
+
+/* === MOBILE REALITY & IMAGINARY UPGRADES TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-reality-upgrade-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    padding: 0 0.2rem 1.0rem 0.2rem !important;
+    margin: 0 auto !important;
+  }
+  .l-reality-upgrade-grid__row {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.45rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.4rem auto !important;
+    box-sizing: border-box !important;
+  }
+  .l-reality-upgrade-grid__row > .l-spoon-btn-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-reality-upgrade-grid__row > .l-spoon-btn-group:first-child {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    margin: 0.15rem auto !important;
+  }
+  .l-hint-text--reality-upgrade,
+  .c-hint-text--reality-upgrade {
+    font-size: 0.80rem !important;
+    font-weight: 700 !important;
+    color: #e0e0f0 !important;
+    text-align: center !important;
+    margin-bottom: 0.15rem !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+  }
+  .c-reality-upgrade-btn,
+  .l-reality-upgrade-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 5.8rem !important;
+    padding: 0.35rem 0.25rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.1rem !important;
+  }
+  .c-reality-upgrade-btn span,
+  .c-reality-upgrade-btn .c-description-display {
+    font-size: 0.74rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+  .c-reality-upgrade-btn .c-effect-display,
+  .c-reality-upgrade-btn .c-cost-display {
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0.05rem !important;
+  }
+  .o-primary-btn--reality-upgrade-toggle {
+    width: 100% !important;
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.72rem !important;
+    padding: 0 !important;
+    margin-top: 0.15rem !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+  .c-reality-upgrade-infotext,
+  .c-info-text {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    color: #a0a0b0 !important;
+    text-align: center !important;
+    margin: 0.2rem auto 0.5rem auto !important;
+    padding: 0 0.3rem !important;
+  }
+  .c-cap-text {
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin: 0.2rem auto !important;
+  }
+}
