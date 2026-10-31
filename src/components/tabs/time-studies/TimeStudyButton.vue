@@ -34,6 +34,9 @@ export default {
       isAvailableForPurchase: false,
       STCost: 0,
       eternityChallengeRunning: false,
+      longPressTimer: null,
+      longPressTriggered: false,
+      touchStartPos: { x: 0, y: 0 },
       isCompleteEC: false,
     };
   },
@@ -147,8 +150,45 @@ export default {
         EternityChallenge(this.study.id).remainingCompletions === 0;
     },
     handleClick() {
+      if (window.__tsDragging || this.longPressTriggered) {
+        this.longPressTriggered = false;
+        return;
+      }
       if (this.specialClick === null || !this.study.isBought) this.study.purchase();
       else this.specialClick();
+    },
+    onBtnTouchStart(e) {
+      this.longPressTriggered = false;
+      if (e.touches.length !== 1) {
+        this.clearLongPress();
+        return;
+      }
+      this.touchStartPos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      this.clearLongPress();
+      this.longPressTimer = setTimeout(() => {
+        this.longPressTimer = null;
+        if (!window.__tsDragging) {
+          this.longPressTriggered = true;
+          this.shiftClick();
+        }
+      }, 450);
+    },
+    onBtnTouchMove(e) {
+      if (!this.longPressTimer || e.touches.length !== 1) {
+        this.clearLongPress();
+        return;
+      }
+      const dx = e.touches[0].clientX - this.touchStartPos.x;
+      const dy = e.touches[0].clientY - this.touchStartPos.y;
+      if (Math.hypot(dx, dy) > 8) {
+        this.clearLongPress();
+      }
+    },
+    clearLongPress() {
+      if (this.longPressTimer) {
+        clearTimeout(this.longPressTimer);
+        this.longPressTimer = null;
+      }
     },
     shiftClick() {
       if (this.study.purchaseUntil) this.study.purchaseUntil();
@@ -183,6 +223,11 @@ export class TimeStudySetup {
     :style="styleObject"
     @click.exact="handleClick"
     @click.shift.exact="shiftClick"
+    @contextmenu.prevent="shiftClick"
+    @touchstart.passive="onBtnTouchStart"
+    @touchmove.passive="onBtnTouchMove"
+    @touchend="clearLongPress"
+    @touchcancel="clearLongPress"
   >
     <slot />
     <CostDisplay
