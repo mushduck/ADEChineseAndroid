@@ -6076,3 +6076,58 @@ body.t-s12 {
   .c-ra-level-up-btn .c-ra-pet-upgrade__tooltip::after, .c-ra-upgrade-icon:nth-child(6) .c-ra-pet-upgrade__tooltip::after, .c-ra-upgrade-icon:nth-child(7) .c-ra-pet-upgrade__tooltip::after { right: 1.2rem !important; left: auto !important; margin-left: 0 !important; }
   .c-ra-upgrade-icon:nth-child(3) .c-ra-pet-upgrade__tooltip, .c-ra-upgrade-icon:nth-child(4) .c-ra-pet-upgrade__tooltip, .c-ra-upgrade-icon:nth-child(5) .c-ra-pet-upgrade__tooltip { left: 50% !important; right: auto !important; margin-left: 0 !important; transform: translateX(-50%) !important; }
 }
+
+/* === MOBILE LAITELA TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-laitela-celestial-tab { width: 100% !important; max-width: 100vw !important; padding: 0 0.35rem !important; box-sizing: border-box !important; overflow-x: hidden !important; }
+  .l-laitela-celestial-tab > .o-laitela-matter-amount { font-size: 0.78rem !important; line-height: 1.3 !important; margin-bottom: 0.15rem !important; text-align: center !important; width: 100% !important; word-break: break-word !important; }
+  .c-laitela-singularity-container { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; padding: 0.5rem 0.35rem !important; margin: 0.35rem auto !important; display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; justify-content: space-between !important; align-items: center !important; gap: 0.3rem !important; }
+  .c-laitela-singularity-container > div:first-child { width: 47% !important; flex: 0 0 47% !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
+  .c-laitela-singularity-container > div:first-child > h2 { font-size: 0.82rem !important; margin: 0 0 0.3rem 0 !important; line-height: 1.2 !important; text-align: center !important; }
+  .c-laitela-singularity { width: 100% !important; height: auto !important; min-height: 4.2rem !important; padding: 0.45rem 0.25rem !important; box-sizing: border-box !important; }
+  .c-laitela-singularity h2 { font-size: 0.7rem !important; line-height: 1.25 !important; margin: 0 !important; }
+  .c-laitela-singularity br { display: none !important; }
+  .c-laitela-singularity h2 + br + h2 { margin-top: 0.25rem !important; }
+  .c-laitela-singularity-container > div:nth-child(2) { width: 50% !important; flex: 0 0 50% !important; font-size: 0.68rem !important; line-height: 1.25 !important; text-align: center !important; }
+  .c-laitela-singularity-container > div:nth-child(2) .o-laitela-matter-amount { font-size: 0.76rem !important; font-weight: bold !important; margin-bottom: 0.25rem !important; line-height: 1.2 !important; }
+  .c-laitela-singularity__cap-control { width: calc(50% - 0.25rem) !important; height: 1.85rem !important; font-size: 0.7rem !important; padding: 0 0.15rem !important; margin: 0.15rem 0.08rem 0.25rem 0.08rem !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; box-sizing: border-box !important; }
+  .c-laitela-automation-toggle { width: calc(50% - 0.2rem) !important; flex: 0 0 calc(50% - 0.2rem) !important; height: auto !important; min-height: 2.5rem !important; font-size: 0.72rem !important; line-height: 1.2 !important; padding: 0.3rem 0.25rem !important; margin: 0 !important; box-sizing: border-box !important; white-space: normal !important; }
+  .c-laitela-hadrons-container { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; padding: 0.45rem 0.35rem !important; margin: 0.35rem auto !important; }
+  .c-laitela-hadrons-row { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; padding: 0.25rem 0.1rem !important; flex-wrap: wrap !important; gap: 0.15rem 0.25rem !important; font-size: 0.7rem !important; border-top: 0.05rem solid rgba(128, 128, 128, 0.3) !important; }
+  .c-laitela-hadrons-row:first-child { flex-direction: column !important; align-items: center !important; border-top: none !important; padding-top: 0.1rem !important; }
+  .c-laitela-hadrons-row:first-child h2 { font-size: 0.8rem !important; margin: 0.06rem 0 !important; line-height: 1.2 !important; }
+  .c-laitela-hadrons-row:first-child br { display: none !important; }
+  .c-laitela-hadrons-row > div { width: 47% !important; flex: 1 1 45% !important; text-align: center !important; line-height: 1.2 !important; }
+  .c-laitela-hadrons-assign { width: calc(50% - 0.25rem) !important; flex: 0 0 calc(50% - 0.25rem) !important; height: auto !important; min-height: 2.3rem !important; font-size: 0.68rem !important; line-height: 1.2 !important; padding: 0.25rem 0.2rem !important; margin: 0 !important; box-sizing: border-box !important; }
+  .l-laitela-mechanics-container { display: flex !important; flex-direction: column !important; align-items: stretch !important; width: 100% !important; max-width: 100% !important; }
+  .c-laitela-next-milestones { order: 1 !important; display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 0.35rem !important; width: 100% !important; height: auto !important; margin: 0.35rem 0 0.5rem 0 !important; }
+  .o-laitela-singularity-modal-button { grid-column: 1 / -1 !important; justify-self: center !important; width: auto !important; min-width: 11rem !important; height: auto !important; padding: 0.3rem 1.2rem !important; font-size: 0.8rem !important; margin: 0 0 0.1rem 0 !important; text-align: center !important; }
+  .c-laitela-milestone { width: 100% !important; height: 6.4rem !important; margin: 0 !important; padding: 0.35rem 0.25rem !important; box-sizing: border-box !important; font-size: 0.7rem !important; line-height: 1.2 !important; border: var(--var-border-width, 0.15rem) solid var(--color-laitela--accent) !important; overflow: hidden !important; }
+  .c-laitela-milestone p { margin: 0.12rem 0 !important; font-size: 0.66rem !important; line-height: 1.15 !important; }
+  .c-laitela-milestone--bar-border-fix { display: none !important; }
+  .c-laitela-milestone--completed { width: 100% !important; height: 100% !important; top: 0 !important; left: 0 !important; }
+  .l-laitela-mechanics-container > div:not(.c-laitela-next-milestones) { order: 2 !important; width: 100% !important; }
+  .c-dark-matter-dimension-container { width: 100% !important; height: auto !important; box-sizing: border-box !important; padding: 0.45rem 0.35rem !important; margin: 0 0 0.5rem 0 !important; font-size: 0.72rem !important; line-height: 1.25 !important; text-align: center !important; }
+  .o-dark-matter-dimension-amount { font-size: 0.9rem !important; font-weight: bold !important; margin-bottom: 0.08rem !important; }
+  .c-dark-matter-dimension-buttons { display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: stretch !important; gap: 0.25rem !important; width: 100% !important; height: auto !important; margin: 0.3rem 0 !important; }
+  .o-dark-matter-dimension-button { flex: 1 1 0 !important; width: 0 !important; min-width: 0 !important; height: auto !important; min-height: 3.1rem !important; padding: 0.3rem 0.12rem !important; margin: 0 !important; font-size: 0.7rem !important; line-height: 1.2 !important; display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; box-sizing: border-box !important; word-break: break-word !important; }
+  .l-dmd-interval-small-text, .l-dmd-dm-small-text, .l-dmd-de-small-text { font-size: 0.68rem !important; line-height: 1.18 !important; }
+  .l-laitela-annihilation-container, .l-laitela-annihilation-container--large { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 0.35rem !important; width: 100% !important; height: auto !important; box-sizing: border-box !important; padding: 0.55rem 0.4rem !important; margin: 0 0 0.5rem 0 !important; font-size: 0.72rem !important; line-height: 1.35 !important; text-align: center !important; }
+  .l-laitela-annihilation-container > span { display: block !important; width: 100% !important; }
+  .l-laitela-annihilation-container > br { display: none !important; }
+  .l-laitela-annihilation-container span br { display: inline !important; }
+  .l-laitela-annihilation-container span br + br { display: none !important; }
+  .l-laitela-annihilation-button { display: block !important; width: auto !important; min-width: 11rem !important; max-width: 90% !important; height: auto !important; min-height: 1.95rem !important; padding: 0.3rem 0.8rem !important; margin: 0 auto !important; font-size: 0.76rem !important; }
+  .o-laitela-run-button, .o-laitela-run-button--large, .o-laitela-run-button--larger { order: 3 !important; width: 100% !important; height: auto !important; box-sizing: border-box !important; margin: 0 0 0.5rem 0 !important; padding: 0.7rem 0.5rem !important; font-size: 0.74rem !important; line-height: 1.35 !important; }
+  .o-laitela-run-button > span:first-child { font-size: 0.95rem !important; display: block !important; margin-bottom: 0.3rem !important; }
+  .o-laitela-run-button__icon { width: 9.5rem !important; height: 9.5rem !important; margin: 0.6rem auto 1rem auto !important; background-size: 4.0rem !important; border-width: 0.35rem !important; }
+  .o-laitela-run-button br { display: inline !important; }
+  .o-laitela-run-button br + br { display: none !important; }
+  .l-laitela-hadronize-button { display: block !important; width: auto !important; min-width: 11rem !important; max-width: 90% !important; height: auto !important; padding: 0.35rem 0.8rem !important; font-size: 0.76rem !important; margin: 0.35rem auto !important; }
+  .l-singularity-milestone-modal { width: 94vw !important; max-width: 94vw !important; height: auto !important; max-height: 82vh !important; box-sizing: border-box !important; }
+  .l-singularity-milestone-sort-container { display: flex !important; flex-wrap: wrap !important; left: 0 !important; width: 100% !important; margin: 0.25rem 0 !important; padding: 0.25rem !important; gap: 0.2rem !important; justify-content: center !important; box-sizing: border-box !important; }
+  .c-singularity-milestone-modal-sort-button { width: calc(50% - 0.2rem) !important; height: auto !important; min-height: 2rem !important; font-size: 0.68rem !important; margin: 0 !important; padding: 0.2rem !important; }
+  .l-singularity-milestone-modal-container-outer { width: 100% !important; height: 52vh !important; }
+  .l-singularity-milestone-modal-container-inner { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 0.35rem !important; width: 100% !important; height: auto !important; padding: 0.2rem !important; box-sizing: border-box !important; }
+  .l-singularity-milestone-modal-container-inner .c-laitela-milestone { width: 100% !important; height: 6.4rem !important; margin: 0 !important; }
+}
