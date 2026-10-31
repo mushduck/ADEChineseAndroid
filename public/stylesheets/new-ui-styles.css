@@ -6035,3 +6035,44 @@ body.t-s12 {
     margin: 0.08rem 0 !important;
   }
 }
+/* === MOBILE CELESTIAL RA TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-ra-celestial-tab { width: 100% !important; padding: 0 0.4rem !important; box-sizing: border-box !important; }
+  .c-ra-memory-header { order: 1 !important; font-size: 0.85rem !important; line-height: 1.4 !important; text-align: center !important; padding: 0 0.2rem !important; }
+  .l-ra-celestial-tab > div:nth-child(2) { order: 2 !important; font-size: 0.76rem !important; line-height: 1.35 !important; margin: 0.3rem 0 !important; opacity: 0.85; }
+  .l-ra-non-pets { display: contents !important; }
+  .c-ra-run-button { order: 3 !important; width: 100% !important; height: auto !important; min-height: 16rem !important; padding: 1.2rem 0.8rem !important; margin: 0.4rem 0 0.7rem 0 !important; border-radius: 0.9rem !important; box-sizing: border-box !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; align-items: center !important; }
+  .c-ra-run-button h2, .c-ra-run-button h2 span { font-size: 1.35rem !important; font-weight: bold !important; margin: 0 0 0.45rem 0 !important; line-height: 1.3 !important; }
+  .c-ra-run-button__icon { width: 7.8rem !important; height: 7.8rem !important; margin: 0.35rem 0 0.65rem 0 !important; font-size: 3.6rem !important; border-width: 0.25rem !important; }
+  .c-ra-run-button .c-ra-run-button__icon__sigil { font-size: 3.6rem !important; line-height: 1 !important; }
+  .c-ra-run-button > span { font-size: 0.95rem !important; font-weight: bold !important; line-height: 1.4 !important; }
+  .l-ra-all-pets-container { order: 4 !important; display: flex !important; flex-direction: column !important; width: 100% !important; max-width: 100% !important; margin: 0 !important; gap: 0.65rem !important; }
+  .c-ra-remembrance-unlock { order: 5 !important; width: 100% !important; height: auto !important; min-height: 14rem !important; padding: 1.2rem 0.9rem 1.4rem 0.9rem !important; margin: 0.7rem 0 0.5rem 0 !important; border-radius: 0.9rem !important; box-sizing: border-box !important; }
+  .c-ra-remembrance-unlock h1 { font-size: 1.6rem !important; margin: 0 0 0.45rem 0 !important; }
+  .c-ra-remembrance-unlock > span { font-size: 0.88rem !important; line-height: 1.4 !important; margin-bottom: 0.3rem !important; }
+  .c-ra-remembrance-unlock-inner { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 0.55rem !important; width: 100% !important; margin-top: 0.75rem !important; }
+  .c-ra-pet-remembrance-button { width: 100% !important; height: 3.8rem !important; font-size: 0.95rem !important; font-weight: bold !important; margin: 0 !important; border-radius: 0.6rem !important; }
+  .l-ra-pet-container { float: none !important; width: 100% !important; margin: 0 !important; }
+  .c-ra-pet-header { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0.9rem 0.5rem !important; border-radius: 0.9rem !important; box-sizing: border-box !important; font-size: 0.85rem !important; line-height: 1.4 !important; }
+  .c-ra-pet-header > br { display: none !important; }
+  .c-ra-pet-title { font-size: 1.45rem !important; font-weight: bold !important; margin-bottom: 0.2rem !important; }
+  .l-ra-pet-middle-container { display: flex !important; flex-direction: row !important; align-items: stretch !important; justify-content: center !important; width: 96% !important; height: 4.2rem !important; margin: 0.55rem auto !important; padding: 0 !important; box-sizing: border-box !important; }
+  .l-ra-pet-upgrade-container { display: flex !important; flex-direction: column !important; height: 4.2rem !important; margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
+  .l-ra-pet-upgrade, .c-ra-pet-upgrade__top, .c-ra-pet-upgrade__bottom { display: flex !important; flex-direction: row !important; height: 2.1rem !important; margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
+  .c-ra-pet-upgrade { position: relative !important; width: 2.4rem !important; height: 2.1rem !important; margin: 0 !important; font-size: 0.95rem !important; box-sizing: border-box !important; align-items: center !important; justify-content: center !important; }
+  .c-ra-upgrade-bar, .c-ra-upgrade-bar--bottom { width: 3.5rem !important; height: 2.1rem !important; margin: 0 !important; box-sizing: border-box !important; }
+  .l-ra-bar-container { display: flex !important; flex-direction: row !important; flex: 1 !important; height: 4.2rem !important; margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
+  .c-ra-exp-bar { flex: 1 !important; width: auto !important; height: 4.2rem !important; margin: 0 !important; box-sizing: border-box !important; }
+  .c-ra-level-up-btn { position: relative !important; width: 2.8rem !important; height: 4.2rem !important; margin: 0 !important; font-size: 1.35rem !important; box-sizing: border-box !important; }
+  .l-ra-pet-milestones { display: flex !important; justify-content: center !important; gap: 0.38rem !important; width: 100% !important; padding: 0 !important; margin-top: 0.35rem !important; box-sizing: border-box !important; }
+  .c-ra-upgrade-icon { position: relative !important; width: 3.4rem !important; height: 3.4rem !important; margin: 0 !important; font-size: 1.4rem !important; flex-shrink: 0 !important; }
+  .c-ra-pet-upgrade__tooltip { width: 18.5rem !important; max-width: 82vw !important; padding: 0.55rem 0.65rem !important; border-radius: 0.5rem !important; box-sizing: border-box !important; z-index: 100 !important; white-space: normal !important; word-break: break-word !important; }
+  .c-ra-pet-upgrade__tooltip .c-ra-pet-upgrade__tooltip__name { font-size: 1.05rem !important; line-height: 1.3 !important; margin-bottom: 0.2rem !important; }
+  .c-ra-pet-upgrade__tooltip .c-ra-pet-upgrade__tooltip__description { font-size: 0.88rem !important; line-height: 1.35 !important; margin-bottom: 0.25rem !important; }
+  .c-ra-pet-upgrade__tooltip .c-ra-pet-upgrade__tooltip__footer { font-size: 0.82rem !important; line-height: 1.35 !important; }
+  .c-ra-pet-upgrade .c-ra-pet-upgrade__tooltip, .c-ra-upgrade-icon:nth-child(1) .c-ra-pet-upgrade__tooltip, .c-ra-upgrade-icon:nth-child(2) .c-ra-pet-upgrade__tooltip { left: 0 !important; right: auto !important; margin-left: 0 !important; transform: none !important; }
+  .c-ra-pet-upgrade .c-ra-pet-upgrade__tooltip::after, .c-ra-upgrade-icon:nth-child(1) .c-ra-pet-upgrade__tooltip::after, .c-ra-upgrade-icon:nth-child(2) .c-ra-pet-upgrade__tooltip::after { left: 1.2rem !important; right: auto !important; margin-left: 0 !important; }
+  .c-ra-level-up-btn .c-ra-pet-upgrade__tooltip, .c-ra-upgrade-icon:nth-child(6) .c-ra-pet-upgrade__tooltip, .c-ra-upgrade-icon:nth-child(7) .c-ra-pet-upgrade__tooltip { right: 0 !important; left: auto !important; margin-left: 0 !important; transform: none !important; }
+  .c-ra-level-up-btn .c-ra-pet-upgrade__tooltip::after, .c-ra-upgrade-icon:nth-child(6) .c-ra-pet-upgrade__tooltip::after, .c-ra-upgrade-icon:nth-child(7) .c-ra-pet-upgrade__tooltip::after { right: 1.2rem !important; left: auto !important; margin-left: 0 !important; }
+  .c-ra-upgrade-icon:nth-child(3) .c-ra-pet-upgrade__tooltip, .c-ra-upgrade-icon:nth-child(4) .c-ra-pet-upgrade__tooltip, .c-ra-upgrade-icon:nth-child(5) .c-ra-pet-upgrade__tooltip { left: 50% !important; right: auto !important; margin-left: 0 !important; transform: translateX(-50%) !important; }
+}
