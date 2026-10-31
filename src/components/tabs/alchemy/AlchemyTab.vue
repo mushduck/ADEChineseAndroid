@@ -226,45 +226,31 @@ export default {
 
 <template>
   <div class="l-ra-alchemy-tab">
-    <div class="c-subtab-option-container">
-      <PrimaryButton
-        class="o-primary-btn--subtab-option"
-        @click="showAlchemyHowTo"
-      >
-        点击查看炼金详情
-      </PrimaryButton>
-      <PrimaryButton
-        v-if="!isDoomed"
-        class="o-primary-btn--subtab-option"
-        @click="toggleAllReactions"
-      >
-        {{ allReactionsDisabled ? "启用" : "禁用" }}所有反应
-      </PrimaryButton>
-      <PrimaryButton
-        v-if="realityCreationVisible"
-        :class="realityGlyphCreationClass"
-        @click="createRealityGlyph"
-      >
-        查看你能创造的现实符文
-      </PrimaryButton>
-      <PrimaryButton
-        class="o-primary-btn--subtab-option"
-        @click="resetAlchemy"
-      >
-        重置所有炼金资源
-      </PrimaryButton>
+    <PrimaryButton
+      v-if="realityCreationVisible"
+      :class="realityGlyphCreationClass"
+      class="c-mobile-alchemy-reality-btn"
+      @click="createRealityGlyph"
+    >
+      查看你能创造的现实符文
+    </PrimaryButton>
+    <div class="c-mobile-alchemy-disclaimer">
+      在符文页面中，你可以精炼符文。精炼符文时，符文将基于其最大精炼值的 {{ formatX(capFactor) }} 提供炼金资源。<br>
+      <span v-if="reactionsAvailable">
+        每进行一次现实，发生一次反应，不受利用储存的现实时间进行现实扩增的影响。
+      </span>
     </div>
     <AlchemyResourceInfo
       :key="infoResourceId"
       :resource="infoResource"
     />
-    <br>
-    在符文页面中，你可以精炼符文。
-    <br>
-    精炼符文时，符文将基于其最大精炼值的 {{ formatX(capFactor) }} 提供炼金资源。
-    <span v-if="reactionsAvailable">
-      每进行一次现实，发生一次反应，不受利用储存的现实时间进行现实扩增的影响。
-    </span>
+    <PrimaryButton
+      v-if="!isDoomed"
+      class="o-primary-btn--subtab-option c-mobile-alchemy-toggle-all-btn"
+      @click="toggleAllReactions"
+    >
+      {{ allReactionsDisabled ? "启用" : "禁用" }}所有反应
+    </PrimaryButton>
     <div
       class="l-alchemy-circle"
       :style="circleStyle"
@@ -309,6 +295,20 @@ export default {
           :class="reactionArrowClass(reactionArrow)"
         />
       </svg>
+    </div>
+    <div class="c-subtab-option-container c-mobile-alchemy-bottom-btns">
+      <PrimaryButton
+        class="o-primary-btn--subtab-option"
+        @click="showAlchemyHowTo"
+      >
+        点击查看炼金详情
+      </PrimaryButton>
+      <PrimaryButton
+        class="o-primary-btn--subtab-option"
+        @click="resetAlchemy"
+      >
+        重置所有炼金资源
+      </PrimaryButton>
     </div>
   </div>
 </template>

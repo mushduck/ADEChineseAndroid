@@ -66,7 +66,7 @@ export default {
         min: 0,
         max: negative ? this.maxNegativeBlackHole : 990,
         interval: 1,
-        width: "55rem",
+        width: "100%",
         tooltip: false
       };
     },
@@ -75,7 +75,7 @@ export default {
         min: 1,
         max: 500,
         interval: 1,
-        width: "55rem",
+        width: "100%",
         tooltip: false
       };
     },
@@ -84,7 +84,7 @@ export default {
         min: 1,
         max: 100,
         interval: 1,
-        width: "55rem",
+        width: "100%",
         tooltip: false
       };
     },

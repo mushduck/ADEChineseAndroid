@@ -4749,3 +4749,402 @@ body.t-s12 {
   }
 }
 
+
+
+/* === MOBILE RESURGENCE TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .c-mobile-resurgence-desc,
+  [class*="resurgence"] > div:first-child,
+  [class*="resurgence"] > p:first-child,
+  [class*="resurgence"] [class*="desc"] {
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin: 0.15rem auto 0.25rem auto !important;
+    padding: 0 0.5rem !important;
+    max-width: 95% !important;
+    box-sizing: border-box !important;
+  }
+  .c-mobile-resurgence-desc span,
+  [class*="resurgence"] > div:first-child span,
+  [class*="resurgence"] > p:first-child span {
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+  }
+  [class*="resurgence"] button,
+  [class*="resurgence"] .o-primary-btn,
+  .c-mobile-resurgence-btn {
+    height: 1.85rem !important;
+    min-height: 0 !important;
+    line-height: 1.85rem !important;
+    font-size: 0.74rem !important;
+    padding: 0 0.55rem !important;
+    margin: 0.1rem 0.15rem !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* === MOBILE PERKS TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .c-perk-tab__header {
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin: 0.2rem auto 0.25rem auto !important;
+    padding: 0 0.4rem !important;
+    max-width: 96% !important;
+    box-sizing: border-box !important;
+  }
+  .c-perk-tab__perk-points {
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+  }
+  .perk-settings {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.22rem !important;
+    width: 100% !important;
+    margin-top: 0.25rem !important;
+  }
+  .perk-settings > br {
+    display: none !important;
+  }
+  .perk-settings > button {
+    margin: 0 !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+  .perk-settings .c-button-perk-layout,
+  .perk-settings .c-button-physics {
+    width: 92% !important;
+    max-width: 92% !important;
+    height: 1.85rem !important;
+    min-height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.76rem !important;
+    padding: 0 0.5rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+  .perk-settings > .o-primary-btn:not(.c-button-perk-layout):not(.c-button-physics) {
+    width: 45% !important;
+    max-width: 45% !important;
+    height: 1.85rem !important;
+    min-height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.72rem !important;
+    padding: 0 0.3rem !important;
+  }
+}
+
+/* === MOBILE BLACK HOLE TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-black-hole-tab {
+    width: 100% !important;
+    max-width: 100vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0 0.4rem 0.5rem 0.4rem !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  .l-black-hole-tab .c-subtab-option-container {
+    order: -1 !important;
+    margin: 0.35rem auto 0.45rem auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    width: 100% !important;
+  }
+  .l-black-hole-tab .o-primary-btn--subtab-option {
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.78rem !important;
+    padding: 0 0.65rem !important;
+    margin: 0 !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+  }
+  .c-black-hole-canvas {
+    order: 0 !important;
+    width: 26rem !important;
+    height: 26rem !important;
+    max-width: 78vw !important;
+    max-height: 78vw !important;
+    margin: 0.2rem auto 0.4rem auto !important;
+    display: block !important;
+  }
+  .l-black-hole-upgrade-grid {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0.2rem auto !important;
+  }
+  .l-black-hole-tab h3 {
+    font-size: 0.9rem !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    margin: 0.15rem 0 !important;
+    text-align: center !important;
+  }
+  .l-black-hole-upgrade-grid span {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    max-width: 96% !important;
+  }
+  .l-enslaved-shop-container,
+  .l-black-hole-sliders {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 0.3rem !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    margin: 0.3rem auto !important;
+  }
+  .l-black-hole-sliders b {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 0.74rem !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin: 0.65rem auto 0.3rem auto !important;
+    padding: 0 0.4rem !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+  }
+  .l-black-hole-sliders br {
+    display: none !important;
+  }
+  .l-black-hole-sliders div:not(.l-ad-slider):not(.l-ad-slider__wrap):not(.l-ad-slider__bg):not(.l-ad-slider__process):not(.l-ad-slider__dot):not(.l-ad-slider__dot-handle) {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    color: #a0a0b0 !important;
+    margin: 0.35rem auto 0.55rem auto !important;
+    max-width: 96% !important;
+    text-align: center !important;
+  }
+  .l-black-hole-sliders .l-ad-slider {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0.45rem auto 0.95rem auto !important;
+    padding: 0 !important;
+  }
+  .l-black-hole-sliders .l-ad-slider__wrap {
+    width: 88% !important;
+    max-width: 88% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    left: 0 !important;
+  }
+  .l-black-hole-sliders .l-ad-slider__bg {
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    margin: 0 !important;
+  }
+  .l-ad-slider__process {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+  .l-black-hole-upgrade-permanent {
+    order: 2 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 0.4rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.4rem auto 0.2rem auto !important;
+    box-sizing: border-box !important;
+  }
+  .l-black-hole-upgrade-permanent .l-black-hole-upgrade-grid__row {
+    flex: 1 1 48% !important;
+    width: 48% !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .l-black-hole-upgrade-permanent .l-spoon-btn-group {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    margin: 0 !important;
+  }
+  .l-black-hole-upgrade-permanent .c-reality-upgrade-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 4.8rem !important;
+    font-size: 0.68rem !important;
+    line-height: 1.25 !important;
+    padding: 0.25rem 0.2rem !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+  }
+  .l-black-hole-upgrade-permanent .o-primary-btn--reality-upgrade-toggle {
+    width: 100% !important;
+    height: 1.85rem !important;
+    min-height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.74rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 4px !important;
+  }
+}
+
+/* === MOBILE GLYPH ALCHEMY TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-ra-alchemy-tab {
+    width: 100% !important;
+    max-width: 100vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0 0.4rem 2.5rem 0.4rem !important;
+    box-sizing: border-box !important;
+  }
+  .c-mobile-alchemy-reality-btn {
+    width: 92% !important;
+    max-width: 92% !important;
+    height: 2.2rem !important;
+    line-height: 2.2rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    border: 0.12rem solid var(--color-good) !important;
+    border-radius: 5px !important;
+    margin: 0.35rem auto 0.25rem auto !important;
+    white-space: nowrap !important;
+  }
+  .c-mobile-alchemy-disclaimer {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    color: #9a9ab0 !important;
+    text-align: center !important;
+    width: 94% !important;
+    margin: 0.2rem auto 0.35rem auto !important;
+  }
+  .c-alchemy-resource-info {
+    width: 94% !important;
+    max-width: 94% !important;
+    background: rgba(22, 22, 30, 0.92) !important;
+    border: 1px solid #3e3e52 !important;
+    border-radius: 8px !important;
+    padding: 0.65rem 0.55rem !important;
+    margin: 0.25rem auto 0.45rem auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    gap: 0.22rem !important;
+  }
+  .c-alchemy-resource-info__title {
+    font-size: 1.22rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.15rem !important;
+  }
+  .c-alchemy-resource-info span {
+    font-size: 0.88rem !important;
+    line-height: 1.45 !important;
+  }
+  .c-mobile-alchemy-info-btn {
+    height: 2.1rem !important;
+    min-height: 2.1rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    padding: 0 1.2rem !important;
+    margin-top: 0.35rem !important;
+    border-radius: 4px !important;
+    border: 1px solid #6b2e3e !important;
+    background: #24141a !important;
+    color: #e098a8 !important;
+    cursor: pointer !important;
+  }
+  .c-mobile-alchemy-info-btn--active {
+    border-color: #2e6b3e !important;
+    background: #14241a !important;
+    color: #98e0a8 !important;
+  }
+  .c-mobile-alchemy-toggle-all-btn {
+    width: auto !important;
+    height: 1.95rem !important;
+    line-height: 1.95rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    padding: 0 1rem !important;
+    margin-top: 0.35rem !important;
+    margin-bottom: 1.6rem !important;
+    border-radius: 4px !important;
+  }
+  .l-alchemy-circle {
+    width: 90vw !important;
+    height: 90vw !important;
+    max-width: 350px !important;
+    max-height: 350px !important;
+    margin: 0.35rem auto 0.5rem auto !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+  .o-alchemy-node {
+    transform: scale(0.82) !important;
+    transform-origin: center center !important;
+    overflow: visible !important;
+  }
+  .o-alchemy-node-mask {
+    font-size: 1.1rem !important;
+  }
+  .o-alchemy-node > span {
+    display: contents !important;
+  }
+  .l-hint-text--alchemy-node {
+    top: 3.1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    position: absolute !important;
+    width: max-content !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    pointer-events: none !important;
+    z-index: 6 !important;
+  }
+  .o-hint-text--alchemy-node,
+  .o-hint-text--alchemy-node--unfocused {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.95), 0 0 5px #000 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+  .c-mobile-alchemy-bottom-btns {
+    margin-top: 2.4rem !important;
+    margin-bottom: 1rem !important;
+    gap: 0.4rem !important;
+  }
+}

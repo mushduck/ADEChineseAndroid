@@ -25,6 +25,17 @@ export default {
     };
   },
   computed: {
+    reactionButtonText() {
+      if (this.isBaseResource) return "此资源没有对应的反应";
+      return this.isReactionActive ? "暂停反应" : "启动反应";
+    },
+    reactionButtonClass() {
+      return {
+        "c-mobile-alchemy-info-btn": true,
+        "c-mobile-alchemy-info-btn--disabled": this.isBaseResource,
+        "c-mobile-alchemy-info-btn--active": !this.isBaseResource && this.isReactionActive
+      };
+    },
     classObject() {
       return {
         "c-alchemy-resource-info": true,
@@ -75,6 +86,10 @@ export default {
     }
   },
   methods: {
+    toggleReaction() {
+      if (this.isBaseResource || this.isDoomed) return;
+      this.resource.reaction.isActive = !this.resource.reaction.isActive;
+    },
     update() {
       const resource = this.resource;
       this.amount = resource.amount;
@@ -115,6 +130,9 @@ export default {
         :config="effectConfig"
       />
     </span>
+    <button :class="reactionButtonClass" @click="toggleReaction">
+      {{ reactionButtonText }}
+    </button>
   </div>
   <div
     v-else
