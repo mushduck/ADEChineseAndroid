@@ -3984,3 +3984,471 @@ body.t-s12 {
     margin: 0.2rem auto !important;
   }
 }
+
+/* === MOBILE GLYPHS TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-glyphs-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 0.2rem 2.5rem 0.2rem !important;
+    overflow-x: hidden !important;
+  }
+  .l-reality-button-column,
+  .l-player-glyphs-column {
+    display: contents !important;
+  }
+  .l-reality-button-column > br {
+    display: none !important;
+  }
+  .l-reality-button-column > * {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .c-glyph-peek {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0.2rem auto !important;
+    padding: 0.3rem 0.2rem !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  .c-glyph-peek > .l-glyph-set-preview {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    transform: none !important;
+    cursor: pointer !important;
+  }
+  .c-glyph-peek span.l-glyph-set-preview {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    margin: 0.25rem auto !important;
+    padding: 0 !important;
+  }
+  .c-glyph-peek span.l-glyph-set-preview > .l-glyph-component {
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+    position: relative !important;
+    box-shadow: none !important;
+    border-radius: 3px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+  }
+  .c-glyph-peek span.l-glyph-set-preview .c-glyph-component {
+    width: calc(100% - 2px) !important;
+    height: calc(100% - 2px) !important;
+    font-size: 1.4rem !important;
+    padding-bottom: 0.1rem !important;
+    border-radius: 3px !important;
+  }
+  .c-glyph-peek span.l-glyph-set-preview > .l-glyph-component > div {
+    border-radius: 3px !important;
+  }
+  .c-glyph-peek span.l-glyph-set-preview > .l-glyph-component > div:last-child {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    box-shadow: none !important;
+    border-radius: 3px !important;
+  }
+  .l-glyph-level-factors {
+    order: 2 !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0.3rem auto !important;
+    z-index: 5 !important;
+  }
+  .l-glyph-level-factors .l-expanding-control-box__container {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #08080c !important;
+    border: 1px solid var(--color-good) !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+  }
+  .c-glyph-levels-and-weights {
+    font-size: 0.72rem !important;
+    line-height: 1.25 !important;
+    padding: 0.3rem 0.2rem !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+  .o-teresa-quotes,
+  .l-equipped-glyphs-and-effects-container {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.2rem auto 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-glyph-info-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.2rem auto 0.15rem auto !important;
+    box-sizing: border-box !important;
+    order: -1 !important;
+  }
+  .c-glyph-info-options {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 0.3rem !important;
+    width: 100% !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .l-glyph-info-button {
+    width: 48% !important;
+    height: 2.0rem !important;
+    font-size: 0.74rem !important;
+    padding: 0 0.4rem !important;
+    border-radius: 4px !important;
+  }
+  .c-current-glyph-effects,
+  .l-current-glyph-effects {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 14rem !important;
+    overflow-y: auto !important;
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+    padding: 0.4rem !important;
+    box-sizing: border-box !important;
+    border-radius: 6px !important;
+  }
+  .l-equipped-glyphs {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 0.2rem !important;
+    margin: 0.1rem auto 0 auto !important;
+  }
+  .l-equipped-glyphs__slots {
+    width: 14rem !important;
+    height: 9.4rem !important;
+    position: relative !important;
+    top: 2.3rem !important;
+    margin: 0 auto !important;
+    flex-shrink: 0 !important;
+    transform: scale(0.58) !important;
+    transform-origin: center center !important;
+  }
+  .l-equipped-glyphs__buttons {
+    width: calc(100% - 14.5rem) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 0.2rem !important;
+    margin: 0 !important;
+  }
+  .l-equipped-glyphs__buttons .c-reality-upgrade-btn,
+  .l-equipped-glyphs__buttons .l-glyph-equip-button,
+  .l-equipped-glyphs__buttons .l-glyph-equip-button-short {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 2.2rem !important;
+    font-size: 0.72rem !important;
+    line-height: 1.2 !important;
+    padding: 0.2rem 0.3rem !important;
+    margin: 0 !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
+  .l-reality-button-group {
+    order: 4 !important;
+    width: calc(100% - 14.5rem) !important;
+    max-width: calc(100% - 14.5rem) !important;
+    align-self: flex-end !important;
+    margin: 0.2rem 0.2rem 0.3rem auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.2rem !important;
+    box-sizing: border-box !important;
+  }
+  .l-reality-button-group > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 2.2rem !important;
+    font-size: 0.72rem !important;
+    line-height: 1.2 !important;
+    padding: 0.2rem 0.3rem !important;
+    margin: 0 !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
+  .l-glyph-inventory {
+    order: 5 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.4rem auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    font-size: 0.72rem !important;
+    color: #a0a0b0 !important;
+  }
+  .l-glyph-inventory__row {
+    display: grid !important;
+    grid-template-columns: repeat(10, minmax(0, 1fr)) !important;
+    gap: 2px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 2px auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-glyph-inventory__slot,
+  .c-glyph-inventory__slot,
+  .c-glyph-inventory__protected-slot {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 3px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .l-glyph-inventory__slot > .l-glyph-component {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+    box-shadow: none !important;
+  }
+  .l-glyph-inventory__slot .c-glyph-component {
+    width: calc(100% - 2px) !important;
+    height: calc(100% - 2px) !important;
+    font-size: 1.4rem !important;
+    padding-bottom: 0.1rem !important;
+  }
+  .l-glyph-inventory__slot > .l-glyph-component > div:last-child {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+  .l-glyph-inventory__slot .l-glyph-info {
+    font-size: 0.52rem !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    padding: 0 1px !important;
+    line-height: 1.1 !important;
+  }
+  .l-glyph-inventory__slot .l-corner-icon {
+    font-size: 0.5rem !important;
+    top: 0 !important;
+    left: 0 !important;
+    padding: 1px !important;
+  }
+  .c-single-glyph-cosmetic,
+  .l-glyph-sidebar-option-container {
+    order: 6 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    margin: 0.8rem auto 1.5rem auto !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .l-glyph-sidebar-tab-container {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0.2rem !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .l-glyph-sidebar-button,
+  .c-glyph-sidebar-button {
+    width: 100% !important;
+    height: 2.2rem !important;
+    font-size: 0.74rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+  }
+  .l-glyph-inventory-management,
+  .l-glyph-filter-panel,
+  .l-glyph-set-save-panel,
+  .l-glyph-rejection-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    padding: 0.3rem !important;
+  }
+}
+
+/* === MOBILE MODALS & GLYPH SHOWCASE ADAPTATION === */
+@media (max-width: 768px) {
+  .l-modal-overlay,
+  .l-modal-overlay-flash-warn {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 500 !important;
+  }
+  .l-modal {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 501 !important;
+    max-width: 95vw !important;
+    width: 95vw !important;
+    box-sizing: border-box !important;
+  }
+  .c-modal {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 0.8rem 0.4rem !important;
+    font-size: 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+  .c-modal__title {
+    width: auto !important;
+    max-width: 85vw !important;
+    font-size: 1.6rem !important;
+    padding: 0 1.5rem !important;
+    line-height: 1.3 !important;
+    word-break: break-word !important;
+  }
+  .c-modal .c-glyph-choice-container,
+  .c-glyph-choice-container,
+  .c-glyph-choice-container-single {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin: 0.4rem auto !important;
+    padding: 0 !important;
+  }
+  .c-modal .c-glyph-choice-single-glyph,
+  .c-glyph-choice-single-glyph {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 8.5rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    margin: 0.2rem 0 !important;
+    padding: 0.35rem !important;
+    box-sizing: border-box !important;
+    background: rgba(0, 0, 0, 0.45) !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+  }
+  .c-glyph-choice-icon {
+    width: 28% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    border-right: 1px solid #333 !important;
+    padding-right: 0.3rem !important;
+    box-sizing: border-box !important;
+  }
+  .c-glyph-choice-icon > span:first-child {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .c-glyph-choice-icon .c-glyph-component-container,
+  .c-glyph-choice-icon .l-glyph-component {
+    width: 4.4rem !important;
+    height: 4.4rem !important;
+    font-size: 2.2rem !important;
+    margin: 0.15rem auto !important;
+  }
+  .c-glyph-choice-icon > div:last-child {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    margin-top: 0.2rem !important;
+  }
+  .c-glyph-choice-effect-list {
+    width: 70% !important;
+    max-width: 70% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 0.3rem 0.4rem !important;
+    box-sizing: border-box !important;
+    font-size: 1.2rem !important;
+    line-height: 1.4 !important;
+    color: #e0e0f0 !important;
+    text-align: left !important;
+  }
+  .c-glyph-choice-effect-list > div {
+    margin: 0.15rem 0 !important;
+    word-break: break-word !important;
+  }
+}
