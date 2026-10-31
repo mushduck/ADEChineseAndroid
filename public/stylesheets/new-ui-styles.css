@@ -3730,3 +3730,145 @@ body.t-s12 {
     margin-top: 0.05rem !important;
   }
 }
+
+/* === MOBILE TIME DILATION TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-dilation-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 0.2rem 1.0rem 0.2rem !important;
+    font-size: 1.15rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+  .l-dilation-tab > span {
+    font-size: 1.15rem !important;
+    line-height: 1.35 !important;
+    color: #c0c0d0 !important;
+    margin: 0.15rem 0 !important;
+    text-align: center !important;
+  }
+  .c-dilation-tab__tachyons,
+  .c-dilation-tab__dilated-time,
+  .c-dilation-tab__dilated-time-income,
+  .c-dilation-tab__galaxy-threshold,
+  .c-dilation-tab__galaxies,
+  .l-dilation-tab .max-accent {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    color: #64ddad !important;
+  }
+  .l-dilation-tab > div:not(.l-dilation-upgrades-grid) {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0.35rem auto !important;
+  }
+  .o-dilation-btn {
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 5.8rem !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    padding: 0.4rem 0.3rem !important;
+    margin: 0 auto !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .l-dilation-upgrades-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.4rem !important;
+    padding: 0 !important;
+    margin: 0.45rem auto !important;
+    box-sizing: border-box !important;
+  }
+  .l-dilation-upgrades-grid__row {
+    display: contents !important;
+  }
+  .l-dilation-upgrades-grid__cell,
+  .l-dilation-upgrades-grid .l-spoon-btn-group {
+    grid-column: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-dilation-upgrades-grid__row:first-child > .l-dilation-upgrades-grid__cell:first-child,
+  .l-dilation-upgrades-grid > div:first-child > .l-spoon-btn-group:first-child {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    margin: 0.15rem auto !important;
+  }
+  .l-dilation-upgrades-grid__row:last-child > .l-dilation-upgrades-grid__cell:last-child,
+  .l-dilation-upgrades-grid > div:last-child > .l-spoon-btn-group:last-child {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    margin: 0.15rem auto !important;
+  }
+  .o-dilation-upgrade {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 5.8rem !important;
+    padding: 0.4rem 0.3rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.12rem !important;
+  }
+  .o-dilation-upgrade span,
+  .o-dilation-upgrade .o-dilation-upgrade__description {
+    font-size: 0.80rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+  .o-dilation-upgrade .c-effect-display,
+  .o-dilation-upgrade .c-cost-display {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0.05rem !important;
+  }
+  .o-primary-btn--dilation-upgrade-toggle {
+    width: 100% !important;
+    height: 1.95rem !important;
+    line-height: 1.95rem !important;
+    font-size: 0.76rem !important;
+    padding: 0 !important;
+    margin-top: 0.15rem !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+}
