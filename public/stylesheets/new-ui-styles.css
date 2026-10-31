@@ -3116,3 +3116,503 @@ body.t-s12 {
     margin-bottom: 0.05rem !important;
   }
 }
+
+/* === MOBILE INFINITY UPGRADES TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-infinity-upgrades-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 0.2rem !important;
+    font-size: 0.68rem !important;
+    line-height: 1.25 !important;
+    color: #a0a0b0 !important;
+    text-align: center !important;
+  }
+  .l-infinity-upgrades-tab > div:nth-child(2),
+  .l-infinity-upgrades-tab > div:nth-child(3),
+  .l-infinity-upgrades-tab > div:nth-child(4) {
+    order: 1 !important;
+    font-size: 0.68rem !important;
+    line-height: 1.25 !important;
+    color: #a0a0b0 !important;
+    text-align: center !important;
+  }
+  .l-infinity-upgrades-tab > div:last-child {
+    order: 2 !important;
+    font-size: 0.68rem !important;
+    line-height: 1.25 !important;
+    color: #9090a0 !important;
+    margin: 0.15rem 0 0.3rem 0 !important;
+    text-align: center !important;
+  }
+  .c-subtab-option-container {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 0.3rem !important;
+    width: 100% !important;
+    margin: 0.15rem 0 !important;
+  }
+  .o-primary-btn--subtab-option {
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.76rem !important;
+    padding: 0 0.6rem !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    width: auto !important;
+  }
+  .l-infinity-upgrades-bottom-row {
+    order: 4 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.25rem !important;
+    width: 100% !important;
+    margin: 0.3rem 0 0.5rem 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-spoon-btn-group {
+    display: contents !important;
+  }
+  .l-spoon-btn-group > .o-primary-btn--small-spoon:not(:last-child),
+  .l-spoon-btn-group > button:nth-child(2) {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.76rem !important;
+    padding: 0 0.2rem !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+  .l-spoon-btn-group > .o-primary-btn--small-spoon:last-child,
+  .l-spoon-btn-group > button:nth-child(3) {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.76rem !important;
+    padding: 0 0.2rem !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    margin: 0 !important;
+    position: static !important;
+    transform: none !important;
+  }
+  .l-infinity-upgrades-bottom-row .o-infinity-upgrade-btn--multiplier {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-height: 5.5rem !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.35rem 0.2rem !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.1rem !important;
+    margin: 0 !important;
+  }
+  .l-infinity-upgrades-bottom-row > .o-infinity-upgrade-btn {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-height: 5.5rem !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.35rem 0.2rem !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.1rem !important;
+    margin: 0 !important;
+  }
+  .l-infinity-upgrades-bottom-row .o-infinity-upgrade-btn span,
+  .l-infinity-upgrades-bottom-row .o-infinity-upgrade-btn .c-infinity-upgrade-btn__description,
+  .l-infinity-upgrades-bottom-row .o-infinity-upgrade-btn--multiplier span {
+    font-size: 0.68rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+  }
+  .l-infinity-upgrades-bottom-row .o-infinity-upgrade-btn .c-infinity-upgrade-btn__effect,
+  .l-infinity-upgrades-bottom-row .o-infinity-upgrade-btn .c-cost-display,
+  .l-infinity-upgrades-bottom-row .o-infinity-upgrade-btn--multiplier .c-cost-display {
+    font-size: 0.70rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+  .l-infinity-upgrade-grid,
+  .l-infinity-upgrades-tab__grid {
+    order: 5 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.45rem !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  .c-infinity-upgrade-grid__column {
+    display: contents !important;
+  }
+  .c-infinity-upgrade-grid__column--background {
+    display: none !important;
+  }
+  .l-infinity-upgrade-grid .o-infinity-upgrade-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 5.5rem !important;
+    padding: 0.35rem 0.25rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.12rem !important;
+  }
+  .l-infinity-upgrade-grid .o-infinity-upgrade-btn span,
+  .l-infinity-upgrade-grid .o-infinity-upgrade-btn .c-infinity-upgrade-btn__description {
+    font-size: 0.76rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+  .l-infinity-upgrade-grid .o-infinity-upgrade-btn .c-infinity-upgrade-btn__effect,
+  .l-infinity-upgrade-grid .o-infinity-upgrade-btn .c-cost-display {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0.05rem !important;
+  }
+}
+
+/* === MOBILE BREAK INFINITY TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-break-infinity-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 0.2rem 0.8rem 0.2rem !important;
+  }
+  .l-break-infinity-tab .l-break-infinity-tab__break-btn,
+  .l-break-infinity-tab button.l-break-infinity-tab__break-btn,
+  .l-break-infinity-tab .o-infinity-upgrade-btn--unclickable {
+    width: 98% !important;
+    max-width: 98% !important;
+    height: 3.0rem !important;
+    min-height: 3.0rem !important;
+    max-height: 3.0rem !important;
+    line-height: 3.0rem !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
+    margin: 0.2rem auto 0.5rem auto !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  .l-break-infinity-upgrade-grid,
+  .l-break-infinity-tab__grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.4rem !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  .l-break-infinity-upgrade-grid__row {
+    display: contents !important;
+  }
+  .l-break-infinity-upgrade-grid .o-infinity-upgrade-btn,
+  .l-break-infinity-upgrade-grid .o-infinity-upgrade-btn--multiplier {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 4.8rem !important;
+    padding: 0.3rem 0.2rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.1rem !important;
+  }
+  .l-break-infinity-upgrade-grid .o-infinity-upgrade-btn span,
+  .l-break-infinity-upgrade-grid .o-infinity-upgrade-btn .c-infinity-upgrade-btn__description {
+    font-size: 0.74rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+  .l-break-infinity-upgrade-grid .o-infinity-upgrade-btn .c-infinity-upgrade-btn__effect,
+  .l-break-infinity-upgrade-grid .o-infinity-upgrade-btn .c-cost-display {
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0.05rem !important;
+  }
+}
+
+/* === MOBILE REPLICANTI TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-replicanti-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 0.2rem 1.0rem 0.2rem !important;
+    font-size: 0.76rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+  .l-replicanti-tab br {
+    display: none !important;
+  }
+  .l-replicanti-tab .o-primary-btn--replicanti-galaxy br {
+    display: inline !important;
+  }
+  .l-replicanti-tab .modified-cap {
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+    color: #a0a0b0 !important;
+    margin: 0.2rem 0 !important;
+  }
+  .l-replicanti-tab .c-replicanti-description {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    margin: 0.25rem 0 !important;
+    color: #d0d0e0 !important;
+  }
+  .l-replicanti-tab .c-replicanti-description__accent,
+  .l-replicanti-tab .max-accent {
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+  }
+  .l-replicanti-upgrade-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    column-gap: 0.25rem !important;
+    row-gap: 0.35rem !important;
+    width: 100% !important;
+    margin: 0.4rem 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-replicanti-upgrade-button {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 0.25rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .o-primary-btn--replicanti-upgrade {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 5.5rem !important;
+    padding: 0.3rem 0.15rem !important;
+    margin: 0 !important;
+    font-size: 0.70rem !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+    box-sizing: border-box !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .o-primary-btn--replicanti-upgrade span {
+    font-size: 0.70rem !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+  }
+  .o-primary-btn--replicanti-upgrade-toggle {
+    width: 100% !important;
+    height: 1.85rem !important;
+    line-height: 1.85rem !important;
+    font-size: 0.72rem !important;
+    padding: 0 !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+  .l-replicanti-tab > div:not([class]),
+  .l-replicanti-tab .contingency-text {
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+    color: #a0a0b0 !important;
+    margin: 0.25rem 0 !important;
+  }
+  .l-replicanti-tab p {
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+    color: #c0c0d0 !important;
+    margin: 0.3rem 0 !important;
+  }
+  .l-replicanti-tab .l-spoon-btn-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.3rem auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-replicanti-tab .o-primary-btn--replicanti-galaxy,
+  .l-replicanti-tab .o-primary-btn--replicanti-galaxy-toggle,
+  .l-replicanti-tab .l--spoon-btn-group__little-spoon {
+    width: 80% !important;
+    max-width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+    align-self: center !important;
+  }
+  .l-replicanti-tab .o-primary-btn--replicanti-galaxy {
+    height: auto !important;
+    min-height: 2.8rem !important;
+    font-size: 0.76rem !important;
+    line-height: 1.3 !important;
+    padding: 0.35rem 0.5rem !important;
+    margin-top: 0.15rem !important;
+    margin-bottom: 0.15rem !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .l-replicanti-tab .o-primary-btn--replicanti-galaxy-toggle {
+    height: 1.9rem !important;
+    line-height: 1.9rem !important;
+    font-size: 0.76rem !important;
+    padding: 0 !important;
+    margin-top: 0.15rem !important;
+    margin-bottom: 0.15rem !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+
+/* === MOBILE ETERNITY MILESTONES TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-eternity-milestone-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.45rem !important;
+    padding: 0 0.2rem 1.0rem 0.2rem !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  .l-eternity-milestone-grid > div:nth-child(1),
+  .l-eternity-milestone-grid > div:nth-child(2) {
+    grid-column: 1 / -1 !important;
+    text-align: center !important;
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
+    color: #a0a0b0 !important;
+    margin: 0.15rem 0 !important;
+  }
+  .l-eternity-milestone-grid > div:nth-child(1) {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    color: #e0e0f0 !important;
+  }
+  .l-eternity-milestone-grid__row {
+    display: contents !important;
+  }
+  .l-eternity-milestone-grid__cell,
+  .l-eternity-milestone {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .o-eternity-milestone__goal {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    color: #d0d0e0 !important;
+    margin-bottom: 0.15rem !important;
+    text-align: center !important;
+  }
+  .o-eternity-milestone__reward {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 5.2rem !important;
+    padding: 0.35rem 0.25rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    font-size: 0.72rem !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .o-eternity-milestone__reward--small-font {
+    font-size: 0.66rem !important;
+    line-height: 1.2 !important;
+  }
+}
