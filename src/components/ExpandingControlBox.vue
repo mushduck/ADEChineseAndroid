@@ -46,6 +46,8 @@ export default {
     };
   },
   computed: {
+    isOpen() { return Boolean(this.openRequest); },
+
     states: () => ({
       CLOSED: { name: "CLOSED", transition: false, visibility: false, height: "closed" },
       OPEN_REQUESTED: { name: "OPEN_REQUESTED", transition: true, visibility: true, height: "closed" },
@@ -120,6 +122,8 @@ export default {
     this.updateBaseWidth();
   },
   methods: {
+    closeOnSelect() { this.openRequest = false; this.state = this.states.CLOSED; },
+
     update() {
       const secSinceMouseOff = this.hasMouse ? 0 : (Date.now() - this.closeTime) / 1000;
       if (this.autoClose && this.state === this.states.OPEN && secSinceMouseOff > 1) this.openRequest = false;
@@ -207,7 +211,7 @@ export default {
       >
         <slot name="header" />
       </div>
-      <div ref="dropdown">
+      <div v-show="isOpen" ref="dropdown" class="c-expanding-control-box__dropdown" @click="closeOnSelect">
         <slot name="dropdown" />
       </div>
     </div>
