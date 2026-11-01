@@ -50,8 +50,12 @@ export default {
       return this.achievement.config;
     },
     styleObject() {
+      if (this.isObscured) return { "background-position": "0% 0%" };
+      const x = ((this.achievement.column - 1) / 7) * 100;
+      const totalRows = this.isCancer ? 18 : 27;
+      const y = ((this.achievement.row - 1) / (totalRows - 1)) * 100;
       return {
-        "background-position": `-${(this.achievement.column - 1) * 104}px -${(this.achievement.row - 1) * 104}px`
+        "background-position": x + "% " + y + "%"
       };
     },
     classObject() {
