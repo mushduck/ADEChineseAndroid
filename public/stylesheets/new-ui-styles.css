@@ -9202,3 +9202,126 @@ body.t-s12 {
     text-align: center !important;
   }
 }
+
+/* === MOBILE EXPANSION PACKS & ENDGAME TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-expansion-packs-tab {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 0.35rem 1.0rem 0.35rem !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .l-expansion-packs-tab > br {
+    display: none !important;
+  }
+  .l-expansion-packs-tab > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  .c-primary-btn--expansion-packs-unlock {
+    width: 96% !important;
+    max-width: 22rem !important;
+    height: auto !important;
+    min-height: 4.2rem !important;
+    padding: 0.6rem 0.5rem !important;
+    margin: 0.4rem auto !important;
+    font-size: 0.88rem !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+  }
+  .l-expansion-packs-grid__row {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .l-expansion-packs-grid__cell {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .o-expansion-pack {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0.65rem 0.55rem !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .c-expansion-packs-container {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    position: relative !important;
+  }
+  .c-expansion-packs-container > .o-symbol {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    font-size: 2.0rem !important;
+    line-height: 1.1 !important;
+    margin: 0 0 0.3rem 0 !important;
+    opacity: 0.9 !important;
+  }
+  .c-expansion-packs-container > div:last-child {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.18rem !important;
+  }
+  .o-expansion-pack-text,
+  .o-expansion-pack-text__small {
+    margin: 0 !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    word-break: break-word !important;
+    width: 100% !important;
+  }
+  .o-expansion-pack .c-cost-display {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    margin-top: 0.25rem !important;
+  }
+  .c-expansion-packs-next-text {
+    display: block !important;
+    font-size: 0.92rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    margin: 0.4rem auto !important;
+    padding: 0 0.3rem !important;
+  }
+  .l-endgame-tab-container .endgame-text {
+    font-size: 1.05rem !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+    padding: 0 0.5rem !important;
+  }
+}
