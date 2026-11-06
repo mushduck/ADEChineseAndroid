@@ -8551,3 +8551,16 @@ body.t-s12 {
     flex: 0 0 6.2rem !important;
   }
 }
+
+/* === MOBILE PERFORMANCE HARDWARE ACCELERATION === */
+@media (max-width: 768px) {
+  .c-dimension-row {
+    transform: translateZ(0);
+    contain: layout style;
+  }
+  .c-challenge-box,
+  .c-autobuyer-box-row,
+  .o-primary-btn {
+    box-shadow: none !important;
+  }
+}
