@@ -9325,3 +9325,198 @@ body.t-s12 {
     padding: 0 0.5rem !important;
   }
 }
+
+/* === MOBILE ETHEREAL TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-ethereal-tab {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.25rem 0.2rem 1.0rem 0.2rem !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+  }
+  .l-ethereal-tab > br {
+    display: none !important;
+  }
+  .l-ethereal-tab > div:first-child {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: rgba(8, 12, 32, 0.86) !important;
+    border: 1px solid rgba(0, 200, 255, 0.35) !important;
+    border-radius: 8px !important;
+    padding: 0.55rem 0.35rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+    text-align: center !important;
+  }
+  .l-ethereal-tab .c-normal-ethereal-text {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+  }
+  .l-ethereal-tab .c-really-cool-ethereal-text {
+    font-size: 1.35rem !important;
+    line-height: 1.35 !important;
+  }
+  .l-ethereal-extension-unlock {
+    width: 100% !important;
+    margin: 0.2rem 0 !important;
+  }
+  .o-ethereal-button,
+  .o-cool-ethereal-button {
+    width: 96% !important;
+    max-width: 22rem !important;
+    height: auto !important;
+    min-height: 3.4rem !important;
+    font-size: 0.95rem !important;
+    padding: 0.5rem !important;
+    margin: 0.2rem auto !important;
+    border-radius: 8px !important;
+  }
+  .l-star-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.45rem !important;
+    box-sizing: border-box !important;
+  }
+  .l-star-grid > br {
+    display: none !important;
+  }
+  .l-star-grid > div:first-child,
+  .l-star-grid > span {
+    grid-column: 1 / -1 !important;
+    text-align: center !important;
+  }
+  .l-star-grid > div:first-child {
+    background: rgba(12, 16, 36, 0.86) !important;
+    border: 1px solid rgba(160, 180, 255, 0.3) !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 0.4rem !important;
+    margin-bottom: 0.1rem !important;
+  }
+  .l-star-grid > div:first-child .c-stellar-glow {
+    font-size: 1.05rem !important;
+    line-height: 1.4 !important;
+  }
+  .l-star-grid > div:first-child .c-cooler-stellar-glow {
+    font-size: 1.45rem !important;
+    line-height: 1.35 !important;
+  }
+  .l-ethereal-tab .c-stellar-glow {
+    font-size: 0.92rem !important;
+    line-height: 1.4 !important;
+  }
+  .l-ethereal-tab .c-cooler-stellar-glow {
+    font-size: 1.38rem !important;
+    line-height: 1.35 !important;
+  }
+  .l-star-grid__row {
+    display: contents !important;
+  }
+  .l-star-grid__cell,
+  .l-star-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .l-star-grid__row:last-of-type > .l-star-container:last-child {
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    justify-self: center !important;
+  }
+  .o-star__container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 7.8rem !important;
+    margin: 0 !important;
+    padding: 0.55rem 0.3rem !important;
+    border-radius: 8px !important;
+    font-size: 0.76rem !important;
+    line-height: 1.32 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    text-align: center !important;
+    word-break: break-word !important;
+  }
+  .o-star__container > br {
+    display: none !important;
+  }
+  .o-star__container > span:first-of-type {
+    display: block !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.22rem !important;
+  }
+  .o-star__container > span:nth-of-type(2) {
+    display: block !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.25rem !important;
+  }
+  .o-star__container .o-reset-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 2.35rem !important;
+    padding: 0.25rem 0.2rem !important;
+    margin-top: 0.2rem !important;
+    font-size: 0.73rem !important;
+    line-height: 1.25 !important;
+    border-radius: 5px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    box-sizing: border-box !important;
+  }
+  .l-ethereal-tab > .l-star-grid:last-child {
+    background: rgba(8, 12, 32, 0.88) !important;
+    border: 1px solid rgba(160, 180, 255, 0.3) !important;
+    border-radius: 8px !important;
+    padding: 0.6rem 0.35rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+  }
+  .l-ethereal-tab > .l-star-grid:last-child > div:first-child {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .l-ethereal-tab > .l-star-grid:last-child > div .c-stellar-glow {
+    font-size: 1.0rem !important;
+  }
+  .l-ethereal-tab > .l-star-grid:last-child > div .c-cooler-stellar-glow {
+    font-size: 1.4rem !important;
+  }
+  .l-ethereal-tab > .l-star-grid:last-child > span.c-stellar-glow {
+    font-size: 0.9rem !important;
+    line-height: 1.38 !important;
+  }
+  .l-ethereal-tab > .l-star-grid:last-child > span.c-stellar-glow > br {
+    display: none !important;
+  }
+}
