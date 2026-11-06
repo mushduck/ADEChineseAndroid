@@ -8968,3 +8968,178 @@ body.t-s12 {
     opacity: 0.92 !important;
   }
 }
+
+/* === MOBILE ENDGAME MASTERIES TAB ADAPTATION === */
+@media (max-width: 768px) {
+  #ui-fixed .l-endgame-masteries-tab__es-shop,
+  .l-endgame-masteries-tab__es-shop {
+    display: none !important;
+  }
+  .l-endgame-masteries-tab {
+    width: 100% !important;
+    max-width: 100vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  .c-mobile-ts-info__main .c-es-amount {
+    color: var(--color-endgame) !important;
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+  }
+  .c-mobile-ts-btn-green.o-primary-btn--endgame-respec-active {
+    background-color: var(--color-endgame) !important;
+    color: #000000 !important;
+  }
+  .c-mobile-ts-row-presets .l-es-save-load-btn__wrapper {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .c-mobile-ts-row-presets .l-es-save-load-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 2.4rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    background: #121216 !important;
+    border: 0.1rem solid var(--color-good) !important;
+    border-radius: 5px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .c-mobile-ts-row-presets .l-es-save-load-btn__menu {
+    top: calc(100% + 0.3rem) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 300 !important;
+    background: #111118 !important;
+    border: 1px solid var(--color-good) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.85) !important;
+    min-width: 7.5rem !important;
+  }
+  .c-mobile-ts-row-presets .l-es-save-load-btn__menu::after {
+    display: none !important;
+  }
+  .c-mobile-ts-row-presets .l-es-save-load-btn__wrapper:first-child .l-es-save-load-btn__menu {
+    left: 0 !important;
+    transform: none !important;
+  }
+  .c-mobile-ts-row-presets .l-es-save-load-btn__wrapper:last-child .l-es-save-load-btn__menu {
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
+  }
+  .c-mobile-ts-row-presets .c-es-save-load-btn__menu-item__hover-options {
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+    border: none !important;
+    background: transparent !important;
+    width: 100% !important;
+  }
+  .c-mobile-ts-row-presets .c-es-save-load-btn__menu-item__hover-options::after {
+    display: none !important;
+  }
+  .l-endgame-masteries-tab__tree {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .l-hint-text--endgame-mastery {
+    top: -1.75rem !important;
+    left: 0.1rem !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+  }
+}
+
+/* === MOBILE HYPERCUBES TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-hypercubes-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.2rem 0.2rem 1.0rem 0.2rem !important;
+    font-size: 0.82rem !important;
+    text-align: center !important;
+  }
+  .l-hypercubes-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .l-hypercubes-btn {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0.35rem 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-hypercubes-btn > br {
+    display: none !important;
+  }
+  .l-hypercubes-button,
+  .l-hypercubes-btn .c-infinity-dim-tab__tesseract-button,
+  .l-hypercubes-btn .c-penteract-button,
+  .l-hypercubes-btn .c-hexeract-button,
+  .l-hypercubes-btn .c-hepteract-button,
+  .l-hypercubes-btn .c-octeract-button {
+    width: 96% !important;
+    max-width: 96% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 5.6rem !important;
+    padding: 0.5rem 0.4rem !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .l-hypercubes-button p {
+    margin: 0.12rem 0 !important;
+    font-size: 0.80rem !important;
+    line-height: 1.3 !important;
+  }
+  .l-hypercubes-button p:first-child {
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+  }
+  .l-hypercubes-button p b {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+  }
+  .o-primary-btn--tesseract-toggle {
+    width: 96% !important;
+    max-width: 96% !important;
+    height: 2.0rem !important;
+    min-height: 2.0rem !important;
+    line-height: 2.0rem !important;
+    font-size: 0.78rem !important;
+    padding: 0 !important;
+    margin: 0.25rem auto 0 auto !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+  }
+}
