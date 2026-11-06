@@ -9569,3 +9569,158 @@ body.t-s12 {
   .l-null-upgrade-grid .o-null-upgrade--bought .l-hint-text--reality-upgrade, .l-null-upgrade-grid .o-null-upgrade--bought .c-hint-text--reality-upgrade { color: #1a1a24 !important; }
   .l-null-upgrade-grid .o-null-upgrade span { font-size: 0.74rem !important; line-height: 1.25 !important; word-break: break-word !important; }
 }
+
+/* === MOBILE TIME COMPRESSION TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-compression-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 0.2rem 1.0rem 0.2rem !important;
+    font-size: 1.15rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+  .l-compression-tab > span {
+    font-size: 1.15rem !important;
+    line-height: 1.35 !important;
+    color: #c0c0d0 !important;
+    margin: 0.15rem 0 !important;
+    text-align: center !important;
+  }
+  .c-compression-tab__hawking-radiation,
+  .c-compression-tab__thermal-radiation,
+  .c-compression-tab__thermal-radiation-income,
+  .c-compression-tab__wave-threshold,
+  .c-compression-tab__waves {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+  }
+  .l-compression-tab > div:not(.l-compression-upgrades-grid) {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0.35rem auto !important;
+  }
+  .o-compression-btn {
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 5.8rem !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    padding: 0.4rem 0.3rem !important;
+    margin: 0 auto !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .l-compression-upgrades-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.4rem !important;
+    padding: 0 !important;
+    margin: 0.45rem auto !important;
+    box-sizing: border-box !important;
+  }
+  .l-compression-upgrades-grid__row {
+    display: contents !important;
+  }
+  .l-compression-upgrades-grid__cell,
+  .l-compression-upgrades-grid .l-spoon-btn-group {
+    grid-column: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-compression-upgrades-grid__row:first-child > .l-compression-upgrades-grid__cell:first-child {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    margin: 0.15rem auto !important;
+  }
+  .l-compression-upgrades-grid__row:last-child > .l-compression-upgrades-grid__cell:last-child {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    margin: 0.15rem auto !important;
+  }
+  .o-compression-upgrade {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 5.8rem !important;
+    padding: 0.4rem 0.3rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.12rem !important;
+  }
+  .o-compression-upgrade span,
+  .o-compression-upgrade .o-compression-upgrade__description {
+    font-size: 0.80rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+  .o-compression-upgrade .c-effect-display,
+  .o-compression-upgrade .c-cost-display {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0.05rem !important;
+  }
+}
+
+/* === MOBILE ACH-TOOLTIP ADAPTATION === */
+@media (max-width: 768px) {
+  [ach-tooltip]::before {
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: min(15rem, calc(100vw - 1.5rem)) !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    font-size: 0.82rem !important;
+    line-height: 1.25 !important;
+    padding: 0.35rem 0.55rem !important;
+    z-index: 1000 !important;
+    box-sizing: border-box !important;
+  }
+  .c-compression-tab__waves[ach-tooltip]::before,
+  .c-dilation-tab__galaxies[ach-tooltip]::before {
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
+  }
+  .c-compression-tab__waves[ach-tooltip]::after,
+  .c-dilation-tab__galaxies[ach-tooltip]::after {
+    left: auto !important;
+    right: 0.8rem !important;
+    margin-left: 0 !important;
+  }
+}
