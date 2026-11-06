@@ -136,7 +136,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="l-ascension-tab">
     <div class="l-endgame-milestone-grid">
       <div>
         <span class="c-ascension-description-text">

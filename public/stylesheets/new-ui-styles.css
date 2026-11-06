@@ -9724,3 +9724,113 @@ body.t-s12 {
     margin-left: 0 !important;
   }
 }
+
+/* === MOBILE ASCENSION & OVERCHARGE TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-ascension-tab {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.35rem 0.25rem 1.2rem 0.25rem !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.45rem !important;
+  }
+  .l-ascension-tab > br {
+    display: none !important;
+  }
+  .l-ascension-tab .l-endgame-milestone-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .l-ascension-tab .l-endgame-milestone-grid > div:first-child {
+    margin: 0 !important;
+  }
+  .l-ascension-tab .l-endgame-milestone-grid__row {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .l-ascension-tab .l-endgame-milestone-grid__cell {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: auto !important;
+    justify-self: stretch !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0.25rem 0.15rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-ascension-tab .l-endgame-milestone-grid__cell > div {
+    font-size: 1.20rem !important;
+    line-height: 1.34 !important;
+    text-align: center !important;
+    word-break: break-word !important;
+    margin: 0.15rem 0 !important;
+  }
+  .l-ascension-tab .c-ascension-description-text {
+    font-size: 1.22rem !important;
+    line-height: 1.38 !important;
+  }
+  .l-ascension-tab .c-overcharge-position {
+    width: 100% !important;
+    margin: 0.8rem auto 0.5rem auto !important;
+  }
+  .l-ascension-tab .l-overcharge-run-button,
+  .l-ascension-tab .c-overcharge-run-button {
+    width: 14.5rem !important;
+    height: 14.5rem !important;
+    margin: 0 auto !important;
+    padding: 1.0rem !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.2rem !important;
+    line-height: 1.35 !important;
+  }
+  .l-ascension-tab .l-overcharge-run-button-interior {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+  .l-ascension-tab .c-subtab-option-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.9rem !important;
+    margin: 0.4rem auto 0.5rem auto !important;
+  }
+  .l-ascension-tab .c-subtab-option-container .o-primary-btn--subtab-option {
+    width: 3.2rem !important;
+    height: 3.2rem !important;
+    line-height: 3.2rem !important;
+    font-size: 1.6rem !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+  }
+  .l-ascension-tab .c-ascension-basic-text {
+    font-size: 2.3rem !important;
+    line-height: 1 !important;
+    margin: 0 0.4rem !important;
+  }
+}
