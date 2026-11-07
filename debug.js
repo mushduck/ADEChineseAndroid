@@ -231,7 +231,6 @@ export default {
       </span>
     </div>
     <div v-show="shown">
-      <!-- 表格1: 时间表 -->
       <div class="c-row-container">
         <span
           v-for="(entry, col) in table1Col()"
@@ -268,7 +267,6 @@ export default {
         </span>
       </div>
       <br>
-      <!-- 表格2: 收益表(在第十次下方另起新表) -->
       <div class="c-row-container">
         <span
           v-for="(entry, col) in table2Col()"
@@ -304,7 +302,6 @@ export default {
           </span>
         </span>
       </div>
-      <!-- 表格3: 挑战与额外资源(在存在时于收益表下方另起新表) -->
       <template v-if="hasTable3()">
         <br>
         <div class="c-row-container">
