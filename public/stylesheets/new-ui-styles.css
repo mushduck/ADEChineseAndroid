@@ -4784,39 +4784,80 @@ body.t-s12 {
 
 /* === MOBILE RESURGENCE TAB ADAPTATION === */
 @media (max-width: 768px) {
-  .c-mobile-resurgence-desc,
-  [class*="resurgence"] > div:first-child,
-  [class*="resurgence"] > p:first-child,
-  [class*="resurgence"] [class*="desc"] {
-    font-size: 0.72rem !important;
+  .l-resurgence-upgrade-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 1.45rem !important;
+    padding: 1.0rem 0.2rem 1.0rem 0.2rem !important;
+    margin: 0.5rem auto !important;
+    box-sizing: border-box !important;
+    align-items: stretch !important;
+  }
+  .l-resurgence-upgrade-grid__row {
+    display: contents !important;
+  }
+  .l-resurgence-upgrade-grid .l-spoon-btn-group {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+  }
+  .l-resurgence-upgrade-grid .l-spoon-btn-group > button.l-resurgence-upgrade-btn,
+  .l-resurgence-upgrade-grid .l-resurgence-upgrade-btn.c-resurgence-upgrade-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 5.8rem !important;
+    max-height: none !important;
     line-height: 1.3 !important;
+    white-space: normal !important;
+    margin: 0 !important;
+    padding: 0.4rem 0.25rem !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
     text-align: center !important;
-    margin: 0.15rem auto 0.25rem auto !important;
-    padding: 0 0.5rem !important;
-    max-width: 95% !important;
-    box-sizing: border-box !important;
+    gap: 0.12rem !important;
   }
-  .c-mobile-resurgence-desc span,
-  [class*="resurgence"] > div:first-child span,
-  [class*="resurgence"] > p:first-child span {
-    font-size: 0.88rem !important;
+  .l-resurgence-upgrade-grid .l-hint-text--resurgence-upgrade,
+  .l-resurgence-upgrade-grid .c-hint-text--resurgence-upgrade {
+    top: -1.35rem !important;
+    font-size: 0.80rem !important;
+    line-height: 1.2 !important;
     font-weight: 700 !important;
-  }
-  [class*="resurgence"] button,
-  [class*="resurgence"] .o-primary-btn,
-  .c-mobile-resurgence-btn {
-    height: 1.85rem !important;
-    min-height: 0 !important;
-    line-height: 1.85rem !important;
-    font-size: 0.74rem !important;
-    padding: 0 0.55rem !important;
-    margin: 0.1rem 0.15rem !important;
-    border-radius: 4px !important;
     white-space: nowrap !important;
-    box-sizing: border-box !important;
+  }
+  .l-resurgence-upgrade-grid .c-resurgence-upgrade-btn span {
+    font-size: 0.74rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+  .l-resurgence-upgrade-grid .c-resurgence-upgrade-btn .c-effect-display,
+  .l-resurgence-upgrade-grid .c-resurgence-upgrade-btn .c-cost-display {
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0.05rem !important;
+  }
+  .l-resurgence-upgrade-grid > .l-resurgence-upgrade-grid__row:last-child > .l-spoon-btn-group:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 0.175rem) !important;
+    justify-self: center !important;
   }
 }
-
+/* === END MOBILE RESURGENCE TAB ADAPTATION === */
 
 /* === MOBILE PERKS TAB ADAPTATION === */
 @media (max-width: 768px) {
