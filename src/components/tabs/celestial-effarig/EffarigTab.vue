@@ -165,6 +165,7 @@ export default {
         v-if="runUnlocked"
         class="l-effarig-run"
       >
+        <div class="c-mobile-effarig-run-card">
         <div class="c-effarig-run-description">
           <span :class="{ 'o-pelle-disabled': isDoomed }">
             进入鹿颈长的现实。
@@ -183,6 +184,7 @@ export default {
         </div>
         <div class="c-effarig-run-description">
           {{ runDescription }}
+        </div>
         </div>
         <EffarigRunUnlockReward
           v-for="(runRewardUnlock, j) in runUnlocks"
