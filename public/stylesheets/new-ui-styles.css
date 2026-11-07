@@ -2027,6 +2027,18 @@ body.t-s12 {
   div > br {
     display: none !important;
   }
+  .l-game-header__challenge-text button,
+  .l-game-header__challenge-text .o-primary-btn {
+    height: 1.55rem !important;
+    min-height: 1.55rem !important;
+    line-height: 1.55rem !important;
+    font-size: 0.72rem !important;
+    padding: 0 0.45rem !important;
+    margin: 0 0.2rem !important;
+    border-radius: 4px !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+  }
   .l-game-header__challenge-text {
     height: auto !important;
     min-height: 0 !important;
