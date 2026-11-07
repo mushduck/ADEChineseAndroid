@@ -10422,3 +10422,125 @@ body.t-s12 {
     margin-top: 0.05rem !important;
   }
 }
+
+/* === MOBILE UNIVERSES TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-universe-tab-container {
+    width: 100% !important;
+    padding: 0.4rem 0.2rem 1.0rem 0.2rem !important;
+    box-sizing: border-box !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .c-universe-info-group {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+  .c-transient-universe-text,
+  .c-ephemeral-text,
+  .c-tangible-universe-text,
+  .c-stellar-text {
+    width: 100% !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 0.15rem !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+  }
+  .c-universes-text--header {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    display: inline !important;
+  }
+  .o-transient-universe-btn,
+  .o-tangible-universe-btn {
+    width: 88% !important;
+    max-width: 20rem !important;
+    height: 8.2rem !important;
+    min-height: 8.2rem !important;
+    padding: 0.6rem 0.8rem !important;
+    margin: 0 auto !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+
+/* === MOBILE CATCHUP MODAL ADAPTATION === */
+@media (max-width: 768px) {
+  .c-modal-away-progress {
+    width: 94vw !important;
+    max-width: 94vw !important;
+    min-width: 0 !important;
+    max-height: 82vh !important;
+    padding: 0.75rem 0.5rem 0.6rem 0.5rem !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow-y: auto !important;
+  }
+  .c-modal-away-progress__header {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1.3 !important;
+  }
+  .c-modal-away-progress > div:nth-child(2) {
+    font-size: 0.74rem !important;
+    line-height: 1.35 !important;
+    color: #b0b0c0 !important;
+    text-align: center !important;
+    margin: 0.15rem 0 0.35rem 0 !important;
+    padding: 0 0.2rem !important;
+    box-sizing: border-box !important;
+  }
+  .l-catchup-group-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 38vh !important;
+    margin: 0.25rem 0 !important;
+    padding: 0.6rem 0.45rem !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+  }
+  .l-catchup-group-container .c-catchup-group {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+  }
+  .c-suggestion-text {
+    font-size: 0.84rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    margin: 0.35rem 0 0.2rem 0 !important;
+    display: block !important;
+  }
+  .l-confirm-padding {
+    margin: 0.35rem auto 0.15rem auto !important;
+  }
+  .l-confirm-padding button,
+  .l-confirm-padding .o-primary-btn {
+    height: 2.1rem !important;
+    min-height: 2.1rem !important;
+    line-height: 2.1rem !important;
+    font-size: 0.82rem !important;
+    padding: 0 1.5rem !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+  }
+}

@@ -48,37 +48,32 @@ export default {
 
 <template>
   <div class="l-universe-tab-container">
-    <div>
-      <br>
+    <div class="c-universe-info-group">
       <div class="c-ephemeral-text">
         你拥有 <span class="c-universes-text--header">{{ format(ephemeralLight, 2, 2) }}</span> 耀界浮光。
-        <br>
-        耀界浮光当前为星系生成器产量提供
-        <span class="c-universes-text--header">{{ formatPow(formula1, 2, 3) }}</span>
-        的加成。并在被毁灭的现实外为超光速粒子、膨胀时间和游戏速度提供
-        <span class="c-universes-text--header">{{ formatPow(formula2, 2, 3) }}</span>
-        的加成。
       </div>
-      <br>
-      <div class="c-transient-universe-text">
-        你在流幻宇宙中达到的最高反物质为
-        <span class="c-universes-text--header">{{ format(highestAntimatter, 2, 1) }}</span>。
+      <div class="c-ephemeral-text">
+        耀界浮光当前为星系生成器产量提供 <span class="c-universes-text--header">{{ formatPow(formula1, 2, 3) }}</span> 的加成。
       </div>
-      <br>
+      <div class="c-ephemeral-text">
+        并在被毁灭的现实外为超光速粒子、膨胀时间
+      </div>
+      <div class="c-ephemeral-text">
+        和游戏速度提供 <span class="c-universes-text--header">{{ formatPow(formula2, 2, 3) }}</span> 的加成。
+      </div>
       <div class="c-transient-universe-text">
-        你拥有
-        <span class="c-universes-text--header">{{ format(relativisticParticles, 2, 2) }}</span>
-        相对粒子。
-        <span class="c-universes-text--header">+{{ format(particlesPerSecond, 2, 2) }}/秒</span>
-        <br>
-        在流幻宇宙内，相对粒子将反物质维度和无限维度的减益削弱至
-        <span class="c-universes-text--header">{{ formatDecimalPercents(particleBoost, 2, 2) }}</span>。
-        <br>
+        你在流幻宇宙中达到的最高反物质为 <span class="c-universes-text--header">{{ format(highestAntimatter, 2, 1) }}</span>。
+      </div>
+      <div class="c-transient-universe-text">
+        你拥有 <span class="c-universes-text--header">{{ format(relativisticParticles, 2, 2) }}</span> 相对粒子。 <span class="c-universes-text--header">+{{ format(particlesPerSecond, 2, 2) }}/秒</span>
+      </div>
+      <div class="c-transient-universe-text">
+        在流幻宇宙内，相对粒子将反物质维度和无限维度的减益削弱至 <span class="c-universes-text--header">{{ formatDecimalPercents(particleBoost, 2, 2) }}</span>。
+      </div>
+      <div class="c-transient-universe-text">
         相对粒子在退出流幻宇宙时重置。
       </div>
     </div>
-    <br>
-    <br>
     <button
       class="o-transient-universe-btn"
       @click="enterUniverse"

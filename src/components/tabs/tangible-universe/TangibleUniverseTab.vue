@@ -46,33 +46,29 @@ export default {
 
 <template>
   <div class="l-universe-tab-container">
-    <div>
-      <br>
+    <div class="c-universe-info-group">
       <div class="c-stellar-text">
         你拥有 <span class="c-universes-text--header">{{ format(stellarAugmenters, 2, 2) }}</span> 星流增幅体。
-        <br>
-        星流增幅体当前为湮灰之星效力提供 <span class="c-universes-text--header">+{{ formatDecimalPercents(formula, 2, 2) }}</span>
-        的加成。
       </div>
-      <br>
-      <div class="c-tangible-universe-text">
-        你在真际宇宙中达到的最高正物质为
-        <span class="c-universes-text--header">{{ format(highestMatter, 2, 1) }}</span>。
+      <div class="c-stellar-text">
+        星流增幅体当前为湮灰之星效力提供 <span class="c-universes-text--header">+{{ formatDecimalPercents(formula, 2, 2) }}</span> 的加成。
       </div>
-      <br>
       <div class="c-tangible-universe-text">
-        你拥有 <span class="c-universes-text--header">{{ format(molecularMass, 2, 2) }}</span>
-        超质量体。
-        <span class="c-universes-text--header">+{{ format(massPerSecond, 2, 2) }}/秒</span>
-        <br>
-        在真际宇宙内，超质量体当前为正物质产量的指数塔高度增加
-        <span class="c-universes-text--header">+{{ format(massBoost, 2, 4) }}</span>。
-        <br>
+        你在真际宇宙中达到的最高正物质为 <span class="c-universes-text--header">{{ format(highestMatter, 2, 1) }}</span>。
+      </div>
+      <div class="c-tangible-universe-text">
+        你拥有 <span class="c-universes-text--header">{{ format(molecularMass, 2, 2) }}</span> 超质量体。 <span class="c-universes-text--header">+{{ format(massPerSecond, 2, 2) }}/秒</span>
+      </div>
+      <div class="c-tangible-universe-text">
+        在真际宇宙内，超质量体当前为正物质产量的
+      </div>
+      <div class="c-tangible-universe-text">
+        指数塔高度增加 <span class="c-universes-text--header">+{{ format(massBoost, 2, 4) }}</span>。
+      </div>
+      <div class="c-tangible-universe-text">
         超质量体在退出真际宇宙时重置。
       </div>
     </div>
-    <br>
-    <br>
     <button
       class="o-tangible-universe-btn"
       @click="enterUniverse"
