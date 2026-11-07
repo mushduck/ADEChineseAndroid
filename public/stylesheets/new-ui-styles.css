@@ -10077,4 +10077,110 @@ body.t-s12 {
     margin-top: 0.05rem !important;
   }
 }
-  
+
+/* === MOBILE CELESTIAL ETERNITY UPGRADES TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-celestial-eternity-upgrades-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.35rem !important;
+    padding: 0 0.2rem 1.0rem 0.2rem !important;
+    margin: 0.3rem auto !important;
+    box-sizing: border-box !important;
+    align-items: stretch !important;
+  }
+  .l-celestial-eternity-upgrades-grid__row,
+  .l-celestial-eternity-upgrades-grid .l-spoon-btn-group {
+    display: contents !important;
+  }
+  .l-celestial-eternity-upgrades-grid .l-spoon-btn-group > button:nth-child(2),
+  .l-celestial-eternity-upgrades-grid .l-spoon-btn-group > .o-primary-btn--small-spoon {
+    grid-row: 1 !important;
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    justify-self: center !important;
+    height: 2.0rem !important;
+    min-height: 2.0rem !important;
+    line-height: 2.0rem !important;
+    font-size: 0.74rem !important;
+    padding: 0 0.1rem !important;
+    margin: 0.1rem auto 0.15rem auto !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+  .l-celestial-eternity-upgrades-grid .l-spoon-btn-group > button:first-child,
+  .l-celestial-eternity-upgrades-grid .l-spoon-btn-group > button.o-celestial-eternity-upgrade {
+    grid-row: 2 !important;
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    justify-self: center !important;
+    height: 5.8rem !important;
+    min-height: 5.8rem !important;
+    max-height: 5.8rem !important;
+    padding: 0.4rem 0.25rem !important;
+    margin: 0 auto 0.45rem auto !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.12rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.3 !important;
+  }
+  .l-spoon-btn-group > button.o-celestial-eternity-upgrade > div > div {
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    margin: 0.05rem 0 !important;
+  }
+  .l-celestial-eternity-upgrades-grid__cell {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+  }
+  .l-celestial-eternity-upgrades-grid .l-celestial-eternity-upgrades-grid__row .o-celestial-eternity-upgrade {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 5.8rem !important;
+    min-height: 5.8rem !important;
+    max-height: 5.8rem !important;
+    padding: 0.4rem 0.25rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.12rem !important;
+  }
+  .o-celestial-eternity-upgrade span,
+  .o-celestial-eternity-upgrade div {
+    font-size: 0.80rem !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    word-break: break-word !important;
+  }
+  .o-celestial-eternity-upgrade .c-effect-display,
+  .o-celestial-eternity-upgrade .c-cost-display {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin-top: 0.05rem !important;
+  }
+}
+/* === END MOBILE CELESTIAL ETERNITY UPGRADES TAB ADAPTATION === */
