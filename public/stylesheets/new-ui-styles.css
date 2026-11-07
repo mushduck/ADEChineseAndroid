@@ -9948,3 +9948,100 @@ body.t-s12 {
     justify-self: center !important;
   }
 }
+
+/* === MOBILE CELESTIAL BREAK INFINITY TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-break-celestial-infinity-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 0.2rem 1.0rem 0.2rem !important;
+  }
+  .l-break-celestial-infinity-tab > div:first-child {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    margin: 0.2rem 0 !important;
+  }
+  .l-break-celestial-infinity-tab__break-btn,
+  .l-break-celestial-infinity-tab button.l-break-celestial-infinity-tab__break-btn,
+  .o-break-celestial-infinity-upgrade-btn {
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    min-width: 0 !important;
+    height: 5.6rem !important;
+    min-height: 5.6rem !important;
+    max-height: 5.6rem !important;
+    padding: 0.35rem 0.25rem !important;
+    margin: 0.2rem auto 0.5rem auto !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+  }
+  .l-break-celestial-infinity-upgrade-grid,
+  .l-break-celestial-infinity-tab__grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.4rem !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  .l-break-celestial-infinity-upgrade-grid__row {
+    display: contents !important;
+  }
+  .l-break-celestial-infinity-upgrade-grid__cell {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+  }
+  .l-break-celestial-infinity-upgrade-grid .o-celestial-infinity-upgrade {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 5.6rem !important;
+    padding: 0.35rem 0.25rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.1rem !important;
+  }
+  .l-break-celestial-infinity-upgrade-grid .o-celestial-infinity-upgrade span,
+  .l-break-celestial-infinity-upgrade-grid .o-celestial-infinity-upgrade div {
+    font-size: 0.80rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+  .l-break-celestial-infinity-upgrade-grid .o-celestial-infinity-upgrade .c-effect-display,
+  .l-break-celestial-infinity-upgrade-grid .o-celestial-infinity-upgrade .c-cost-display {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0.05rem !important;
+  }
+}
+/* === END MOBILE CELESTIAL BREAK INFINITY TAB ADAPTATION === */
