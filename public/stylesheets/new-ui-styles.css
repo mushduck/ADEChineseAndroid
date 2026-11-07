@@ -10267,3 +10267,108 @@ body.t-s12 {
   }
 }
 /* === END MOBILE DIVINITY MILESTONES TAB ADAPTATION === */
+
+/* === MOBILE DIVINITY UPGRADES TAB ADAPTATION === */
+@media (max-width: 768px) {
+  .l-divinity-upgrade-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0.2rem 0.2rem 1.0rem 0.2rem !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  .l-divinity-upgrade-grid > div:first-child:not(:has(.c-divinity-header)) {
+    font-size: 1.08rem !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+    margin: 0.2rem 0 0.55rem 0 !important;
+    padding: 0 0.15rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .c-divinity-effects {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+  }
+  .l-divinity-upgrade-grid > div:has(> .c-divinity-header) {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 1.4rem !important;
+    padding: 0 0.1rem !important;
+    margin: 0.4rem auto 0.8rem auto !important;
+    box-sizing: border-box !important;
+  }
+  .c-divinity-header {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    margin: 0.4rem 0 0.7rem 0 !important;
+    text-align: center !important;
+  }
+  .l-divinity-upgrade-grid__row {
+    display: contents !important;
+  }
+  .l-divinity-upgrade-grid .l-spoon-btn-group {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+  }
+  .l-divinity-upgrade-grid > div:not(:has(> .l-divinity-upgrade-grid__row ~ .l-divinity-upgrade-grid__row)) .l-spoon-btn-group:nth-child(5) {
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 0.175rem) !important;
+    justify-self: center !important;
+  }
+  .l-divinity-upgrade-btn.c-divinity-upgrade-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 5.6rem !important;
+    margin: 0 !important;
+    padding: 0.35rem 0.25rem !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.1rem !important;
+  }
+  .l-hint-text--divinity-upgrade,
+  .c-hint-text--divinity-upgrade {
+    top: -1.35rem !important;
+    font-size: 0.80rem !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+  .c-divinity-upgrade-btn span {
+    font-size: 0.74rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+  .c-divinity-upgrade-btn .c-effect-display,
+  .c-divinity-upgrade-btn .c-cost-display {
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0.05rem !important;
+  }
+}
+/* === END MOBILE DIVINITY UPGRADES TAB ADAPTATION === */
