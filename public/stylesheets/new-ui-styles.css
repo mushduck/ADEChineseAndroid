@@ -10857,3 +10857,56 @@ body.t-s12 {
     padding: 0.2rem !important;
   }
 }
+
+/* === MOBILE GLYPH TOOLTIP CENTRAL MODAL ADAPTATION === */
+@media (max-width: 768px) {
+  .l-glyph-tooltip,
+  .c-glyph-tooltip {
+    width: 88vw !important;
+    max-width: 20rem !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+    z-index: 99999 !important;
+    box-sizing: border-box !important;
+    padding: 0.5rem 0.4rem !important;
+    border-radius: 8px !important;
+    pointer-events: auto !important;
+    box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.95), 0 0 0.5rem var(--color-text) !important;
+  }
+  .c-glyph-tooltip__header {
+    width: 100% !important;
+    padding: 0.35rem 0.25rem !important;
+    box-sizing: border-box !important;
+    border-radius: 6px !important;
+  }
+  .c-glyph-tooltip__description {
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    display: block !important;
+    text-align: center !important;
+  }
+  .l-glyph-tooltip__info {
+    font-size: 0.76rem !important;
+    line-height: 1.3 !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    margin: 0.2rem 0 !important;
+  }
+  .c-glyph-tooltip__effect,
+  .l-glyph-tooltip__effects {
+    font-size: 0.74rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    padding: 0.15rem 0 !important;
+  }
+  .c-glyph-tooltip__sacrifice {
+    font-size: 0.72rem !important;
+    margin-top: 0.15rem !important;
+    display: block !important;
+    text-align: center !important;
+  }
+}

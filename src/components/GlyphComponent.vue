@@ -603,6 +603,39 @@ export default {
     if (this.$viewModel.draggingUIID === this.componentID) this.$viewModel.draggingUIID = -1;
   },
   methods: {
+    positionTooltipAtGlyph() {
+      if (!this.$refs.tooltip) return;
+      const tooltipEl = this.$refs.tooltip.$el || this.$refs.tooltip;
+      if (!tooltipEl || !this.$el) return;
+      const targetRect = this.$el.getBoundingClientRect();
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const tooltipWidth = Math.min(vw * 0.88, 320);
+      const glyphCenterX = targetRect.left + targetRect.width / 2;
+      const clampedX = Math.max(tooltipWidth / 2 + 10, Math.min(glyphCenterX, vw - tooltipWidth / 2 - 10));
+      let topY = targetRect.top - 8;
+      let transformY = "-100%";
+      if (targetRect.top < vh * 0.45) {
+        topY = targetRect.bottom + 8;
+        transformY = "0%";
+      }
+      tooltipEl.style.position = "fixed";
+      tooltipEl.style.left = clampedX + "px";
+      tooltipEl.style.top = Math.max(10, Math.min(topY, vh - 20)) + "px";
+      tooltipEl.style.transform = "translate(-50%, " + transformY + ")";
+      tooltipEl.style.zIndex = "99999";
+    },
+    handleGlyphClick(e) {
+      if (GameUI.touchDevice || window.innerWidth <= 768) {
+        if (this.isCurrentTooltip) {
+          this.hideTooltip();
+        } else {
+          this.showTooltip();
+          this.$nextTick(() => this.positionTooltipAtGlyph());
+        }
+      }
+      this.$emit('clicked', this.glyph.id);
+    },
     update() {
       this.logTotalSacrifice = GameCache.logTotalGlyphSacrifice.value;
       // This needs to be reactive in order to animate while using our low-lag workaround, but we also need to make
@@ -748,6 +781,10 @@ export default {
       this.isTouched = true;
     },
     touchEnd(e) {
+      if (GameUI.touchDevice || window.innerWidth <= 768) {
+        this.isTouched = false;
+        return;
+      }
       if (this.isCurrentTooltip) {
         e.preventDefault();
         this.hideTooltip();
@@ -883,7 +920,7 @@ export default {
       @click.shift.exact="$emit('shiftClicked', glyph.id)"
       @click.ctrl.shift.exact="$emit('ctrlShiftClicked', glyph.id)"
       @click.meta.shift.exact="$emit('ctrlShiftClicked', glyph.id)"
-      @click.exact="$emit('clicked', glyph.id)"
+      @click.exact="handleGlyphClick"
     />
   </div>
 </template>

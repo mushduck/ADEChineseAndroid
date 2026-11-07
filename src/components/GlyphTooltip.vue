@@ -211,6 +211,11 @@ export default {
     }
   },
   methods: {
+    handleTooltipClick() {
+      if (GameUI.touchDevice || window.innerWidth <= 768) {
+        if (this.$parent && this.$parent.hideTooltip) this.$parent.hideTooltip();
+      }
+    },
     update() {
       this.showChaosText = Pelle.specialGlyphEffect.isUnlocked || Pelle.isGlyphTypeDisabled(this.type);
       if (this.showChaosText) {
@@ -269,7 +274,7 @@ export default {
 
 <template>
   <div
-    class="l-glyph-tooltip c-glyph-tooltip"
+    class="l-glyph-tooltip c-glyph-tooltip" @click="handleTooltipClick"
     :style="glyphTooltipStyle"
     v-on="eventHandlers"
   >
