@@ -3627,63 +3627,90 @@ body.t-s12 {
     column-gap: 0.35rem !important;
     row-gap: 0.35rem !important;
     padding: 0 0.2rem 1.0rem 0.2rem !important;
-    margin: 0 auto !important;
+    margin: 0.3rem auto !important;
     box-sizing: border-box !important;
+    align-items: stretch !important;
   }
   .l-eternity-upgrades-grid__row,
   .l-eternity-upgrades-grid .l-spoon-btn-group {
     display: contents !important;
   }
-  .l-spoon-btn-group > .o-primary-btn--small-spoon:not(:last-child),
-  .l-spoon-btn-group > button:nth-child(2) {
+  .l-eternity-upgrades-grid > .c-subtab-option-container {
+    grid-row: 1 !important;
     grid-column: 1 !important;
-    order: 1 !important;
     width: 100% !important;
-    height: 1.85rem !important;
-    line-height: 1.85rem !important;
-    font-size: 0.76rem !important;
-    padding: 0 0.2rem !important;
-    border-radius: 4px !important;
-    white-space: nowrap !important;
-    box-sizing: border-box !important;
-    text-align: center !important;
-    margin: 0.15rem 0 !important;
+    margin: 0 0 0.15rem 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: stretch !important;
   }
-  .l-spoon-btn-group > .o-primary-btn--small-spoon:last-child,
-  .l-spoon-btn-group > button:nth-child(3) {
-    grid-column: 2 !important;
-    order: 1 !important;
+  .l-eternity-upgrades-grid > .c-subtab-option-container > button,
+  .l-eternity-upgrades-grid > .c-subtab-option-container > .o-primary-btn--subtab-option {
     width: 100% !important;
-    height: 1.85rem !important;
-    line-height: 1.85rem !important;
-    font-size: 0.76rem !important;
-    padding: 0 0.2rem !important;
-    border-radius: 4px !important;
-    white-space: nowrap !important;
-    box-sizing: border-box !important;
-    text-align: center !important;
-    margin: 0.15rem 0 !important;
-  }
-  .l-eternity-upgrades-grid > div:not([class]) {
-    grid-column: 1 / -1 !important;
-    order: 2 !important;
+    height: 2.1rem !important;
+    min-height: 2.1rem !important;
+    line-height: 2.1rem !important;
     font-size: 0.70rem !important;
-    line-height: 1.25 !important;
+    padding: 0 0.1rem !important;
+    margin: 0 !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button:last-child,
+  .l-eternity-upgrades-grid .l-spoon-btn-group > .o-primary-btn--small-spoon:last-child,
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button:nth-child(3) {
+    grid-row: 1 !important;
+    grid-column: 2 !important;
+    width: 100% !important;
+    height: 2.1rem !important;
+    min-height: 2.1rem !important;
+    line-height: 2.1rem !important;
+    font-size: 0.72rem !important;
+    padding: 0 0.1rem !important;
+    margin: 0 0 0.15rem 0 !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+  .l-eternity-upgrades-grid > div:not(.c-subtab-option-container):not(.l-eternity-upgrades-grid__row):not(.l-spoon-btn-group) {
+    grid-row: 2 !important;
+    grid-column: 1 / -1 !important;
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
     color: #a0a0b0 !important;
     text-align: center !important;
-    margin: 0.2rem 0 !important;
+    margin: 0.15rem 0 0.35rem 0 !important;
   }
-  .l-spoon-btn-group > button.o-eternity-upgrade {
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button:nth-child(2),
+  .l-eternity-upgrades-grid .l-spoon-btn-group > .o-primary-btn--small-spoon:not(:last-child) {
+    grid-row: 3 !important;
     grid-column: 1 / -1 !important;
-    justify-self: center !important;
-    order: 3 !important;
     width: calc(50% - 0.18rem) !important;
     max-width: calc(50% - 0.18rem) !important;
-    min-width: 0 !important;
-    height: 100% !important;
-    min-height: 5.2rem !important;
-    padding: 0.35rem 0.25rem !important;
-    margin: 0.2rem auto 0.4rem auto !important;
+    justify-self: center !important;
+    height: 2.0rem !important;
+    min-height: 2.0rem !important;
+    line-height: 2.0rem !important;
+    font-size: 0.74rem !important;
+    padding: 0 0.1rem !important;
+    margin: 0.1rem auto 0.15rem auto !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button:first-child,
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button.o-eternity-upgrade {
+    grid-row: 4 !important;
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    justify-self: center !important;
+    height: 5.8rem !important;
+    min-height: 5.8rem !important;
+    max-height: 5.8rem !important;
+    padding: 0.4rem 0.25rem !important;
+    margin: 0 auto 0.45rem auto !important;
     border-radius: 8px !important;
     box-sizing: border-box !important;
     display: flex !important;
@@ -3691,20 +3718,26 @@ body.t-s12 {
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 0.1rem !important;
-  }
-  .l-spoon-btn-group > button.o-eternity-upgrade br {
-    display: inline !important;
+    gap: 0.12rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.3 !important;
   }
   .l-eternity-upgrades-grid__cell {
-    grid-column: auto !important;
-    order: 4 !important;
+    margin: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    height: 100% !important;
-    min-height: 5.2rem !important;
-    padding: 0.35rem 0.25rem !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+  }
+  .l-eternity-upgrades-grid .l-eternity-upgrades-grid__row .o-eternity-upgrade {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 5.8rem !important;
+    min-height: 5.8rem !important;
+    max-height: 5.8rem !important;
+    padding: 0.4rem 0.25rem !important;
     margin: 0 !important;
     box-sizing: border-box !important;
     border-radius: 8px !important;
@@ -3713,23 +3746,24 @@ body.t-s12 {
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 0.1rem !important;
+    gap: 0.12rem !important;
   }
   .o-eternity-upgrade span,
-  .o-eternity-upgrade .c-description-display {
-    font-size: 0.74rem !important;
+  .o-eternity-upgrade div {
+    font-size: 0.80rem !important;
     font-weight: 500 !important;
-    line-height: 1.25 !important;
+    line-height: 1.3 !important;
     word-break: break-word !important;
   }
   .o-eternity-upgrade .c-effect-display,
   .o-eternity-upgrade .c-cost-display {
-    font-size: 0.76rem !important;
+    font-size: 0.82rem !important;
     font-weight: 700 !important;
-    line-height: 1.2 !important;
+    line-height: 1.25 !important;
     margin-top: 0.05rem !important;
   }
 }
+/* === END MOBILE ETERNITY UPGRADES TAB ADAPTATION === */
 
 /* === MOBILE TIME DILATION TAB ADAPTATION === */
 @media (max-width: 768px) {
