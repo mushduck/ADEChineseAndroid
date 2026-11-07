@@ -57,9 +57,8 @@ export default {
       @click="purchaseUpgrade"
     >
       <div>
-        将所有来源的天界无限点数 {{ formatX(2) }}
-        <br>
-        当前: {{ formatX(multiplier, 2, 0) }}
+        <div>将所有来源的天界无限点数 {{ formatX(2) }}</div>
+        <div>当前: {{ formatX(multiplier, 2, 0) }}</div>
       </div>
       <br>
       价格: {{ quantify("天界无限点数", cost, 2, 0) }}
