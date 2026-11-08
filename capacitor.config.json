@@ -3,11 +3,12 @@
   "appName": "反物质维度：终局",
   "webDir": "dist",
   "server": {
-    "androidScheme": "https",
-    "cleartext": false
+    "androidScheme": "https"
   },
   "android": {
-    "allowMixedContent": false,
-    "webContentsDebuggingEnabled": false
-  }
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true
+  },
+  "backgroundColor": "#0a0a0f"
 }
