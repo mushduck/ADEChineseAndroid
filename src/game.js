@@ -142,7 +142,7 @@ export function breakInfinity() {
   player.break = !player.break;
   TabNotification.ICUnlock.tryTrigger();
   EventHub.dispatch(player.break ? GAME_EVENT.BREAK_INFINITY : GAME_EVENT.FIX_INFINITY);
-  if ((window._tickCounter||0) % 2 === 0) GameUI.update(); // throttled
+  GameUI.update();
   if (Alpha.isRunning && Alpha.currentStage === 5) {
     Alpha.advanceLayer();
     Alpha.quotes.breakInfinity.show();
@@ -1008,7 +1008,7 @@ export function gameLoop(passedDiff, options = {}) {
 
   // We do these after autobuyers, since it's possible something there might
   // change a multiplier.
-  /* CACHE SABOTAGE REMOVED */
+  
 
   const blackHoleDiff = realDiff;
   const fixedSpeedActive = EternityChallenge(12).isRunning || player.endgame.overcharge.isRunning || player.compression.active ||
@@ -1468,7 +1468,7 @@ export function gameLoop(passedDiff, options = {}) {
   }
 
   EventHub.dispatch(GAME_EVENT.GAME_TICK_AFTER);
-  GameUI.update();
+  if ((window._tickCounter || 0) % 2 === 0) GameUI.update();
   player.lastUpdate = thisUpdate;
   PerformanceStats.end("Game Update");
 }
