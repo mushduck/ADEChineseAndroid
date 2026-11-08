@@ -172,16 +172,12 @@ class InfinityDimensionState extends DimensionState {
   }
 
   get multiplier() {
-    if (window.player && player.records) {
-      const t = player.records.realTimePlayed;
-      if (this._multT === t && this._multV) return this._multV;
-      this._multV = this._calcMultiplier();
-      this._multT = t;
-      return this._multV;
-    }
-    return this._calcMultiplier();
+    const t=window._tickCounter||0;
+    if(this._mT===t && this._mV!==undefined) return this._mV;
+    this._mV=this._calcMultiplier();
+    this._mT=t;
+    return this._mV;
   }
-
   _calcMultiplier() {
     const tier = this.tier;
     if (EternityChallenge(11).isRunning) return DC.D1;
@@ -599,3 +595,5 @@ export const InfinityDimensions = {
     return Math.pow((7 + getAdjustedGlyphEffect("infinityrate") + PelleUpgrade.infConversion.effectOrDefault(0)) * multiplier * multiplier2, exponent) / divisor;
   }
 };
+
+

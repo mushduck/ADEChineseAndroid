@@ -142,7 +142,7 @@ export function breakInfinity() {
   player.break = !player.break;
   TabNotification.ICUnlock.tryTrigger();
   EventHub.dispatch(player.break ? GAME_EVENT.BREAK_INFINITY : GAME_EVENT.FIX_INFINITY);
-  GameUI.update();
+  if ((window._tickCounter||0) % 2 === 0) GameUI.update(); // throttled
   if (Alpha.isRunning && Alpha.currentStage === 5) {
     Alpha.advanceLayer();
     Alpha.quotes.breakInfinity.show();
@@ -749,7 +749,6 @@ export function realTimeMechanics(realDiff) {
     Enslaved.storeRealTime();
     // Most autobuyers will only tick usefully on the very first tick, but this needs to be here in order to allow
     // the autobuyers unaffected by time storage to tick as well
-    window.recordPt("P2_RealTime_Catchup");
   Autobuyers.tick();
     AutomatorBackend.update(realDiff);
     GameUI.update();
@@ -762,10 +761,24 @@ export function realTimeMechanics(realDiff) {
 // case it uses the gap between now and the last time the function was called (capped at a day). This is on average
 // equal to the update rate, but may be much larger if the game was unfocused or the device went to sleep for some time.
 // eslint-disable-next-line complexity
-window._ptTimes={};window._ptCounts=0;window._ptLast=0;window.recordPt=function(name){if(!window._ptActive)return;const now=performance.now();if(name==="START"){window._ptLast=now;window._ptCounts++;return;}if(!window._ptTimes[name])window._ptTimes[name]=0;window._ptTimes[name]+=(now-window._ptLast);window._ptLast=now;};window.dumpPt=function(){console.table(Object.fromEntries(Object.entries(window._ptTimes).map(([k,v])=>[k,(v/window._ptCounts).toFixed(2)+" ms"])));};
 export function gameLoop(passedDiff, options = {}) {
-  window._tickCounter=(window._tickCounter||0)+1; window.recordPt("START");
-  PerformanceStats.start("Frame Time");
+  if (typeof Decimal !== "undefined" && !Decimal.prototype._slogCached) {
+    Decimal.prototype._slogCached = true;
+    const origSlog = Decimal.prototype.slog;
+    const slogMap = new Map();
+    Decimal.prototype.slog = function(base) {
+      if (base !== undefined || this.layer <= 0) return origSlog.call(this, base);
+      const key = this.layer + "_" + (Math.round(this.mag * 1000) / 1000);
+      let cached = slogMap.get(key);
+      if (cached !== undefined) return cached;
+      cached = origSlog.call(this, base);
+      slogMap.set(key, cached);
+      if (slogMap.size > 2000) slogMap.clear();
+      return cached;
+    };
+  }
+
+  window._tickCounter=(window._tickCounter||0)+1;  PerformanceStats.start("Frame Time");
   PerformanceStats.start("Game Update");
 
   EventHub.dispatch(GAME_EVENT.GAME_TICK_BEFORE);
@@ -969,7 +982,6 @@ export function gameLoop(passedDiff, options = {}) {
   }
 
   // Run all the functions which only depend on real time and not game time, skipping the rest of the loop if needed
-  window.recordPt("P1_Intro_And_Slabdrill");
   if (realTimeMechanics(realDiff)) return;
 
   // Ra-Nameless auto-release stored time (once every 5 ticks)
@@ -996,12 +1008,7 @@ export function gameLoop(passedDiff, options = {}) {
 
   // We do these after autobuyers, since it's possible something there might
   // change a multiplier.
-  GameCache.antimatterDimensionCommonMultiplier.invalidate();
-  GameCache.antimatterDimensionFinalMultipliers.invalidate();
-  GameCache.infinityDimensionCommonMultiplier.invalidate();
-  GameCache.timeDimensionCommonMultiplier.invalidate();
-  GameCache.totalIPMult.invalidate();
-  GameCache.totalCIPMult.invalidate();
+  /* CACHE SABOTAGE REMOVED */
 
   const blackHoleDiff = realDiff;
   const fixedSpeedActive = EternityChallenge(12).isRunning || player.endgame.overcharge.isRunning || player.compression.active ||
@@ -1239,7 +1246,6 @@ export function gameLoop(passedDiff, options = {}) {
   EternityChallenge(12).tryFail();
   Achievements._power.invalidate();
 
-  window.recordPt("P3_Autobuyers");
   TimeDimensions.tick(diff);
   InfinityDimensions.tick(diff);
   AntimatterDimensions.tick(diff, realDiff);
@@ -1247,7 +1253,6 @@ export function gameLoop(passedDiff, options = {}) {
   const gain = Decimal.clampMin(FreeTickspeed.fromShards(Currency.timeShards.value).newAmount.sub(player.totalTickGained), 0);
   player.totalTickGained = player.totalTickGained.add(gain);
 
-  window.recordPt("P4_Dimensions");
   updatePrestigeRates();
   tryCompleteInfinityChallenges();
 
@@ -1265,7 +1270,6 @@ export function gameLoop(passedDiff, options = {}) {
   Currency.endgameSkills.add(getESPerSecond().times(realDiff).div(1000));
   InfinityDimensions.tryAutoUnlock();
 
-  window.recordPt("P5_Prestige_And_Replicanti");
   BlackHoles.updatePhases(blackHoleDiff);
 
   if (Effarig.isRunning && Effarig.currentStage === EFFARIG_STAGES.ENDGAME) {
@@ -1306,7 +1310,6 @@ export function gameLoop(passedDiff, options = {}) {
     }
   }
 
-  window.recordPt("P6_BlackHoles");
   const uncapped = Decimal.min(player.endgame.unnerfedCelestialMatter, CelestialDimensions.SOFTCAP);
   const instability = Decimal.pow(Decimal.max(player.endgame.unnerfedCelestialMatter.div(CelestialDimensions.SOFTCAP), 1), 1 / CelestialDimensions.softcapPow);
   const beforeOverflow = Decimal.min(uncapped.times(instability), CelestialDimensions.OVERFLOW);
@@ -1356,7 +1359,6 @@ export function gameLoop(passedDiff, options = {}) {
     player.reality.imaginaryMachines = MachineHandler.currentIMCap;
   }
 
-  window.recordPt("P7_CelestialMatter_And_Laitela");
   if (GalacticPower.isUnlocked) {
     Currency.galacticPower.add(getGalacticPowerGainPerSecond().times(realDiff).div(1000));
   }
@@ -1429,7 +1431,6 @@ export function gameLoop(passedDiff, options = {}) {
   hadrons.totalDark = hadrons.dark + waves;
   hadrons.totalExotic = hadrons.exotic + waves;
 
-  window.recordPt("P8_Galactic_And_Thermal");
   laitelaRealityTick(realDiff);
   Achievements.autoAchieveUpdate(diff);
   V.checkForUnlocks();
@@ -1466,15 +1467,14 @@ export function gameLoop(passedDiff, options = {}) {
     }
   }
 
-  window.recordPt("P9_Endgame_Math");
   EventHub.dispatch(GAME_EVENT.GAME_TICK_AFTER);
   GameUI.update();
   player.lastUpdate = thisUpdate;
-  window.recordPt("P10_Events_And_UI");
   PerformanceStats.end("Game Update");
 }
 
 function updatePrestigeRates() {
+  if ((window._tickCounter || 0) % 10 !== 0) return;
   const currentIPmin = gainedInfinityPoints().dividedBy(Math.clampMin(0.0005, Time.thisInfinityRealTime.totalMinutes.toNumber()));
   if (currentIPmin.gt(player.records.thisInfinity.bestIPmin) && Player.canCrunch) {
     player.records.thisInfinity.bestIPmin = currentIPmin;

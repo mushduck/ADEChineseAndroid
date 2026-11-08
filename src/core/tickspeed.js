@@ -1,4 +1,12 @@
+let _ebgT=-1,_ebgV=null;
 export function effectiveBaseGalaxies() {
+  const t=window._tickCounter||0;
+  if(_ebgT===t && _ebgV!==null) return _ebgV;
+  _ebgV=_ebgOrig();
+  _ebgT=t;
+  return _ebgV;
+}
+function _ebgOrig() {
   let alternation = Decimal.max(0, Replicanti.amount.add(1).log10().div(1e6)).times(AlchemyResource.alternation.effectValue).add(1);
   let galaxies = player.galaxies;
   if (Slabdrill.isCursed && SlabdrillUnlocks.timeStudy181.isUnlocked) {
@@ -37,7 +45,6 @@ export function effectiveBaseGalaxies() {
       galaxies.add(generatedGalaxies).add(replicantiGalaxies).add(freeGalaxies).add(extraGalaxies), 0).div(
       galacticInstability());
 }
-
 export function actualBaseGalaxiesBeforeOverflow() {
   return GalacticPowers.galacticAscension.isUnlocked
     ? Replicanti.galaxies.total.max(1).times(player.galaxies.max(1)).times(player.dilation.totalTachyonGalaxies.max(1)).times(
@@ -64,18 +71,15 @@ export function actualBaseGalaxiesWithoutGeneration() {
     : actualBaseGalaxies().sub(GalaxyGenerator.galaxies);
 }
 
-let _tsT = -1, _tsV = null;
+let _tsT=-1,_tsV=null;
 export function getTickSpeedMultiplier() {
-  if (window.player && player.records) {
-    const t = player.records.realTimePlayed;
-    if (_tsT === t && _tsV) return _tsV;
-    _tsV = _getTickSpeedMultiplier();
-    _tsT = t;
-    return _tsV;
-  }
-  return _getTickSpeedMultiplier();
+  const t=window._tickCounter||0;
+  if(_tsT===t && _tsV!==null) return _tsV;
+  _tsV=_gtsmOrig();
+  _tsT=t;
+  return _tsV;
 }
-function _getTickSpeedMultiplier() {
+function _gtsmOrig() {
   if (InfinityChallenge(3).isRunning) return DC.D1;
   if (Ra.isRunning) return DC.C1D1_1245;
   let galaxies = effectiveBaseGalaxies();
@@ -136,9 +140,7 @@ function _getTickSpeedMultiplier() {
   galaxies = galaxies.times(NormalChallenge(5).chargedEffect);
   const perGalaxy = DC.D0_965;
   return perGalaxy.pow(galaxies.sub(2)).times(baseMultiplier);
-}
-
-export function buyTickSpeed() {
+}export function buyTickSpeed() {
   if (!Tickspeed.isAvailableForPurchase || !Tickspeed.isAffordable) return false;
 
   if (NormalChallenge(9).isRunning) {

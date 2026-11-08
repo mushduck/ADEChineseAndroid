@@ -960,3 +960,4 @@ export const AntimatterDimensions = {
     if (hasBigCrunchGoal) Currency.antimatter.dropTo(Player.infinityGoal);
   }
 };
+

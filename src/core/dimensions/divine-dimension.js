@@ -409,3 +409,4 @@ export function initializeResourcesAfterSupernova() {
 export function gainedSupernovae() {
   return DC.D1;
 }
+
