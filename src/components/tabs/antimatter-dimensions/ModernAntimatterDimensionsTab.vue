@@ -86,7 +86,7 @@ export default {
       if (this.isContinuumActive) return "连续统";
       return this.buyUntil10 ? "购买 10 个" : "购买 1 个";
     },
-    update() {
+    update() { if ((window._tickCounter||0) % 3 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       this.hasDimensionBoosts = player.dimensionBoosts.gt(0);
       this.buyUntil10 = player.buyUntil10;
       this.hasContinuum = Laitela.continuumUnlocked;

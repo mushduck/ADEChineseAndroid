@@ -158,7 +158,7 @@ export const GameUI = {
     }
     EventHub.ui.dispatch(GAME_EVENT.UPDATE);
     if (DEV) {
-      ReactivityComplainer.complain();
+      /* ReactivityComplainer.complain(); */
       if (PerformanceStats.isOn && PerformanceStats.currentBlocks.length > 0) {
         PerformanceStats.end();
         Vue.nextTick(() => {

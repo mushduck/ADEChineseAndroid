@@ -104,7 +104,7 @@ export default {
     }
   },
   methods: {
-    update() {
+    update() { if ((window._tickCounter||0) % 3 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       this.type = Galaxy.type;
       this.galaxies.normal.copyFrom(player.galaxies.add(GalaxyGenerator.galaxies));
       this.galaxies.replicanti.copyFrom(Replicanti.galaxies.total);
