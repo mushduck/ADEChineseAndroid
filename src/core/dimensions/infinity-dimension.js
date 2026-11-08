@@ -172,6 +172,17 @@ class InfinityDimensionState extends DimensionState {
   }
 
   get multiplier() {
+    if (window.player && player.records) {
+      const t = player.records.realTimePlayed;
+      if (this._multT === t && this._multV) return this._multV;
+      this._multV = this._calcMultiplier();
+      this._multT = t;
+      return this._multV;
+    }
+    return this._calcMultiplier();
+  }
+
+  _calcMultiplier() {
     const tier = this.tier;
     if (EternityChallenge(11).isRunning) return DC.D1;
     let mult = GameCache.infinityDimensionCommonMultiplier.value

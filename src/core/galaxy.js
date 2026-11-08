@@ -257,3 +257,6 @@ function maxBuyGalaxies(limit = DC.BEMAX) {
   Tutorial.turnOffEffect(TUTORIAL_STATE.GALAXY);
   return true;
 }
+
+// --- SAFE CACHE INJECTION ---
+const _cacheDefs=["remoteStart","costScalingStart","costMult","remoteGalaxyStrength"];for(const prop of _cacheDefs){const orig=Object.getOwnPropertyDescriptor(Galaxy,prop).get;let lastTick=-1,lastVal=null;Object.defineProperty(Galaxy,prop,{get(){const t=window._tickCounter||0;if(lastTick===t&&lastVal!==null)return lastVal;lastVal=orig.call(Galaxy);lastTick=t;return lastVal;},configurable:true});}

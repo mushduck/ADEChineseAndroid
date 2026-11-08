@@ -64,7 +64,18 @@ export function actualBaseGalaxiesWithoutGeneration() {
     : actualBaseGalaxies().sub(GalaxyGenerator.galaxies);
 }
 
+let _tsT = -1, _tsV = null;
 export function getTickSpeedMultiplier() {
+  if (window.player && player.records) {
+    const t = player.records.realTimePlayed;
+    if (_tsT === t && _tsV) return _tsV;
+    _tsV = _getTickSpeedMultiplier();
+    _tsT = t;
+    return _tsV;
+  }
+  return _getTickSpeedMultiplier();
+}
+function _getTickSpeedMultiplier() {
   if (InfinityChallenge(3).isRunning) return DC.D1;
   if (Ra.isRunning) return DC.C1D1_1245;
   let galaxies = effectiveBaseGalaxies();
