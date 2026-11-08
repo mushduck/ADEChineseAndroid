@@ -11267,3 +11267,83 @@ body.t-s12 {
     text-align: center !important;
   }
 }
+
+
+/* === MOBILE HIDDEN TABS MODAL ADAPTATION === */
+@media (max-width: 768px) {
+  .c-modal-options.l-wrapper {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    padding: 0.5rem 0.35rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-modal-options .c-modal--short {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 72vh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+    padding: 0 0.2rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-modal-options .c-modal--short .o-primary-btn {
+    margin: 0.35rem auto !important;
+    padding: 0.25rem 0.8rem !important;
+    font-size: 0.82rem !important;
+    height: auto !important;
+  }
+
+  .l-hide-modal-tab-container,
+  .l-hide-modal-subtab-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.35rem 0 !important;
+    padding: 0.3rem 1.35rem 0.3rem 0.3rem !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+  }
+
+  .l-hide-modal-subtab-container .c-indicator-icon {
+    width: 1.3rem !important;
+    font-size: 0.85rem !important;
+    top: 0.15rem !important;
+    right: 0.05rem !important;
+    padding: 0.1rem !important;
+  }
+
+  .c-hide-modal-tab-button {
+    width: calc(33.333% - 0.25rem) !important;
+    min-width: 5.6rem !important;
+    height: 2.3rem !important;
+    margin: 0 !important;
+    padding: 0.15rem 0.25rem !important;
+    font-size: 0.72rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-hide-modal-button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .l-hide-modal-button__subtab-icon {
+    font-size: 0.95rem !important;
+    width: 1.15rem !important;
+    margin: 0 0.15rem 0 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .l-hide-modal-button__subtab-name {
+    width: auto !important;
+    flex: 0 1 auto !important;
+    line-height: 1.1 !important;
+    word-break: break-word !important;
+  }
+}
