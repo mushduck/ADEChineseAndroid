@@ -54,7 +54,7 @@ export default {
     },
   },
   methods: {
-    update() {
+    update() { if ((window._tickCounter||0) % 10 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       this.hasDimension = Autobuyer.darkMatterDims.isUnlocked;
       this.hasAscension = Autobuyer.darkMatterDimsAscension.isUnlocked;
       this.hasSingularity = Autobuyer.singularity.isUnlocked;

@@ -54,7 +54,7 @@ export default {
     }
   },
   methods: {
-    update() {
+    update() { if ((window._tickCounter||0) % 10 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       this.isDoomed = (Pelle.isDoomed && !PelleDestructionUpgrade.continuumBuff.canBeApplied);
       this.darkMatter.copyFrom(Currency.darkMatter);
       this.isDMCapped = this.darkMatter.eq(Laitela.darkMatterCap);
