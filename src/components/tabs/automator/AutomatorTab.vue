@@ -47,6 +47,12 @@ export default {
       return AutomatorData.MAX_ALLOWED_TOTAL_CHARACTERS;
     },
   },
+  activated() {
+    // 从 keep-alive 缓存回来时编辑器的测量尺寸会失效，刷新一次
+    this.$nextTick(() => {
+      if (AutomatorTextUI.editor) AutomatorTextUI.editor.refresh();
+    });
+  },
   methods: {
     update() {
       this.automatorUnlocked = Player.automatorUnlocked;

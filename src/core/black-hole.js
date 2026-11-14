@@ -41,7 +41,7 @@ class BlackHoleUpgradeState {
   }
 
   purchase() {
-    if (!this.isAffordable || this.value === 0) return;
+    if (!this.isAffordable || Decimal.eq(this.value, 0)) return;
 
     // Keep the cycle phase consistent before and after purchase so that upgrading doesn't cause weird behavior
     // such as immediately activating it when inactive (or worse, skipping past the active segment entirely).
@@ -70,7 +70,7 @@ class BlackHoleUpgradeState {
   }
 
   bulkPurchase() {
-    if (!this.isAffordable || this.value === 0) return;
+    if (!this.isAffordable || Decimal.eq(this.value, 0)) return;
 
     // Keep the cycle phase consistent before and after purchase so that upgrading doesn't cause weird behavior
     // such as immediately activating it when inactive (or worse, skipping past the active segment entirely).
@@ -477,8 +477,8 @@ export const BlackHoles = {
     // We have this special case just in case some floating-point mess prevents
     // binarySearch from working in the numberOfTicks = 1 case.
     // I doubt that's possible but it seems worth handling just in case.
-    if (numberOfTicks === 1) {
-      return [totalRealTime, totalGameTime.div(totalRealTime)];
+    if (numberOfTicks === 1 || (this.arePermanent && player.blackHoleAutoPauseMode === 0) || totalGameTime.layer >= 2 || totalGameTime.mag > 1e12) {
+      return [totalRealTime / numberOfTicks, totalGameTime.div(totalRealTime)];
     }
     // We want calculateGameTimeFromRealTime(realTickTime, speedups) * numberOfTicks / totalGameTime to be roughly 1
     // (that is, the tick taking realTickTime real time has roughly average length in terms of game time).

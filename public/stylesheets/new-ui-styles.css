@@ -1182,7 +1182,7 @@ body.t-s12 {
 }
 
 /* === MOBILE BOTTOM BAR ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   :root {
     --sidebar-width: 0px !important;
   }
@@ -1937,7 +1937,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ROW 4 FULL-WIDTH FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-mobile-matrix-row-full,
   .c-mobile-matrix-row-4,
   .c-mobile-matrix-row-4 > .c-prestige-button-container,
@@ -1988,7 +1988,7 @@ body.t-s12 {
 
 
 /* === MOBILE RESOURCE FONT BALANCE FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-mobile-matrix-resources .c-game-header__antimatter,
   .c-game-header__antimatter {
     font-size: 1.55rem !important;
@@ -2020,7 +2020,7 @@ body.t-s12 {
 
 
 /* === MOBILE ANDROID REPLICA: SAME ROW & GAP FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-game-header br,
   .c-mobile-matrix-resources br,
   .c-gamespeed + br,
@@ -2131,7 +2131,7 @@ body.t-s12 {
 }
 
 /* === MOBILE TOP GAP BALANCED FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   body,
   body.t-normal,
   body.t-s9,
@@ -2148,7 +2148,7 @@ body.t-s12 {
 
 
 /* === MOBILE INFINITY DIMENSIONS TAB COMPACT FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-infinity-dim-tab p {
     font-size: 0.85rem !important;
     line-height: 1.35 !important;
@@ -2206,7 +2206,7 @@ body.t-s12 {
 }
 
 /* === MOBILE BLACK HOLE SINGLE ROW FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-black-hole-header {
     display: flex !important;
     flex-direction: row !important;
@@ -2273,7 +2273,7 @@ body.t-s12 {
 
 
 /* === MOBILE SUBTAB OPTION BUTTONS COMPACT FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   /* CONTAINER: FLEX ROW WITH AUTO WRAP AND CENTER ALIGNMENT */
   .c-subtab-option-container {
     display: flex !important;
@@ -2312,7 +2312,7 @@ body.t-s12 {
 
 
 /* === MOBILE DIMENSION TABS ACCENT TEXT & CELESTIAL TICKSPEED FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-celestial-tickspeed-container {
     margin: 0.25rem auto !important;
     padding: 0 !important;
@@ -2386,7 +2386,7 @@ body.t-s12 {
 }
 
 /* === MOBILE CONTAINER SCROLL UNLOCK & CUTOFF FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   #page,
   #ui,
   #ui-container,
@@ -2394,6 +2394,7 @@ body.t-s12 {
   .tab-container {
     height: auto !important;
     min-height: 100vh !important;
+    min-height: 100dvh !important;
     max-height: none !important;
     overflow: visible !important;
     overflow-x: hidden !important;
@@ -2424,7 +2425,7 @@ body.t-s12 {
 }
 
 /* === MOBILE BOTTOM BUFFER & VISIBLE SCROLLBAR FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   html,
   body,
   body.t-normal,
@@ -2457,7 +2458,7 @@ body.t-s12 {
 }
 
 /* === MOBILE AUTOBUYERS TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-autobuyers-tab,
   .l-autobuyers-tab table,
   .l-autobuyers-tab tbody,
@@ -2729,7 +2730,7 @@ body.t-s12 {
 }
 
 /* === MOBILE AUTOMATOR TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-automator-tab,
   .l-automator-tab {
     width: 100% !important;
@@ -2896,7 +2897,7 @@ body.t-s12 {
 }
 
 /* === MOBILE CHALLENGES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-challenges-tab {
     width: 100% !important;
     max-width: 100% !important;
@@ -3112,7 +3113,7 @@ body.t-s12 {
 }
 
 /* === MOBILE INFINITY UPGRADES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-infinity-upgrades-tab {
     display: flex !important;
     flex-direction: column !important;
@@ -3171,11 +3172,12 @@ body.t-s12 {
     padding: 0 !important;
     box-sizing: border-box !important;
   }
-  .l-spoon-btn-group {
+  /* 之前这里漏了作用域，导致 ≤768px 时对“永恒升级 / 天界”等页面的按钮组也生效 */
+  .l-infinity-upgrades-tab .l-spoon-btn-group {
     display: contents !important;
   }
-  .l-spoon-btn-group > .o-primary-btn--small-spoon:not(:last-child),
-  .l-spoon-btn-group > button:nth-child(2) {
+  .l-infinity-upgrades-tab .l-spoon-btn-group > .o-primary-btn--small-spoon:not(:last-child),
+  .l-infinity-upgrades-tab .l-spoon-btn-group > button:nth-child(2) {
     grid-column: 1 !important;
     grid-row: 1 !important;
     width: 100% !important;
@@ -3189,8 +3191,8 @@ body.t-s12 {
     text-align: center !important;
     margin: 0 !important;
   }
-  .l-spoon-btn-group > .o-primary-btn--small-spoon:last-child,
-  .l-spoon-btn-group > button:nth-child(3) {
+  .l-infinity-upgrades-tab .l-spoon-btn-group > .o-primary-btn--small-spoon:last-child,
+  .l-infinity-upgrades-tab .l-spoon-btn-group > button:nth-child(3) {
     grid-column: 2 !important;
     grid-row: 1 !important;
     width: 100% !important;
@@ -3307,7 +3309,7 @@ body.t-s12 {
 }
 
 /* === MOBILE BREAK INFINITY TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-break-infinity-tab {
     display: flex !important;
     flex-direction: column !important;
@@ -3389,7 +3391,7 @@ body.t-s12 {
 }
 
 /* === MOBILE REPLICANTI TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-replicanti-tab {
     display: flex !important;
     flex-direction: column !important;
@@ -3540,7 +3542,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ETERNITY MILESTONES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-eternity-milestone-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -3612,7 +3614,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ETERNITY UPGRADES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-eternity-upgrades-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -3668,7 +3670,7 @@ body.t-s12 {
     box-sizing: border-box !important;
   }
   .l-eternity-upgrades-grid > div:not(.c-subtab-option-container):not(.l-eternity-upgrades-grid__row):not(.l-spoon-btn-group) {
-    grid-row: 2 !important;
+    /* 不再把多段说明文字钉在同一行（原本会互相重叠），行号交给下面的 .l-eu-note / .l-eu-notes */
     grid-column: 1 / -1 !important;
     font-size: 0.72rem !important;
     line-height: 1.35 !important;
@@ -3759,7 +3761,7 @@ body.t-s12 {
 }
 
 /* === MOBILE TIME DILATION TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-dilation-tab {
     display: flex !important;
     flex-direction: column !important;
@@ -3899,7 +3901,7 @@ body.t-s12 {
 }
 
 /* === MOBILE REALITY & IMAGINARY UPGRADES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-reality-upgrade-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -4011,7 +4013,7 @@ body.t-s12 {
 }
 
 /* === MOBILE GLYPHS TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-glyphs-tab {
     display: flex !important;
     flex-direction: column !important;
@@ -4107,8 +4109,10 @@ body.t-s12 {
     z-index: 5 !important;
   }
   .l-glyph-level-factors .l-expanding-control-box__container {
-    position: relative !important;
-    left: auto !important;
+    /* 必须是 absolute：组件靠「根元素高度写死成标题高度 + 容器绝对定位溢出」来展开，
+       改成 relative 会让容器进入文档流、和写死的高度打架，内容宽度也可能量成 0 */
+    position: absolute !important;
+    left: 0 !important;
     transform: none !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -4358,7 +4362,7 @@ body.t-s12 {
 }
 
 /* === MOBILE MODALS & GLYPH SHOWCASE ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-modal-overlay,
   .l-modal-overlay-flash-warn {
     position: fixed !important;
@@ -4480,7 +4484,7 @@ body.t-s12 {
 
 
 /* === MOBILE TIME STUDIES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   #ui-fixed .l-time-studies-tab__tt-shop,
   .l-time-studies-tab__tt-shop {
     display: none !important;
@@ -4777,7 +4781,7 @@ body.t-s12 {
 
 
 /* === MOBILE RESURGENCE TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-resurgence-upgrade-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -4854,7 +4858,7 @@ body.t-s12 {
 /* === END MOBILE RESURGENCE TAB ADAPTATION === */
 
 /* === MOBILE PERKS TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-perk-tab__header {
     font-size: 0.72rem !important;
     line-height: 1.3 !important;
@@ -4909,7 +4913,7 @@ body.t-s12 {
 }
 
 /* === MOBILE BLACK HOLE TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-black-hole-tab {
     width: 100% !important;
     max-width: 100vw !important;
@@ -5081,7 +5085,7 @@ body.t-s12 {
 }
 
 /* === MOBILE GLYPH ALCHEMY TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-ra-alchemy-tab {
     width: 100% !important;
     max-width: 100vw !important;
@@ -5216,7 +5220,7 @@ body.t-s12 {
 }
 
 /* === MOBILE TERESA TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-teresa-celestial-tab {
     width: 100% !important;
     max-width: 100vw !important;
@@ -5456,7 +5460,7 @@ body.t-s12 {
 
 
 /* === MOBILE EFFARIG TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-effarig-shop-and-run {
     display: flex !important;
     flex-direction: column !important;
@@ -5620,7 +5624,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ENSLAVED TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-enslaved-celestial-tab {
     width: 100% !important;
     max-width: 100vw !important;
@@ -5853,7 +5857,7 @@ body.t-s12 {
 }
 
 /* === MOBILE V TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-v-celestial-tab {
     width: 100% !important;
     max-width: 100vw !important;
@@ -6104,7 +6108,7 @@ body.t-s12 {
   }
 }
 /* === MOBILE CELESTIAL RA TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-ra-celestial-tab {
     width: 100% !important;
     padding: 0 0.4rem !important;
@@ -6368,7 +6372,7 @@ body.t-s12 {
 }
 
 /* === MOBILE LAITELA TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-laitela-celestial-tab {
     width: 100% !important;
     max-width: 100vw !important;
@@ -6737,7 +6741,7 @@ body.t-s12 {
 }
 
 /* === MOBILE HEADER & DIMENSIONS XML OVERHAUL === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   html {
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
@@ -7278,7 +7282,7 @@ body.t-s12 {
 }
 
 /* === MOBILE PELLE TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-pelle-celestial-tab, .l-pelle-all-content-container, .l-pelle-destruction-tab, .l-pelle-destruction-container {
     width: 100% !important;
     max-width: 100vw !important;
@@ -7703,7 +7707,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ACHIEVEMENTS TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-achievements-tab {
     width: 100% !important;
     max-width: 100% !important;
@@ -7870,7 +7874,7 @@ body.t-s12 {
 }
 
 /* === MOBILE OPTIONS TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-options-tab {
     width: 100% !important;
     max-width: 100vw !important;
@@ -8031,7 +8035,7 @@ body.t-s12 {
 }
 
 /* === MOBILE OPTIONS MODALS ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-modal-message {
     min-width: 0 !important;
     width: 100% !important;
@@ -8198,7 +8202,7 @@ body.t-s12 {
 }
 
 /* === MOBILE OPTIONS & MODALS ENHANCEMENT === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-modal {
     width: 88vw !important;
     max-width: 88vw !important;
@@ -8428,7 +8432,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ENDGAME BUTTON ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-mobile-matrix-row-full,
   .c-mobile-matrix-row-full > .c-prestige-button-container,
   .c-mobile-matrix-row-full .c-reality-container {
@@ -8498,7 +8502,7 @@ body.t-s12 {
 }
 
 /* === MOBILE STATISTICS & PAST RUNS ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-stats-tab {
     width: 100% !important;
     max-width: 100vw !important;
@@ -8619,7 +8623,7 @@ body.t-s12 {
 }
 
 /* === MOBILE PERFORMANCE HARDWARE ACCELERATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-dimension-row {
     transform: translateZ(0);
     contain: layout style;
@@ -8632,7 +8636,7 @@ body.t-s12 {
 }
 
 /* === MOBILE BREAK ETERNITY TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-break-eternity-tab {
     display: flex !important;
     flex-direction: column !important;
@@ -8750,7 +8754,7 @@ body.t-s12 {
 }
 
 /* === MOBILE BOTTOM SCROLL BUFFER FIX === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   html,
   body,
   #page,
@@ -8776,7 +8780,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ENDGAME MILESTONES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-endgame-milestone-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -8849,7 +8853,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ENDGAME UPGRADES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-endgame-upgrade-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -8958,7 +8962,7 @@ body.t-s12 {
 }
 
 /* === MOBILE GALACTIC POWER TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-endgame-milestone-grid:has(.c-galactic-power-description-text) {
     display: flex !important;
     flex-direction: column !important;
@@ -9038,7 +9042,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ENDGAME MASTERIES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   #ui-fixed .l-endgame-masteries-tab__es-shop,
   .l-endgame-masteries-tab__es-shop {
     display: none !important;
@@ -9131,7 +9135,7 @@ body.t-s12 {
 }
 
 /* === MOBILE HYPERCUBES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-hypercubes-tab {
     display: flex !important;
     flex-direction: column !important;
@@ -9213,7 +9217,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ENDGAME TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-endgame-tab-container {
     width: 100% !important;
     padding: 0.4rem 0.2rem 1.0rem 0.2rem !important;
@@ -9272,7 +9276,7 @@ body.t-s12 {
 }
 
 /* === MOBILE EXPANSION PACKS & ENDGAME TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-expansion-packs-tab {
     width: 100% !important;
     max-width: 100% !important;
@@ -9395,7 +9399,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ETHEREAL TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-ethereal-tab {
     width: 100% !important;
     max-width: 100% !important;
@@ -9590,7 +9594,7 @@ body.t-s12 {
 }
 
 /* === MOBILE LARGE HADRON COLLIDER TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-large-hadron-collider-tab, .l-large-hadron-collider-all-content-container { width: 100% !important; max-width: 100vw !important; padding: 0 0.25rem !important; margin: 0 !important; box-sizing: border-box !important; overflow-x: hidden !important; text-align: center !important; }
   .l-large-hadron-collider-tab > br { display: none !important; }
   .c-large-hadron-collider-description { width: 100% !important; font-size: 1.08rem !important; line-height: 1.4 !important; padding: 0.3rem 0 !important; box-sizing: border-box !important; }
@@ -9639,7 +9643,7 @@ body.t-s12 {
 }
 
 /* === MOBILE TIME COMPRESSION TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-compression-tab {
     display: flex !important;
     flex-direction: column !important;
@@ -9766,7 +9770,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ACH-TOOLTIP ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   [ach-tooltip]::before {
     width: max-content !important;
     min-width: 0 !important;
@@ -9794,7 +9798,7 @@ body.t-s12 {
 }
 
 /* === MOBILE ASCENSION & OVERCHARGE TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-ascension-tab {
     width: 100% !important;
     max-width: 100% !important;
@@ -9904,7 +9908,7 @@ body.t-s12 {
 }
 
 /* === MOBILE CELESTIAL INFINITY UPGRADES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-celestial-infinity-upgrades-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -10018,7 +10022,7 @@ body.t-s12 {
 }
 
 /* === MOBILE CELESTIAL BREAK INFINITY TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-break-celestial-infinity-tab {
     display: flex !important;
     flex-direction: column !important;
@@ -10114,7 +10118,7 @@ body.t-s12 {
 }
 
 /* === MOBILE CELESTIAL ETERNITY UPGRADES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-celestial-eternity-upgrades-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -10220,7 +10224,7 @@ body.t-s12 {
 }
 
 /* === MOBILE DIVINITY MILESTONES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-divinity-milestone-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -10302,7 +10306,7 @@ body.t-s12 {
 }
 
 /* === MOBILE DIVINITY UPGRADES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-divinity-upgrade-grid {
     width: 100% !important;
     max-width: 100% !important;
@@ -10406,7 +10410,7 @@ body.t-s12 {
 }
 
 /* === MOBILE UNIVERSES TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-universe-tab-container {
     width: 100% !important;
     padding: 0.4rem 0.2rem 1.0rem 0.2rem !important;
@@ -10462,7 +10466,7 @@ body.t-s12 {
 }
 
 /* === MOBILE CATCHUP MODAL ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-modal-away-progress {
     width: 94vw !important;
     max-width: 94vw !important;
@@ -10528,7 +10532,7 @@ body.t-s12 {
 }
 
 /* === MOBILE H2P MODAL ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-h2p-modal {
     width: 95vw !important;
     max-width: 95vw !important;
@@ -10661,7 +10665,7 @@ body.t-s12 {
 }
 
 /* === MOBILE PROGRESS BAR MODAL ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .progress-bar-modal .c-modal {
     width: 94vw !important;
     max-width: 94vw !important;
@@ -10723,7 +10727,7 @@ body.t-s12 {
 }
 
 /* === MOBILE PAST PRESTIGE RUNS TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-stats-tab:has(.c-past-runs-header),
   .c-stats-tab {
     width: 100% !important;
@@ -10809,7 +10813,7 @@ body.t-s12 {
 }
 
 /* === MOBILE INFORMATION MODAL ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-information-modal.c-information-modal,
   .l-information-modal {
     width: 94vw !important;
@@ -10871,7 +10875,7 @@ body.t-s12 {
 }
 
 /* === MOBILE GLYPH TOOLTIP CENTRAL MODAL ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-glyph-tooltip,
   .c-glyph-tooltip {
     width: 88vw !important;
@@ -10924,7 +10928,7 @@ body.t-s12 {
 }
 
 /* === MOBILE CELESTIAL ALPHA TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .l-alpha-celestial-tab {
     width: 100% !important;
     padding: 0 0.2rem 1rem 0.2rem !important;
@@ -11050,7 +11054,7 @@ body.t-s12 {
 }
 
 /* === MOBILE CELESTIAL SLABDRILL TAB ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   div.l-slabdrill-celestial-tab:not(.l-slabdrill-unlocks__row > .l-slabdrill-celestial-tab) {
     width: 100% !important;
     padding: 0.1rem 0.2rem 1.2rem 0.2rem !important;
@@ -11163,8 +11167,9 @@ body.t-s12 {
     display: flex !important;
     flex-direction: column !important;
   }
-  .l-slabdrill-unlocks__row:last-of-type > .l-slabdrill-celestial-tab:last-child,
-  .l-slabdrill-unlocks__row:last-of-type > div:last-child {
+  /* 仅当解锁项为奇数个时，最后一张卡才居中占整行；偶数个时保持两列对齐，避免核心内留空洞 */
+  .l-slabdrill-unlocks__row > .l-slabdrill-celestial-tab.l-slabdrill-card--last-odd,
+  .l-slabdrill-unlocks__row > div.l-slabdrill-card--last-odd {
     grid-column: 1 / -1 !important;
     width: 48.5% !important;
     max-width: 48.5% !important;
@@ -11270,7 +11275,7 @@ body.t-s12 {
 
 
 /* === MOBILE HIDDEN TABS MODAL ADAPTATION === */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .c-modal-options.l-wrapper {
     width: 95vw !important;
     max-width: 95vw !important;
@@ -11345,5 +11350,823 @@ body.t-s12 {
     flex: 0 1 auto !important;
     line-height: 1.1 !important;
     word-break: break-word !important;
+  }
+}
+
+/* === 永恒升级（移动端）—— 行号全部写死：按钮区 → 说明文字 → 6 张卡 2 列 === */
+@media (max-width: 768px) and (orientation: portrait) {
+  .l-eternity-upgrades-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.35rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 0.2rem 1rem 0.2rem !important;
+    margin: 0.3rem auto !important;
+    box-sizing: border-box !important;
+    align-items: start !important;
+  }
+  .l-eternity-upgrades-grid__row {
+    display: contents !important;
+  }
+  /* 顶部“重置充能”开关 */
+  .l-eternity-upgrades-grid > .c-subtab-option-container {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  /* 按钮区：第 2 行，内部纵向 买满 → 主按钮 → 自动购买 */
+  .l-eternity-upgrades-grid > .l-spoon-btn-group {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .l-eternity-upgrades-grid > .l-spoon-btn-group > * {
+    width: 60% !important;
+    max-width: 60% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 2.1rem !important;
+    line-height: 1.3 !important;
+    font-size: 0.78rem !important;
+    margin: 0 auto !important;
+    padding: 0.2rem 0.2rem !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+  }
+  .l-eternity-upgrades-grid > .l-spoon-btn-group > *:nth-child(2) { order: 1 !important; }
+  .l-eternity-upgrades-grid > .l-spoon-btn-group > *:first-child {
+    order: 2 !important;
+    min-height: 5.8rem !important;
+    padding: 0.4rem 0.25rem !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 0.12rem !important;
+  }
+  .l-eternity-upgrades-grid > .l-spoon-btn-group > *:nth-child(3) { order: 3 !important; }
+  /* 说明文字：各占一行 */
+  .l-eternity-upgrades-grid > .l-eu-note {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    margin: 0 !important;
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+  .l-eternity-upgrades-grid > .l-eu-notes {
+    grid-column: 1 / -1 !important;
+    grid-row: 4 !important;
+    margin: 0 !important;
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+  .l-eternity-upgrades-grid > .l-eu-notes > div { margin: 0.15rem 0 !important; }
+  /* 6 张卡：行号写死，2 列 */
+  .l-eternity-upgrades-grid .l-eu-card--0 { grid-area: 5 / 1 !important; }
+  .l-eu-card--1 { grid-area: 5 / 2 !important; }
+  .l-eu-card--2 { grid-area: 6 / 1 !important; }
+  .l-eu-card--3 { grid-area: 6 / 2 !important; }
+  .l-eu-card--4 { grid-area: 7 / 1 !important; }
+  .l-eu-card--5 { grid-area: 7 / 2 !important; }
+  /* 卡片本体 */
+  .l-eternity-upgrades-grid__cell {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    min-height: 5.8rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* === 修复：飘渺/星辰网格 —— 改用 flex 换行 + 居中，最后一张（奇数张时）自动居中 ===
+ * 9 个星辰 = 4 行 × 2 + 第 5 行 1 个居中；偶数张时最后一行填满，不留洞。 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .l-star-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.45rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .l-star-grid__row {
+    display: contents !important;
+  }
+  /* 顶部总乘积条 / 说明文字占满整行 */
+  .l-star-grid > div:first-child,
+  .l-star-grid > span {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  /* 每张星辰卡固定半行宽 */
+  .l-star-grid .l-star-container,
+  .l-star-grid .l-star-grid__cell {
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    flex-basis: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    min-width: 0 !important;
+    width: calc(50% - 0.18rem) !important;
+    margin: 0 !important;
+  }
+  /* 卡内按钮原来固定 36rem，半格宽时让它自适应 */
+  .l-star-grid .o-star__container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  /* 覆盖之前“最后一张跨行/靠左”的旧规则，交给 flex 的居中处理 */
+  .l-star-grid__row:last-of-type > .l-star-container:last-child {
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    flex-basis: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+    width: calc(50% - 0.18rem) !important;
+    grid-column: auto !important;
+    justify-self: auto !important;
+  }
+}
+
+/* === 修复：永恒升级「自动购买永恒点数倍增」框没居中 ===
+ * 旧块里 `.l-eternity-upgrades-grid .l-spoon-btn-group > button:last-child`
+ * 的特异度是 (0,3,1)，比我之前用的 `> *`(0,3,0) 高，所以宽度 100%、margin 左 0 一直生效，
+ * 看起来就贴在屏幕最左边。这里用同等/更高特异度覆盖回来。 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button,
+  .l-eternity-upgrades-grid .l-spoon-btn-group > .o-primary-btn--small-spoon {
+    width: 60% !important;
+    max-width: 60% !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button:first-child,
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button.o-eternity-upgrade {
+    order: 2 !important;
+    margin: 0 auto 0.35rem auto !important;
+  }
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button:nth-child(2),
+  .l-eternity-upgrades-grid .l-spoon-btn-group > .o-primary-btn--small-spoon:not(:last-child) {
+    order: 1 !important;
+    margin: 0 auto 0.25rem auto !important;
+  }
+  .l-eternity-upgrades-grid .l-spoon-btn-group > button:nth-child(3),
+  .l-eternity-upgrades-grid .l-spoon-btn-group > .o-primary-btn--small-spoon:last-child {
+    order: 3 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* === 修复：星辰网格回到 grid，第 9 个单独居中 ===
+ * flex 方案在部分 WebView 里 flex-basis 百分比被内容宽度顶掉，干脆用 grid：
+ * 2 列自动排，只有「最后一行第 3 个」（即第 9 个星辰）跨两列并自身半宽居中。 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .l-star-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 0.35rem !important;
+    row-gap: 0.45rem !important;
+    justify-content: initial !important;
+    align-items: start !important;
+  }
+  .l-star-grid__row {
+    display: contents !important;
+  }
+  .l-star-grid > div:first-child,
+  .l-star-grid > span {
+    grid-column: 1 / -1 !important;
+  }
+  .l-star-grid .l-star-container,
+  .l-star-grid .l-star-grid__cell {
+    grid-column: auto !important;
+    flex-basis: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    justify-self: stretch !important;
+    margin: 0 !important;
+  }
+  /* 先把旧的「最后一张跨行」规则压回去 */
+  .l-star-grid__row:last-of-type > .l-star-container:last-child {
+    grid-column: auto !important;
+    justify-self: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* 最后一行第 3 个 = 第 9 个星辰：单独居中 */
+  .l-star-grid__row:last-of-type > .l-star-container:nth-child(3) {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: calc(50% - 0.18rem) !important;
+    max-width: calc(50% - 0.18rem) !important;
+  }
+  .l-star-grid .o-star__container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* === 恢复：之前丢失的三个移动端修复块（这几块曾经只存在 dist 里，
+ *     被后来的编译用 public/ 覆盖掉了，现在补回源码） === */
+
+/* 1) 子标签图标的名字气泡：限宽 60vw，点按（悬停模拟）也显示 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .c-modern-sidebar .o-subtab__tooltip {
+    width: auto !important;
+    min-width: 4rem;
+    max-width: 60vw !important;
+    height: auto !important;
+    min-height: 1.4rem !important;
+    line-height: 1.35 !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    padding: 0.22rem 0.5rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    box-sizing: border-box !important;
+    border-radius: 4px !important;
+  }
+  .c-modern-sidebar .o-tab-btn--subtab:hover .o-subtab__tooltip,
+  .c-modern-sidebar .o-tab-btn--subtab.l-hover-sim .o-subtab__tooltip,
+  .c-modern-sidebar .o-tab-btn--subtab.l-subtab-name .o-subtab__tooltip {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+  }
+  /* 气泡的小箭头跟着气泡走，别裂到屏幕外 */
+  .c-modern-sidebar .o-subtab__tooltip::after {
+    display: none !important;
+  }
+}
+
+/* 2) 维度行「购买次数 / 连续统」提示：原来 20rem 宽 + 左移 125%，
+ *    在手机上会被推到屏幕外，改成在按钮上方居中显示 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .c-modern-dim-tooltip-container .c-modern-dim-purchase-count-tooltip {
+    width: auto !important;
+    min-width: 40%;
+    max-width: 72vw !important;
+    top: auto !important;
+    bottom: calc(100% + 0.35rem) !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: center !important;
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    padding: 0.3rem 0.45rem !important;
+    box-sizing: border-box !important;
+    z-index: 20 !important;
+  }
+  .c-modern-dim-tooltip-container .c-modern-dim-purchase-count-tooltip::after {
+    display: none !important;
+  }
+}
+
+/* 3) 渊蛇诅咒核心：维度行三块内容挤成一团，改成 3 列网格并允许换行 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .l-cursed-dimension-text-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    height: auto !important;
+    min-height: 3.5rem !important;
+    width: 100% !important;
+    column-gap: 0.25rem !important;
+    row-gap: 0.1rem !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+  .l-cursed-dimension-text-container > div {
+    min-width: 0 !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .l-cursed-dimension-text-container .c-dim-row__large {
+    font-size: 0.72rem !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+  .l-cursed-dimension-text-container .c-dim-row__small {
+    font-size: 0.68rem !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+
+/* === 维度行提示：按源码里的 \n 分成两行，不再挤成三四行 === */
+@media (max-width: 768px) and (orientation: portrait) {
+  .c-modern-dim-tooltip-container .c-modern-dim-purchase-count-tooltip {
+    width: max-content !important;
+    max-width: 92vw !important;
+    white-space: pre-line !important;
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
+    padding: 0.3rem 0.5rem !important;
+  }
+}
+
+/* === 布局重排：强子对撞机（虚无）与宇宙页 === */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* --- 大型强子对撞机 --- */
+  /* 1) 进入虚无的按钮置顶（就在货币栏下面） */
+  .l-large-hadron-collider-tab {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .l-large-hadron-collider-tab > .l-void-run {
+    order: -10 !important;
+    margin: 0.15rem auto 0.5rem auto !important;
+  }
+  .l-large-hadron-collider-tab > br {
+    display: none !important;
+  }
+  /* 2) 虚无升级排最下面 */
+  .l-large-hadron-collider-tab > .l-null-upgrades-tab {
+    order: 90 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 3) 强子的每秒速度与增益，移到「强子加速器」面板下面 */
+  .l-large-hadron-collider-all-content-container {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .l-large-hadron-collider-all-content-container > .l-accelerator-panel-container {
+    order: 1 !important;
+  }
+  .l-large-hadron-collider-all-content-container > .c-large-hadron-collider-description {
+    order: 2 !important;
+  }
+  .l-large-hadron-collider-all-content-container > .c-large-hadron-collider-entropy {
+    order: 3 !important;
+  }
+
+  /* --- 宇宙（流幻 / 真际）：进入按钮参考时间膨胀，放在信息上方 --- */
+  .l-universe-tab-container {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .l-universe-tab-container > .c-universe-info-group {
+    order: 2 !important;
+  }
+  .l-universe-tab-container > .o-transient-universe-btn,
+  .l-universe-tab-container > .o-tangible-universe-btn {
+    order: 1 !important;
+    margin: 0.25rem auto 0.7rem auto !important;
+  }
+}
+
+/* === 虚无页最终顺序（覆盖上面的旧顺序）===
+ * 1 虚无状态切换按钮 → 2 进入虚无按钮 → 3 熵增说明（软/硬上限、进一步增强）
+ * → 4 虚无统计（最高反物质 / 虚物质 / 虚粒子）→ 5 进入虚无的说明
+ * → 6 强子加速器面板 + 强子速度/光速里程碑 → 7 虚无升级
+ * 注意：熵增说明原来写在内容容器里面，无论怎么排都会落在强子对撞机下面；
+ * 已经在 LargeHadronColliderTab.vue 里把它挪到容器外面（桌面端顺序不变）。 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .l-large-hadron-collider-tab {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .l-large-hadron-collider-tab > br {
+    display: none !important;
+  }
+  /* 1) 虚无状态切换 */
+  .l-large-hadron-collider-tab > .o-primary-btn--subtab-option {
+    order: 1 !important;
+    margin: 0.2rem auto 0.35rem auto !important;
+  }
+  /* 2) 进入虚无按钮 */
+  .l-large-hadron-collider-tab > .l-void-run {
+    order: 2 !important;
+    margin: 0.15rem auto 0.55rem auto !important;
+  }
+  /* 3) 熵增说明：紧贴按钮下面（它现在是标签页的直接子元素了，尺寸要按原来那条 .c-large-hadron-collider-entropy 的规则写回来，
+        否则会被上面 `.l-large-hadron-collider-tab > div` 的 0.82rem 覆盖变小） */
+  .l-large-hadron-collider-tab > .c-large-hadron-collider-entropy {
+    order: 3 !important;
+    font-size: 1.18rem !important;
+    line-height: 1.4 !important;
+    margin: 0.3rem 0 !important;
+    padding: 0 0.2rem !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  /* 4) 虚无统计 */
+  .l-large-hadron-collider-tab > .l-void-stats {
+    order: 4 !important;
+  }
+  /* 5) 「进入稳态/归零虚无将……」说明 */
+  .l-large-hadron-collider-tab > .l-void-mode-desc {
+    order: 5 !important;
+    margin: 0.1rem 0 0.35rem 0 !important;
+  }
+  /* 6) 强子加速器面板 + 强子速度/光速里程碑 */
+  .l-large-hadron-collider-tab > .l-large-hadron-collider-all-content-container {
+    order: 6 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  /* 7) 虚无升级 */
+  .l-large-hadron-collider-tab > .l-null-upgrades-tab {
+    order: 7 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* === 天神（天体）导航地图在手机上的性能优化 ===
+ * 每个节点光环都套了 feGaussianBlur 的高斯模糊滤镜，WebView 里是**软件渲染**，
+ * 几十个节点叠在一起就是主要卡顿源。手机上直接禁用模糊，只保留原本的形状与颜色。 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .l-celestial-navigation [filter],
+  .l-celestial-navigation *[filter],
+  .l-celestial-navigation filter {
+    filter: none !important;
+  }
+}
+
+/* === LAYER TIERS：标签栏 / 子标签栏 / 底部按钮栏 永远在页内内容之上 === */
+/* 问题：标签栏原来只有 z-index: 100（≤768px）或 5（宽屏/横屏的左侧栏），
+ *      而页面内的下拉菜单、提示气泡动辄 100 / 300 / 1000 / 1001，
+ *      于是自动机等页面的浮层会把标签栏和底部圆形按钮盖住。
+ * 方案：收口成固定层级，后面的新页面照着这个刻度加就行：
+ *      页内浮层 ≤ 380 < 标签栏 400 = 底部按钮栏 400 < 子标签栏 401 < 子标签提示 402
+ *      < 弹窗遮罩 500 / 弹窗 501 < 加载页 999 < 通知 1000。
+ * 注意：这里故意不放进 @media，横屏（宽度 > 768px）时标签栏会退回左侧竖栏，同样要压住页内浮层。
+ */
+.c-modern-sidebar {
+  z-index: 400 !important;
+}
+
+/* 子标签栏（窄屏时贴在标签栏上方的那一条） */
+.c-modern-sidebar .subtabs,
+.c-modern-sidebar .o-tab-btn:hover .subtabs,
+.c-modern-sidebar .o-tab-btn--active .subtabs,
+.c-modern-sidebar .o-tab-btn--active:hover .subtabs {
+  z-index: 401 !important;
+}
+
+/* 子标签的悬停 / 长按提示条 */
+.c-modern-sidebar .o-subtab__tooltip,
+.c-modern-sidebar .o-tab-btn--subtab:hover .o-subtab__tooltip {
+  z-index: 402 !important;
+}
+
+/* 底部圆形操作栏：与标签栏同层，物理位置本来就不重叠 */
+.l-bottom-action-bar {
+  z-index: 400 !important;
+}
+
+/* ---- 结构性保证：所有标签页内容统一压成一个低层级层叠上下文 ----
+ * 光把各个浮层的 z-index 调小治不了根：页内任何一个元素只要层级写大了、
+ * 或者某个祖先形成了新的层叠上下文，它就能压过标签栏。
+ * isolation: isolate 只创建层叠上下文，**不影响定位与包含块**
+ * （不像 transform / filter 那样会劫持 position: fixed），
+ * 加在所有标签页内容的根元素（GameUIComponent 给每个标签页都挂了 .c-game-tab）上之后，
+ * 页内的下拉菜单、气泡、CodeMirror 提示、工具提示……不管写多大的 z-index，
+ * 都只能在「页内容」这一层内部互相比较，永远不可能盖住标签栏(400) / 子标签栏(401) / 底部按钮栏(400)。 */
+.c-game-tab {
+  isolation: isolate;
+}
+
+/* ---- 页内浮层统一压到 380 以下（原来这些是 100~1001，会盖住标签栏） ---- */
+
+/* 自动机的脚本下拉列表（原来是 30 / 100） */
+.l-automator__scripts-dropdown,
+.l-automator__scripts-dropdown .l-expanding-control-box__container,
+.l-automator__scripts-dropdown .c-expanding-control-box__dropdown,
+.c-automator-docs .c-expanding-control-box__dropdown {
+  z-index: 396 !important;
+}
+
+/* 选项页的记数法下拉（原来 1001） */
+.c-options-grid__notations .c-expanding-control-box__dropdown {
+  z-index: 396 !important;
+}
+
+/* 成就提示气泡（原来是 1000） */
+.o-achievement__tooltip {
+  /* 成就页气泡不能低于页内浮层默认值，否则会被卡片/网格盖住 */
+  z-index: 396 !important;
+}
+
+.o-achievement__tooltip::before {
+  z-index: 397 !important;
+}
+
+/* 压缩/膨胀页那种用属性伪元素做的提示气泡（原来是 1000） */
+[ach-tooltip]::before {
+  z-index: 396 !important;
+}
+
+/* 代码编辑器的补全菜单 */
+.CodeMirror-hints {
+  z-index: 396 !important;
+}
+
+/* === PINCH ZOOM：天神（天体）导航地图的双指缩放 === */
+/* svg-pan-zoom 3.6 的触摸支持只有单指拖动（取点永远用 touches[0]），没有捏合缩放；
+ * 它自带的 +/− 按钮画在 950×600 画布右下角，手机上根本不在可视区域里，等于没法缩放。
+ * 缩放逻辑在 CelestialNavigationTab.vue 里用两指手势接管，这里只需要告诉浏览器
+ * 「这块区域的手势别抢」——否则浏览器会把双指当成页面缩放，并给 JS 发 touchcancel。 */
+.l-celestial-navigation,
+.l-celestial-navigation * {
+  touch-action: none !important;
+}
+
+/* === THEME FILTERS：修复反转 / 反转 Metro / S7 灰度主题下手机端布局错位 === */
+/* CSS 规范：元素只要带 filter（值非 none），就会成为 position: fixed 子元素的包含块。
+ * 反转主题把 filter 挂在 #page / #ui-fixed 上，S7 挂在 #ui / #ui-fixed 上（还带 !important），
+ * 于是手机端 position: fixed 的标签栏、子标签栏、底部圆按钮栏不再相对视口定位，
+ * 而是相对这些「高度 0」的盒子定位 —— 全部跑到屏幕最上面，压在顶栏上，布局就散了。
+ * 修法：把 filter 从这两个容器上摘掉，再挂到容器内部的普通内容上（视觉基本一致）；
+ * 标签栏本体不挂 —— 它内部装着 position: fixed 的子标签栏，套了 filter 会把子标签栏一起带偏。
+ */
+
+/* —— 反转 / 反转 Metro —— */
+body.t-inverted #page,
+body.t-inverted #ui-fixed,
+body.t-inverted-metro #page,
+body.t-inverted-metro #ui-fixed {
+  filter: none !important;
+}
+
+body.t-inverted #page > *,
+body.t-inverted #ui-fixed > *:not(.c-modern-sidebar),
+body.t-inverted-metro #page > *,
+body.t-inverted-metro #ui-fixed > *:not(.c-modern-sidebar) {
+  filter: invert(100%) !important;
+}
+
+/* —— S7（灰度）：theme-S7.css 里是 #ui-fixed {...!important}，用 body.t-s7 把优先级抬上去 —— */
+body.t-s7 #ui-fixed {
+  filter: none !important;
+}
+
+body.t-s7 #ui-fixed > *:not(.c-modern-sidebar) {
+  filter: saturate(0) !important;
+}
+
+/* —— S13 / S5：滤镜直接挂在标签栏上，里面的子标签栏（position: fixed）会按标签栏的盒子定位 —— */
+body.t-s13 .c-modern-sidebar,
+body.t-s5 .c-modern-sidebar {
+  filter: none !important;
+}
+
+/* 滤镜补回到标签栏里的普通元素上：l-tab-btn-inner 是静态的，subtabs 本身是 fixed（自己套滤镜不影响自己的定位） */
+body.t-s13 .c-modern-sidebar .l-tab-btn-inner,
+body.t-s13 .c-modern-sidebar .subtabs,
+body.t-s5 .c-modern-sidebar .l-tab-btn-inner,
+body.t-s5 .c-modern-sidebar .subtabs {
+  filter: sepia(100%) hue-rotate(0deg) saturate(100%) !important;
+}
+
+/* === ACRYLIC 主题：标签栏的毛玻璃会把子标签栏带偏 === */
+/* backdrop-filter 和 filter 一样，会让元素成为 position: fixed 子元素的包含块（见 CSS Filter 规范）。
+ * acrylic.css 给 .c-modern-sidebar 加了 backdrop-filter: blur(20px)，
+ * 而手机端的子标签栏 .subtabs 是 position: fixed，
+ * 于是它改成相对「标签栏自己的盒子」定位 → 直接叠在标签栏上。
+ * 修法：窄屏下把毛玻璃从标签栏挪到 fixed 伪元素上 —— 观感一致，但伪元素不会影响子标签栏的 fixed 定位。
+ * （伪元素用 fixed + 和标签栏相同的几何，是因为标签栏是横向可滚动的容器，absolute 会被滚走。） */
+@media (max-width: 768px) and (orientation: portrait) {
+  body.t-acrylic .c-modern-sidebar {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  body.t-acrylic .c-modern-sidebar::before {
+    content: "" !important;
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 2.5rem !important;      /* 与 .c-modern-sidebar 的 bottom 一致 */
+    height: 2.7rem !important;      /* 与 .c-modern-sidebar 的高度一致 */
+    z-index: -1 !important;
+    pointer-events: none !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  }
+}
+
+/* === 全屏 / 手势导航机型：保证能上下滚动 === */
+/* 这类机器没有导航栏/状态栏，100vh 会大于真实可见高度，而我们把 #page/#ui/.game-container
+ * 全设成了 overflow: visible + min-height:100vh，结果文档滚动高度 == 视口高度，谁都滚不动。
+ * 方案：100dvh（动态视口高度，自动扣掉手势条）+ 把滚动明确交给 body，#page 起的中层容器只做横向裁剪。 */
+@media (max-width: 768px) and (orientation: portrait) {
+  html,
+  body {
+    height: 100% !important;
+    max-height: none !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #page,
+  #ui,
+  #ui-container,
+  .game-container,
+  .tab-container {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+  }
+
+  /* 中途的容器不要再各自开滚动上下文，统一让 body 滚 */
+  #page,
+  #ui,
+  #ui-container,
+  .game-container,
+  .tab-container {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
+}
+
+/* === 兜底：全屏/手势导航机型仍无法滚动时 === */
+/* 100dvh 方案不生效的话，说明滚动被某一层容器的 height:100% + overflow 链锁死了。
+ * 这里把每一层都显式允许纵向滚动，并放开 touch-action 的纵向手势：
+ * 只要有一层真的溢出，它自己就能滚，不依赖上层是否正确传递高度。 */
+@media (max-width: 768px) and (orientation: portrait) {
+  html,
+  body,
+  #page,
+  #ui,
+  #ui-container,
+  .game-container,
+  .tab-container,
+  .c-game-tab {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
+    overscroll-behavior-y: auto !important;
+  }
+
+  /* body 只负责纵向滚动，不要再被 100vh 撑高 */
+  html,
+  body {
+    position: static !important;
+    height: 100% !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* === 现实升级：锁定按钮点击热区（手机） === */
+/* 卡片右上角的 .o-requirement-lock 原来只有 1rem 左右，手指点不中，
+ * 看起来像「没有锁定功能」。这里把它做成 ≥ 2.4rem 的实际点击区域。 */
+@media (max-width: 768px) and (orientation: portrait) {
+  .o-requirement-lock {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+    min-width: 2.2rem !important;
+    min-height: 2.2rem !important;
+    font-size: 1.15rem !important;
+    line-height: 1 !important;
+    padding: 0.45rem !important;
+    box-sizing: content-box !important;
+    border-radius: 50% !important;
+    background: rgba(0, 0, 0, 0.45) !important;
+    touch-action: manipulation !important;
+    z-index: 3 !important;
+  }
+}
+
+
+
+/* === 竖屏修正（第三批） === */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* ① 符文等级因子面板：改回普通流，不再以悬浮层压住符文献祭 */
+  .l-glyph-level-factors {
+    position: static !important;
+    height: auto !important;
+    max-height: none !important;
+    z-index: auto !important;
+  }
+  .l-glyph-level-factors .l-expanding-control-box__container {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* ② 创造现实符文弹窗：内容可滚动、长文本换行、按钮不被裁 */
+  .l-modal .c-modal__content,
+  .l-modal .c-modal-message__text {
+    max-height: 65vh !important;
+    overflow-y: auto !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  .l-modal .c-modal__button-container,
+  .l-modal .l-modal-buttons {
+    position: sticky !important;
+    bottom: 0 !important;
+    background: var(--color-base, #0a0a0f) !important;
+    padding-top: 0.4rem !important;
+  }
+  .l-modal .c-glyph-preview,
+  .l-modal .l-glyph-set-preview {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+}
+
+
+/* === ZERO-TEMPLATE-INTRUSION OVERRIDES FOR SLABDRILL, EU, AND LHC === */
+@media (max-width: 768px) and (orientation: portrait) {
+  .l-slabdrill-unlocks__row:nth-child(odd of .l-slabdrill-unlocks__row):nth-last-child(1 of .l-slabdrill-unlocks__row) > .l-slabdrill-celestial-tab:nth-child(odd):last-child,
+  .l-slabdrill-unlocks__row:nth-child(even of .l-slabdrill-unlocks__row):nth-last-child(1 of .l-slabdrill-unlocks__row) > .l-slabdrill-celestial-tab:nth-child(even):last-child {
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 0.25rem) !important;
+    max-width: calc(50% - 0.25rem) !important;
+    justify-self: center !important;
+    margin: 0 auto !important;
+  }
+  .l-eternity-upgrades-grid > div:not([class]) {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    margin: 0.15rem 0 !important;
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+  .l-eternity-upgrades-grid__row:nth-child(1 of .l-eternity-upgrades-grid__row) > .l-eternity-upgrades-grid__cell:nth-child(1) { grid-area: 6 / 1 !important; }
+  .l-eternity-upgrades-grid__row:nth-child(1 of .l-eternity-upgrades-grid__row) > .l-eternity-upgrades-grid__cell:nth-child(2) { grid-area: 6 / 2 !important; }
+  .l-eternity-upgrades-grid__row:nth-child(1 of .l-eternity-upgrades-grid__row) > .l-eternity-upgrades-grid__cell:nth-child(3) { grid-area: 7 / 1 !important; }
+  .l-eternity-upgrades-grid__row:nth-child(2 of .l-eternity-upgrades-grid__row) > .l-eternity-upgrades-grid__cell:nth-child(1) { grid-area: 7 / 2 !important; }
+  .l-eternity-upgrades-grid__row:nth-child(2 of .l-eternity-upgrades-grid__row) > .l-eternity-upgrades-grid__cell:nth-child(2) { grid-area: 8 / 1 !important; }
+  .l-eternity-upgrades-grid__row:nth-child(2 of .l-eternity-upgrades-grid__row) > .l-eternity-upgrades-grid__cell:nth-child(3) { grid-area: 8 / 2 !important; }
+  .l-large-hadron-collider-tab > .l-large-hadron-collider-all-content-container {
+    display: contents !important;
+  }
+  .l-large-hadron-collider-all-content-container > .c-large-hadron-collider-entropy {
+    order: 3 !important;
+    font-size: 1.18rem !important;
+    line-height: 1.4 !important;
+    margin: 0.3rem 0 !important;
+    padding: 0 0.2rem !important;
+    max-width: 100% !important;
+  }
+  .l-large-hadron-collider-tab > div:not([class]) {
+    order: 4 !important;
+    margin: 0.1rem 0 0.35rem 0 !important;
+  }
+  .l-large-hadron-collider-all-content-container > .l-accelerator-panel-container {
+    order: 6 !important;
+  }
+  .l-large-hadron-collider-all-content-container > .c-large-hadron-collider-description {
+    order: 7 !important;
+  }
+  .l-large-hadron-collider-tab > .l-null-upgrades-tab {
+    order: 8 !important;
   }
 }

@@ -84,17 +84,32 @@ export default {
   },
   mounted() {
     // eslint-disable-next-line no-unused-vars
+    const navigationSvg = this.$refs.celestialNavigationSVG;
     const panLimiter = function(oldPan, newPan) {
       // In the callback context, "this" is the svgPanZoom object.
       // eslint-disable-next-line no-invalid-this
       const sizes = this.getSizes();
-      const leftLimit = sizes.width - ((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom);
+      // 画布元素是写死的 950×600，手机屏幕比它窄，元素右侧一大截是被 overflow 裁掉的、永远看不见。
+      // 平移边界必须按「屏幕上真正可见的那块」算，不能按元素宽度算：
+      // 按元素宽度算会认为内容装得下 → 一个像素都不许拖 → 右边半张图永远拖不出来。
+      const rect = navigationSvg.getBoundingClientRect();
+      const docWidth = document.documentElement.clientWidth || window.innerWidth;
+      const docHeight = window.innerHeight || document.documentElement.clientHeight;
+      const visibleWidth = Math.max(1, Math.min(rect.right, docWidth) - Math.max(rect.left, 0));
+      const visibleHeight = Math.max(1, Math.min(rect.bottom, docHeight) - Math.max(rect.top, 0));
+      const leftLimit = visibleWidth - ((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom);
       const rightLimit = -sizes.viewBox.x * sizes.realZoom;
-      const topLimit = sizes.height - ((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom);
+      const topLimit = visibleHeight - ((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom);
       const bottomLimit = -sizes.viewBox.y * sizes.realZoom;
+      // 内容比可见区还小时（手机缩到 0.4 倍看全图），上下限会倒过来（低 > 高），
+      // 原来的 Math.max(低, ...) 会把图整个平移到右侧、直接推出手机可视区；
+      // 这种情况贴住 high（= 可见区左上角），整张图才会落在能看到的那半边。
+      const clamp = (low, high, value) => (low > high
+        ? high
+        : Math.max(low, Math.min(high, value)));
       return {
-        x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
-        y: Math.max(topLimit, Math.min(bottomLimit, newPan.y))
+        x: clamp(leftLimit, rightLimit, newPan.x),
+        y: clamp(topLimit, bottomLimit, newPan.y)
       };
     };
     this.panZoom = svgPanZoom(this.$refs.celestialNavigationSVG, {
@@ -103,14 +118,18 @@ export default {
       center: false,
       fit: false,
       zoomScaleSensitivity: 0.3,
-      minZoom: 0.64,
+      // 手机屏幕比 950×600 的画布窄很多，0.64 的缩放下限根本缩不开整张图（950×0.64≈608px），
+      // 窄屏给到 0.4，才能把整张天神地图缩到屏幕里
+      minZoom: window.innerWidth <= 768 ? 0.4 : 0.64,
       maxZoom: 1.5,
       beforePan: panLimiter,
     });
     if (CelestialNavigationViewportCache.pan) this.panZoom.pan(CelestialNavigationViewportCache.pan);
     if (CelestialNavigationViewportCache.zoom) this.panZoom.zoom(CelestialNavigationViewportCache.zoom);
+    this.setupPinchZoom();
   },
   beforeDestroy() {
+    this.teardownPinchZoom();
     if (this.panZoom) {
       CelestialNavigationViewportCache.zoom = this.panZoom.getZoom();
       CelestialNavigationViewportCache.pan = this.panZoom.getPan();
@@ -118,14 +137,103 @@ export default {
       delete this.panZoom;
     }
   },
+  activated() {
+    // 从 keep-alive 缓存回来时尺寸可能变了，重新量一次
+    this.$nextTick(() => {
+      if (this.panZoom) this.panZoom.resize();
+    });
+  },
   methods: {
+    /**
+     * 双指捏合缩放。
+     *
+     * svg-pan-zoom 3.6 的触摸支持只有「单指拖动」：它把 touchstart/touchmove 直接交给
+     * handleMouseDown/handleMouseMove，而取点用的是 touches[0]，第二根手指被完全忽略 ——
+     * 所以手机上没有捏合缩放。它自带的 +/− 按钮又被画在 950×600 画布的右下角，
+     * 手机上根本不在这块可视区域里，等于完全没法缩放。
+     *
+     * 这里在 svg 的父元素上用捕获阶段接管「两根手指」的情况：
+     *   - 记下两指距离与中点；
+     *   - 每次移动按距离比例调用 zoomAtPoint，以两指中点为锚点缩放；
+     *   - stopPropagation 让 svg-pan-zoom 收不到这两个事件，避免它同时按单指拖动去平移。
+     * 只挡「正好两根手指」的事件，单指拖动照旧走 svg-pan-zoom 自己的平移。
+     */
+    setupPinchZoom() {
+      const svg = this.$refs.celestialNavigationSVG;
+      const host = svg?.parentNode;
+      if (!svg || !host) return;
+
+      const touchPoint = touches => {
+        const rect = svg.getBoundingClientRect();
+        const point = svg.createSVGPoint();
+        point.x = (touches[0].clientX + touches[1].clientX) / 2 - rect.left;
+        point.y = (touches[0].clientY + touches[1].clientY) / 2 - rect.top;
+        return point;
+      };
+      const touchDistance = touches => Math.hypot(
+        touches[0].clientX - touches[1].clientX,
+        touches[0].clientY - touches[1].clientY
+      );
+
+      const pinch = { lastDistance: 0 };
+
+      const onTouchStart = event => {
+        if (event.touches.length !== 2) return;
+        pinch.lastDistance = touchDistance(event.touches);
+        event.stopPropagation();
+        if (event.cancelable) event.preventDefault();
+      };
+      const onTouchMove = event => {
+        if (event.touches.length !== 2 || !pinch.lastDistance) return;
+        event.stopPropagation();
+        if (event.cancelable) event.preventDefault();
+        const distance = touchDistance(event.touches);
+        if (distance <= 0) return;
+        const ratio = distance / pinch.lastDistance;
+        // 抖动过滤：变化太小就别动了，省得每帧都重设一次 CTM
+        if (Math.abs(ratio - 1) < 0.003) return;
+        pinch.lastDistance = distance;
+        // 公版 API 里 zoomAtPoint() 的第 3 个参数被写死成「绝对缩放」，
+        // 这里给的是「相对当前缩放的比例」，所以要用 zoomAtPointBy()
+        this.panZoom.zoomAtPointBy(ratio, touchPoint(event.touches));
+      };
+      const onTouchEnd = event => {
+        if (event.touches.length >= 2) return;
+        pinch.lastDistance = 0;
+        // 捏合结束后把平移量收进合法范围：缩到很小的时候不会停在屏幕外面
+        if (this.panZoom) this.panZoom.pan(this.panZoom.getPan());
+      };
+
+      host.addEventListener("touchstart", onTouchStart, { passive: false, capture: true });
+      host.addEventListener("touchmove", onTouchMove, { passive: false, capture: true });
+      host.addEventListener("touchend", onTouchEnd, { passive: true, capture: true });
+      host.addEventListener("touchcancel", onTouchEnd, { passive: true, capture: true });
+      this._pinch = { host, onTouchStart, onTouchMove, onTouchEnd };
+    },
+    teardownPinchZoom() {
+      const pinch = this._pinch;
+      if (!pinch) return;
+      pinch.host.removeEventListener("touchstart", pinch.onTouchStart, { capture: true });
+      pinch.host.removeEventListener("touchmove", pinch.onTouchMove, { capture: true });
+      pinch.host.removeEventListener("touchend", pinch.onTouchEnd, { capture: true });
+      pinch.host.removeEventListener("touchcancel", pinch.onTouchEnd, { capture: true });
+      this._pinch = null;
+    },
     update() {
+      // The GameUI code forces update() to be called upon its initialization, which may force this to be called
+      // before created() on this component is actually called; this suppresses any initial errors on-creation
+      if (!this.nodeState) return;
+      // 导航图状态变化很慢，没必要每帧都查：10 帧一次足够，
+      // 而且每次赋值都会触发整棵 SVG（几十个节点 × 背景/光环/覆盖层）重渲染。
+      if (!this._throttleUpdate(10)) return;
       for (const key of Object.keys(this.db)) {
-        // The GameUI code forces update() to be called upon its initialization, which may force this to be called
-        // before created() on this component is actually called; this suppresses any initial errors on-creation
-        if (!this.nodeState) continue;
-        this.nodeState[key].visible = this.db[key].visible();
-        this.nodeState[key].complete = this.db[key].complete();
+        const state = this.nodeState[key];
+        if (!state) continue;
+        const visible = this.db[key].visible();
+        const complete = this.db[key].complete();
+        // 只在真的变化时才赋值，避免 Vue 无谓重渲染
+        if (state.visible !== visible) state.visible = visible;
+        if (state.complete !== complete) state.complete = complete;
       }
     },
     vec(x, y) {
@@ -455,12 +563,12 @@ const CelestialNavigationViewportCache = {
       />
       <g
         v-for="(obj, index) in drawOrder"
-        :key="index"
+        :key="obj.nodeId + '-' + obj.drawOrder + '-' + (obj.config && obj.config.name ? obj.config.name : '')"
         :visibility="nodeVisibility(obj)"
       >
         <component
           :is="obj.is"
-          :complete="nodeState[obj.nodeId].complete"
+          :complete="Math.round(nodeState[obj.nodeId].complete * 200) / 200"
           v-bind="obj.config"
         />
       </g>

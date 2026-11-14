@@ -312,6 +312,20 @@ export const Pelle = {
     return remainingTSs;
   },
 
+  /**
+   * 同上，但按帧缓存成 Set：时间研究格每次 update 都要查一次，
+   * 原来每次都要重跑十几条 if 再线性 includes，131 个格子每帧都在做。
+   */
+  get uselessTimeStudiesSet() {
+    const tick = window._tickCounter || 0;
+    if (this._utsTick !== tick || !this._utsSet) {
+      this._utsSet = new Set(this.uselessTimeStudies);
+      this._utsTick = tick;
+    }
+    return this._utsSet;
+  },
+
+
   get disabledRUPGs() {
     let remainingRUs = [];
     if (!PelleRealityUpgrade.temporalAmplifier.canBeApplied) remainingRUs.push(1);

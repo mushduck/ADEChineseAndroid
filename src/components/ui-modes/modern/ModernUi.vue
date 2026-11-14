@@ -51,7 +51,8 @@ export default {
   },
   methods: {
     update() {
-      const crunchButtonVisible = !player.break && Player.canCrunch;
+      // 大坍缩整页覆盖只在「维度」主标签页生效
+      const crunchButtonVisible = !player.break && Player.canCrunch && ui.view.tab === "dimensions";
       const divinityVisible = Pelle.isDoomed && player.antimatter.gte(DC.ENUMMAX);
       const nullifyVisible = player.endgame.largeHadronCollider.void.nullMatter.gte(DC.NUMMAX) &&
         !player.endgame.largeHadronCollider.void.nullified;

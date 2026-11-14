@@ -22,7 +22,9 @@ export function matchOnlyDeepmerge(firstObject, secondObject, ignoreKey = "") {
     }
     if (key in firstObject) {
       if (secondObject[key] instanceof Decimal) {
-        acc[key] = new Decimal(firstObject[key]);
+        // 快照里缺失或损坏的字段会被构造成 NaN，进而沿倍率链污染整个存档
+        const restored = new Decimal(firstObject[key]);
+        acc[key] = Number.isNaN(restored.mag) ? new Decimal(secondObject[key]) : restored;
       } else if (secondObject[key] instanceof Set) {
         acc[key] = new Set(firstObject[key]);
       } else {
@@ -84,7 +86,8 @@ function mergeObject(target, source, options) {
   }
   Object.keys(source).forEach(key => {
     if (target[key] && target[key] instanceof Decimal) {
-      destination[key] = new Decimal(source[key]);
+      const merged = new Decimal(source[key]);
+      destination[key] = Number.isNaN(merged.mag) ? new Decimal(target[key]) : merged;
     } else if (target[key] && target[key] instanceof Set) {
       destination[key] = new Set(source[key]);
     } else if (!options.isMergeableObject(source[key]) || !target[key]) {
