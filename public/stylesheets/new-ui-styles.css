@@ -12212,3 +12212,57 @@ body.t-s5 .c-modern-sidebar .subtabs {
     box-shadow: none !important;
   }
 }
+
+
+
+
+
+/* === MOBILE ACRYLIC REALITY BUTTON FIX === */
+@media (max-width: 768px) and (orientation: portrait) {
+  body.t-acrylic .c-mobile-prestige-matrix .o-prestige-button {
+    backdrop-filter: blur(12px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  }
+
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-celestial-infinity-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-eternity-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-celestial-eternity-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-condense-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-supernova-button {
+    background-color: color-mix(in srgb, var(--color-prestige--accent) 40%, transparent) !important;
+  }
+
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button span,
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button:hover span {
+    color: var(--color-infinity) !important;
+  }
+
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button b > span:first-of-type,
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button:hover b > span:first-of-type {
+    color: #ff0000 !important;
+  }
+
+  body.t-acrylic .c-reality-button--unlocked {
+    color: #0d8716 !important;
+    background: color-mix(in srgb, var(--color-prestige--accent, #111116) 40%, transparent) !important;
+    border-color: #0d8716 !important;
+    backdrop-filter: blur(12px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75) !important;
+  }
+
+  body.t-acrylic .c-reality-button--unlocked:hover,
+  body.t-acrylic .c-reality-button--unlocked.force-hover {
+    color: #ffffff !important;
+    background: color-mix(in srgb, #0d8716 45%, transparent) !important;
+    backdrop-filter: blur(16px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(200%) !important;
+  }
+
+  body.t-acrylic .c-reality-button--locked {
+    background: color-mix(in srgb, var(--color-base) 50%, transparent) !important;
+    backdrop-filter: blur(12px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  }
+}
