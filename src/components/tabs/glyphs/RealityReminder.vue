@@ -19,6 +19,8 @@ export default {
   },
   computed: {
     suggestions() {
+      if (!this.canReality) return [];
+      const arr = [];
       if (this.purchasableTS > 0) {
         arr.push(`购买更多时间研究（可购买 ${formatInt(this.purchasableTS)} 个）`);
       }
@@ -28,11 +30,11 @@ export default {
       if (this.unpurchasedDilationUpgrades > 0) {
         arr.push(`购买剩余的膨胀升级 （剩余 ${formatInt(this.unpurchasedDilationUpgrades)} 个）`);
       }
-      if (this.currLog10EP > 1.3 * this.cheapestLog10TD) {
-        arr.push(`购买更多时间维度（最小价格：${format(Decimal.pow10(this.cheapestLog10TD))} 永恒点数）`);
+      if (this.currLog10EP.gt(this.cheapestLog10TD.times(1.3))) {
+        arr.push(`购买更多时间维度（最小价格：${format(Decimal.pow(10, this.cheapestLog10TD))} 永恒点数）`);
       }
-      if (this.currLog10EP > 1.3 * this.multEPLog10Cost) {
-        arr.push(`购买更多 ${formatX(5)} 永恒点数倍增（价格：${format(Decimal.pow10(this.multEPLog10Cost))} 永恒点数）`);
+      if (this.currLog10EP.gt(this.multEPLog10Cost.times(1.3))) {
+        arr.push(`购买更多 ${formatX(5)} 永恒点数倍增（价格：${format(Decimal.pow(10, this.multEPLog10Cost))} 永恒点数）`);
       }
       if (this.ecCount < 60) {
         arr.push(`完成剩余的永恒挑战（已完成：${formatInt(this.ecCount)}/${formatInt(60)}）`);
