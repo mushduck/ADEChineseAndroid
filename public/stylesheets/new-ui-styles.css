@@ -12266,3 +12266,10 @@ body.t-s5 .c-modern-sidebar .subtabs {
     -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
   }
 }
+
+/* === MOBILE PREVENT OVERFLOW BR FIX === */
+@media (max-width: 768px) and (orientation: portrait) {
+  body .c-prevent-overflow br {
+    display: inline !important;
+  }
+}

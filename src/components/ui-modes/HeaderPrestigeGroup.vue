@@ -130,7 +130,8 @@ export default {
       v-if="hasRealityButton && hasSeenAlterations && !inCursedCore"
       class="c-prevent-overflow"
     >
-      你的基础{{ isFlipped ? "正物质" : "反物质" }}产量为 {{ format(antimatterPerSecAfterAlter, 2) }}。除了某些特定修改外，{{ isFlipped ? "正物质" : "反物质" }}产量最终值先计算增益，再计算减益，最后乘以游戏速度。
+      你的基础{{ isFlipped ? "正物质" : "反物质" }}产量为 {{ format(antimatterPerSecAfterAlter, 2) }}。<br>
+      除了某些特定修改外，{{ isFlipped ? "正物质" : "反物质" }}产量最终值先计算增益，再计算减益，最后乘以游戏速度。
     </div>
   </div>
 </template>
