@@ -1523,7 +1523,7 @@ body.t-s12 {
   .cp-text {
     font-size: 1.25rem !important;
     font-weight: bold !important;
-    color: #e2a632 !important;
+    color: var(--color-endgame) !important;
   }
 
   .dp-text {
