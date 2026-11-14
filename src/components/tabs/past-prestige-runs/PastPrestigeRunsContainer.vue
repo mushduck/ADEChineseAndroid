@@ -1,10 +1,7 @@
 <script>
 function averageRun(allRuns) {
-  // Filter out all runs which have the default infinite value for time, but if we're left with no valid runs then we
-  // take just one entry so that the averages also have the same value and we don't get division by zero.
   let runs = allRuns.filter(run => run[0] !== Number.MAX_VALUE);
   if (runs.length === 0) runs = [allRuns[0]];
-
   const longestRow = allRuns.map(r => r.length).max();
   const avgAttr = [];
   for (let index = 0; index < longestRow; index++) {
@@ -79,7 +76,6 @@ export default {
       this.hasChallenges = this.runs.map(r => this.challengeText(r)).some(t => t);
       this.hasIM = MachineHandler.currentIMCap.gt(0);
 
-      // We have 4 different "useful" stat pairings we could display, but this ends up being pretty boilerplatey
       const names = [this.points, `${this.points}增长率`, this.plural, `${this.singular}增长率`];
       switch (this.resourceType) {
         case RECENT_PRESTIGE_RESOURCE.ABSOLUTE_GAIN:
@@ -99,7 +95,6 @@ export default {
       }
       this.resourceTitles = [names[this.selectedResources[0]], names[this.selectedResources[1]]];
 
-      // Entries always have all values, but sometimes the trailing ones will be blank or zero which we want to hide
       const lastIndex = arr => {
         let val = arr.length;
         while (val > 0) {
@@ -118,6 +113,32 @@ export default {
           (item instanceof Decimal ? Decimal.fromDecimal(item) : item)
         )
       );
+    },
+    timeCols() {
+      return this.hasRealTime ? 3 : 2;
+    },
+    table1Col() {
+      return this.infoCol().slice(0, this.timeCols());
+    },
+    table2Col() {
+      return [this.infoCol()[0], this.infoCol()[this.timeCols()], this.infoCol()[this.timeCols() + 1]];
+    },
+    hasTable3() {
+      return this.infoCol().length > this.timeCols() + 2;
+    },
+    table3Col() {
+      return [this.infoCol()[0], ...this.infoCol().slice(this.timeCols() + 2)];
+    },
+    table1Array(run, index) {
+      return this.infoArray(run, index).slice(0, this.timeCols());
+    },
+    table2Array(run, index) {
+      const arr = this.infoArray(run, index);
+      return [arr[0], arr[this.timeCols()], arr[this.timeCols() + 1]];
+    },
+    table3Array(run, index) {
+      const arr = this.infoArray(run, index);
+      return [arr[0], ...arr.slice(this.timeCols() + 2)];
     },
     infoArray(run, index) {
       let name;
@@ -186,41 +207,11 @@ export default {
         : `${format(rpm, 2, 2)} 每分钟`;
     },
     challengeText(run) {
-      // Special-case Nameless reality in order to keep this column small and not force a linebreak
       const rawText = run[4];
       return rawText === "The Nameless Ones" ? "Nameless" : rawText;
     },
     toggleShown() {
       player.shownRuns[this.singular] = !player.shownRuns[this.singular];
-    },
-    cellStyle(col, isHeader) {
-      let width;
-      switch (col) {
-        case 0:
-          // "X ago" is really short
-          width = "7rem";
-          break;
-        case 3:
-        case 4:
-          // Prestige currency is long, but the reality table can be shorter due to smaller numbers
-          width = this.layer.name === "现实" ? "15rem" : "20rem";
-          break;
-        case 5:
-          // Challenges can potentially be very long, but this is glyph level in the reality table
-          width = this.layer.name === "现实" ? "10rem" : "20rem";
-          break;
-        default:
-          width = "13rem";
-      }
-      return {
-        width,
-        border: "0.05rem solid #999999",
-        margin: "-0.05rem",
-        padding: "0.2rem 0",
-        "border-bottom-width": isHeader ? "0.3rem" : "0.1rem",
-        "font-weight": isHeader ? "bold" : null,
-        color: "var(--color-text)",
-      };
     }
   }
 };
@@ -242,16 +233,15 @@ export default {
     <div v-show="shown">
       <div class="c-row-container">
         <span
-          v-for="(entry, col) in infoCol()"
+          v-for="(entry, col) in table1Col()"
           :key="col"
-          :style="cellStyle(col, true)"
         >
           {{ entry }}
         </span>
       </div>
       <div
         v-for="(run, index) in runs"
-        :key="index"
+        :key="'t1-' + index"
       >
         <span
           v-if="run[0].gte(Number.MAX_VALUE)"
@@ -269,14 +259,87 @@ export default {
           class="c-row-container"
         >
           <span
-            v-for="(entry, col) in infoArray(run, index)"
-            :key="10 * index + col"
-            :style="cellStyle(col, false)"
+            v-for="(entry, col) in table1Array(run, index)"
+            :key="col"
           >
             {{ entry }}
           </span>
         </span>
       </div>
+      <br>
+      <div class="c-row-container">
+        <span
+          v-for="(entry, col) in table2Col()"
+          :key="col"
+        >
+          {{ entry }}
+        </span>
+      </div>
+      <div
+        v-for="(run, index) in runs"
+        :key="'t2-' + index"
+      >
+        <span
+          v-if="run[0].gte(Number.MAX_VALUE)"
+          class="c-empty-row"
+        >
+          <i v-if="index === 10">
+            无可用{{ plural }}时无法计算平均值。
+          </i>
+          <i v-else>
+            尚未完成第 {{ formatInt(index + 1) }} 次{{ index === 0 ? singular : plural }}。
+          </i>
+        </span>
+        <span
+          v-else
+          class="c-row-container"
+        >
+          <span
+            v-for="(entry, col) in table2Array(run, index)"
+            :key="col"
+          >
+            {{ entry }}
+          </span>
+        </span>
+      </div>
+      <template v-if="hasTable3()">
+        <br>
+        <div class="c-row-container">
+          <span
+            v-for="(entry, col) in table3Col()"
+            :key="col"
+          >
+            {{ entry }}
+          </span>
+        </div>
+        <div
+          v-for="(run, index) in runs"
+          :key="'t3-' + index"
+        >
+          <span
+            v-if="run[0].gte(Number.MAX_VALUE)"
+            class="c-empty-row"
+          >
+            <i v-if="index === 10">
+              无可用{{ plural }}时无法计算平均值。
+            </i>
+            <i v-else>
+              尚未完成第 {{ formatInt(index + 1) }} 次{{ index === 0 ? singular : plural }}。
+            </i>
+          </span>
+          <span
+            v-else
+            class="c-row-container"
+          >
+            <span
+              v-for="(entry, col) in table3Array(run, index)"
+              :key="col"
+            >
+              {{ entry }}
+            </span>
+          </span>
+        </div>
+      </template>
       <br>
     </div>
   </div>

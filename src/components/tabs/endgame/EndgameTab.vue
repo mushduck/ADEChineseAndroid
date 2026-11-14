@@ -58,9 +58,9 @@ export default {
       </div>
       <br>
       <div>
-        你正在游玩《反物质维度：{{ stage }}》，章节 {{ chapter }} 。
+        你正在游玩《反物质维度：{{ stage }}》
         <br>
-        下一章解锁进度：{{ formatPercents(percentage, 2, 2) }}
+        章节 {{ chapter }} 。 下一章解锁进度：{{ formatPercents(percentage, 2, 2) }}
       </div>
     </div>
     <br>

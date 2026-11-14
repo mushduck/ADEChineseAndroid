@@ -33,7 +33,11 @@ export class Galaxy {
   }
 
   static get requirement() {
-    return this.requirementAt(player.galaxies);
+    let cT = window._tickCounter || 0, cG = player.galaxies ? player.galaxies.mag : 0;
+    if (this._reqG === cG && Math.abs(cT - (this._reqT||0)) < 25 && this._reqV) return this._reqV;
+    this._reqV = this.requirementAt(player.galaxies);
+    this._reqT = cT; this._reqG = cG;
+    return this._reqV;
   }
 
   /**
@@ -257,3 +261,4 @@ function maxBuyGalaxies(limit = DC.BEMAX) {
   Tutorial.turnOffEffect(TUTORIAL_STATE.GALAXY);
   return true;
 }
+

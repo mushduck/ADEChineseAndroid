@@ -53,7 +53,7 @@ export default {
     }
   },
   methods: {
-    update() {
+    update() { if ((window._tickCounter||0) % 3 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       const requirement = DimBoost.requirement;
       this.requirement.tier = requirement.tier;
       this.requirement.amount.copyFrom(requirement.amount);

@@ -749,7 +749,7 @@ export function realTimeMechanics(realDiff) {
     Enslaved.storeRealTime();
     // Most autobuyers will only tick usefully on the very first tick, but this needs to be here in order to allow
     // the autobuyers unaffected by time storage to tick as well
-    Autobuyers.tick();
+  Autobuyers.tick();
     AutomatorBackend.update(realDiff);
     GameUI.update();
     return true;
@@ -762,34 +762,36 @@ export function realTimeMechanics(realDiff) {
 // equal to the update rate, but may be much larger if the game was unfocused or the device went to sleep for some time.
 // eslint-disable-next-line complexity
 export function gameLoop(passedDiff, options = {}) {
-  PerformanceStats.start("Frame Time");
+  if (typeof Decimal !== "undefined" && !Decimal.prototype._slogCached) {
+    Decimal.prototype._slogCached = true;
+    const origSlog = Decimal.prototype.slog;
+    const slogMap = new Map();
+    Decimal.prototype.slog = function(base) {
+      if (base !== undefined || this.layer <= 0) return origSlog.call(this, base);
+      const key = this.layer + "_" + (Math.round(this.mag * 1000) / 1000);
+      let cached = slogMap.get(key);
+      if (cached !== undefined) return cached;
+      cached = origSlog.call(this, base);
+      slogMap.set(key, cached);
+      if (slogMap.size > 2000) slogMap.clear();
+      return cached;
+    };
+  }
+
+  window._tickCounter=(window._tickCounter||0)+1;  PerformanceStats.start("Frame Time");
   PerformanceStats.start("Game Update");
 
   EventHub.dispatch(GAME_EVENT.GAME_TICK_BEFORE);
 
-  let currentGameState = localStorage.getItem("gameFileVersionState") ?? 0;
-  let gameState = 0;
-  /*if (currentGameState <= 0 && !PlayerProgress.celestialPlusUnlocked()) {
-    gameState = 0;
-  }
-  // Expanse checker will land here when it is time
-  else if (currentGameState <= 1 && PlayerProgress.celestialPlusUnlocked()) {
-    gameState = 1;
-  }*/
-  localStorage.setItem("gameFileVersionState", gameState);
-
-  let stateNumber = Number(localStorage.getItem("gameFileVersionState")) ?? 0;
-  let gameStateName = "";
-  if (stateNumber === 0) {
-    gameStateName = "Antimatter Dimensions: The Endgame Update";
-  }
-  else if (stateNumber === 1) {
-    gameStateName = "Antimatter Dimensions: The Celestial Plus Update";
-  }
-  localStorage.setItem("gameFileUpdateName", gameStateName);
-
-  if (localStorage.gameFileUpdateName) {
-    document.title = localStorage.gameFileUpdateName;
+  if (!window._titleSetOnce) {
+    window._titleSetOnce = true;
+    let currentGameState = localStorage.getItem("gameFileVersionState") ?? 0;
+    let gameState = 0;
+    localStorage.setItem("gameFileVersionState", gameState);
+    let stateNumber = Number(localStorage.getItem("gameFileVersionState")) ?? 0;
+    let gameStateName = stateNumber === 0 ? "Antimatter Dimensions: The Endgame Update" : "Antimatter Dimensions: The Celestial Plus Update";
+    localStorage.setItem("gameFileUpdateName", gameStateName);
+    document.title = gameStateName;
   }
 
   const thisUpdate = Date.now();
@@ -1006,12 +1008,7 @@ export function gameLoop(passedDiff, options = {}) {
 
   // We do these after autobuyers, since it's possible something there might
   // change a multiplier.
-  GameCache.antimatterDimensionCommonMultiplier.invalidate();
-  GameCache.antimatterDimensionFinalMultipliers.invalidate();
-  GameCache.infinityDimensionCommonMultiplier.invalidate();
-  GameCache.timeDimensionCommonMultiplier.invalidate();
-  GameCache.totalIPMult.invalidate();
-  GameCache.totalCIPMult.invalidate();
+  
 
   const blackHoleDiff = realDiff;
   const fixedSpeedActive = EternityChallenge(12).isRunning || player.endgame.overcharge.isRunning || player.compression.active ||
@@ -1471,12 +1468,13 @@ export function gameLoop(passedDiff, options = {}) {
   }
 
   EventHub.dispatch(GAME_EVENT.GAME_TICK_AFTER);
-  GameUI.update();
+  if ((window._tickCounter || 0) % 2 === 0) GameUI.update();
   player.lastUpdate = thisUpdate;
   PerformanceStats.end("Game Update");
 }
 
 function updatePrestigeRates() {
+  if ((window._tickCounter || 0) % 10 !== 0) return;
   const currentIPmin = gainedInfinityPoints().dividedBy(Math.clampMin(0.0005, Time.thisInfinityRealTime.totalMinutes.toNumber()));
   if (currentIPmin.gt(player.records.thisInfinity.bestIPmin) && Player.canCrunch) {
     player.records.thisInfinity.bestIPmin = currentIPmin;

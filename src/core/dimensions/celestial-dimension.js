@@ -1277,3 +1277,4 @@ export const CelestialEternityPlusUpgrade = mapGameDataToObject(
     ? new CelestialEternityPlusUpgradeState(config)
     : new CelestialEternityPlusUpgradeState(config))
 );
+

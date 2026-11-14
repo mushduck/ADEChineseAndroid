@@ -72,7 +72,7 @@ export default {
     }
   },
   methods: {
-    update() {
+    update() { if ((window._tickCounter||0) % 4 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       const laitela = player.celestials.laitela;
       this.darkEnergy.copyFrom(Currency.darkEnergy.value);
       this.darkEnergyGainPerSecond.copyFrom(Currency.darkEnergy.productionPerSecond);

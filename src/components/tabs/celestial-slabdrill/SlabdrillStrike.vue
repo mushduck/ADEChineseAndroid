@@ -16,9 +16,8 @@ export default {
 </script>
 
 <template>
-  <div class="l-slabdrill-celestial-tab">
+  <div v-if="unlock" class="l-slabdrill-celestial-tab">
     <button
-      v-if="unlock"
       class="o-slabdrill-milestone__reward"
     >
       <span class="o-slabdrill-milestone__default">

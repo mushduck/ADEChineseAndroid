@@ -50,6 +50,9 @@ export class BulkSingularityAutobuyerState extends AutobuyerState {
   }
 
   tick() {
+    let cT = window._tickCounter||0;
+    if (Math.abs(cT - (this._lastTick||0)) < 25) return;
+    this._lastTick = cT;
     if (player.celestials.laitela.singularities.lte(10)) {
       player.celestials.laitela.singularityCapIncreases = DC.E1;
     }

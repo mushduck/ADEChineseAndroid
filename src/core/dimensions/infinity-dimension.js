@@ -172,6 +172,13 @@ class InfinityDimensionState extends DimensionState {
   }
 
   get multiplier() {
+    const t=window._tickCounter||0;
+    if(this._mT===t && this._mV!==undefined) return this._mV;
+    this._mV=this._calcMultiplier();
+    this._mT=t;
+    return this._mV;
+  }
+  _calcMultiplier() {
     const tier = this.tier;
     if (EternityChallenge(11).isRunning) return DC.D1;
     let mult = GameCache.infinityDimensionCommonMultiplier.value
@@ -588,3 +595,5 @@ export const InfinityDimensions = {
     return Math.pow((7 + getAdjustedGlyphEffect("infinityrate") + PelleUpgrade.infConversion.effectOrDefault(0)) * multiplier * multiplier2, exponent) / divisor;
   }
 };
+
+

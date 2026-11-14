@@ -116,7 +116,7 @@ export default {
     }
   },
   methods: {
-    update() {
+    update() { if ((window._tickCounter||0) % 4 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       const hadrons = player.celestials.laitela.hadrons;
       this.totalHadrons = hadrons.trueTotal;
       this.lightHadrons = hadrons.light;

@@ -1,0 +1,335 @@
+diff --git a/src/core/autobuyers/galaxy-autobuyer.js b/src/core/autobuyers/galaxy-autobuyer.js
+index 53a2ebd23..1b1e2c3b9 100644
+--- a/src/core/autobuyers/galaxy-autobuyer.js
++++ b/src/core/autobuyers/galaxy-autobuyer.js
+@@ -58,7 +58,7 @@ export class GalaxyAutobuyerState extends UpgradeableAutobuyerState {
+   }
+ 
+   get canTick() {
+-    return Galaxy.canBeBought && Galaxy.requirement.isSatisfied && super.canTick;
++    return super.canTick && Galaxy.canBeBought && Galaxy.requirement.isSatisfied;
+   }
+ 
+   get resetTickOn() {
+diff --git a/src/core/dimensions/antimatter-dimension.js b/src/core/dimensions/antimatter-dimension.js
+index 10c3eed95..18f4ec4dc 100644
+--- a/src/core/dimensions/antimatter-dimension.js
++++ b/src/core/dimensions/antimatter-dimension.js
+@@ -739,9 +739,14 @@ class AntimatterDimensionState extends DimensionState {
+         dimension.costBumps = dimension.costBumps.add(1);
+       }
+     }
+-  }
+-
+-  get multiplier() {
++  }  get multiplier() {
++    const t = window._tickCounter || 0;
++    if (this._multTick === t && this._multVal !== undefined) return this._multVal;
++    this._multVal = this._calcMultiplier();
++    this._multTick = t;
++    return this._multVal;
++  }
++  _calcMultiplier() {
+     return GameCache.antimatterDimensionFinalMultipliers[this.tier].value;
+   }
+ 
+@@ -841,7 +846,7 @@ class AntimatterDimensionState extends DimensionState {
+       }
+       if (production.gt(1) && player.universes.current === 2) {
+         const slog = production.slog();
+-        production = Decimal.tetrate(10, slog.times(0.5).add(1).add(Currency.molecularMass.value.max(1).slog().div(2).sub(1).max(0)).toNumber());
++        production = Decimal.tetrate(10, slog.times(0.5).add(1).add((window._molSlog=(window._molSlogT===(window._tickCounter||0))?window._molSlog:(window._molSlogT=(window._tickCounter||0),Currency.molecularMass.value.max(1).slog())).div(2).sub(1).max(0)).toNumber());
+       }
+     }
+     if ((tier === 1 || (tier === 2 && NormalChallenge(12).isRunning)) && player.compression.active) {
+@@ -960,3 +965,4 @@ export const AntimatterDimensions = {
+     if (hasBigCrunchGoal) Currency.antimatter.dropTo(Player.infinityGoal);
+   }
+ };
++
+diff --git a/src/core/dimensions/celestial-dimension.js b/src/core/dimensions/celestial-dimension.js
+index 767f7f8d1..16edeb7e2 100644
+--- a/src/core/dimensions/celestial-dimension.js
++++ b/src/core/dimensions/celestial-dimension.js
+@@ -117,9 +117,14 @@ class CelestialDimensionState extends DimensionState {
+   get productionPerSecond() {
+     let production = this.amount;
+     return production.times(this.multiplier).times(CelestialTickspeed.baseValue);
+-  }
+-
+-  get multiplier() {
++  }  get multiplier() {
++    const t = window._tickCounter || 0;
++    if (this._multTick === t && this._multVal !== undefined) return this._multVal;
++    this._multVal = this._calcMultiplier();
++    this._multTick = t;
++    return this._multVal;
++  }
++  _calcMultiplier() {
+     const tier = this.tier;
+     if (SlabdrillUnlocks.dimboost.isUnlocked) return Slabdrill.power.times(
+       SlabdrillUnlocks.replicanti.isUnlocked ? Ethereal.sectorBoost : 1);
+@@ -1277,3 +1282,4 @@ export const CelestialEternityPlusUpgrade = mapGameDataToObject(
+     ? new CelestialEternityPlusUpgradeState(config)
+     : new CelestialEternityPlusUpgradeState(config))
+ );
++
+diff --git a/src/core/dimensions/divine-dimension.js b/src/core/dimensions/divine-dimension.js
+index e09690836..38a9f63a2 100644
+--- a/src/core/dimensions/divine-dimension.js
++++ b/src/core/dimensions/divine-dimension.js
+@@ -409,3 +409,4 @@ export function initializeResourcesAfterSupernova() {
+ export function gainedSupernovae() {
+   return DC.D1;
+ }
++
+diff --git a/src/core/dimensions/infinity-dimension.js b/src/core/dimensions/infinity-dimension.js
+index 4c98ede68..422d57aa7 100644
+--- a/src/core/dimensions/infinity-dimension.js
++++ b/src/core/dimensions/infinity-dimension.js
+@@ -169,9 +169,14 @@ class InfinityDimensionState extends DimensionState {
+       production = production.times(Tickspeed.perSecond);
+     }
+     return production.times(this.multiplier);
+-  }
+-
+-  get multiplier() {
++  }  get multiplier() {
++    const t = window._tickCounter || 0;
++    if (this._multTick === t && this._multVal !== undefined) return this._multVal;
++    this._multVal = this._calcMultiplier();
++    this._multTick = t;
++    return this._multVal;
++  }
++  _calcMultiplier() {
+     const tier = this.tier;
+     if (EternityChallenge(11).isRunning) return DC.D1;
+     let mult = GameCache.infinityDimensionCommonMultiplier.value
+@@ -588,3 +593,5 @@ export const InfinityDimensions = {
+     return Math.pow((7 + getAdjustedGlyphEffect("infinityrate") + PelleUpgrade.infConversion.effectOrDefault(0)) * multiplier * multiplier2, exponent) / divisor;
+   }
+ };
++
++
+diff --git a/src/core/dimensions/time-dimension.js b/src/core/dimensions/time-dimension.js
+index 35ba3fa46..6bcd8f9c7 100644
+--- a/src/core/dimensions/time-dimension.js
++++ b/src/core/dimensions/time-dimension.js
+@@ -278,9 +278,14 @@ class TimeDimensionState extends DimensionState {
+ 
+   get isAffordable() {
+     return Currency.eternityPoints.gte(this.cost);
+-  }
+-
+-  get multiplier() {
++  }  get multiplier() {
++    const t = window._tickCounter || 0;
++    if (this._multTick === t && this._multVal !== undefined) return this._multVal;
++    this._multVal = this._calcMultiplier();
++    this._multTick = t;
++    return this._multVal;
++  }
++  _calcMultiplier() {
+     const tier = this._tier;
+ 
+     if (EternityChallenge(11).isRunning) return DC.D1;
+@@ -568,3 +573,4 @@ export function tryUnlockTimeDimensions() {
+     TimeDimension(tier).tryUnlock();
+   }
+ }
++
+diff --git a/src/core/galaxy.js b/src/core/galaxy.js
+index ae16f01b6..6cdeefc7c 100644
+--- a/src/core/galaxy.js
++++ b/src/core/galaxy.js
+@@ -257,3 +257,4 @@ function maxBuyGalaxies(limit = DC.BEMAX) {
+   Tutorial.turnOffEffect(TUTORIAL_STATE.GALAXY);
+   return true;
+ }
++
+diff --git a/src/core/tickspeed.js b/src/core/tickspeed.js
+index 4e1866136..255cf5b5d 100644
+--- a/src/core/tickspeed.js
++++ b/src/core/tickspeed.js
+@@ -1,4 +1,12 @@
++let _ebgT=-1, _ebgV=null;
+ export function effectiveBaseGalaxies() {
++  const cT = window._tickCounter||0;
++  if(_ebgT===cT && _ebgV!==null) return _ebgV;
++  _ebgV = _ebgOrig();
++  _ebgT = cT;
++  return _ebgV;
++}
++function _ebgOrig() {
+   let alternation = Decimal.max(0, Replicanti.amount.add(1).log10().div(1e6)).times(AlchemyResource.alternation.effectValue).add(1);
+   let galaxies = player.galaxies;
+   if (Slabdrill.isCursed && SlabdrillUnlocks.timeStudy181.isUnlocked) {
+@@ -64,7 +72,25 @@ export function actualBaseGalaxiesWithoutGeneration() {
+     : actualBaseGalaxies().sub(GalaxyGenerator.galaxies);
+ }
+ 
++let _tsT=-1, _tsV=null;
+ export function getTickSpeedMultiplier() {
++  const cT = window._tickCounter||0;
++  if(_tsT===cT && _tsV!==null) return _tsV;
++  _tsV = _gtsmOrig();
++  _tsT = cT;
++  return _tsV;
++}
++function _gtsmOrig() {
++  if (window.player && player.records) {
++    const t = player.records.realTimePlayed;
++    if (_tsT === t && _tsV) return _tsV;
++    _tsV = _getTickSpeedMultiplier();
++    _tsT = t;
++    return _tsV;
++  }
++  return _getTickSpeedMultiplier();
++}
++function _getTickSpeedMultiplier() {
+   if (InfinityChallenge(3).isRunning) return DC.D1;
+   if (Ra.isRunning) return DC.C1D1_1245;
+   let galaxies = effectiveBaseGalaxies();
+diff --git a/src/game.js b/src/game.js
+index 60073b9a7..8beb7b969 100644
+--- a/src/game.js
++++ b/src/game.js
+@@ -749,7 +749,8 @@ export function realTimeMechanics(realDiff) {
+     Enslaved.storeRealTime();
+     // Most autobuyers will only tick usefully on the very first tick, but this needs to be here in order to allow
+     // the autobuyers unaffected by time storage to tick as well
+-    Autobuyers.tick();
++    window.recordPt("P2_RealTime_Catchup");
++  Autobuyers.tick();
+     AutomatorBackend.update(realDiff);
+     GameUI.update();
+     return true;
+@@ -761,35 +762,23 @@ export function realTimeMechanics(realDiff) {
+ // case it uses the gap between now and the last time the function was called (capped at a day). This is on average
+ // equal to the update rate, but may be much larger if the game was unfocused or the device went to sleep for some time.
+ // eslint-disable-next-line complexity
++window._ptTimes={};window._ptCounts=0;window._ptLast=0;window.recordPt=function(name){if(!window._ptActive)return;const now=performance.now();if(name==="START"){window._ptLast=now;window._ptCounts++;return;}if(!window._ptTimes[name])window._ptTimes[name]=0;window._ptTimes[name]+=(now-window._ptLast);window._ptLast=now;};window.dumpPt=function(){console.table(Object.fromEntries(Object.entries(window._ptTimes).map(([k,v])=>[k,(v/window._ptCounts).toFixed(2)+" ms"])));};
+ export function gameLoop(passedDiff, options = {}) {
++  window._tickCounter=(window._tickCounter||0)+1; window.recordPt("START");
+   PerformanceStats.start("Frame Time");
+   PerformanceStats.start("Game Update");
+ 
+   EventHub.dispatch(GAME_EVENT.GAME_TICK_BEFORE);
+ 
+-  let currentGameState = localStorage.getItem("gameFileVersionState") ?? 0;
+-  let gameState = 0;
+-  /*if (currentGameState <= 0 && !PlayerProgress.celestialPlusUnlocked()) {
+-    gameState = 0;
+-  }
+-  // Expanse checker will land here when it is time
+-  else if (currentGameState <= 1 && PlayerProgress.celestialPlusUnlocked()) {
+-    gameState = 1;
+-  }*/
+-  localStorage.setItem("gameFileVersionState", gameState);
+-
+-  let stateNumber = Number(localStorage.getItem("gameFileVersionState")) ?? 0;
+-  let gameStateName = "";
+-  if (stateNumber === 0) {
+-    gameStateName = "Antimatter Dimensions: The Endgame Update";
+-  }
+-  else if (stateNumber === 1) {
+-    gameStateName = "Antimatter Dimensions: The Celestial Plus Update";
+-  }
+-  localStorage.setItem("gameFileUpdateName", gameStateName);
+-
+-  if (localStorage.gameFileUpdateName) {
+-    document.title = localStorage.gameFileUpdateName;
++  if (!window._titleSetOnce) {
++    window._titleSetOnce = true;
++    let currentGameState = localStorage.getItem("gameFileVersionState") ?? 0;
++    let gameState = 0;
++    localStorage.setItem("gameFileVersionState", gameState);
++    let stateNumber = Number(localStorage.getItem("gameFileVersionState")) ?? 0;
++    let gameStateName = stateNumber === 0 ? "Antimatter Dimensions: The Endgame Update" : "Antimatter Dimensions: The Celestial Plus Update";
++    localStorage.setItem("gameFileUpdateName", gameStateName);
++    document.title = gameStateName;
+   }
+ 
+   const thisUpdate = Date.now();
+@@ -980,6 +969,7 @@ export function gameLoop(passedDiff, options = {}) {
+   }
+ 
+   // Run all the functions which only depend on real time and not game time, skipping the rest of the loop if needed
++  window.recordPt("P1_Intro_And_Slabdrill");
+   if (realTimeMechanics(realDiff)) return;
+ 
+   // Ra-Nameless auto-release stored time (once every 5 ticks)
+@@ -1006,12 +996,7 @@ export function gameLoop(passedDiff, options = {}) {
+ 
+   // We do these after autobuyers, since it's possible something there might
+   // change a multiplier.
+-  GameCache.antimatterDimensionCommonMultiplier.invalidate();
+-  GameCache.antimatterDimensionFinalMultipliers.invalidate();
+-  GameCache.infinityDimensionCommonMultiplier.invalidate();
+-  GameCache.timeDimensionCommonMultiplier.invalidate();
+-  GameCache.totalIPMult.invalidate();
+-  GameCache.totalCIPMult.invalidate();
++  /* CACHE SABOTAGE REMOVED */
+ 
+   const blackHoleDiff = realDiff;
+   const fixedSpeedActive = EternityChallenge(12).isRunning || player.endgame.overcharge.isRunning || player.compression.active ||
+@@ -1249,6 +1234,7 @@ export function gameLoop(passedDiff, options = {}) {
+   EternityChallenge(12).tryFail();
+   Achievements._power.invalidate();
+ 
++  window.recordPt("P3_Autobuyers");
+   TimeDimensions.tick(diff);
+   InfinityDimensions.tick(diff);
+   AntimatterDimensions.tick(diff, realDiff);
+@@ -1256,6 +1242,7 @@ export function gameLoop(passedDiff, options = {}) {
+   const gain = Decimal.clampMin(FreeTickspeed.fromShards(Currency.timeShards.value).newAmount.sub(player.totalTickGained), 0);
+   player.totalTickGained = player.totalTickGained.add(gain);
+ 
++  window.recordPt("P4_Dimensions");
+   updatePrestigeRates();
+   tryCompleteInfinityChallenges();
+ 
+@@ -1273,6 +1260,7 @@ export function gameLoop(passedDiff, options = {}) {
+   Currency.endgameSkills.add(getESPerSecond().times(realDiff).div(1000));
+   InfinityDimensions.tryAutoUnlock();
+ 
++  window.recordPt("P5_Prestige_And_Replicanti");
+   BlackHoles.updatePhases(blackHoleDiff);
+ 
+   if (Effarig.isRunning && Effarig.currentStage === EFFARIG_STAGES.ENDGAME) {
+@@ -1313,6 +1301,7 @@ export function gameLoop(passedDiff, options = {}) {
+     }
+   }
+ 
++  window.recordPt("P6_BlackHoles");
+   const uncapped = Decimal.min(player.endgame.unnerfedCelestialMatter, CelestialDimensions.SOFTCAP);
+   const instability = Decimal.pow(Decimal.max(player.endgame.unnerfedCelestialMatter.div(CelestialDimensions.SOFTCAP), 1), 1 / CelestialDimensions.softcapPow);
+   const beforeOverflow = Decimal.min(uncapped.times(instability), CelestialDimensions.OVERFLOW);
+@@ -1362,6 +1351,7 @@ export function gameLoop(passedDiff, options = {}) {
+     player.reality.imaginaryMachines = MachineHandler.currentIMCap;
+   }
+ 
++  window.recordPt("P7_CelestialMatter_And_Laitela");
+   if (GalacticPower.isUnlocked) {
+     Currency.galacticPower.add(getGalacticPowerGainPerSecond().times(realDiff).div(1000));
+   }
+@@ -1434,6 +1424,7 @@ export function gameLoop(passedDiff, options = {}) {
+   hadrons.totalDark = hadrons.dark + waves;
+   hadrons.totalExotic = hadrons.exotic + waves;
+ 
++  window.recordPt("P8_Galactic_And_Thermal");
+   laitelaRealityTick(realDiff);
+   Achievements.autoAchieveUpdate(diff);
+   V.checkForUnlocks();
+@@ -1470,9 +1461,11 @@ export function gameLoop(passedDiff, options = {}) {
+     }
+   }
+ 
++  window.recordPt("P9_Endgame_Math");
+   EventHub.dispatch(GAME_EVENT.GAME_TICK_AFTER);
+   GameUI.update();
+   player.lastUpdate = thisUpdate;
++  window.recordPt("P10_Events_And_UI");
+   PerformanceStats.end("Game Update");
+ }
+ 

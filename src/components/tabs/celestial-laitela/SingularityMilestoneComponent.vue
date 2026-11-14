@@ -93,7 +93,7 @@ export default {
     isDoomed: () => Pelle.isDoomed && !PelleDestructionUpgrade.singularityMilestones.canBeApplied,
   },
   methods: {
-    update() {
+    update() { if ((window._tickCounter||0) % 10 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       this.autoSingActive = player.auto.singularity.isActive;
       this.isMaxed = this.milestone.isMaxed;
       this.progressToNext = this.milestone.progressToNext;

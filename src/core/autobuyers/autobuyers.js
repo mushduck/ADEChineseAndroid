@@ -188,7 +188,10 @@ export const Autobuyers = (function() {
 
       // The canTick condition must be checked after the previous autobuyer has triggered
       // in order to avoid slow dimension autobuyers.
-      for (const autobuyer of Autobuyers.all) {
+      const tc = window._tickCounter || 0;
+      for (let i = 0; i < Autobuyers.all.length; i++) {
+        if ((tc + i) % 2 !== 0) continue;
+        const autobuyer = Autobuyers.all[i];
         if (autobuyer.canTick) autobuyer.tick();
       }
 

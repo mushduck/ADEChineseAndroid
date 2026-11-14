@@ -58,7 +58,7 @@ export class GalaxyAutobuyerState extends UpgradeableAutobuyerState {
   }
 
   get canTick() {
-    return Galaxy.canBeBought && Galaxy.requirement.isSatisfied && super.canTick;
+    return super.canTick && Galaxy.canBeBought && Galaxy.requirement.isSatisfied;
   }
 
   get resetTickOn() {

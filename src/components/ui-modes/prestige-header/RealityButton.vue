@@ -87,7 +87,7 @@ export default {
       const decimalPoints = this.glyphLevel.gt(1000) ? 0 : 1;
       return `${formatDecimalPercents(Decimal.min(((level.sub(Decimal.floor(level)))), 0.999), decimalPoints)}`;
     },
-    update() {
+    update() { if ((window._tickCounter||0) % 10 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       this.hasRealityStudy = TimeStudy.reality.isBought;
       this.canReality = isRealityAvailable();
       this.showSpecialEffect = this.hasSpecialReward();

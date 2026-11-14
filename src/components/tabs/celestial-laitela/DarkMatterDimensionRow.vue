@@ -101,7 +101,7 @@ export default {
     }
   },
   methods: {
-    update() {
+    update() { if ((window._tickCounter||0) % 3 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
       const dim = DarkMatterDimension(this.tier);
       this.isUnlocked = dim.isUnlocked;
       this.ascension.copyFrom(dim.ascensions);
