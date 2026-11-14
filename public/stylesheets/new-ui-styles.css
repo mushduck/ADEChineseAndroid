@@ -12388,3 +12388,34 @@ body.t-s5 .c-modern-sidebar .subtabs {
   }
 }
 /* === END MOBILE USERNAME AND MESSAGE MODAL ADAPTATION === */
+
+/* === MOBILE FULL-BLEED NEWS TICKER FIX === */
+@media (max-width: 768px) and (orientation: portrait) {
+  html,
+  body,
+  body[class] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #ui-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .game-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+  }
+  .tab-container {
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+    box-sizing: border-box !important;
+  }
+  .new-ui .c-news-ticker {
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+/* === END MOBILE FULL-BLEED NEWS TICKER FIX === */
