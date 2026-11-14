@@ -114,6 +114,16 @@ export default {
   },
   methods: {
     update() {
+      // 面板从「关」变「开」时重新量一次滑条宽度：
+      // 滑条的尺寸是在隐藏状态下（max-height: 0）量的，offsetWidth 可能是 0，
+      // 而 SliderComponent 里 gap = 可用宽度 / 格数，宽度 0 → gap 0 → 一碰就 index=Infinity → 跳到 100。
+      const panelState = this.$parent && this.$parent.state ? this.$parent.state.name : "";
+      if (panelState !== this._lastPanelState) {
+        if (panelState === "OPEN" || panelState === "OPENING") {
+          this.$nextTick(() => this.refreshSliders());
+        }
+        this._lastPanelState = panelState;
+      }
       if (this.glyphWeightFields === undefined || this.$parent.state.name === "CLOSED") {
         return;
       }
@@ -146,6 +156,12 @@ export default {
       }
       this.showAutoAdjustWeights = Achievement(165).isUnlocked;
       this.isAutoAdjustWeightsOn = player.celestials.effarig.autoAdjustGlyphWeights;
+    },
+    // 重新量所有滑条的尺寸：面板展开后必须调一次，否则 gap = 0，一碰就跳到最大值
+    refreshSliders() {
+      for (const child of this.$children) {
+        if (child && typeof child.refresh === "function") child.refresh();
+      }
     },
     rowStyle(factor) {
       const row = this.visibleRows.findIndex(r => r === factor) + 1;

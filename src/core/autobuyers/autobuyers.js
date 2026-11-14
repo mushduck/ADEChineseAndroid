@@ -190,7 +190,7 @@ export const Autobuyers = (function() {
       // in order to avoid slow dimension autobuyers.
       const tc = window._tickCounter || 0;
       for (let i = 0; i < Autobuyers.all.length; i++) {
-        if ((tc + i) % 2 !== 0) continue;
+        if (!GameUI.suppressUpdates && (tc + i) % 2 !== 0) continue;
         const autobuyer = Autobuyers.all[i];
         if (autobuyer.canTick) autobuyer.tick();
       }

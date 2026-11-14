@@ -299,7 +299,8 @@ export const laitelaQuotes = {
     ]
   },
   gigaHadron: {
-    id: 18,
+    // 原为 18，与 massHadron 冲突导致本段引文永不触发
+    id: 20,
     requirement: () => Laitela.hadronizes >= 100,
     lines: [
       "这...你的强子数量可真不少啊。",

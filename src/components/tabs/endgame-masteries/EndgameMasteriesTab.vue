@@ -8,7 +8,7 @@ import EndgameMasteryConnection from "./EndgameMasteryConnection";
 import EndgameMasterySaveLoadButton from "./es-shop/EndgameMasterySaveLoadButton";
 
 export default {
-  name: "EndgameMasteryTab",
+  name: "EndgameMasteriesTab",
   components: {
     PrimaryButton,
     NormalEndgameMastery,
@@ -116,21 +116,9 @@ export default {
     }
   },
   created() {
-    const incrementRenderedCount = () => {
-      let shouldRequestNextFrame = false;
-      if (this.renderedMasteryCount < this.allMasteries.length) {
-        this.renderedMasteryCount += 4;
-        shouldRequestNextFrame = true;
-      }
-      if (this.renderedConnectionCount < this.allConnections.length) {
-        this.renderedConnectionCount += 4;
-        shouldRequestNextFrame = true;
-      }
-      if (shouldRequestNextFrame) {
-        this.renderAnimationId = requestAnimationFrame(incrementRenderedCount);
-      }
-    };
-    incrementRenderedCount();
+    // 一次性渲染（原因同 TimeStudiesTab：逐帧 +4 会连刷几十帧）
+    this.renderedMasteryCount = this.allMasteries.length;
+    this.renderedConnectionCount = this.allConnections.length;
 
     document.body.scrollTop = 0;
   },
@@ -138,9 +126,6 @@ export default {
     this.$nextTick(() => {
       this.centerTreeHorizontally();
     });
-  },
-  beforeDestroy() {
-    cancelAnimationFrame(this.renderAnimationId);
   },
   methods: {
     update() {
@@ -222,7 +207,7 @@ export default {
       if (!vp) return;
       if (e.touches.length === 2) {
         this.isPinching = true;
-        window.__tsDragging = true;
+        window.__emDragging = true;
         const t0 = e.touches[0];
         const t1 = e.touches[1];
         this.pinchStartDist = Math.hypot(t1.clientX - t0.clientX, t1.clientY - t0.clientY);
@@ -264,7 +249,7 @@ export default {
         const dx = e.touches[0].clientX - this.panStartX;
         const dy = e.touches[0].clientY - this.panStartY;
         if (Math.hypot(dx, dy) > 8) {
-          window.__tsDragging = true;
+          window.__emDragging = true;
         }
         if (Math.abs(dx) > 4) {
           vp.scrollLeft = this.panStartScrollLeft - dx;
@@ -283,7 +268,7 @@ export default {
       }
       if (e.touches.length === 0) {
         setTimeout(() => {
-          window.__tsDragging = false;
+          window.__emDragging = false;
         }, 80);
       }
     }

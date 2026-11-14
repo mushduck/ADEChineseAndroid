@@ -87,7 +87,7 @@ export default {
       const decimalPoints = this.glyphLevel.gt(1000) ? 0 : 1;
       return `${formatDecimalPercents(Decimal.min(((level.sub(Decimal.floor(level)))), 0.999), decimalPoints)}`;
     },
-    update() { if ((window._tickCounter||0) % 10 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
+    update() {
       this.hasRealityStudy = TimeStudy.reality.isBought;
       this.canReality = isRealityAvailable();
       this.showSpecialEffect = this.hasSpecialReward();
@@ -149,14 +149,6 @@ export default {
       }
       else if (this.readyToWarp && !this.isWarping && !this.cursed && !this.destroyed) {
         requestRealityWarp();
-      }
-      else if (this.readyToWarp && this.isWarping && !this.cursed && !this.destroyed) {
-        Slabdrill.realityWarp();
-        player.celestials.slabdrill.warpTick = 5000;
-      }
-      else if (this.readyToWarp && this.isWarping && !this.cursed && !this.destroyed) {
-        Slabdrill.realityWarp();
-        player.celestials.slabdrill.warpTick = 5000;
       }
       else if (this.canReality && (!this.trapped || this.destroyed)) {
         requestManualReality();

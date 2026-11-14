@@ -16,6 +16,9 @@ export default {
     };
   },
   computed: {
+    isFlipped() {
+      return player.universes.current === 2;
+    },
     grid() {
       return [
         [
@@ -64,7 +67,7 @@ export default {
 <template>
   <div class="l-break-eternity-tab">
     <div v-if="!isUnlocked">
-      达到 {{ format(antimatterReq, 2, 1) }} ${this.isFlipped ? "正物质" : "反物质"}且至少进行一次终局以打破永恒
+      达到 {{ format(antimatterReq, 2, 1) }} {{ isFlipped ? "正物质" : "反物质" }}且至少进行一次终局以打破永恒
     </div>
     <BreakEternityButton class="l-break-eternity-tab__break-btn" />
     <div

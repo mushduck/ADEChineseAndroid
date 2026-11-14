@@ -363,12 +363,12 @@ export const imaginaryUpgrades = [
       player.celestials.ra.alchemy[4].amount > 0 ||
       player.celestials.ra.alchemy[5].amount > 0,
     checkRequirement: () => Pelle.isUnlocked && !Pelle.isDoomed &&
-      player.celestials.ra.alchemy[0].amount === 0 &&
-      player.celestials.ra.alchemy[1].amount === 0 &&
-      player.celestials.ra.alchemy[2].amount === 0 &&
-      player.celestials.ra.alchemy[3].amount === 0 &&
-      player.celestials.ra.alchemy[4].amount === 0 &&
-      player.celestials.ra.alchemy[5].amount === 0,
+      Decimal.eq(player.celestials.ra.alchemy[0].amount, 0) &&
+      Decimal.eq(player.celestials.ra.alchemy[1].amount, 0) &&
+      Decimal.eq(player.celestials.ra.alchemy[2].amount, 0) &&
+      Decimal.eq(player.celestials.ra.alchemy[3].amount, 0) &&
+      Decimal.eq(player.celestials.ra.alchemy[4].amount, 0) &&
+      Decimal.eq(player.celestials.ra.alchemy[5].amount, 0),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     description: () => `解锁第七暗物质维度，提升暗物质上限至${formatPostBreak("1e20000")}`,
   },

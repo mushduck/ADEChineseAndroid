@@ -43,14 +43,16 @@ export const galaxies = {
     name: "超光速粒子星系",
     displayOverride: () => {
       const num = player.dilation.totalTachyonGalaxies;
-      const mult = MultiplierTabHelper.globalGalaxyMult() *
-          (1 + Math.max(0, Replicanti.amount.log10() / 1e6) * AlchemyResource.alternation.effectValue);
+      const tachyonFactor = Replicanti.amount.log10().div(1e6).max(0)
+        .times(AlchemyResource.alternation.effectValue).add(1);
+      const mult = MultiplierTabHelper.globalGalaxyMult() * tachyonFactor.toNumber();
       return `${formatInt(num)} 个，强度为 ${formatX(mult, 2, 2)}`;
     },
     multValue: () => {
       const num = player.dilation.totalTachyonGalaxies;
-      const mult = 1 + Math.max(0, Replicanti.amount.log10() / 1e6) * AlchemyResource.alternation.effectValue;
-      return Decimal.pow10(num * mult);
+      const tachyonFactor = Replicanti.amount.log10().div(1e6).max(0)
+        .times(AlchemyResource.alternation.effectValue).add(1);
+      return Decimal.pow10(new Decimal(num).times(tachyonFactor));
     },
     isActive: () => player.dilation.totalTachyonGalaxies > 0,
     icon: MultiplierTabIcons.SPECIFIC_GLYPH("dilation"),

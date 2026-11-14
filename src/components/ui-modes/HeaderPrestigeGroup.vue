@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    update() { if ((window._tickCounter||0) % 5 !== 0 && this._hasUpdated) return; this._hasUpdated = true;
+    update() {
       this.isMobile = window.innerWidth <= 768;
       this.isDestroyed = Alpha.isDestroyedForDisplay;
       this.isDivine = DivinityMilestone.divineDimensions.isReached;

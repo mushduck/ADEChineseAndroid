@@ -272,7 +272,7 @@ export const dualityUpgrades = [
     id: 24,
     cost: new Decimal(1.5e19),
     formatCost: x => format(x, 1),
-    requirement: () => `不激发天界物质，在太阳神的现实中获得${format(106e6, 2, 2)}${player.universes.current === 2 ? "正物质" : "反物质"}星系`,
+    requirement: () => `不激发天界物质，在太阳神的现实中获得${format(105.5e6, 2, 2)}${player.universes.current === 2 ? "正物质" : "反物质"}星系`,
     hasFailed: () => !Ra.isRunning || !player.requirementChecks.reality.noCelMatter,
     checkRequirement: () => Ra.isRunning && player.requirementChecks.reality.noCelMatter &&
       player.galaxies.gte(105.5e6),

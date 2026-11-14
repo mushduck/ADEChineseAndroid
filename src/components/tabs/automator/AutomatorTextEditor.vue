@@ -143,7 +143,13 @@ export const AutomatorTextUI = {
       // as it often evaluates to innocuous false positives which eat the keybinds
       if (editor.state.completionActive) return;
       if (event.ctrlKey || event.altKey || event.metaKey || !/^[a-zA-Z0-9 \t]$/u.test(key)) return;
-      CodeMirror.commands.autocomplete(editor, null, { completeSingle: false });
+      // 防抖 250ms 再弹补全。原来每按一个键就立刻开菜单，菜单会在输入法组合输入
+      // 的过程中抢走按键，导致刚敲进去的字符被回滚（表现为"打第二个字就消失"）。
+      clearTimeout(this._hintTimer);
+      this._hintTimer = setTimeout(() => {
+        if (editor.state.completionActive || !editor.hasFocus()) return;
+        CodeMirror.commands.autocomplete(editor, null, { completeSingle: false });
+      }, 250);
     });
     this.editor.on("change", (editor, event) => {
       const scriptID = ui.view.tabs.reality.automator.editorScriptID;

@@ -33,7 +33,7 @@ export default {
       return `${id} ${pathEntry.name}`;
     },
     isUseless() {
-      return Pelle.uselessTimeStudies.includes(this.study.id) && Pelle.isDoomed;
+      return Pelle.uselessTimeStudiesSet.has(this.study.id) && Pelle.isDoomed;
     }
   },
   methods: {

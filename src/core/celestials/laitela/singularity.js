@@ -237,6 +237,13 @@ export const Singularity = {
   },
 
   get singularitiesGained() {
+    const t = window._tickCounter || 0;
+    if (this._sgTick === t && this._sgVal) return this._sgVal;
+    this._sgTick = t;
+    this._sgVal = this._calcSingularitiesGained();
+    return this._sgVal;
+  },
+  _calcSingularitiesGained() {
     const entropicCondensing = (EndgameMastery(131).isBought && !player.disablePostReality)
       ? Decimal.pow(new Decimal(ImaginaryUpgrade(10).effectOrDefault(1)).add(1), Decimal.max(new Decimal(ImaginaryUpgrade(10).effectOrDefault(1)), 1))
       : new Decimal(ImaginaryUpgrade(10).effectOrDefault(0)).add(1);
@@ -269,8 +276,8 @@ export const Singularity = {
 
   increaseCap() {
     if (player.celestials.laitela.singularityCapIncreases.gt(5e11)) {
-      player.celestial.laitela.singularityCapIncreases
-        .add(Decimal.pow10(new Decimal(player.celestial.laitela.singularityCapIncreases.log(10)).sub(10).floor()));
+      player.celestials.laitela.singularityCapIncreases
+        .add(Decimal.pow10(new Decimal(player.celestials.laitela.singularityCapIncreases.log(10)).sub(10).floor()));
     }
     player.celestials.laitela.singularityCapIncreases = player.celestials.laitela.singularityCapIncreases.add(1);
   },
@@ -278,8 +285,8 @@ export const Singularity = {
   decreaseCap() {
     if (player.celestials.laitela.singularityCapIncreases.eq(0)) return;
     if (player.celestials.laitela.singularityCapIncreases.gt(5e11)) {
-      player.celestial.laitela.singularityCapIncreases
-        .sub(Decimal.pow10(new Decimal(player.celestial.laitela.singularityCapIncreases.log(10)).sub(10).floor()));
+      player.celestials.laitela.singularityCapIncreases
+        .sub(Decimal.pow10(new Decimal(player.celestials.laitela.singularityCapIncreases.log(10)).sub(10).floor()));
     }
     player.celestials.laitela.singularityCapIncreases = player.celestials.laitela.singularityCapIncreases.sub(1);
   },

@@ -387,6 +387,8 @@ export const GameStorage = {
 
   importBackupsFromFile(importText) {
     const backupData = GameSaveSerializer.deserialize(importText);
+    // 这个字段从未初始化，直接赋值会抛 TypeError（上游同样有此问题）
+    if (!this.backupTimeData) this.backupTimeData = {};
     localStorage.setItem(this.backupTimeKey(this.currentSlot), GameSaveSerializer.serialize(backupData.time));
     for (const backupKey of Object.keys(backupData)) {
       if (backupKey === "time") continue;
@@ -463,6 +465,43 @@ export const GameStorage = {
     }
 
     decimalMigration(player);
+
+    // 老存档里这两个数组只有 11 位，但顶层标签已经有 15 个（终局/天界扩展/神性/宇宙
+    // 的 id 是 11~14），越界读写会让这些页的子标签显隐/上次打开的页面记不住。
+    const opt = player.options;
+    for (const key of ["hiddenSubtabBits", "lastOpenSubtab"]) {
+      if (!Array.isArray(opt[key])) opt[key] = [];
+      while (opt[key].length < 15) opt[key].push(0);
+    }
+
+    // 兜底修复：非有限（NaN）数值会沿着倍率链扩散，
+    // 表现为“无限维度失效”——买不了、产量算不出来、界面显示 0。
+    // 这里只修正 NaN，不动 Infinity（例如 8 级无限维度的初始价格就是 Infinity）。
+    const nanFixed = [];
+    for (const groupName of ["antimatter", "infinity", "time", "celestial", "divine"]) {
+      const group = player.dimensions[groupName];
+      if (!group) continue;
+      for (const dim of group) {
+        if (!dim) continue;
+        for (const key of ["amount", "baseAmount", "bought", "cost", "costBumps"]) {
+          const value = dim[key];
+          if (value instanceof Decimal && Number.isNaN(value.mag)) {
+            dim[key] = new Decimal(0);
+            nanFixed.push(`${groupName}.${key}`);
+          }
+        }
+      }
+    }
+    if (nanFixed.length > 0) {
+      const message = `检测到损坏的维度数值，已自动修复：${nanFixed.slice(0, 3).join("、")}${nanFixed.length > 3 ? " 等" : ""}`;
+      // 加载早期 UI 可能还没就绪，这里必须容错，否则会连带把读档流程弄崩
+      try {
+        if (typeof GameUI !== "undefined" && GameUI.notify) GameUI.notify.error(message);
+        else console.warn(message);
+      } catch (e) {
+        console.warn(message);
+      }
+    }
 
     let s1 = player.reality.glyphs.active;
     for (let g1 = 0; g1 < s1.length; g1++) {
@@ -541,6 +580,8 @@ export const GameStorage = {
     }
 
     ui.view.news = player.options.news.enabled;
+    // 只保留现代 UI（见 core/ui.js 里的 newUI 锁）：旧存档 / 迁移可能把它设成 false
+    player.options.newUI = true;
     ui.view.newUI = player.options.newUI;
     ui.view.tutorialState = player.tutorialState;
     ui.view.tutorialActive = player.tutorialActive;

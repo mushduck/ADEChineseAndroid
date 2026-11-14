@@ -147,21 +147,11 @@ export default {
     }
   },
   created() {
-    const incrementRenderedCount = () => {
-      let shouldRequestNextFrame = false;
-      if (this.renderedStudyCount < this.allStudies.length) {
-        this.renderedStudyCount += 4;
-        shouldRequestNextFrame = true;
-      }
-      if (this.renderedConnectionCount < this.allConnections.length) {
-        this.renderedConnectionCount += 4;
-        shouldRequestNextFrame = true;
-      }
-      if (shouldRequestNextFrame) {
-        this.renderAnimationId = requestAnimationFrame(incrementRenderedCount);
-      }
-    };
-    incrementRenderedCount();
+    // 一次性渲染全部节点与连线。
+    // 原来是每帧 +4 的"画出来"动画，120 条连线要连刷 30 帧，每次都会重建整个
+    // SVG 列表 —— 这是进入页面时卡顿的主因。
+    this.renderedStudyCount = this.allStudies.length;
+    this.renderedConnectionCount = this.allConnections.length;
 
     this.on$(GAME_EVENT.REALITY_RESET_AFTER, () => {
       this.delayTimer = player.celestials.enslaved.hasSecretStudy
@@ -175,9 +165,6 @@ export default {
     this.$nextTick(() => {
       this.centerTreeHorizontally();
     });
-  },
-  beforeDestroy() {
-    cancelAnimationFrame(this.renderAnimationId);
   },
   methods: {
     update() {

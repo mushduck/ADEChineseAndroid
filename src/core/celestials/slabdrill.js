@@ -4,6 +4,7 @@ import { GameDatabase } from "../secret-formula/game-database";
 import { Quotes } from "./quotes";
 
 import { matchOnlyDeepmerge } from "@/utility/deepmerge";
+import { syncPostRealityLock } from "../reality";
 
 export const Slabdrill = {
   displayName: "渊蛇",
@@ -60,6 +61,8 @@ export const Slabdrill = {
     chaosCores: () => player.dilation.active || !Slabdrill.isCursed ? DC.D1 : Slabdrill.power.div(1e15).add(1).log10().add(1).pow(7)
   },
   realityWarp() {
+    // 虚空进行中时不允许进入渊蛇诅咒，否则退出虚空时会把渊蛇的后现实锁定一起解除
+    if (player.endgame.largeHadronCollider.void.isRunning) return;
     player.disablePostReality = true;
     Endgame.resetNoReward();
     disChargeAllPerkUpgrades();
@@ -70,6 +73,8 @@ export const Slabdrill = {
     AutomatorBackend.stop();
     clearCelestialRuns();
     player.celestials.slabdrill.isCursed = true;
+    // 同上：resetNoReward 可能把锁定写回 false，这里按实际状态重算
+    syncPostRealityLock();
     recalculateAllGlyphs();
     Tab.dimensions.antimatter.show(false);
   },
@@ -77,7 +82,7 @@ export const Slabdrill = {
     player.celestials.slabdrill.isCursed = false;
     player.celestials.slabdrill.isDestroyed = true;
     clearCelestialRuns();
-    player.disablePostReality = false;
+    syncPostRealityLock();
     player.celestials.slabdrill.core.chaosCores = 0;
     player.celestials.slabdrill.serpentinePower = DC.D0;
     for (let alch = 0; alch < 5; alch++) {
@@ -100,6 +105,13 @@ export const Slabdrill = {
   },
   enterCore(coreJump = false) {
     player.celestials.slabdrill.records = matchOnlyDeepmerge(player, player.celestials.slabdrill.records, "eternityChalls");
+    // 与 realityWarp / 阿尔法 / 鹿颈长一致：进入前把增益清干净
+    disChargeAllPerkUpgrades();
+    disChargeAll();
+    disChargeAllBreakUpgrades();
+    disChargeAllEternityUpgrades();
+    player.endgame.overcharge.allowComplex = false;
+    AutomatorBackend.stop();
     finishProcessReality({ reset: true });
     let cache = Object.keys(GameCache);
     for (let c = 0; c < cache.length; c++) {
@@ -107,6 +119,10 @@ export const Slabdrill = {
     }
     player.celestials.slabdrill.core.isActive = true;
     player.break = true;
+    // 核心内禁用连续统（退出时由快照还原）
+    Laitela.setContinuum(false);
+    // 核心属于“禁用后现实内容”的状态，按实际状态重算锁定
+    syncPostRealityLock();
     Tab.dimensions.antimatter.show(!coreJump);
   },
   exitCore() {

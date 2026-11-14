@@ -113,8 +113,12 @@ class InfinityDimensionState extends DimensionState {
   }
 
   get canUnlock() {
-    return ((Perk.bypassIDAntimatter.canBeApplied && !player.disablePostReality) || this.antimatterRequirementReached) &&
-      this.ipRequirementReached;
+    // 虚无（虚空）里 disablePostReality 为真，会连带把“跳过反物质需求”的特权关掉；
+    // 而进入虚无会整体重置进度，导致无限维度一直停留在未解锁状态 —— 表现为“无限维度失效”。
+    // 这里让虚无中的无限维度不受后现实锁定限制。
+    const inVoid = LHC.voidRunning || LHC.nullifiedVoidRunning;
+    const bypassPerk = Perk.bypassIDAntimatter.canBeApplied && (!player.disablePostReality || inVoid);
+    return (bypassPerk || this.antimatterRequirementReached || inVoid) && this.ipRequirementReached;
   }
 
   get isAvailableForPurchase() {
@@ -542,6 +546,14 @@ export const InfinityDimensions = {
   },
 
   tick(diff) {
+    // 虚无里整个进度会被 resetNoReward() 重置，无限维度会回到“未解锁”状态；
+    // 而解锁逻辑只挂在手动购买上，于是表现为“虚无中无限维度失效”。
+    // 这里在虚无期间兜底把 8 个维度全部视为已解锁。
+    if (LHC.voidRunning || LHC.nullifiedVoidRunning) {
+      for (const dim of this.all) {
+        if (!dim.isUnlocked) dim.isUnlocked = true;
+      }
+    }
     for (let tier = 8; tier > 1; tier--) {
       InfinityDimension(tier).produceDimensions(InfinityDimension(tier - 1), new Decimal(diff).div(10));
     }
@@ -593,7 +605,23 @@ export const InfinityDimensions = {
     const exponent = Effects.product(EndgameMastery(102), Ra.unlocks.spaceTheoremIPowConversion) * (SlabdrillUnlocks.infinityChallengeFour.isUnlocked ? 1.5 : 1);
     const divisor = Alpha.isRunning ? AlphaUnlocks.breakInfinity.effects.nerfC.effectOrDefault(1) : 1;
     return Math.pow((7 + getAdjustedGlyphEffect("infinityrate") + PelleUpgrade.infConversion.effectOrDefault(0)) * multiplier * multiplier2, exponent) / divisor;
+  },
+
+  /**
+   * 清空所有无限维度的按帧倍率缓存。
+   * 缓存键只有“第几帧”，若重置发生在同一帧内，缓存不会失效，
+   * 会继续使用重置前（甚至重置中途算出的）倍率，表现为无限维度“失效”。
+   */
+  invalidateMultipliers() {
+    for (const dim of this.all) {
+      dim._mV = undefined;
+      dim._mT = -1;
+    }
   }
 };
+
+// 永恒 / 现实重置后立刻失效缓存的无限维度倍率
+EventHub.logic.on(GAME_EVENT.ETERNITY_RESET_AFTER, () => InfinityDimensions.invalidateMultipliers());
+EventHub.logic.on(GAME_EVENT.REALITY_RESET_AFTER, () => InfinityDimensions.invalidateMultipliers());
 
 

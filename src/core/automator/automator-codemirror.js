@@ -20,7 +20,7 @@ CodeMirror.registerHelper("lint", "automato", (contents, _, editor) => {
     message: e.info,
     severity: "error",
     from: doc.posFromIndex(e.startOffset),
-    to: doc.posFromIndex(e.endOffset + 1),
+    to: doc.posFromIndex(Math.min(e.endOffset + 1, contents.length)),
   }));
 });
 
@@ -29,7 +29,7 @@ CodeMirror.registerHelper("hint", "anyword", editor => {
   let start = cursor.ch;
   const end = cursor.ch;
   const line = editor.getLine(cursor.line);
-  while (start && /[\w-]/u.test(line.charAt(start - 1)))--start;
+  while (start && /\w/u.test(line.charAt(start - 1)))--start;
   const lineStart = line.slice(0, start);
   const currentPrefix = line.slice(start, end).toLowerCase();
 
@@ -83,13 +83,15 @@ CodeMirror.registerHelper("hint", "anyword", editor => {
   }
 
   const lineLex = lexer.tokenize(lineStart);
-  if (lineLex.errors.length === 0) {
-    const rawSuggestions = parser.computeContentAssist("command", lineLex.tokens);
-    for (const s of rawSuggestions) {
-      if (s.ruleStack[1] === "badCommand") continue;
-      walkSuggestion(s.nextTokenType, currentPrefix, suggestions);
-    }
+  if (lineLex.errors.length > 0) return undefined;
+  const rawSuggestions = parser.computeContentAssist("command", lineLex.tokens);
+  for (const s of rawSuggestions) {
+    if (s.ruleStack[1] === "badCommand") continue;
+    walkSuggestion(s.nextTokenType, currentPrefix, suggestions);
   }
+
+  // 没有候选就不要开菜单：空菜单会抢走按键，输入法组合输入时尤其致命
+  if (suggestions.size === 0) return undefined;
 
   return {
     list: Array.from(suggestions),

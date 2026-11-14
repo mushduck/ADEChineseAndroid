@@ -38,7 +38,7 @@ export const ID = {
     name: dim => (dim ? `第 ${dim} 维的购买加成` : "购买加成"),
     multValue: dim => {
       const getMult = id => Decimal.pow(InfinityDimension(id).powerMultiplier,
-        Math.floor(InfinityDimension(id).baseAmount / 10));
+        Decimal.floor(InfinityDimension(id).baseAmount.div(10)));
       if (dim) return getMult(dim);
       return InfinityDimensions.all
         .filter(id => id.isProducing)
@@ -64,8 +64,8 @@ export const ID = {
     multValue: dim => {
       const getMult = id => {
         const purchases = id === 8
-          ? Math.floor(InfinityDimension(id).baseAmount / 10)
-          : Math.min(InfinityDimensions.HARDCAP_PURCHASES, Math.floor(InfinityDimension(id).baseAmount / 10));
+          ? Decimal.floor(InfinityDimension(id).baseAmount.div(10))
+          : Decimal.min(InfinityDimensions.HARDCAP_PURCHASES, Decimal.floor(InfinityDimension(id).baseAmount.div(10)));
         const baseMult = InfinityDimension(id)._powerMultiplier;
         return Decimal.pow(baseMult, purchases);
       };
@@ -83,9 +83,9 @@ export const ID = {
     multValue: dim => {
       const getMult = id => {
         if (id === 8) return DC.D1;
-        const purchases = Math.floor(InfinityDimension(id).baseAmount / 10);
+        const purchases = Decimal.floor(InfinityDimension(id).baseAmount.div(10));
         return Decimal.pow(InfinityDimension(id)._powerMultiplier,
-          Math.clampMin(purchases - InfinityDimensions.HARDCAP_PURCHASES, 0));
+          purchases.sub(InfinityDimensions.HARDCAP_PURCHASES).clampMin(0));
       };
       if (dim) return getMult(dim);
       return InfinityDimensions.all
@@ -99,7 +99,7 @@ export const ID = {
   infinityGlyphSacrifice: {
     name: "无限符文献祭",
     multValue: () => (InfinityDimension(8).isProducing
-      ? Decimal.pow(GlyphSacrifice.infinity.effectValue, Math.floor(InfinityDimension(8).baseAmount / 10))
+      ? Decimal.pow(GlyphSacrifice.infinity.effectValue, Decimal.floor(InfinityDimension(8).baseAmount.div(10)))
       : DC.D1),
     isActive: () => GlyphSacrifice.infinity.effectValue > 1,
     icon: MultiplierTabIcons.SACRIFICE("infinity"),
