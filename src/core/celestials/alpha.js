@@ -2,6 +2,7 @@ import { BitUpgradeState } from "../game-mechanics";
 import { GameDatabase } from "../secret-formula/game-database";
 
 import { Quotes } from "./quotes";
+import { syncPostRealityLock } from "../reality";
 
 export const Alpha = {
   displayName: "阿尔法",
@@ -16,6 +17,8 @@ export const Alpha = {
     return this.currentStage >= 28;
   },
   initializeRun() {
+    // 虚空 / 渊蛇进行中时不再叠加进入，避免两套状态并存后互相解除后现实锁定
+    if (player.endgame.largeHadronCollider.void.isRunning || player.celestials.slabdrill.isCursed) return;
     player.disablePostReality = true;
     Endgame.resetNoReward();
     disChargeAllPerkUpgrades();
@@ -26,6 +29,9 @@ export const Alpha = {
     AutomatorBackend.stop();
     clearCelestialRuns();
     player.celestials.alpha.run = true;
+    // 上面调用的 Endgame.resetNoReward() 在鹿颈长终局阶段会把 disablePostReality 写回 false，
+    // 因此设置好 run 之后再按实际状态重算一次
+    syncPostRealityLock();
     recalculateAllGlyphs();
     Tab.dimensions.antimatter.show(false);
     if (this.currentStage === 0) Alpha.quotes.enter.show();
@@ -1048,7 +1054,7 @@ export const Alpha = {
     player.celestials.alpha.records.dilation.rebuyables[13] = player.dilation.rebuyables[13];
     player.celestials.alpha.records.dilation.lastEP = player.dilation.lastEP;
     clearCelestialRuns();
-    player.disablePostReality = false;
+    syncPostRealityLock();
     Endgame.resetNoReward();
     player.endgame.overcharge.allowComplex = true;
     recalculateAllGlyphs();

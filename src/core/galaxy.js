@@ -33,8 +33,11 @@ export class Galaxy {
   }
 
   static get requirement() {
-    let cT = window._tickCounter || 0, cG = player.galaxies ? player.galaxies.mag : 0;
-    if (this._reqG === cG && Math.abs(cT - (this._reqT||0)) < 25 && this._reqV) return this._reqV;
+    // 只在同一 tick 内复用：星系数量不变时缓存有效，但跨 tick 必须重算，
+    // 否则「购买无限升级 / 完成挑战 / 符文加成」等会改变需求的变化最多会延迟 25 帧
+    const cT = window._tickCounter || 0;
+    const cG = player.galaxies ? player.galaxies.mag : 0;
+    if (this._reqG === cG && this._reqT === cT && this._reqV) return this._reqV;
     this._reqV = this.requirementAt(player.galaxies);
     this._reqT = cT; this._reqG = cG;
     return this._reqV;

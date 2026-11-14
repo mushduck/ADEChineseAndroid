@@ -17,7 +17,13 @@ Vue.mixin({
   },
   created() {
     if (this.update) {
-      this.on$(GAME_EVENT.UPDATE, this.update);
+      // 默认每 2 帧刷新一次（30fps）：400 多个组件原本每帧都跑一遍 update()，
+      // 是移动端掉帧的主要来源。需要每帧刷新的组件设 updateEveryTick = true。
+      this.on$(GAME_EVENT.UPDATE, () => {
+        // keep-alive 缓存中的页面（已切走）不要再每帧空转
+        if (this._inactive) return;
+        if (this._defaultUpdateGate()) this.update();
+      });
       if (GameUI.initialized) {
         this.update();
       }
@@ -50,6 +56,41 @@ Vue.mixin({
     },
     on$(event, fn) {
       EventHub.ui.on(event, fn, this);
+    },
+    /**
+     * 周期性节流：给每个组件实例分配一个固定相位，让同类组件均匀摊到各帧，
+     * 而不是所有组件都挤在 tick % N === 0 的同一帧里更新（那会造成周期性掉帧尖峰）。
+     * @param {number} period 每多少帧更新一次
+     * @returns {boolean} 本次是否应该更新
+     */
+    /**
+     * 默认刷新闸门：2 帧一次。组件自己用了 _throttleUpdate 的，不再叠加这层。
+     */
+    _defaultUpdateGate() {
+      if (this.updateEveryTick || this._usesOwnThrottle) return true;
+      const map = {
+        ModernAntimatterDimensionRow: 3, ModernAntimatterDimensionsTab: 3,
+        ModernAntimatterGalaxyRow: 3, ModernDimensionBoostRow: 3,
+        DarkMatterDimensionRow: 3, HadronsPane: 4, SingularityPane: 4,
+        HeaderPrestigeGroup: 5, TimeStudyButton: 8, EndgameMasteryButton: 8,
+        RealityButton: 10, LaitelaTab: 10, LaitelaAutobuyerPane: 10,
+        CelestialNavigationTab: 10, SingularityMilestoneComponent: 30, SingularityMilestonePane: 30
+      };
+      const tag = this.$options && this.$options.name;
+      const period = (tag && map[tag]) || 2;
+      if (this._gatePhase === undefined) this._gatePhase = (this._uid || 0) % period;
+      if (((window._tickCounter || 0) + this._gatePhase) % period !== 0 && this._gateRan) return false;
+      this._gateRan = true;
+      return true;
+    },
+    _throttleUpdate(period) {
+      this._usesOwnThrottle = true;
+      if (this._updatePhase === undefined) {
+        this._updatePhase = (this._uid || 0) % period;
+      }
+      if ((window._tickCounter + this._updatePhase || 0) % period !== 0 && this._hasUpdated) return false;
+      this._hasUpdated = true;
+      return true;
     },
     format(value, places, placesUnder1000) {
       return format(value, places, placesUnder1000);
@@ -170,7 +211,11 @@ export const GameUI = {
     }
     this.events = [];
   },
+  // 离线进度模拟期间置 true：每帧的界面刷新全部跳过，结束后统一刷一次。
+  // 几千个 tick 每次都跑一遍所有组件的 update() 是模拟卡顿的最大来源。
+  suppressUpdates: false,
   update() {
+    if (this.suppressUpdates) return;
     this.dispatch(GAME_EVENT.UPDATE);
   }
 };
@@ -261,3 +306,4 @@ export const ui = new Vue({
   },
   render: h => h(GameUIComponent)
 });
+

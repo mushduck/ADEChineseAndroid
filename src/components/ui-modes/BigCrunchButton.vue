@@ -11,7 +11,8 @@ export default {
   },
   methods: {
     update() {
-      this.shouldDisplay = !player.break && Player.canCrunch;
+      // 只覆盖「维度」主标签页；切到别的主标签页不显示
+      this.shouldDisplay = !player.break && Player.canCrunch && ui.view.tab === "dimensions";
       if (!this.shouldDisplay) return;
       this.isModern = player.options.newUI;
       this.smallCrunch = Time.bestInfinityRealTime.totalMinutes.toNumber() <= 1;

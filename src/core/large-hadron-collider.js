@@ -1,4 +1,5 @@
 import { GameMechanicState, RebuyableMechanicState, SetPurchasableMechanicState } from "./game-mechanics";
+import { syncPostRealityLock } from "./reality";
 
 class AcceleratorMilestoneState extends GameMechanicState {
 
@@ -341,6 +342,10 @@ export function enterTheVoid() {
   AutomatorBackend.stop();
   clearCelestialRuns();
   player.endgame.largeHadronCollider.void.isRunning = true;
+  // 虚无中直接解锁全部无限维度（否则会因进度重置而全部处于锁定状态）
+  for (let tier = 1; tier <= 8; tier++) InfinityDimension(tier).isUnlocked = true;
+  // resetNoReward 可能把锁定写回 false，设置好 void 状态后按实际状态重算
+  syncPostRealityLock();
   recalculateAllGlyphs();
   Tab.dimensions.antimatter.show(false);
   if (NullUpgrade.ncComp.isBought) NormalChallenges.completeAll();
@@ -372,10 +377,11 @@ export function enterTheVoid() {
 export function exitTheVoid() {
   if (Slabdrill.isCursed) return;
   if (GameEnd.creditsEverClosed) return;
-  player.disablePostReality = false;
   Endgame.resetNoReward();
   player.endgame.overcharge.allowComplex = true;
   player.endgame.largeHadronCollider.void.isRunning = false;
+  // 保持原有调用顺序，仅在状态全部落定后按“当前实际玩法”重算锁定
+  syncPostRealityLock();
 };
 
 export function enterNullifiedVoid() {
@@ -383,6 +389,10 @@ export function enterNullifiedVoid() {
   if (GameEnd.creditsEverClosed) return;
   Endgame.resetNoReward();
   player.endgame.largeHadronCollider.void.isRunning = true;
+  // 与 enterTheVoid 保持一致：归零虚无里同样解锁全部无限维度
+  for (let tier = 1; tier <= 8; tier++) InfinityDimension(tier).isUnlocked = true;
+  // 与 enterTheVoid 保持一致：进入虚空同样锁定后现实内容
+  syncPostRealityLock();
 };
 
 export function exitNullifiedVoid() {
@@ -390,6 +400,7 @@ export function exitNullifiedVoid() {
   if (GameEnd.creditsEverClosed) return;
   Endgame.resetNoReward();
   player.endgame.largeHadronCollider.void.isRunning = false;
+  syncPostRealityLock();
 };
 
 export class NullUpgradeState extends SetPurchasableMechanicState {

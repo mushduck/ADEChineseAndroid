@@ -767,13 +767,16 @@ export function gameLoop(passedDiff, options = {}) {
     const origSlog = Decimal.prototype.slog;
     const slogMap = new Map();
     Decimal.prototype.slog = function(base) {
-      if (base !== undefined || this.layer <= 0) return origSlog.call(this, base);
-      const key = this.layer + "_" + (Math.round(this.mag * 1000) / 1000);
+      if (this.layer <= 0) return origSlog.call(this, base);
+      // slog 的取值由 (sign, layer, mag) 唯一确定。mag 不能四舍五入：
+      // 否则相邻的 mag 会共用同一条缓存，返回错误的 super-log 值
+      const baseKey = base === undefined ? 0 : (typeof base === "object" ? base.mag + base.layer * 1e6 : base);
+      const key = `${this.sign}|${this.layer}|${this.mag}|${baseKey}`;
       let cached = slogMap.get(key);
       if (cached !== undefined) return cached;
       cached = origSlog.call(this, base);
+      if (slogMap.size >= 4000) slogMap.delete(slogMap.keys().next().value);
       slogMap.set(key, cached);
-      if (slogMap.size > 2000) slogMap.clear();
       return cached;
     };
   }
@@ -789,7 +792,7 @@ export function gameLoop(passedDiff, options = {}) {
     let gameState = 0;
     localStorage.setItem("gameFileVersionState", gameState);
     let stateNumber = Number(localStorage.getItem("gameFileVersionState")) ?? 0;
-    let gameStateName = stateNumber === 0 ? "Antimatter Dimensions: The Endgame Update" : "Antimatter Dimensions: The Celestial Plus Update";
+    let gameStateName = stateNumber === 0 ? "反物质维度：终局" : "反物质维度：天体+更新";
     localStorage.setItem("gameFileUpdateName", gameStateName);
     document.title = gameStateName;
   }
@@ -1008,7 +1011,13 @@ export function gameLoop(passedDiff, options = {}) {
 
   // We do these after autobuyers, since it's possible something there might
   // change a multiplier.
-  
+  GameCache.antimatterDimensionCommonMultiplier.invalidate();
+  GameCache.antimatterDimensionFinalMultipliers.invalidate();
+  GameCache.infinityDimensionCommonMultiplier.invalidate();
+  GameCache.timeDimensionCommonMultiplier.invalidate();
+  GameCache.totalIPMult.invalidate();
+  GameCache.totalCIPMult.invalidate();
+
 
   const blackHoleDiff = realDiff;
   const fixedSpeedActive = EternityChallenge(12).isRunning || player.endgame.overcharge.isRunning || player.compression.active ||
@@ -1468,7 +1477,7 @@ export function gameLoop(passedDiff, options = {}) {
   }
 
   EventHub.dispatch(GAME_EVENT.GAME_TICK_AFTER);
-  if ((window._tickCounter || 0) % 2 === 0) GameUI.update();
+  GameUI.update();
   player.lastUpdate = thisUpdate;
   PerformanceStats.end("Game Update");
 }
@@ -1868,6 +1877,9 @@ function afterSimulation(seconds, playerBefore) {
   }
 
   GameUI.notify.showBlackHoles = true;
+  // 恢复刷新并统一补一次
+  GameUI.suppressUpdates = false;
+  GameUI.update();
 }
 
 export function simulateTime(seconds, real, fast) {
@@ -1878,8 +1890,14 @@ export function simulateTime(seconds, real, fast) {
   // - Otherwise, tick count will be limited to the offline tick count (which may be set externally during save import)
   // Tick count is never *increased*, and only ever decreased if needed.
   if (seconds <= 0) return;
+  // 从后台切回来不足 3 秒：seconds 同样小于 3，直接跳过离线模拟
+  // （只作用于「回前台」这条路径；导入存档 / 手动指定 tick 不受影响）
+  if (!GameStorage.offlineTicks && Decimal.lt(seconds, 3)) return;
   let ticks = Math.floor(seconds * 20);
   GameUI.notify.showBlackHoles = false;
+  // 模拟期间不需要刷新界面（玩家只看进度条）
+  GameUI.suppressUpdates = true;
+
 
   // Limit the tick count (this also applies if the black hole is unlocked)
   let maxTicks = GameStorage.maxOfflineTicks(1000 * seconds, GameStorage.offlineTicks ?? player.options.offlineTicks);
@@ -1917,7 +1935,10 @@ export function simulateTime(seconds, real, fast) {
   EventHub.dispatch(GAME_EVENT.OFFLINE_CURRENCY_GAINED);
 
   let remainingRealSeconds = seconds;
-  if (remainingRealSeconds <= 0) return;
+  if (remainingRealSeconds <= 0) {
+    GameUI.suppressUpdates = false;
+    return;
+  }
   // During async code the number of ticks remaining can go down suddenly
   // from "Speed up" which means tick length needs to go up, and thus
   // you can't just divide total time by total ticks to get tick length.

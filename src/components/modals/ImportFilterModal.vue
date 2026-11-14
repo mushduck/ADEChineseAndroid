@@ -29,19 +29,30 @@ export default {
     parsedSettings() {
       if (!this.inputIsValid) return null;
 
-      const decoded = GameSaveSerializer.decodeText(this.input, "glyph filter");
+      // 导入的字符串可能被截断/损坏：直接 parts[i].split 会抛 TypeError（例如少了字段）
+      let decoded;
+      try {
+        decoded = GameSaveSerializer.decodeText(this.input, "glyph filter");
+      } catch {
+        return null;
+      }
       const parts = decoded.split("|");
+      if (parts.length < 3) return null;
       const typeInfo = {};
       let partIndex = 3;
       for (const type of ALCHEMY_BASIC_GLYPH_TYPES) {
         if (!type) continue;
-        const subparts = parts[partIndex].split(",");
+        const raw = parts[partIndex];
+        if (typeof raw !== "string") return null;
+        const subparts = raw.split(",");
+        if (subparts.length < 5) return null;
+        const scores = subparts[4].split("/").map(Number);
         typeInfo[type] = {
           rarity: Number(subparts[0]),
           score: Number(subparts[1]),
           effectCount: Number(subparts[2]),
           specifiedMask: Number(subparts[3]),
-          effectScores: subparts[4].split("/").map(s => Number(s)),
+          effectScores: scores,
         };
         partIndex++;
       }

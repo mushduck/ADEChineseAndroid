@@ -50,7 +50,7 @@ export const DT = {
     multValue: () => {
       const dtMult = getAdjustedGlyphEffect("dilationDT").times(Pelle.specialGlyphEffect.dilation);
       const repliDT = Replicanti.areUnlocked
-        ? Math.clampMin(Decimal.log10(Replicanti.amount) * getAdjustedGlyphEffect("replicationdtgain"), 1)
+        ? Decimal.log10(Replicanti.amount).times(getAdjustedGlyphEffect("replicationdtgain")).max(1)
         : DC.D1;
       return dtMult.times(repliDT);
     },

@@ -865,6 +865,29 @@ export function isInCelestialReality() {
   return Object.values(player.celestials).some(x => x.run);
 }
 
+/**
+ * 除老天界之外，本模组还有几个“进入后会临时禁用后现实内容”的玩法：
+ * 阿尔法、渊蛇（被诅咒状态）、大型强子对撞机的虚空。
+ * 它们和天界一样会写 player.disablePostReality，但不在 clearCelestialRuns() 的清空列表里，
+ * 所以只在某一方退出时写死 false，就会把仍在进行的另一方解锁。
+ */
+export function isInPostRealityLockedRun() {
+  return Boolean(
+    player.celestials.alpha.run ||
+    player.celestials.slabdrill.isCursed ||
+    player.celestials.slabdrill.core.isActive ||
+    player.endgame.largeHadronCollider.void.isRunning
+  );
+}
+
+/**
+ * 按“当前实际所处的玩法”重算 disablePostReality。
+ * 退出某个玩法时应调用本函数，而不是直接写 player.disablePostReality = false。
+ */
+export function syncPostRealityLock() {
+  player.disablePostReality = isInPostRealityLockedRun();
+}
+
 function lockAchievementsOnReality() {
   if (Perk.achievementGroup5.isBought) return;
   for (const achievement of Achievements.preReality) {

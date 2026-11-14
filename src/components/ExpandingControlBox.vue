@@ -158,6 +158,7 @@ export default {
       }
     },
     handleClick() {
+      if (this.containerClass === "c-glyph-level-factors-dropdown-header" && this.openRequest && event && event.target && !this.$refs.expandButton.contains(event.target)) return;
       this.openRequest = !this.openRequest;
       this.hasMouse = this.openRequest;
     },

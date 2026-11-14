@@ -11,6 +11,6 @@ module.exports = {
   lintOnSave: false,
   outputDir: STEAM ? "../AppFiles" : "dist",
   configureWebpack: {
-    devtool: DEV ? "eval-source-map" : "source-map",
+    devtool: DEV ? "eval-source-map" : false,
   }
 };

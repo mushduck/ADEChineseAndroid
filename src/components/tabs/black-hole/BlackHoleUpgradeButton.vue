@@ -56,7 +56,7 @@ export default {
   methods: {
     update() {
       this.isDoomed = Pelle.isDoomed;
-      this.isCapped = this.config.upgrade.value === 0;
+      this.isCapped = Decimal.eq(this.config.upgrade.value, 0);
       this.isAffordable = this.config.upgrade.isAffordable && !this.isCapped;
       const hasAutobuyer = this.config.upgrade.hasAutobuyer;
       const autobuyer = Autobuyer.blackHolePower(this.config.upgrade.id);

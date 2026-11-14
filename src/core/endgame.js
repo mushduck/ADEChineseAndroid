@@ -6,6 +6,7 @@ import { GlyphInfo } from "@/components/modals/options/SelectGlyphInfoDropdown";
 import { AUTOMATOR_MODE, AUTOMATOR_TYPE } from "./automator/automator-backend";
 import { deepmergeAll } from "@/utility/deepmerge";
 import { GlyphTypes } from "./glyph-effects";
+import { syncPostRealityLock } from "./reality";
 
 export function isEndgameAvailable() {
   return player.celestials.pelle.records.totalEndgameAntimatter.add(1).log10().gte(9e15);
@@ -96,7 +97,8 @@ export const Endgame = {
       player.celestials.teresa.disCharge = false;
     }
     if (Effarig.isRunning && Effarig.currentStage === EFFARIG_STAGES.ENDGAME) {
-      player.disablePostReality = false;
+      // 按“当前实际所处玩法”重算，避免与其它锁定玩法互相覆盖
+      syncPostRealityLock();
       player.endgame.overcharge.allowComplex = true;
     }
     if (player.endgame.overcharge.discharge.infinite) {
@@ -172,7 +174,7 @@ export const Endgame = {
       player.celestials.teresa.disCharge = false;
     }
     if (Effarig.isRunning && Effarig.currentStage === EFFARIG_STAGES.ENDGAME) {
-      player.disablePostReality = false;
+      syncPostRealityLock();
       player.endgame.overcharge.allowComplex = true;
       if (!EffarigUnlock.endgame.isUnlocked) {
         EffarigUnlock.endgame.unlock();

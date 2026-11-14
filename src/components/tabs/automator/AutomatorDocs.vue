@@ -81,8 +81,15 @@ export default {
         return this.$viewModel.tabs.reality.automator.editorScriptID;
       },
       set(value) {
+        // 只有真正切换了脚本才需要重新 lint。
+        // 这里的 update() 每帧都会给这个计算属性赋值，而给带 setter 的 computed 赋值一定会执行 setter
+        // （Vue 不会比较新旧值），于是 performLint() 变成每秒 30~60 次。
+        // 每次 lint 都会 clearMarks() + markText()，markText 会给受影响的行打上 "text" 脏标记导致整行重绘，
+        // 而手机端 CodeMirror 的输入是先落在 contenteditable 的 DOM 上、要等 80ms 才同步进文档，
+        // 中间的整行重绘会用旧文档把刚敲进去的字符刷掉 —— 表现为"打第二个字，第一个字被顶掉"。
+        const changed = this.$viewModel.tabs.reality.automator.editorScriptID !== value;
         this.$viewModel.tabs.reality.automator.editorScriptID = value;
-        if (AutomatorTextUI.editor) AutomatorTextUI.editor.performLint();
+        if (changed && AutomatorTextUI.editor) AutomatorTextUI.editor.performLint();
       }
     },
     currentScriptContent() {
@@ -137,7 +144,10 @@ export default {
       this.totalChars = AutomatorData.totalScriptCharacters();
       this.scriptCount = Object.keys(player.reality.automator.scripts).length;
       this.canMakeNewScript = this.scriptCount < this.maxScriptCount;
-      this.currentScriptID = player.reality.automator.state.editorScript;
+      // 这个 update() 每帧都会跑一次；直接赋值会让上面 currentScriptID 的 setter 每帧触发一次 lint，
+      // 所以这里只在脚本 ID 真的变了的时候才赋值
+      const editorScript = player.reality.automator.state.editorScript;
+      if (this.currentScriptID !== editorScript) this.currentScriptID = editorScript;
     },
     exportScript() {
       const toExport = AutomatorBackend.exportCurrentScriptContents();
