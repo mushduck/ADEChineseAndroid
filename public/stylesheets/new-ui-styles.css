@@ -12195,3 +12195,20 @@ body.t-s5 .c-modern-sidebar .subtabs {
     order: 8 !important;
   }
 }
+
+/* === MOBILE ACRYLIC SUBTABS FIX === */
+@media (max-width: 768px) and (orientation: portrait) {
+  body.t-acrylic .c-modern-sidebar .subtabs,
+  body.t-acrylic .c-modern-sidebar .o-tab-btn--active .subtabs,
+  body.t-acrylic .c-modern-sidebar .o-tab-btn--active:hover .subtabs {
+    background: rgba(29, 27, 34, 0.5) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  body.t-acrylic .c-modern-sidebar .o-tab-btn.o-tab-btn--active,
+  body.t-acrylic .c-modern-sidebar .o-tab-btn.o-subtab-btn--active {
+    box-shadow: none !important;
+  }
+}
