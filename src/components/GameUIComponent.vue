@@ -40,10 +40,6 @@ export default {
     containerClass() {
       return this.view.newUI ? "new-ui" : "old-ui";
     },
-    // 这两个页挂载成本高（60+ 个节点组件 + 上百条 SVG 连线），缓存起来
-    keepAliveTabs() {
-      return ["TimeStudiesTab", "EndgameMasteriesTab", "EndgameMasteryTab", "GlyphsTab", "CelestialNavigationTab", "AutomatorTab"];
-    },
     page() {
       const subtab = Tabs.current[this.$viewModel.subtab];
       return subtab.config.component;
@@ -78,12 +74,10 @@ export default {
       :class="gameUI"
     >
       <component :is="uiLayout">
-        <keep-alive :include="keepAliveTabs">
-          <component
-            :is="page"
-            class="c-game-tab"
-          />
-        </keep-alive>
+        <component
+          :is="page"
+          class="c-game-tab"
+        />
       </component>
       <S12DesktopIcons v-if="isThemeS12" />
       <link

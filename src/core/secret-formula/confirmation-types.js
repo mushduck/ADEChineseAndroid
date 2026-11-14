@@ -19,6 +19,7 @@ export const confirmationTypes = [
     name: "天界大坍缩",
     option: "celestialCrunch",
     isUnlocked: () => player.endgame.celDimExpansion.isBroken || PlayerProgress.celestialEternityUnlocked(),
+    isUnlocked: () => player.break || PlayerProgress.eternityUnlocked(),
   }, {
     name: "挑战",
     option: "challenges",
