@@ -1523,7 +1523,7 @@ body.t-s12 {
   .cp-text {
     font-size: 1.25rem !important;
     font-weight: bold !important;
-    color: #e2a632 !important;
+    color: var(--color-endgame) !important;
   }
 
   .dp-text {
@@ -2805,6 +2805,31 @@ body.t-s12 {
     box-sizing: border-box !important;
     padding: 0.2rem !important;
     overflow: visible !important;
+  }
+
+  .c-automator-control-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-automator-control-row .c-slider-toggle-button {
+    display: none !important;
+  }
+
+  .c-automator-control-row .c-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    gap: 0.15rem !important;
   }
 
   .l-automator-button-row:first-child {
@@ -12170,3 +12195,227 @@ body.t-s5 .c-modern-sidebar .subtabs {
     order: 8 !important;
   }
 }
+
+/* === MOBILE ACRYLIC SUBTABS FIX === */
+@media (max-width: 768px) and (orientation: portrait) {
+  body.t-acrylic .c-modern-sidebar .subtabs,
+  body.t-acrylic .c-modern-sidebar .o-tab-btn--active .subtabs,
+  body.t-acrylic .c-modern-sidebar .o-tab-btn--active:hover .subtabs {
+    background: rgba(29, 27, 34, 0.5) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  body.t-acrylic .c-modern-sidebar .o-tab-btn.o-tab-btn--active,
+  body.t-acrylic .c-modern-sidebar .o-tab-btn.o-subtab-btn--active {
+    box-shadow: none !important;
+  }
+}
+
+
+
+
+
+/* === MOBILE ACRYLIC REALITY BUTTON FIX === */
+@media (max-width: 768px) and (orientation: portrait) {
+  body.t-acrylic .c-mobile-prestige-matrix .o-prestige-button {
+    backdrop-filter: blur(12px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  }
+
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-celestial-infinity-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-eternity-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-celestial-eternity-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-condense-button,
+  body.t-acrylic .c-mobile-prestige-matrix .o-supernova-button {
+    background-color: color-mix(in srgb, var(--color-prestige--accent) 40%, transparent) !important;
+  }
+
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button span,
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button:hover span {
+    color: var(--color-infinity) !important;
+  }
+
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button b > span:first-of-type,
+  body.t-acrylic .c-mobile-prestige-matrix .o-infinity-button:hover b > span:first-of-type {
+    color: #ff0000 !important;
+  }
+
+  body.t-acrylic .c-reality-button--unlocked {
+    color: #0d8716 !important;
+    background: color-mix(in srgb, var(--color-prestige--accent, #111116) 40%, transparent) !important;
+    border-color: #0d8716 !important;
+    backdrop-filter: blur(12px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75) !important;
+  }
+
+  body.t-acrylic .c-reality-button--unlocked:hover,
+  body.t-acrylic .c-reality-button--unlocked.force-hover {
+    color: #ffffff !important;
+    background: color-mix(in srgb, #0d8716 45%, transparent) !important;
+    backdrop-filter: blur(16px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(200%) !important;
+  }
+
+  body.t-acrylic .c-reality-button--locked {
+    background: color-mix(in srgb, var(--color-base) 50%, transparent) !important;
+    backdrop-filter: blur(12px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  }
+}
+
+/* === MOBILE PREVENT OVERFLOW BR FIX === */
+@media (max-width: 768px) and (orientation: portrait) {
+  body .c-prevent-overflow br {
+    display: inline !important;
+  }
+}
+
+/* === MOBILE PROLOGUE ADAPTATION === */
+@media (max-width: 768px) {
+  .l-prologue-container {
+    padding: 2rem 1.5rem !important;
+    box-sizing: border-box !important;
+  }
+  .l-prologue-container .l-intro-options {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 34rem !important;
+    gap: 3.5rem !important;
+  }
+  .l-prologue-container .l-intro-options-spacing {
+    margin: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.4rem !important;
+  }
+  .l-prologue-container .l-intro-options-spacing br {
+    display: none !important;
+  }
+  .l-prologue-container .l-intro-options-text {
+    font-size: 2rem !important;
+    line-height: 1.45 !important;
+    display: block !important;
+  }
+  .l-prologue-container .o-primary-btn--subtab-option {
+    width: 100% !important;
+    max-width: 24rem !important;
+    min-height: 4.8rem !important;
+    padding: 1.1rem 2rem !important;
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    border-radius: 0.8rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .l-prologue-container .l-prologue-text,
+  .l-prologue-container .l-prologue-text--alternate {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+  .l-prologue-container .l-intro-text,
+  .l-prologue-container .l-intro-text--alternate,
+  .l-prologue-container .l-logo-color-one,
+  .l-prologue-container .l-logo-color-two,
+  .l-prologue-container .l-logo-color-three {
+    font-size: clamp(3.2rem, 11vw, 6.5rem) !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+  }
+  .l-prologue-container .l-intro-text--alternate {
+    margin: 0.6rem !important;
+  }
+}
+/* === END MOBILE PROLOGUE ADAPTATION === */
+
+/* === MOBILE USERNAME AND MESSAGE MODAL ADAPTATION === */
+@media (max-width: 768px) {
+  .c-modal-message {
+    padding: 0.8rem 0.6rem !important;
+    box-sizing: border-box !important;
+  }
+  .c-modal-message .c-modal__title {
+    font-size: 2.1rem !important;
+    line-height: 1.35 !important;
+  }
+  .c-modal-message .c-modal-message__text {
+    font-size: 1.6rem !important;
+    line-height: 1.65 !important;
+    padding: 0.8rem 1rem !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+  }
+  .c-modal-message .c-modal-username-danger {
+    color: #ff5252 !important;
+    font-weight: bold !important;
+  }
+  .c-modal-message .c-modal-message__text > .c-modal-username-danger {
+    margin-top: 0.6rem !important;
+  }
+  .c-modal-message .c-modal-input,
+  .c-modal-message .c-modal-username__input {
+    width: calc(100% - 2.4rem) !important;
+    max-width: 28rem !important;
+    min-height: 4rem !important;
+    padding: 0.7rem 1.2rem !important;
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    border-radius: 0.6rem !important;
+    margin: 0.4rem auto 1.2rem !important;
+    box-sizing: border-box !important;
+  }
+  .c-modal-message .c-modal-username-info {
+    font-size: 1.55rem !important;
+    line-height: 1.5 !important;
+    padding: 0 1rem !important;
+    margin-bottom: 1.2rem !important;
+    text-align: center !important;
+  }
+  .c-modal-message .l-modal-buttons .o-primary-btn--width-medium {
+    min-width: 14rem !important;
+    min-height: 4.2rem !important;
+    font-size: 1.7rem !important;
+    padding: 0.8rem 1.8rem !important;
+    border-radius: 0.6rem !important;
+  }
+}
+/* === END MOBILE USERNAME AND MESSAGE MODAL ADAPTATION === */
+
+/* === MOBILE FULL-BLEED NEWS TICKER FIX === */
+@media (max-width: 768px) and (orientation: portrait) {
+  html,
+  body,
+  body[class] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #ui-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .game-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+  }
+  .tab-container {
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+    box-sizing: border-box !important;
+  }
+  .new-ui .c-news-ticker {
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+/* === END MOBILE FULL-BLEED NEWS TICKER FIX === */
