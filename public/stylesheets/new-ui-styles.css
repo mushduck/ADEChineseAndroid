@@ -12419,3 +12419,15 @@ body.t-s5 .c-modern-sidebar .subtabs {
   }
 }
 /* === END MOBILE FULL-BLEED NEWS TICKER FIX === */
+
+/* === MOBILE ALPHA TAB TEXT PARAGRAPH FIX === */
+@media (max-width: 768px) {
+  .l-alpha-run > .c-alpha-run-description:last-child {
+    white-space: pre-line !important;
+    text-align: left !important;
+    line-height: 1.55 !important;
+    padding: 0 0.8rem !important;
+    box-sizing: border-box !important;
+  }
+}
+/* === END MOBILE ALPHA TAB TEXT PARAGRAPH FIX === */
