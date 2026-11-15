@@ -5,6 +5,7 @@ import CreditsContainer from "@/components/tabs/celestial-pelle/CreditsContainer
 import EndgameCreditsDisplay from "@/components/EndgameCreditsDisplay";
 import EndgameSkillShop from "@/components/tabs/endgame-masteries/es-shop/EndgameSkillShop";
 import FadeAway from "@/components/tabs/celestial-pelle/FadeAway";
+import FloatButtonGroup from "@/components/float-buttons/FloatButtonGroup";
 import HowToPlay from "@/components/HowToPlay";
 import ModalProgressBar from "@/components/modals/ModalProgressBar";
 import ModernSidebar from "@/components/ui-modes/modern/ModernSidebar";
@@ -38,7 +39,8 @@ export default {
     EndgameCreditsDisplay,
     SpectateGame,
     NewGame,
-    RestartEndgameUpdateDisplay
+    RestartEndgameUpdateDisplay,
+    FloatButtonGroup
   },
   data() {
     return {
@@ -99,6 +101,7 @@ export default {
       v-if="view.newUI && view.theme !== 'S12'"
       :style="hideIfMatoFullscreen"
     />
+    <FloatButtonGroup />
     <SaveTimer :style="hideIfMatoFullscreen" />
     <SpeedrunStatus :style="hideIfMatoFullscreen" />
     <template v-if="view.theme !== 'S12'">
@@ -136,7 +139,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 59999;
   justify-content: center;
   pointer-events: none;
 }
