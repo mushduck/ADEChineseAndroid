@@ -12515,3 +12515,46 @@ body.t-s5 .c-modern-sidebar .subtabs {
   }
 }
 /* === END MOBILE STORED TIME TAB GRID ADAPTATION === */
+
+/* === MOBILE GLYPH SET RECORDS TAB FIX === */
+@media (max-width: 768px) {
+  .l-glyph-set-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.7rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 0.8rem !important;
+    box-sizing: border-box !important;
+    font-size: 1.2rem !important;
+  }
+  .l-glyph-set-tab > div {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .l-glyph-set-entry {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0.7rem 0.6rem !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    line-height: 1.45 !important;
+  }
+  .l-glyph-set-entry .l-glyph-set-preview {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    width: 100% !important;
+    margin: 0.35rem 0 !important;
+  }
+  .l-glyph-set-entry .l-glyph-set-preview > :first-child:not(.l-preview) {
+    flex-basis: 100% !important;
+    text-align: center !important;
+    margin-bottom: 0.2rem !important;
+  }
+}
+/* === END MOBILE GLYPH SET RECORDS TAB FIX === */
