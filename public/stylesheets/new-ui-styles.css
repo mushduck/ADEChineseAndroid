@@ -12431,3 +12431,87 @@ body.t-s5 .c-modern-sidebar .subtabs {
   }
 }
 /* === END MOBILE ALPHA TAB TEXT PARAGRAPH FIX === */
+
+/* === MOBILE STORED TIME TAB GRID ADAPTATION === */
+@media (max-width: 768px) {
+  .c-game-tab:has(.custom-time-container) .normal-text {
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    padding: 0 0.6rem !important;
+    box-sizing: border-box !important;
+  }
+  .c-game-tab:has(.custom-time-container) .special-text {
+    font-size: 1.65rem !important;
+    font-weight: bold !important;
+  }
+  .c-game-tab:has(.custom-time-container) .c-subtab-option-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+    max-width: 36rem !important;
+    margin: 0.8rem auto !important;
+    padding: 0 0.6rem !important;
+    box-sizing: border-box !important;
+  }
+  .c-game-tab:has(.custom-time-container) .independent-btn-wrapper {
+    grid-column: 1 / -1 !important;
+    margin: 0 !important;
+  }
+  .c-game-tab:has(.custom-time-container) .custom-time-container {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    margin: 0.2rem 0 !important;
+    display: flex !important;
+    gap: 0.5rem !important;
+  }
+  .c-game-tab:has(.custom-time-container) .custom-time-input {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    height: 3.4rem !important;
+    box-sizing: border-box !important;
+  }
+  .c-game-tab:has(.custom-time-container) .custom-time-select {
+    flex: 0 0 7.5rem !important;
+    height: 3.4rem !important;
+    box-sizing: border-box !important;
+  }
+  .c-game-tab:has(.custom-time-container) .custom-time-container .o-primary-btn {
+    flex: 1.2 1 0 !important;
+    width: auto !important;
+    min-height: 3.4rem !important;
+  }
+  .c-game-tab:has(.custom-time-container) .c-subtab-option-container .o-primary-btn {
+    width: 100% !important;
+    min-height: 3.6rem !important;
+    margin: 0 !important;
+    padding: 0.45rem 0.6rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.25 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .c-game-tab:has(.custom-time-container) .c-subtab-option-container:has(.custom-time-container) > .o-primary-btn:last-of-type {
+    grid-column: 1 / -1 !important;
+  }
+  .c-game-tab:has(.custom-time-container) .normal-text > .c-subtab-option-container:last-of-type > .o-primary-btn:last-of-type {
+    grid-column: 1 / -1 !important;
+  }
+  .c-game-tab:has(.custom-time-container) > div > div > .o-primary-btn {
+    width: calc(100% - 1.2rem) !important;
+    max-width: 34.8rem !important;
+    min-height: 3.6rem !important;
+    margin: 0 auto !important;
+    padding: 0.5rem 0.8rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+}
+/* === END MOBILE STORED TIME TAB GRID ADAPTATION === */
